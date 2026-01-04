@@ -6,7 +6,9 @@ import pandas as pd
 import dash_bootstrap_components as dbc
 import numpy as np
 import plotly.graph_objs as go
-from dash import Input, Output, State, dcc, html
+import plotly.express as px
+from dash import Input, Output, State, dcc, html, dash_table, ALL
+
 
 # --- 0. SYMULACJA DANYCH ---
 DATA_FOLDER = 'Dane Dash2/'
@@ -29,7 +31,6 @@ app = dash.Dash(
 )
 #Placeholder
 df = pd.read_json('Dane Dash\Dane1.json')
-
 # --- 1. FUNKCJE POMOCNICZE ---
 def get_data_summary():
     summary_list = []
@@ -81,11 +82,52 @@ def create_users_tables_view():
             responsive=True, 
             className="mb-4 shadow-sm",
             style={"width": "auto"} 
-        )
+        ) 
         layout_elements.append(table)
         layout_elements.append(html.Hr())
         
     return html.Div(layout_elements)
+
+def create_filter_chips(df_in):
+    """Generuje pastylki (Checkboxy) per użytkownik"""
+    if df_in.empty:
+        return html.Div("Brak danych.")
+    
+    users = sorted(df_in['osoba'].astype(str).unique())
+    # Zakładamy 3 główne typy urządzeń, ale sprawdzamy co jest w danych
+    known_devices = ['PC', 'Laptop', 'Phone']
+    
+    # Jeśli w Twoich danych są inne nazwy urządzeń (np. 'iPhone'), one nie dostaną przycisku, 
+    # chyba że dodasz je do listy powyżej lub zrobisz to dynamicznie:
+    # known_devices = sorted(df_in['device'].astype(str).unique()) 
+
+    rows = []
+    for user in users:
+        user_df = df_in[df_in['osoba'] == user]
+        buttons_row = []
+        
+        for dev in known_devices:
+            # Czy user ma dane z tego urządzenia?
+            has_data = dev in user_df['device'].unique()
+            
+            chk = dbc.Checkbox(
+                id={'type': 'device-filter', 'user': user, 'device': dev},
+                label=dev,
+                value=has_data,       # Domyślnie zaznaczone, jeśli są dane
+                disabled=not has_data, # Zablokowane (szare), jeśli brak danych
+                className="btn-check",
+                input_class_name="btn-check",
+                label_class_name=f"btn btn-outline-primary rounded-pill me-2 {'disabled' if not has_data else ''}"
+            )
+            buttons_row.append(chk)
+            
+        rows.append(dbc.Row([
+            dbc.Col(html.Span(user, className="fw-bold"), width=2),
+            dbc.Col(html.Div(buttons_row), width=10)
+        ], className="mb-2 align-items-center"))
+        
+    return html.Div(rows)
+    
 
 # LAYOUTY (STRONY) ---
 
@@ -109,48 +151,47 @@ content_users = html.Div([
 content_watcher = html.Div([
     html.H2("Obserwatorium Danych (Watcher)", className="mb-4"),
     
-    # HARMONIJKA (Accordion) do filtrów
-    dbc.Accordion(
-        [
-            dbc.AccordionItem(
-                [
-                    dbc.Row([
-                        dbc.Col([
-                            html.Label("Wybierz zakres czasu:", className="fw-bold mb-2"),
-                            dcc.DatePickerRange(
-                                id='watcher-date-picker',
-                                min_date_allowed=df['timestamp'].min().date() if not df.empty else None,
-                                max_date_allowed=df['timestamp'].max().date() if not df.empty else None,
-                                initial_visible_month=df['timestamp'].min().date() if not df.empty else None,
-                                start_date=df['timestamp'].min().date() if not df.empty else None,
-                                end_date=df['timestamp'].max().date() if not df.empty else None,
-                                display_format='YYYY-MM-DD',
-                                style={'width': '100%'}
-                            ),
-                            html.Div(id='watcher-date-debug', className="text-muted small mt-1")
-                        ], width=12, md=6),
-                        
-                        dbc.Col([
-                            html.Label("Filtruj po aplikacji (opcjonalnie):", className="fw-bold mb-2"),
-                            dcc.Dropdown(
-                                id='watcher-app-dropdown',
-                                options=[{'label': app, 'value': app} for app in df['app'].unique()] if not df.empty else [],
-                                placeholder="Wszystkie aplikacje",
-                                multi=True
-                            )
-                        ], width=12, md=6)
-                    ])
-                ],
-                title="⚙️ Filtry Czasu i Danych",
-                item_id="filters"
-            ),
-        ],
-        start_collapsed=False, # Domyślnie rozwinięte
-        className="mb-4 shadow-sm"
+    
+
+    # 2. FILTRY (Harmonijki)
+    dbc.Accordion([
+        # Harmonijka 1: Czas
+        dbc.AccordionItem([
+            dbc.Row([
+                dbc.Col([
+                    html.Label("Zakres dat:", className="fw-bold"),
+                    dcc.DatePickerRange(
+                        id='watcher-date-picker',
+                        min_date_allowed=df['timestamp'].min().date() if not df.empty and pd.notnull(df['timestamp'].min()) else None,
+                        max_date_allowed=df['timestamp'].max().date() if not df.empty and pd.notnull(df['timestamp'].max()) else None,
+                        start_date=df['timestamp'].min().date() if not df.empty and pd.notnull(df['timestamp'].min()) else None,
+                        end_date=df['timestamp'].max().date() if not df.empty and pd.notnull(df['timestamp'].max()) else None,
+                        display_format='YYYY-MM-DD',
+                        style={'width': '100%'}
+                    ),
+                ], width=12, md=6),
+                
+                dbc.Col([
+                    html.Label("Min. czas trwania (min):", className="fw-bold"),
+                    dbc.Input(id='min-duration-input', type='number', value=0, min=0, step=1)
+                ], width=12, md=6),
+            ])
+        ], title="📅 Filtry Czasu i Trwania"),
+        
+        # Harmonijka 2: Użytkownicy/Urządzenia (Pastylki)
+        dbc.AccordionItem([
+            html.Div(create_filter_chips(df), id='user-device-filters-container')
+        ], title="👤 Filtry Użytkowników i Urządzeń"),
+        
+    ], start_collapsed=False, className="mb-4"),
+    dbc.Card(
+        dbc.CardBody([
+            html.H5("Suma czasu wg Aktywności", className="card-title"),
+            dcc.Graph(id='summary-bar-chart', config={'displayModeBar': False}, style={'height': '300px'})
+        ]), className="mb-4 shadow-sm"
     ),
 
-    # KONTENER NA WYKRESY / DANE (Wypełniany przez callback)
-    dbc.Spinner(html.Div(id='watcher-content-container'), color="primary")
+    html.Div(id='watcher-content-container')
 ])
 # STRONA 3 : Podsumowanie /summary
 content_summary=[]
@@ -291,58 +332,70 @@ def generate_graphs(n):
 @app.callback(
     Output('watcher-content-container', 'children'),
     [Input('watcher-date-picker', 'start_date'),
-     Input('watcher-date-picker', 'end_date'),
-     Input('watcher-app-dropdown', 'value')]
+     Input('watcher-date-picker', 'end_date')]
 )
-def update_watcher_content(start_date, end_date, selected_apps):
+@app.callback(
+    Output('summary-bar-chart', 'figure'),
+    [
+        Input('watcher-date-picker', 'start_date'),
+        Input('watcher-date-picker', 'end_date'),
+        Input('min-duration-input', 'value'),
+        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value')
+    ],
+    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
+)
+def update_watcher_chart(start_date, end_date, min_duration, filter_values, filter_ids):
+    # Sprawdzamy czy mamy dane
     if df.empty:
-        return dbc.Alert("Brak danych w systemie.", color="warning")
+        fig = go.Figure()
+        fig.update_layout(title="Brak wczytanych danych")
+        return fig
     
-    if not start_date or not end_date:
-        return dbc.Alert("Wybierz pełny zakres dat.", color="info")
+    # Przygotowanie filtrów
+    s_date = pd.to_datetime(start_date).date() if start_date else df['timestamp'].min().date()
+    e_date = pd.to_datetime(end_date).date() if end_date else df['timestamp'].max().date()
 
-    # Filtrowanie danych
-    mask = (df['timestamp'].dt.date >= pd.to_datetime(start_date).date()) & \
-           (df['timestamp'].dt.date <= pd.to_datetime(end_date).date())
-    filtered_df = df.loc[mask]
+    allowed_combinations = set()
+    if not filter_values:
+        allowed_combinations = set(zip(df['osoba'], df['device']))
+    else:
+        for val, id_dict in zip(filter_values, filter_ids):
+            if val:
+                allowed_combinations.add((id_dict['user'], id_dict['device']))
 
-    if selected_apps:
-        filtered_df = filtered_df[filtered_df['app'].isin(selected_apps)]
-
+    # Filtrowanie DataFrame
+    mask_date = (df['timestamp'].dt.date >= s_date) & (df['timestamp'].dt.date <= e_date)
+    mask_dur = df['duration'] >= (min_duration or 0)
+    mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed_combinations, axis=1)
+    
+    filtered_df = df[mask_date & mask_dur & mask_dev]
+    
     if filtered_df.empty:
-        return dbc.Alert("Brak danych dla wybranych kryteriów.", color="warning")
+        fig = go.Figure()
+        fig.update_layout(title="Brak danych dla wybranych filtrów")
+        return fig
 
-    # Tworzenie podglądu (prosta statystyka + tabela)
-    total_duration = filtered_df['duration'].sum()
-    top_app = filtered_df.groupby('app')['duration'].sum().idxmax()
+    # --- AGREGACJA I PRZELICZENIE NA GODZINY ---
+    agg_df = filtered_df.groupby('category')['duration'].sum().reset_index()
     
-    # Karta statystyk
-    stats_card = dbc.Card(
-        dbc.CardBody([
-            html.H4("Podsumowanie wyboru", className="card-title"),
-            html.Hr(),
-            html.P(f"Liczba rekordów: {len(filtered_df)}"),
-            html.P(f"Suma czasu trwania: {total_duration:.2f} s"),
-            html.P(f"Najczęstsza aplikacja: {top_app}")
-        ]),
-        className="mb-4 bg-light"
-    )
+    # TUTAJ JEST ZMIANA: Dzielimy przez 60 i zaokrąglamy
+    agg_df['duration'] = agg_df['duration'] / 60 
+    agg_df['duration'] = agg_df['duration'].round(1) # np. 1.5 godz.
 
-    # Tabela podglądowa (Dash DataTable dla lepszej wydajności niż dbc.Table przy dużych danych)
-    table_preview = dash_table.DataTable(
-        data=filtered_df.to_dict('records'),
-        columns=[{'name': i, 'id': i} for i in filtered_df.columns],
-        page_size=10,
-        style_table={'overflowX': 'auto'},
-        style_cell={'textAlign': 'left'},
-        style_header={'backgroundColor': 'rgb(230, 230, 230)', 'fontWeight': 'bold'}
+    fig = px.bar(
+        agg_df, 
+        x='category', 
+        y='duration', 
+        title="Sumaryczny Czas Trwania (godziny)",  # Zmieniony tytuł
+        labels={'duration': 'Czas (godziny)', 'category': 'Aktywność'}, # Zmieniona etykieta
+        color='category',
+        text_auto=True, # Dodaje wartości liczbowe bezpośrednio na słupkach
+        template='plotly_white'
     )
+    return fig
+    
 
-    return html.Div([
-        stats_card,
-        html.H5("Podgląd danych surowych:"),
-        table_preview
-    ])
+    
 
 if __name__ == "__main__":
     app.run(debug=True, port=8888)
