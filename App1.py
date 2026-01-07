@@ -8,29 +8,34 @@ import numpy as np
 import plotly.graph_objs as go
 import plotly.express as px
 from dash import Input, Output, State, dcc, html, dash_table, ALL
+from dash import MATCH,ctx
 
+external_stylesheets = [
+    dbc.themes.BOOTSTRAP,
+    "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+]
 
-# --- 0. SYMULACJA DANYCH ---
-DATA_FOLDER = 'Dane Dash2/'
-if not os.path.exists(DATA_FOLDER):
-    os.makedirs(DATA_FOLDER)
-    sample_data = [
-        {"file": "PC_Jan_01.json", "osoba": "Jan", "device": "PC", "timestamps": ["2024-01-01 10:00", "2024-01-01 12:00"]},
-        {"file": "Phone_Jan_02.json", "osoba": "Jan", "device": "Phone", "timestamps": ["2024-01-02 08:00", "2024-01-02 20:00"]},
-        {"file": "PC_Anna_01.json", "osoba": "Anna", "device": "PC", "timestamps": ["2024-01-05 09:00", "2024-01-05 17:00"]},
-        {"file": "Phone_Piotr_01.json", "osoba": "Piotr", "device": "Phone", "timestamps": ["2024-01-10 12:00", "2024-01-10 13:00"]},
-    ]
-    for item in sample_data:
-        json_content = [{"osoba": item['osoba'], "device": item['device'], "timestamp": t} for t in item['timestamps']]
-        with open(os.path.join(DATA_FOLDER, item['file']), 'w') as f:
-            json.dump(json_content, f)
 # Start
 app = dash.Dash(
-    external_stylesheets=[dbc.themes.BOOTSTRAP], #Tu jest theme całości
+    __name__,
+    external_stylesheets=[
+        dbc.themes.BOOTSTRAP, 
+        "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    ],
     suppress_callback_exceptions=True
 )
-#Placeholder
-df = pd.read_json('Dane Dash\Dane1.json')
+
+
+DATA_FOLDER = 'Dane Dash/'
+frames = []  
+for filename in os.listdir(DATA_FOLDER):
+    if filename.endswith('.json'):
+        filepath = os.path.join(DATA_FOLDER, filename)
+        frames.append(pd.read_json(filepath))
+
+
+df = pd.concat(frames, ignore_index=True)
+
 # --- 1. FUNKCJE POMOCNICZE ---
 def get_data_summary():
     summary_list = []
@@ -88,45 +93,66 @@ def create_users_tables_view():
         
     return html.Div(layout_elements)
 
+def process_uploaded_file(name,cos):
+    return
 def create_filter_chips(df_in):
-    """Generuje pastylki (Checkboxy) per użytkownik"""
     if df_in.empty:
-        return html.Div("Brak danych.")
+        return html.Div("Brak danych.", className="text-muted")
     
     users = sorted(df_in['osoba'].astype(str).unique())
-    # Zakładamy 3 główne typy urządzeń, ale sprawdzamy co jest w danych
-    known_devices = ['PC', 'Laptop', 'Phone']
-    
-    # Jeśli w Twoich danych są inne nazwy urządzeń (np. 'iPhone'), one nie dostaną przycisku, 
-    # chyba że dodasz je do listy powyżej lub zrobisz to dynamicznie:
-    # known_devices = sorted(df_in['device'].astype(str).unique()) 
+    detected_devices = sorted(df_in['device'].astype(str).unique())
+    icons = {'PC': 'bi-pc-display', 'Laptop': 'bi-laptop', 'Phone': 'bi-phone'}
 
-    rows = []
+    rows_list = []
+    
     for user in users:
         user_df = df_in[df_in['osoba'] == user]
-        buttons_row = []
+        buttons = []
         
-        for dev in known_devices:
-            # Czy user ma dane z tego urządzenia?
+        # Zbieramy domyślne wartości, żeby zainicjować pamięć
+        initial_state = {} 
+
+        for dev in detected_devices:
             has_data = dev in user_df['device'].unique()
+            initial_state[dev] = has_data # Zapisujemy startowy stan (True/False)
+            
+            icon = icons.get(dev, 'bi-hdd')
             
             chk = dbc.Checkbox(
                 id={'type': 'device-filter', 'user': user, 'device': dev},
-                label=dev,
-                value=has_data,       # Domyślnie zaznaczone, jeśli są dane
-                disabled=not has_data, # Zablokowane (szare), jeśli brak danych
-                className="btn-check",
-                input_class_name="btn-check",
-                label_class_name=f"btn btn-outline-primary rounded-pill me-2 {'disabled' if not has_data else ''}"
+                label=html.Div([html.I(className=f"bi {icon} me-2"), dev]),
+                value=has_data,
+                disabled=not has_data,
+                input_class_name="btn-check", 
+                label_class_name=f"btn btn-outline-primary rounded-pill me-2 mb-1 {'disabled opacity-50' if not has_data else ''}"
             )
-            buttons_row.append(chk)
+            buttons.append(chk)
             
-        rows.append(dbc.Row([
-            dbc.Col(html.Span(user, className="fw-bold"), width=2),
-            dbc.Col(html.Div(buttons_row), width=10)
-        ], className="mb-2 align-items-center"))
+        user_row = dbc.Row([
+            dbc.Col([
+                html.Div([
+                    dbc.Switch(
+                        id={'type': 'user-master-switch', 'user': user},
+                        value=True,
+                        label=user,
+                        label_class_name="fw-bold text-dark lead",
+                        style={"fontSize": "1.1rem"}
+                    ),
+                    # --- NOWOŚĆ: Pamięć podręczna dla tego konkretnego użytkownika ---
+                    dcc.Store(
+                        id={'type': 'user-memory', 'user': user},
+                        data=initial_state # Na start wpisujemy to, co wynika z danych
+                    )
+                    # -----------------------------------------------------------------
+                ], className="d-flex align-items-center h-100")
+            ], width=12, md=3, className="mb-2 mb-md-0"),
+            
+            dbc.Col(html.Div(buttons, className="d-flex flex-wrap"), width=12, md=9)
+        ], className="py-2 border-bottom align-items-center")
         
-    return html.Div(rows)
+        rows_list.append(user_row)
+        
+    return html.Div(rows_list, className="p-2")
     
 
 # LAYOUTY (STRONY) ---
@@ -148,11 +174,10 @@ content_users = html.Div([
 ])
 
 # STRONA 2 : Obserwatorium /watcher
+# STRONA 2 : Obserwatorium /watcher
 content_watcher = html.Div([
     html.H2("Obserwatorium Danych (Watcher)", className="mb-4"),
     
-    
-
     # 2. FILTRY (Harmonijki)
     dbc.Accordion([
         # Harmonijka 1: Czas
@@ -162,8 +187,9 @@ content_watcher = html.Div([
                     html.Label("Zakres dat:", className="fw-bold"),
                     dcc.DatePickerRange(
                         id='watcher-date-picker',
-                        min_date_allowed=df['timestamp'].min().date() if not df.empty and pd.notnull(df['timestamp'].min()) else None,
-                        max_date_allowed=df['timestamp'].max().date() if not df.empty and pd.notnull(df['timestamp'].max()) else None,
+                        # Usunięte ograniczenia dat (min/max), aby zakres był dowolny
+                        min_date_allowed=None,
+                        max_date_allowed=None,
                         start_date=df['timestamp'].min().date() if not df.empty and pd.notnull(df['timestamp'].min()) else None,
                         end_date=df['timestamp'].max().date() if not df.empty and pd.notnull(df['timestamp'].max()) else None,
                         display_format='YYYY-MM-DD',
@@ -180,10 +206,17 @@ content_watcher = html.Div([
         
         # Harmonijka 2: Użytkownicy/Urządzenia (Pastylki)
         dbc.AccordionItem([
-            html.Div(create_filter_chips(df), id='user-device-filters-container')
-        ], title="👤 Filtry Użytkowników i Urządzeń"),
+            # POPRAWIONE: dbc.Row i dbc.Col z dużej litery
+            dbc.Row([
+                dbc.Col([
+                    html.Div(create_filter_chips(df), id='user-device-filters-container')
+                ], width=12) # Zmieniłem na 12, żeby filtry zajmowały całą szerokość
+            ])
+        ], title="👤 Filtry Użytkowników i Urządzeń"), # POPRAWIONE: title jest po zamknięciu listy ']'
         
-    ], start_collapsed=False, className="mb-4"),
+    ], start_collapsed=False, className="mb-4",always_open=True),
+
+    # Wykres
     dbc.Card(
         dbc.CardBody([
             html.H5("Suma czasu wg Aktywności", className="card-title"),
@@ -329,11 +362,7 @@ def generate_graphs(n):
         "hist_1": go.Figure(data=[go.Histogram(x=data[:, 0])]),
         "hist_2": go.Figure(data=[go.Histogram(x=data[:, 1])])
     }
-@app.callback(
-    Output('watcher-content-container', 'children'),
-    [Input('watcher-date-picker', 'start_date'),
-     Input('watcher-date-picker', 'end_date')]
-)
+
 @app.callback(
     Output('summary-bar-chart', 'figure'),
     [
@@ -365,7 +394,7 @@ def update_watcher_chart(start_date, end_date, min_duration, filter_values, filt
 
     # Filtrowanie DataFrame
     mask_date = (df['timestamp'].dt.date >= s_date) & (df['timestamp'].dt.date <= e_date)
-    mask_dur = df['duration'] >= (min_duration or 0)
+    mask_dur = df.loc[:,'duration'] >= (min_duration*60 or 0)
     mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed_combinations, axis=1)
     
     filtered_df = df[mask_date & mask_dur & mask_dev]
@@ -379,8 +408,8 @@ def update_watcher_chart(start_date, end_date, min_duration, filter_values, filt
     agg_df = filtered_df.groupby('category')['duration'].sum().reset_index()
     
     # TUTAJ JEST ZMIANA: Dzielimy przez 60 i zaokrąglamy
-    agg_df['duration'] = agg_df['duration'] / 60 
-    agg_df['duration'] = agg_df['duration'].round(1) # np. 1.5 godz.
+    agg_df.loc[:,'duration'] = agg_df.loc[:,'duration'] / 3600 
+    agg_df.loc[:,'duration'] = agg_df.loc[:,'duration'].round(3) # np. 1.5 godz.
 
     fig = px.bar(
         agg_df, 
@@ -393,8 +422,87 @@ def update_watcher_chart(start_date, end_date, min_duration, filter_values, filt
         template='plotly_white'
     )
     return fig
-    
 
+# --- CALLBACK 2: OBSŁUGA PRZEŁĄCZNIKA (Master Switch) ---
+@app.callback(
+    [
+        Output({'type': 'device-filter', 'user': MATCH, 'device': ALL}, 'value'),
+        Output({'type': 'device-filter', 'user': MATCH, 'device': ALL}, 'disabled'),
+        Output({'type': 'device-filter', 'user': MATCH, 'device': ALL}, 'label_class_name')
+    ],
+    [Input({'type': 'user-master-switch', 'user': MATCH}, 'value')],
+    [
+        State({'type': 'device-filter', 'user': MATCH, 'device': ALL}, 'id'),
+        State({'type': 'user-memory', 'user': MATCH}, 'data') # Pobieramy pamięć
+    ]
+)
+def toggle_user_devices(master_switch_on, device_ids, saved_memory):
+    new_values = []
+    new_disabled = []
+    new_classes = []
+    
+    # Pobieramy info o dostępności danych (z DF)
+    # Uwaga: Musimy wiedzieć, czy dane w ogóle istnieją, żeby nie włączyć "pustego" urządzenia
+    # nawet jak pamięć mówi True (np. z błędu).
+    current_user = device_ids[0]['user']
+    user_data = df[df['osoba'] == current_user]
+    existing_devices = set(user_data['device'].unique()) # Set dla szybkości
+    
+    base_class = "btn btn-outline-primary rounded-pill me-2 mb-1"
+
+    for dev_id in device_ids:
+        device_name = dev_id['device']
+        has_data = device_name in existing_devices
+        
+        if not master_switch_on:
+            # WYŁĄCZANIE: Wszystko gaśnie
+            new_values.append(False)
+            new_disabled.append(True)
+            new_classes.append(f"{base_class} disabled opacity-25")
+        else:
+            # WŁĄCZANIE: Przywracamy z pamięci
+            # Sprawdzamy co było w pamięci. Domyślnie (jeśli brak w pamięci) -> True (o ile ma dane)
+            should_be_checked = saved_memory.get(device_name, True) if saved_memory else True
+            
+            if has_data:
+                # Jeśli urządzenie ma dane i było zaznaczone w pamięci -> Włączamy
+                is_checked = should_be_checked
+                new_values.append(is_checked)
+                new_disabled.append(False)
+                # Klasa zależy od tego czy zaznaczone (estetyka) - tu zawsze aktywna
+                new_classes.append(base_class) 
+            else:
+                # Brak danych -> Zawsze wyłączone
+                new_values.append(False)
+                new_disabled.append(True)
+                new_classes.append(f"{base_class} disabled opacity-50")
+
+    return new_values, new_disabled, new_classes
+    
+# --- CALLBACK 1: ZAPAMIĘTYWANIE STANU (Memory Keeper) ---
+@app.callback(
+    Output({'type': 'user-memory', 'user': MATCH}, 'data'),
+    Input({'type': 'device-filter', 'user': MATCH, 'device': ALL}, 'value'),
+    State({'type': 'user-master-switch', 'user': MATCH}, 'value'),
+    State({'type': 'device-filter', 'user': MATCH, 'device': ALL}, 'id'),
+    State({'type': 'user-memory', 'user': MATCH}, 'data'),
+    prevent_initial_call=True
+)
+def save_user_state(checkbox_values, is_master_on, checkbox_ids, current_memory):
+    # Jeśli Master jest wyłączony, to znaczy, że zmiana wartości wynika 
+    # z automatycznego wygaszania pastylek. NIE ZAPISUJEMY TEGO.
+    if not is_master_on:
+        return dash.no_update
+
+    # Jeśli Master jest włączony, to użytkownik klika pastylki. ZAPISUJEMY.
+    # Mapujemy listę wartości [True, False, True] na słownik {'PC': True, 'Phone': False...}
+    new_memory = current_memory.copy() if current_memory else {}
+    
+    for val, id_dict in zip(checkbox_values, checkbox_ids):
+        device_name = id_dict['device']
+        new_memory[device_name] = val
+        
+    return new_memory
     
 
 if __name__ == "__main__":
