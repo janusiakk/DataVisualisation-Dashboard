@@ -195,12 +195,29 @@ content_watcher = html.Div([
                         display_format='YYYY-MM-DD',
                         style={'width': '100%'}
                     ),
-                ], width=12, md=6),
-                
+                ], width=4, md=4),
+
                 dbc.Col([
-                    html.Label("Min. czas trwania (min):", className="fw-bold"),
+                    html.Label("Tryb uwzględniania AFK:", className="fw-bold mb-2"),
+                    dbc.RadioItems(
+                        id="afk-mode-selector",
+                        options=[
+                            {"label": html.Div([html.I(className="bi bi-circle-half me-2"), "Wszystko"]), "value": "all"},
+                            {"label": html.Div([html.I(className="bi bi-person-check-fill me-2"), "Bez AFK"]), "value": "active_only"},
+                            {"label": html.Div([html.I(className="bi bi-robot me-2"), "Tylko AFK"]), "value": "afk_only"},
+                        ],
+                        value="all", # Domyślnie pokazujemy wszystko
+                        className="btn-group",
+                        inputClassName="btn-check",
+                        labelClassName="btn btn-outline-primary",
+                        labelCheckedClassName="active", # To sprawia, że wybrany przycisk jest "wypełniony"
+                        style={"width": "100%"} # Opcjonalnie: rozciągnięcie na całą szerokość
+                    )
+                ], width=4, md=4),                           
+                dbc.Col([
+                    html.Label("Min. czas trwania odczytu (min):", className="fw-bold"),
                     dbc.Input(id='min-duration-input', type='number', value=0, min=0, step=1)
-                ], width=12, md=6),
+                ], width=4, md=4),
             ])
         ], title="📅 Filtry Czasu i Trwania"),
         
@@ -369,56 +386,85 @@ def generate_graphs(n):
         Input('watcher-date-picker', 'start_date'),
         Input('watcher-date-picker', 'end_date'),
         Input('min-duration-input', 'value'),
-        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value')
+        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+        Input('afk-mode-selector', 'value')  # <--- NOWY INPUT (AFK)
     ],
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
 )
-def update_watcher_chart(start_date, end_date, min_duration, filter_values, filter_ids):
-    # Sprawdzamy czy mamy dane
+def update_watcher_chart(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids):
+    # 1. Sprawdzenie czy są dane
     if df.empty:
         fig = go.Figure()
         fig.update_layout(title="Brak wczytanych danych")
         return fig
     
-    # Przygotowanie filtrów
+    # 2. Przygotowanie dat
     s_date = pd.to_datetime(start_date).date() if start_date else df['timestamp'].min().date()
     e_date = pd.to_datetime(end_date).date() if end_date else df['timestamp'].max().date()
 
+    # 3. Przygotowanie dozwolonych urządzeń (Logika Pastylek)
     allowed_combinations = set()
     if not filter_values:
+        # Jeśli lista filtrów jest pusta (np. start aplikacji), bierzemy wszystko
         allowed_combinations = set(zip(df['osoba'], df['device']))
     else:
         for val, id_dict in zip(filter_values, filter_ids):
             if val:
                 allowed_combinations.add((id_dict['user'], id_dict['device']))
 
-    # Filtrowanie DataFrame
+    # 4. Tworzenie masek filtrowania
+    # Data
     mask_date = (df['timestamp'].dt.date >= s_date) & (df['timestamp'].dt.date <= e_date)
-    mask_dur = df.loc[:,'duration'] >= (min_duration*60 or 0)
+    
+    # Duration (Minuty -> Sekundy)
+    # Zabezpieczenie: (None or 0) * 60 = 0
+    min_duration_sec = (min_duration or 0) * 60
+    mask_dur = df['duration'] >= min_duration_sec
+    
+    # Urządzenia
     mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed_combinations, axis=1)
     
-    filtered_df = df[mask_date & mask_dur & mask_dev]
-    
+    # Wstępne filtrowanie
+    filtered_df = df[mask_date & mask_dur & mask_dev].copy()
+
+    # 5. FILTR AFK (Nowa logika)
+    # Sprawdzamy czy w ogóle mamy kolumnę 'status' w danych
+    if 'status' in filtered_df.columns:
+        if afk_mode == 'active_only':
+            # Pokaż tylko NIE-AFK (zakładamy, że afk to 'afk', reszta to praca)
+            filtered_df = filtered_df[filtered_df['status'] != 'afk']
+        elif afk_mode == 'afk_only':
+            # Pokaż TYLKO AFK
+            filtered_df = filtered_df[filtered_df['status'] == 'afk']
+        # Dla 'all' nie robimy nic
+
+    # Sprawdzenie czy po filtrach coś zostało
     if filtered_df.empty:
         fig = go.Figure()
         fig.update_layout(title="Brak danych dla wybranych filtrów")
         return fig
 
     # --- AGREGACJA I PRZELICZENIE NA GODZINY ---
-    agg_df = filtered_df.groupby('category')['duration'].sum().reset_index()
     
-    # TUTAJ JEST ZMIANA: Dzielimy przez 60 i zaokrąglamy
-    agg_df.loc[:,'duration'] = agg_df.loc[:,'duration'] / 3600 
-    agg_df.loc[:,'duration'] = agg_df.loc[:,'duration'].round(3) # np. 1.5 godz.
+    # Inteligentny wybór kolumny (Category vs Activity)
+    # Jeśli masz w plikach 'category', użyje jej. Jeśli 'activity', użyje 'activity'.
+    group_col = 'category' if 'category' in filtered_df.columns else 'activity'
+    
+    agg_df = filtered_df.groupby(group_col)['duration'].sum().reset_index()
+    
+    # Sekundy -> Godziny
+    agg_df['duration'] = agg_df['duration'] / 3600 
+    agg_df['duration'] = agg_df['duration'].round(2) 
 
+    # Rysowanie
     fig = px.bar(
         agg_df, 
-        x='category', 
+        x=group_col, 
         y='duration', 
-        title="Sumaryczny Czas Trwania (godziny)",  # Zmieniony tytuł
-        labels={'duration': 'Czas (godziny)', 'category': 'Aktywność'}, # Zmieniona etykieta
-        color='category',
-        text_auto=True, # Dodaje wartości liczbowe bezpośrednio na słupkach
+        title=f"Sumaryczny Czas Trwania ({afk_mode}) [godziny]", 
+        labels={'duration': 'Czas (godziny)', group_col: 'Kategoria / Aktywność'},
+        color=group_col,
+        text_auto=True,
         template='plotly_white'
     )
     return fig
