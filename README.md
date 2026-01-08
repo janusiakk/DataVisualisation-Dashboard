@@ -10,3 +10,25 @@ Klasyfikacje danych jest w pliku kategoryzacja.ipynb, chaty dobrze wymyślają s
 Danych z telefonu nie przetwarzałem jeszcze, a z nimi będzie ciężej bo się będą faktycznie zazębiać
 
 Folder dane prywatne ma wewnątrz git ignore
+
+
+
+Opis zakładek:
+
+Użytkownicy - techniczna zakładka o zczytanych danych.
+Obserwatorium - sandbox z prostymi wizualizacjami
+
+Przeglądanie aktywności na wielkim kalendarzu, możliwość wejścia w konkretny dzień, wybór konkretnego rodzaju aktywności
+
+?Wyścigi
+
+?Wielki podział doby
+
+?Zakładka o śnie
+
+
+
+
+
+Ustawienia - może sie przyda
+Załąćz pliki - finalny QoL
