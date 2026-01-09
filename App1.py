@@ -15,14 +15,14 @@ from dash import MATCH,ctx
 app = dash.Dash(
     __name__,
     external_stylesheets=[
-        dbc.themes.BOOTSTRAP, 
+        dbc.themes.BOOTSTRAP, #Wygląd
         "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
     ],
     suppress_callback_exceptions=True
 )
 
 
-DATA_FOLDER = 'Dane Dash/'
+DATA_FOLDER = 'Dane Dash/' #Folder do zczytania gotowych danych
 frames = []  
 for filename in os.listdir(DATA_FOLDER):
     if filename.endswith('.json'):
@@ -33,92 +33,155 @@ for filename in os.listdir(DATA_FOLDER):
 df = pd.concat(frames, ignore_index=True)
 
 # --- 1. FUNKCJE POMOCNICZE ---
-def create_chart_slot(index):
-    """Tworzy kolumnę z wykresem. Obsługuje User Select dla #1,#2 oraz Limit App dla #2,#4."""
-    
-    # 1. Opcje typu wykresu
-    # Dla #3 i #4 (Rankingi Userów) dajemy opcje porównawcze
-    if index in [3, 4]:
-        chart_options = [
-            {'label': '👥 Porównanie (Słupki)', 'value': 'bar'},
-            {'label': '👥 Ranking (Paskowy)', 'value': 'bar_h'},
-            {'label': '🍰 Udział (Kołowy)', 'value': 'pie'},
-        ]
-        default_chart = 'bar_h'
-    else:
-        # Dla #1 i #2 (Analiza Czasu)
-        chart_options = [
-            {'label': '📊 Kolumnowy', 'value': 'bar'},
-            {'label': '📏 Paskowy', 'value': 'bar_h'},
-            {'label': '🍰 Kołowy', 'value': 'pie'},
-            {'label': '🍩 Donut', 'value': 'donut'}
-        ]
-        default_chart = 'pie' if index in [1, 2] else 'bar'
-
-    # 2. Kontrolki w nagłówku
-    controls = []
-    
-    # A. DROPDOWN UŻYTKOWNIKA (Tylko dla #1 i #2)
-    if index in [1, 2]:
-        unique_users = sorted(df['osoba'].astype(str).unique())
-        user_options = [{'label': 'Wszyscy', 'value': 'all'}] + [{'label': u, 'value': u} for u in unique_users]
+# --- DEFINICJA ZAWARTOŚCI FILTRÓW (OFFCANVAS) ---
+def get_base_panel_style(left_pos="0px"):
+    return {
+        "top": HEADER_HEIGHT,
+        "height": "fit-content",
+        "maxHeight": f"calc(100vh - {HEADER_HEIGHT} - 20px)",
+        "width": PANEL_WIDTH,
+        "left": left_pos,
         
-        user_dd = dcc.Dropdown(
-            id=f'chart-{index}-user-select',
-            options=user_options,
-            value='all',
-            clearable=False, searchable=False,
-            style={'fontSize': '0.8rem', 'minWidth': '100px'}
-        )
-        controls.append(dbc.Col(user_dd, width=4)) # Szerokość kolumny z dropdownem
+        "position": "fixed",   
+        "border": "1px solid #dee2e6",
+        "borderTop": "0", "borderLeft": "0",
+        "borderRadius": "0 0 10px 10px",
+        "boxShadow": "0px 10px 20px rgba(0,0,0,0.15)",
+        "zIndex": 1045, # Pod paskiem menu
+        
+        # --- TU JEST NAPRAWA ---
+        # Animujemy 'left' (do przesuwania za menu) ORAZ 'transform' (do chowania w górę)
+        # Dzięki temu panel płynnie wjedzie pod pasek menu.
+        "transition": "left 0.3s ease-in-out, transform 0.3s ease-in-out" 
+    }
+def create_global_filters_layout():
+    return html.Div([
+        # --- SEKCJA 1: CZAS ---
+        html.H6("📅 Ustawienia Czasu", className="fw-bold text-primary mb-3"),
+        
+        dbc.Row([
+            # Daty
+            dbc.Col([
+                html.Label("Zakres dat:", className="small text-muted fw-bold"),
+                dcc.DatePickerRange(
+                    id='watcher-date-picker',
+                    min_date_allowed=None, max_date_allowed=None,
+                    start_date=df['timestamp'].min().date() if not df.empty else None,
+                    end_date=df['timestamp'].max().date() if not df.empty else None,
+                    display_format='YYYY-MM-DD',
+                    style={'width': '100%', 'fontSize': '0.8rem'}
+                ),
+            ], width=12, className="mb-3"),
 
-    # B. INPUT "TOP N" (Tylko dla #2 i #4 - tam gdzie są Aplikacje)
-    if index in [2, 4]:
+            # Przywrócone Ładne Guziki AFK
+            dbc.Col([
+                html.Label("Tryb pracy:", className="small text-muted fw-bold mb-1"),
+                dbc.RadioItems(
+                    id="afk-mode-selector",
+                    options=[
+                        {
+                            "label": html.Div([html.I(className="bi bi-circle-half me-2"), "Wszystko"]), 
+                            "value": "all"
+                        },
+                        {
+                            "label": html.Div([html.I(className="bi bi-person-check-fill me-2"), "Aktywność"]), 
+                            "value": "active_only"
+                        },
+                        {
+                            "label": html.Div([html.I(className="bi bi-robot me-2"), "AFK"]), 
+                            "value": "afk_only"
+                        },
+                    ],
+                    value="all",
+                    className="btn-group w-100",       # w-100 rozciąga grupę na całą szerokość
+                    inputClassName="btn-check",        # Ukrywa kropki radia
+                    labelClassName="btn btn-outline-primary", # Styl guzików
+                    labelCheckedClassName="active"     # Styl aktywnego guzika
+                )
+            ], width=12, className="mb-3"),
+
+            # Min czas
+            dbc.Col([
+                html.Label("Ignoruj krótsze niż (min):", className="small text-muted fw-bold"),
+                dbc.Input(id='min-duration-input', type='number', value=0, min=0, step=1, size="sm")
+            ], width=12),
+        ]),
+
+        html.Hr(className="my-4"), # Linia oddzielająca
+
+        # --- SEKCJA 2: UŻYTKOWNICY ---
+        html.H6("👤 Użytkownicy i Urządzenia", className="fw-bold text-primary mb-3"),
+        
+        html.Div(create_filter_chips(df), id='user-device-filters-container')
+    ], className="p-1")
+
+def create_smart_slot(side, title, is_app_mode=False):
+    
+    
+    # 1. Pobieramy listę użytkowników
+    unique_users = sorted(df['osoba'].astype(str).unique())
+    
+    # 2. Budujemy opcje głównego Dropdowna (Scope)
+    # Mamy opcję specjalną "comparison" oraz listę osób
+    scope_options = [
+        {'label': '👥 PORÓWNANIE (Ranking)', 'value': 'comparison'},
+        {'label': '--- Użytkownicy ---', 'value': 'disabled', 'disabled': True}
+    ] + [{'label': f"👤 {u}", 'value': u} for u in unique_users]
+
+    # Kontrolki w nagłówku
+    controls = []
+
+    # A. WYBÓR TRYBU (Porównanie vs Osoba)
+    scope_dd = dcc.Dropdown(
+        id=f'smart-{side}-scope',
+        options=scope_options,
+        value='comparison', # Domyślnie tryb porównania
+        clearable=False, searchable=False,
+        style={'fontSize': '0.85rem'}
+    )
+    controls.append(dbc.Col(scope_dd, width=4))
+
+    # B. INPUT "TOP N" (Tylko dla prawej strony - Aplikacje)
+    if is_app_mode:
         limit_input = dbc.InputGroup([
             dbc.InputGroupText("Top:", style={'fontSize': '0.7rem', 'padding': '4px'}),
             dbc.Input(
-                id=f'chart-{index}-limit',
+                id=f'smart-{side}-limit',
                 type='number',
-                value=10, # Domyślnie 10 najpopularniejszych apek
-                min=1, max=50, step=1,
-                style={'fontSize': '0.8rem', 'textAlign': 'center', 'padding': '2px'}
+                value=10, min=1, max=50, step=1,
+                style={'fontSize': '0.8rem', 'textAlign': 'center'}
             )
         ], size="sm")
         controls.append(dbc.Col(limit_input, width=3))
 
-    # C. DROPDOWN TYPU WYKRESU (Zawsze)
-    chart_dd = dcc.Dropdown(
-        id=f'chart-selector-{index}',
-        options=chart_options,
-        value=default_chart,
+    # C. WYBÓR RODZAJU WYKRESU (Opcje puste na start, wypełni je Callback UI)
+    type_dd = dcc.Dropdown(
+        id=f'smart-{side}-type',
+        options=[], # Callback to wypełni
+        value='bar_h',
         clearable=False, searchable=False,
-        style={'fontSize': '0.8rem'}
+        style={'fontSize': '0.85rem'}
     )
-    # Jeśli mamy dużo kontrolek (#2), zmniejszamy szerokość selectora typu
-    width_selector = 3 if (index == 2) else 4
-    controls.append(dbc.Col(chart_dd, width=width_selector))
+    # Dopasowanie szerokości w zależności czy jest Top N
+    width_type = 4 if is_app_mode else 7 
+    controls.append(dbc.Col(type_dd, width=width_type))
 
-    # 3. Tytuł Karty
-    titles = {
-        1: "Kat. (Szczegóły)",
-        2: "App (Szczegóły)",
-        3: "Ranking (Kat.)",
-        4: "Ranking (App)"
-    }
-    
-    # Reszta szerokości dla tytułu
-    used_width = sum([c.width for c in controls])
-    title_col = dbc.Col(html.H6(titles[index], className="card-title mb-0 text-nowrap"), width=12-used_width)
-
+    # 3. Złożenie całości
     return dbc.Col(
         dbc.Card([
             dbc.CardBody([
-                dbc.Row([title_col] + controls, className="d-flex align-items-center mb-2 g-1"),
-                dcc.Graph(id=f'chart-{index}', config={'displayModeBar': False}, style={'height': '250px'})
+                # Nagłówek z tytułem
+                html.H6(title, className="card-title mb-2 text-muted fw-bold"),
+                # Pasek narzędzi
+                dbc.Row(controls, className="g-1 mb-3 align-items-center"),
+                # Wykres
+                dcc.Graph(id=f'smart-{side}-chart', config={'displayModeBar': False}, style={'height': '350px'})
             ])
         ], className="shadow-sm h-100"),
         width=12, md=6, className="mb-4"
     )
+
+
 def get_data_summary():
     summary_list = []
     if not os.path.exists(DATA_FOLDER):
@@ -238,16 +301,6 @@ def create_filter_chips(df_in):
     
 
 # LAYOUTY (STRONY) ---
-
-# # STRONA : Startowa /
-# content_home = html.Div([
-#     html.H1("Strona Startowa", className="display-4"),
-#     html.P("Witaj w panelu administracyjnym.", className="lead"),
-#     html.Hr(className="my-2"),
-#     html.P("Wybierz odpowiednią zakładkę z menu po lewej stronie, aby rozpocząć."),
-#     dbc.Button("Przejdź do Użytkowników", color="primary", href="/uzytkownicy"), 
-# ], className="p-5 bg-light rounded-3")
-
 # STRONA 1 : Użytkownicy /
 content_users = html.Div([
     html.H1("Panel kontroli danych wejściowych"),
@@ -256,78 +309,24 @@ content_users = html.Div([
 ])
 
 # STRONA 2 : Obserwatorium /watcher
-# STRONA 2 : Obserwatorium /watcher
+
 content_watcher = html.Div([
-    html.H2("Obserwatorium Danych (Watcher)", className="mb-4"),
+    html.H2("Obserwatorium Danych", className="mb-4 display-6 text-primary"),
+
+    # SEKCJA KPI
+    html.Div(id='watcher-kpi-container', className="mb-4"),
+
+    # --- TU BYŁY FILTRY - USUNIĘTE ---
+    # Zostawiamy ewentualnie informację, jakie filtry są aktywne (opcjonalnie)
     
-    # 2. FILTRY (Harmonijki)
-    dbc.Accordion([
-        # Harmonijka 1: Czas
-        dbc.AccordionItem([
-            dbc.Row([
-                dbc.Col([
-                    html.Label("Zakres dat:", className="fw-bold"),
-                    dcc.DatePickerRange(
-                        id='watcher-date-picker',
-                        # Usunięte ograniczenia dat (min/max), aby zakres był dowolny
-                        min_date_allowed=None,
-                        max_date_allowed=None,
-                        start_date=df['timestamp'].min().date() if not df.empty and pd.notnull(df['timestamp'].min()) else None,
-                        end_date=df['timestamp'].max().date() if not df.empty and pd.notnull(df['timestamp'].max()) else None,
-                        display_format='YYYY-MM-DD',
-                        style={'width': '100%'}
-                    ),
-                ], width=4, md=4),
+    html.H4("Analiza Szczegółowa", className="mb-3 text-secondary"),
+    
+    dbc.Row([
+        create_smart_slot('left', "Analiza Kategorii", is_app_mode=False),
+        create_smart_slot('right', "Analiza Aplikacji (Top N)", is_app_mode=True)
+    ]),
 
-                dbc.Col([
-                    html.Label("Tryb uwzględniania AFK:", className="fw-bold mb-2"),
-                    dbc.RadioItems(
-                        id="afk-mode-selector",
-                        options=[
-                            {"label": html.Div([html.I(className="bi bi-circle-half me-2"), "Wszystko"]), "value": "all"},
-                            {"label": html.Div([html.I(className="bi bi-person-check-fill me-2"), "Bez AFK"]), "value": "active_only"},
-                            {"label": html.Div([html.I(className="bi bi-robot me-2"), "Tylko AFK"]), "value": "afk_only"},
-                        ],
-                        value="all", # Domyślnie pokazujemy wszystko
-                        className="btn-group",
-                        inputClassName="btn-check",
-                        labelClassName="btn btn-outline-primary",
-                        labelCheckedClassName="active", # To sprawia, że wybrany przycisk jest "wypełniony"
-                        style={"width": "100%"} # Opcjonalnie: rozciągnięcie na całą szerokość
-                    )
-                ], width=4, md=4),                           
-                dbc.Col([
-                    html.Label("Min. czas trwania odczytu (min):", className="fw-bold"),
-                    dbc.Input(id='min-duration-input', type='number', value=0, min=0, step=1)
-                ], width=4, md=4),
-            ])
-        ], title="📅 Filtry Czasu i Trwania"),
-        
-        # Harmonijka 2: Użytkownicy/Urządzenia (Pastylki)
-        dbc.AccordionItem([
-            # POPRAWIONE: dbc.Row i dbc.Col z dużej litery
-            dbc.Row([
-                dbc.Col([
-                    html.Div(create_filter_chips(df), id='user-device-filters-container')
-                ], width=6) # Zmieniłem na 12, żeby filtry zajmowały całą szerokość
-            ])
-        ], title="👤 Filtry Użytkowników i Urządzeń"), # POPRAWIONE: title jest po zamknięciu listy ']'
-        
-    ], start_collapsed=False, className="mb-4",always_open=True),
-
-    # SEKCJA WYKRESÓW 2x2
-        html.H4("Analiza Wielowymiarowa", className="mb-3"),
-        
-        dbc.Row([
-            create_chart_slot(1),
-            create_chart_slot(2)
-        ]),
-        
-        dbc.Row([
-            create_chart_slot(3),
-            create_chart_slot(4)
-        ]),
-        html.Div(id='watcher-content-container')
+    html.Div(id='watcher-content-container')
 ])
 # STRONA 3 : Podsumowanie /summary
 content_summary=[]
@@ -392,18 +391,88 @@ sidebar = html.Div(
     style={"width": "16rem", "height": "100vh", "background-color": "#f8f9fa", "padding": "2rem 1rem"}
 )
 
+# --- STAŁE WYMIARY ---
+HEADER_HEIGHT = "70px"
+PANEL_WIDTH_NUM = 545      # Szerokość w pikselach (int do obliczeń)
+PANEL_WIDTH = f"{PANEL_WIDTH_NUM}px" # String do CSS
+
+filters_panel = dbc.Offcanvas(
+    children=[create_global_filters_layout()],
+    id="filters-offcanvas",
+    title="Filtry Globalne",
+    placement="top", scrollable=True, backdrop=False, is_open=False,
+    # Styl startowy (zostanie nadpisany przez callback, ale musi być)
+    style=get_base_panel_style("16rem") 
+)
+
+# Zwiększenie warstwy panel 2
+extra_panel_style = get_base_panel_style("16rem")
+# Ręcznie podbijamy warstwę (baza ma 1045)
+extra_panel_style["zIndex"] = 1060 
+
+extra_panel = dbc.Offcanvas(
+    children=[
+        html.H6("⚙️ Dodatkowe Opcje", className="fw-bold text-primary mb-3"),
+        dbc.Alert("To jest drugi niezależny panel.", color="info"),
+        html.P("Może zawierać ustawienia eksportu, zaawansowane parametry itp."),
+        dbc.Button("Przykładowa akcja", color="dark", outline=True, size="sm")
+    ],
+    id="extra-offcanvas",
+    title="Opcje Dodatkowe",
+    placement="top", scrollable=True, backdrop=False, is_open=False,
+    style=extra_panel_style
+)
+
 app.layout = html.Div([
     dcc.Location(id="url", refresh=False),
+    
+    # Przechowujemy szerokość sidebara w pamięci przeglądarki (opcjonalnie), 
+    # ale tutaj obliczymy to w locie.
+    
     dbc.Collapse(sidebar, id="sidebar", is_open=True, dimension="width"),
+    
+    # DWA PANELE
+    filters_panel,
+    extra_panel,
+
     html.Div([
         dbc.Container([
-            dbc.Button("Menu", id="sidebar-toggle", color="secondary", outline=True, className="mb-3 mt-3"),
-            html.Div(id="page-content")
-        ], fluid=True)
-    ], style={"flexGrow": 1, "padding": "0 2rem", "overflow": "auto", "height": "100vh"})
-], className="d-flex")
+            
+            # --- NAGŁÓWEK Z 3 GUZIKAMI ---
+            dbc.Row([
+                # 1. Menu
+                dbc.Col([
+                    dbc.Button([html.I(className="bi bi-list me-2"), "Menu"], 
+                               id="sidebar-toggle", color="secondary", outline=True, className="me-2"),
+                ], width="auto"),
+                
+                # 2. Filtry
+                dbc.Col([
+                    dbc.Button([html.I(className="bi bi-funnel-fill me-2"), "Filtry"], 
+                               id="open-filters-btn", color="primary", className="fw-bold shadow-sm me-2"),
+                ], width="auto"),
 
-# --- 4. CALLBACKI ---
+                # 3. NOWY GUZIK (Opcje)
+                dbc.Col([
+                    dbc.Button([html.I(className="bi bi-gear-fill me-2"), "Opcje"], 
+                               id="open-extra-btn", color="info", className="fw-bold shadow-sm text-white"),
+                ], width="auto"),
+
+                dbc.Col(width=True) # Reszta pusta
+            ], 
+            className="align-items-center border-bottom px-3",
+            style={
+                "height": HEADER_HEIGHT, 
+                "overflow": "hidden", "position": "sticky", "top": "0", 
+                "backgroundColor": "white", "zIndex": 2000
+            }),
+
+            html.Div(id="page-content", className="p-4")
+            
+        ], fluid=True, className="p-0")
+    ], style={"flexGrow": 1, "padding": "0", "overflow": "auto", "height": "100vh"})
+], className="d-flex")# --- 4. CALLBACKI ---
+
 @app.callback(Output("page-content", "children"), Input("url", "pathname"))
 def render_page_content(pathname):
     if pathname == "/": 
@@ -443,10 +512,10 @@ def update_output(list_of_contents, list_of_names):
         return messages
     return "" # Pusty string jeśli nic nie wrzucono
 
-@app.callback(Output("sidebar", "is_open"), Input("sidebar-toggle", "n_clicks"), [State("sidebar", "is_open")])
-def toggle_sidebar(n, is_open):
-    if n: return not is_open
-    return is_open
+# @app.callback(Output("sidebar", "is_open"), Input("sidebar-toggle", "n_clicks"), [State("sidebar", "is_open")])
+# def toggle_sidebar(n, is_open):
+#     if n: return not is_open
+#     return is_open
 
 @app.callback(Output("tab-content", "children"), [Input("tabs", "active_tab"), Input("store", "data")])
 def render_tab_content(active_tab, data):
@@ -808,5 +877,220 @@ def update_quad_charts(start_date, end_date, min_duration, filter_values, afk_mo
         # #4: Ranking Userów (Kolor = Aplikacja)
         generate_fig(type4, agg_4, 'osoba', app_col, f"Ranking (Top {limit_4} App)")
     )
+
+@app.callback(
+    [Output('smart-left-type', 'options'), Output('smart-left-type', 'value'),
+     Output('smart-right-type', 'options'), Output('smart-right-type', 'value')],
+    [Input('smart-left-scope', 'value'), Input('smart-right-scope', 'value')]
+)
+def update_smart_options(left_scope, right_scope):
+    """
+    Dynamicznie zmienia listę dostępnych wykresów w zależności od tego,
+    czy wybrano tryb 'comparison' czy konkretną osobę.
+    """
+    
+    def get_opts(scope):
+        if scope == 'comparison':
+            return [
+                {'label': 'Ranking (Paskowy)', 'value': 'bar_h'},
+                {'label': 'Porównanie (Słupki)', 'value': 'bar'},
+                {'label': 'Struktura (Stacked 100%)', 'value': 'bar_stack'}
+            ], 'bar_h'
+        else:
+            return [
+                {'label': 'Kołowy (Pie)', 'value': 'pie'},
+                {'label': 'Pierścieniowy (Donut)', 'value': 'donut'},
+                {'label': 'Paskowy (Bar H)', 'value': 'bar_h'},
+                {'label': 'Kolumnowy (Bar V)', 'value': 'bar'}
+            ], 'pie' # Dla osoby domyślnie kołowy
+
+    l_opts, l_val = get_opts(left_scope)
+    r_opts, r_val = get_opts(right_scope)
+    
+    return l_opts, l_val, r_opts, r_val
+
+@app.callback(
+    [
+        Output("sidebar", "is_open"),           # 1. Stan Sidebara
+        Output("filters-offcanvas", "is_open"), # 2. Stan Filtrów
+        Output("filters-offcanvas", "style"),   # 3. Pozycja Filtrów
+        Output("extra-offcanvas", "is_open"),   # 4. Stan Extra
+        Output("extra-offcanvas", "style"),     # 5. Pozycja Extra
+    ],
+    [
+        Input("sidebar-toggle", "n_clicks"),
+        Input("open-filters-btn", "n_clicks"),
+        Input("open-extra-btn", "n_clicks"),
+    ],
+    [
+        State("sidebar", "is_open"),
+        State("filters-offcanvas", "is_open"),
+        State("extra-offcanvas", "is_open"),
+    ]
+)
+def manage_layout(n_side, n_filt, n_extra, side_open, filt_open, extra_open):
+    # Sprawdzamy, który guzik został kliknięty
+    ctx_id = ctx.triggered_id
+
+    # 1. AKTUALIZACJA STANÓW (OTWARTE/ZAMKNIĘTE)
+    if ctx_id == "sidebar-toggle":
+        side_open = not side_open
+    elif ctx_id == "open-filters-btn":
+        filt_open = not filt_open
+    elif ctx_id == "open-extra-btn":
+        extra_open = not extra_open
+
+    # 2. OBLICZANIE PUNKTU STARTOWEGO (OFFSET)
+    # Jeśli sidebar otwarty, startujemy od 16rem. Jeśli zamknięty, od 0.
+    # Uwaga: 16rem to ok. 256px, ale dla bezpieczeństwa w CSS użyjemy stringa calc()
+    base_offset_css = "16rem" if side_open else "0px"
+
+    # 3. OBLICZANIE POZYCJI PANELI (LOGIKA SLOTÓW)
+    
+    # Styl bazowy
+    style_filt = get_base_panel_style()
+    style_extra = get_base_panel_style()
+
+    # --- Logika dla Panelu 1 (Filtry) ---
+    # Filtry zawsze chcą być pierwsze (Slot 1)
+    style_filt["left"] = base_offset_css
+    
+    # --- Logika dla Panelu 2 (Extra) ---
+    if filt_open:
+        # Jeśli Filtry są otwarte, Extra musi stanąć OBOK nich (Slot 2)
+        # Używamy CSS calc: Base + Szerokość Panelu
+        style_extra["left"] = f"calc({base_offset_css} + {PANEL_WIDTH})"
+    else:
+        # Jeśli Filtry są zamknięte, Extra zajmuje pierwsze wolne miejsce (Slot 1)
+        style_extra["left"] = base_offset_css
+
+    # 4. ZWROT WYNIKÓW
+    return side_open, filt_open, style_filt, extra_open, style_extra
+@app.callback(
+    [Output('smart-left-chart', 'figure'), Output('smart-right-chart', 'figure')],
+    [
+        Input('watcher-date-picker', 'start_date'),
+        Input('watcher-date-picker', 'end_date'),
+        Input('min-duration-input', 'value'),
+        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+        Input('afk-mode-selector', 'value'),
+        
+        # Nowe Inputy z inteligentnych okien
+        Input('smart-left-scope', 'value'),  # Kto? (Lewe)
+        Input('smart-left-type', 'value'),   # Jaki wykres? (Lewe)
+        
+        Input('smart-right-scope', 'value'), # Kto? (Prawe)
+        Input('smart-right-type', 'value'),  # Jaki wykres? (Prawe)
+        Input('smart-right-limit', 'value')  # Top N (Prawe)
+    ],
+    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
+)
+def update_smart_charts(start_date, end_date, min_duration, filter_values, afk_mode, 
+                        l_scope, l_type, 
+                        r_scope, r_type, r_limit,
+                        filter_ids):
+
+    # --- 1. FILTROWANIE GLOBALNE (Standard) ---
+    empty = go.Figure().update_layout(title="Brak danych", template='plotly_white')
+    if df.empty: return empty, empty
+
+    s_date = pd.to_datetime(start_date).date() if start_date else df['timestamp'].min().date()
+    e_date = pd.to_datetime(end_date).date() if end_date else df['timestamp'].max().date()
+
+    allowed = set()
+    if filter_values:
+        for val, id_dict in zip(filter_values, filter_ids):
+            if val: allowed.add((id_dict['user'], id_dict['device']))
+    else:
+        allowed = set(zip(df['osoba'], df['device']))
+
+    mask_date = (df['timestamp'].dt.date >= s_date) & (df['timestamp'].dt.date <= e_date)
+    min_dur_sec = (min_duration or 0) * 60
+    mask_dur = df['duration'] >= min_dur_sec
+    mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed, axis=1)
+    
+    main_df = df[mask_date & mask_dur & mask_dev].copy()
+
+    if 'status' in main_df.columns:
+        if afk_mode == 'active_only': main_df = main_df[main_df['status'] != 'afk']
+        elif afk_mode == 'afk_only': main_df = main_df[main_df['status'] == 'afk']
+
+    if main_df.empty: return empty, empty
+
+    # --- 2. PRZYGOTOWANIE KOLUMN ---
+    cat_col = 'category' if 'category' in main_df.columns else 'activity'
+    app_col = 'app' if 'app' in main_df.columns else cat_col # Fallback
+
+    # --- 3. UNIWERSALNA FUNKCJA GENERUJĄCA WYKRES ---
+    def build_chart(scope, chart_type, data_source, group_col, limit=None):
+        """
+        scope: 'comparison' lub nazwa usera
+        chart_type: 'bar', 'pie', etc.
+        data_source: przefiltrowany DataFrame
+        group_col: po czym grupujemy (kategoria lub app)
+        limit: opcjonalny limit Top N
+        """
+        local_df = data_source.copy()
+
+        # A. FILTRACJA ZAKRESU (Osoba czy Wszyscy?)
+        if scope != 'comparison':
+            local_df = local_df[local_df['osoba'] == scope]
+            if local_df.empty: return empty
+
+        # B. LOGIKA TOP N (Dla prawej strony)
+        if limit:
+            # Znajdź Top N wartości w całej wybranej populacji
+            top_vals = local_df.groupby(group_col)['duration'].sum().sort_values(ascending=False).head(limit).index
+            local_df = local_df[local_df[group_col].isin(top_vals)]
+
+        # C. AGREGACJA
+        # Jeśli Comparison -> Grupujemy po [Osoba, Kategoria] (żeby mieć kolory per kategoria)
+        # Jeśli Single User -> Grupujemy po [Kategoria]
+        
+        if scope == 'comparison':
+            # X=Osoba, Kolor=Kategoria
+            agg = local_df.groupby(['osoba', group_col])['duration'].sum().reset_index()
+            x_axis = 'osoba'
+            color_axis = group_col
+            title = "Ranking Zespołu"
+        else:
+            # X=Kategoria, Kolor=Kategoria
+            agg = local_df.groupby(group_col)['duration'].sum().reset_index()
+            x_axis = group_col
+            color_axis = group_col
+            title = f"Aktywność: {scope}"
+
+        agg['duration'] = (agg['duration'] / 3600).round(2)
+        agg = agg.sort_values(by='duration', ascending=True) # Sortowanie do wykresu
+
+        # D. RYSOWANIE
+        if chart_type in ['pie', 'donut']:
+            fig = px.pie(agg, names=x_axis, values='duration', hole=0.4 if chart_type=='donut' else 0)
+            fig.update_traces(textinfo='percent+label')
+        
+        elif chart_type == 'bar_h':
+            fig = px.bar(agg, x='duration', y=x_axis, color=color_axis, orientation='h', text_auto=True)
+            
+        elif chart_type == 'bar':
+            fig = px.bar(agg, x=x_axis, y='duration', color=color_axis, text_auto=True)
+            
+        elif chart_type == 'bar_stack':
+            # Specjalny tryb znormalizowany (kto ma jaki % udziału w pracy)
+            # W Plotly Express robi się to normalnym bar chartem, logika jest w danych
+            fig = px.bar(agg, x='duration', y=x_axis, color=color_axis, orientation='h', text_auto=True)
+            # Można dodać barnorm='percent' w update_layout jeśli chcesz % na osi
+
+        fig.update_layout(title=title, template='plotly_white', margin=dict(l=20, r=20, t=40, b=20))
+        return fig
+
+    # --- 4. WYWOŁANIE DLA LEWEJ I PRAWEJ STRONY ---
+    
+    # LEWA: Kategorie (bez limitu)
+    fig_left = build_chart(l_scope, l_type, main_df, cat_col, limit=None)
+    
+    # PRAWA: Aplikacje (z limitem Top N)
+    fig_right = build_chart(r_scope, r_type, main_df, app_col, limit=r_limit)
+
+    return fig_left, fig_right
 if __name__ == "__main__":
     app.run(debug=True, port=8888)
