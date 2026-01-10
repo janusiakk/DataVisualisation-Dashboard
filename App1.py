@@ -1,7 +1,7 @@
 import os, json, time, numpy as np, pandas as pd, dash
 import plotly.express as px, plotly.graph_objs as go, dash_bootstrap_components as dbc
 from dash import Input, Output, State, dcc, html, dash_table, ALL, MATCH, ctx
-# Start
+#region Start
 app = dash.Dash(
     __name__,
     external_stylesheets=[
@@ -17,7 +17,8 @@ for filename in os.listdir(DATA_FOLDER):
         filepath = os.path.join(DATA_FOLDER, filename)
         frames.append(pd.read_json(filepath))
 df = pd.concat(frames, ignore_index=True)
-# --- 1. FUNKCJE POMOCNICZE ---
+#endregion
+#region --- 1. FUNKCJE POMOCNICZE ---
 # --- DEFINICJA ZAWARTOŚCI FILTRÓW (OFFCANVAS) ---
 def get_base_panel_style(left_pos="0px"):
     return {
@@ -278,7 +279,8 @@ def create_filter_chips(df_in):
         rows_list.append(user_row)
         
     return html.Div(rows_list, className="p-2")
-# LAYOUTY (STRONY) ---
+#endregion
+#region --- 2. LAYOUTY (STRONY) ---
 # STRONA 1 : Użytkownicy /
 content_users = html.Div([
     html.H1("Panel kontroli danych wejściowych"),
@@ -356,7 +358,8 @@ content_addFile = html.Div([
     # MIEJSCE NA KOMUNIKAT ZWROTNY
     html.Div(id='output-file-upload', className="mt-4")
 ])
-# --- 3. GŁÓWNA STRUKTURA ---
+# endregion
+#region --- 3. GŁÓWNA STRUKTURA ---
 sidebar = html.Div(
     [
         html.H2("Menu", className="display-6"),
@@ -449,6 +452,8 @@ app.layout = html.Div([
         ], fluid=True, className="p-0")
     ], style={"flexGrow": 1, "padding": "0", "overflow": "auto", "height": "100vh"})
 ], className="d-flex")# --- 4. CALLBACKI ---
+#endregion
+# region CALLBACKS
 @app.callback(Output("page-content", "children"), Input("url", "pathname"))
 def render_page_content(pathname):
     if pathname == "/": 
@@ -1038,5 +1043,6 @@ def update_smart_charts(start_date, end_date, min_duration, filter_values, afk_m
     fig_right = build_chart(r_scope, r_type, main_df, app_col, limit=r_limit)
 
     return fig_left, fig_right
+# endregion
 if __name__ == "__main__":
     app.run(debug=True, port=8888)
