@@ -25,10 +25,3 @@ Przeglądanie aktywności na wielkim kalendarzu, możliwość wejścia w konkret
 ?Wielki podział doby
 
 ?Zakładka o śnie
-
-
-
-
-
-Ustawienia - może sie przyda
-Załąćz pliki - finalny QoL
