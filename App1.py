@@ -328,15 +328,16 @@ def create_options_for_weekly_screentime(df_in):
     categ_app_dropdown = dcc.Dropdown(
         id = 'Wybor-kateg-weekly-time',
         options=[
-            {'label': 'Kategoria', 'value': 'category'},
-            {'label': 'Aplikacja', 'value': 'app'}
+            {'label': 'według kategorii', 'value': 'category'},
+            {'label': 'według aplikacji', 'value': 'app'}
         ],
         value='category',  # domyślnie pierwsza opcja
         clearable=False,
         searchable=False
     )
-    dropdowns = dbc.Row(
-    [dbc.Col(osoba_dropdown),dbc.Col(categ_app_dropdown)],
+    dropdowns = dbc.Row([
+        dbc.Col([html.H6('Wybierz osobę',className="card-title mb-2 text-muted fw-bold"),osoba_dropdown]),
+        dbc.Col([html.H6('Metoda agregacji',className="card-title mb-2 text-muted fw-bold"),categ_app_dropdown])],
     #style={'display': 'flex', 'gap': '10px', 'alignItems': 'center'}
     )
     return dropdowns
@@ -372,7 +373,6 @@ content_watcher = html.Div([
 content_summary= html.Div([
     html.H1('Typowy tydzień'),
     dbc.Card(dbc.CardBody([
-        html.H6("Wybierz osobę", className="card-title mb-2 text-muted fw-bold"),
         create_options_for_weekly_screentime(df),
         dcc.Graph(id='weekly_hours_plotly',config={'displayModeBar': False})
     ]))
@@ -590,6 +590,9 @@ def weekly_hours(start_date, end_date, min_duration, filter_values, afk_mode,  f
     df2 = pd.merge(df2,Dni)
     df2['average_activity'] = df2['total_activity'] / df2['n']
     # Tworze wykres
+    # Podpis legendy
+    tytuly = {'category': 'kategorie','app': 'aplikacje'}
+
     df3 = df2[df2['osoba'] == osoba]
     ylim = np.ceil(df2.groupby(['osoba','weekday'])['average_activity'].sum().reset_index()['average_activity'].max())
     plot = px.bar(df3,
@@ -597,7 +600,7 @@ def weekly_hours(start_date, end_date, min_duration, filter_values, afk_mode,  f
             y = 'average_activity',
             color=agregator,
             category_orders={'weekday':['Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota','Niedziela']},
-            labels={'weekday':'dzień tygodnia','average_activity':'średnia aktywność (godz.)',agregator:agregator},
+            labels={'weekday':'dzień tygodnia','average_activity':'średnia aktywność (godz.)',agregator:tytuly.get(agregator)},
             title=f"Średnia aktywność w dniach tygodnia: {osoba}",
             template='plotly_white',
             range_y=[0,ylim])
