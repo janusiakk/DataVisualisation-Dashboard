@@ -318,14 +318,28 @@ def create_options_for_weekly_screentime(df_in):
     # 2. Budujemy opcje głównego Dropdowna (Scope)
     # Mamy  listę osób
     opcje = [{'label': f"👤 {u}", 'value': u} for u in unique_users]
-    dropdown =  dcc.Dropdown(
+    osoba_dropdown =  dcc.Dropdown(
     id=f'Wybor-osoby-weekly-time',
     options=opcje,
     value=unique_users[0], # Domyślnie pierwszy z listy
     clearable=False, searchable=False,
     style={'fontSize': '0.85rem'}
     )
-    return dropdown
+    categ_app_dropdown = dcc.Dropdown(
+        id = 'Wybor-kateg-weekly-time',
+        options=[
+            {'label': 'Kategoria', 'value': 'category'},
+            {'label': 'Aplikacja', 'value': 'app'}
+        ],
+        value='category',  # domyślnie pierwsza opcja
+        clearable=False,
+        searchable=False
+    )
+    dropdowns = dbc.Row(
+    [dbc.Col(osoba_dropdown),dbc.Col(categ_app_dropdown)],
+    #style={'display': 'flex', 'gap': '10px', 'alignItems': 'center'}
+    )
+    return dropdowns
 
 #endregion
 #region --- 2. LAYOUTY (STRONY) ---
@@ -552,9 +566,10 @@ def update_output(list_of_contents, list_of_names):
         Input('afk-mode-selector', 'value'),
     ],
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
-    Input('Wybor-osoby-weekly-time','value')
+    Input('Wybor-osoby-weekly-time','value'),
+    Input('Wybor-kateg-weekly-time','value')
 )
-def weekly_hours(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids,osoba):
+def weekly_hours(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids,osoba,agregator):
     filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
     # dodajemy kolumny z nazwą i numerem tygodnia i godziną
     timestamp = filtered_df['timestamp']
@@ -565,8 +580,6 @@ def weekly_hours(start_date, end_date, min_duration, filter_values, afk_mode,  f
     filtered_df['weekday_number'] = timestamp_pl.dt.weekday + 1
     filtered_df['hour'] = timestamp_pl.dt.hour
     # Obliczam średni czas aktywności w danym dnium tygodniaz podziałem na kategorie
-    #agregator = "category"
-    agregator = "app"
     # Zliczam ile razy u danej osoby wystąpił dany dzień tygodnia
     Dni = filtered_df[['osoba',"weekday","weekday_number","day_of_year"]].drop_duplicates()
     Dni = Dni.groupby(["osoba","weekday","weekday_number"])['day_of_year'].aggregate(n = 'count').reset_index().sort_values(['osoba','weekday_number'])
