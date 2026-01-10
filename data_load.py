@@ -15,7 +15,7 @@ def classify_activity(combined):
         'data science', 'machine learning', 'ai', 'sztuczna inteligencja',
         'gemini', 'chatgpt', 'openai', 'claude', 'leon', 'usos', 'politechnika',
         'pochodna', 'całka', 'zapiski', 'laboratorium', 'projekt', 'studia',
-        '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack'
+        '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack','gemini'
     ]
     if any(k in combined for k in ds_keywords):
         return 'studia'
@@ -58,7 +58,7 @@ def classify_activity(combined):
 
     # 6. Nauka (Ogólna - jeśli nie wpadło do Data Science)
     learn_keywords = [
-        'wikipedia', 'wiki', 'kurs', 'course', 'udemy', 'coursera', 'edx', 
+        'wikipedia','obsidian' 'wiki', 'kurs', 'course', 'udemy', 'coursera', 'edx', 
         'duolingo', 'tłumacz', 'translate', 'słownik', 'dictionary', 'notion', 'obsidian'
     ]
     if any(k in combined for k in learn_keywords):
