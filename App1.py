@@ -1,6 +1,22 @@
 import os, json, numpy as np, pandas as pd, dash
 import plotly.express as px, plotly.graph_objs as go, dash_bootstrap_components as dbc
 from dash import Input, Output, State, dcc, html, dash_table, ALL, MATCH, ctx
+from hashlib import md5
+from colorsys import hsv_to_rgb
+COLOURS = {'muzyka': '#5544ee', 
+           'nauka': '#ee4488', 
+           'studia': '#dd5544', 
+           'Komunikatory' : '#77ee44',
+           'gry komputerowe': '#8855aa',
+           'oglądanie filmów': '#998833',
+           'inne': '#00c0ff'}
+def get_colour(text: str) -> str:
+    if text in COLOURS.keys():
+        return COLOURS[text]
+    else:
+        h = int(md5(text.encode("utf-8")).hexdigest(), 16)
+        return "rgb(%d,%d,%d)" % tuple([int(i*255) for i in hsv_to_rgb(((h >> 10)%360)/360, 0.7+(0.3*(((h >> 20)%360)/360)), 0.8+(0.2*(((h >> 30)%360)/360)))])
+
 #region Start
 app = dash.Dash(
     __name__,
@@ -213,13 +229,13 @@ def get_data_summary():
                     summary_list.append({
                         'Osoba': first_record.get('osoba', 'N/A'),
                         'Plik': filename,
-                        'Data Od': data[0].get('timestamp', 'N/A'),
-                        'Data Do': data[-1].get('timestamp', 'N/A'),
+                        'Data Od': str(min([pd.to_datetime(i["timestamp"], format="ISO8601", utc=True) for i in data]).strftime("%d.%m.%Y %H:%M:%S")),
+                        'Data Do': str(max([pd.to_datetime(i["timestamp"], format="ISO8601", utc=True) for i in data]).strftime("%d.%m.%Y %H:%M:%S")),
                         'Liczba rekordów': len(data),
                         'Urządzenie': first_record.get('device', 'N/A')
                     })
-            except Exception:
-                pass
+            except Exception as e:
+                print(e)
     return pd.DataFrame(summary_list)
 def create_users_tables_view():
     df = get_data_summary()
@@ -567,7 +583,7 @@ sidebar = html.Div(
             dbc.NavLink("Podsumowanie", href="/summary", active="exact"),
             dbc.NavLink("Oś czasu", href="/timeline", active="exact"),
             dbc.NavLink("Ustawienia", href="/settings", active="exact"),
-            dbc.NavLink("Załącz pliki", href="/addFile", active="exact"),
+            #dbc.NavLink("Załącz pliki", href="/addFile", active="exact"), # raczej do wycofania
         ], vertical=True, pills=True),
     ],
     style={"width": "16rem", "height": "100vh", "background-color": "#f8f9fa", "padding": "2rem 1rem"}
@@ -1005,7 +1021,10 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
             customdata=custom_d,
             width=0.8,
             opacity=0.8,
-            marker=dict(line=dict(width=0))
+            marker=dict(
+                color=get_colour(str(item)),
+                line=dict(width=0)),
+
         ))
 
     # 7. Layout
@@ -1110,13 +1129,14 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
     # Tworze wykres
     # Podpis legendy
     tytuly = {'category': 'kategorie','app': 'aplikacje'}
-
+    cols2 = {i: get_colour(i) for i in filtered_df[agregator]}
     df3 = df2[df2['osoba'] == osoba]
     ylim = np.ceil(df2.groupby(['osoba','weekday'])['average_activity'].sum().reset_index()['average_activity'].max())
     plot = px.bar(df3,
             x='weekday',
             y = 'average_activity',
             color=agregator,
+            color_discrete_map=cols2,
             category_orders={'weekday':['Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota','Niedziela']},
             labels={'weekday':'dzień tygodnia','average_activity':'średnia aktywność (godz.)',agregator:tytuly.get(agregator)},
             title=f"Średnia aktywność w dniach tygodnia: {osoba}",
@@ -1630,21 +1650,23 @@ def update_smart_charts(start_date, end_date, min_duration, filter_values, afk_m
         agg['duration'] = (agg['duration'] / 3600).round(2)
         agg = agg.sort_values(by='duration', ascending=True) # Sortowanie do wykresu
 
+        cols = {i: get_colour(i) for i in agg[color_axis].unique()}
+
         # D. RYSOWANIE
         if chart_type in ['pie', 'donut']:
-            fig = px.pie(agg, names=x_axis, values='duration', hole=0.4 if chart_type=='donut' else 0)
+            fig = px.pie(agg, names=x_axis, values='duration', hole=0.4 if chart_type=='donut' else 0, color_discrete_map=cols)
             fig.update_traces(textinfo='percent+label')
         
         elif chart_type == 'bar_h':
-            fig = px.bar(agg, x='duration', y=x_axis, color=color_axis, orientation='h', text_auto=True)
+            fig = px.bar(agg, x='duration', y=x_axis, color=color_axis, orientation='h', text_auto=True, color_discrete_map=cols)
             
         elif chart_type == 'bar':
-            fig = px.bar(agg, x=x_axis, y='duration', color=color_axis, text_auto=True)
+            fig = px.bar(agg, x=x_axis, y='duration', color=color_axis, text_auto=True, color_discrete_map=cols)
             
         elif chart_type == 'bar_stack':
             # Specjalny tryb znormalizowany (kto ma jaki % udziału w pracy)
             # W Plotly Express robi się to normalnym bar chartem, logika jest w danych
-            fig = px.bar(agg, x='duration', y=x_axis, color=color_axis, orientation='h', text_auto=True)
+            fig = px.bar(agg, x='duration', y=x_axis, color=color_axis, orientation='h', text_auto=True, color_discrete_map=cols)
             # Można dodać barnorm='percent' w update_layout jeśli chcesz % na osi
 
         fig.update_layout(title=title, template='plotly_white', margin=dict(l=20, r=20, t=40, b=20))

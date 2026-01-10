@@ -15,7 +15,8 @@ def classify_activity(combined):
         'data science', 'machine learning', 'ai', 'sztuczna inteligencja',
         'gemini', 'chatgpt', 'openai', 'claude', 'leon', 'usos', 'politechnika',
         'pochodna', 'całka', 'zapiski', 'laboratorium', 'projekt', 'studia',
-        '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack', 'gemini', 'dysk'
+        '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack', 'gemini', 'dysk',
+        'intellij'
     ]
     if any(k in combined for k in ds_keywords):
         return 'studia'
@@ -35,8 +36,10 @@ def classify_activity(combined):
         'cs', 'counter-strike', 'minecraft', 'roblox', 'fortnite', 'gta', 
         'wiedźmin', 'cyberpunk', 'blizzard', 'battlenet', 'ubisoft', 'game', 
         'gra', 'binding of isaac', 'hollow knight', 'clash of clans', 'half-life', 'half life',
-        'oldboy', 'myboy', 'melonds', 'drastic', 'citra', 'clash royale', 'sandfall'
-    ]
+        'oldboy', 'myboy', 'melonds', 'drastic', 'citra', 'clash royale', 'sandfall', 'aces',
+        'javaw', # minecraft
+
+        ]
     if any(k in combined for k in game_keywords):
         return 'gry komputerowe'
 
