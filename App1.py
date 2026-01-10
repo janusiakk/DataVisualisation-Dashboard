@@ -428,45 +428,84 @@ content_summary= html.Div([
 content_timeline = html.Div([
     # html.H2("Oś Czasu - Tygodniowy Harmonogram", className="mb-4 display-6 text-primary"),
     
-    # 1. JEDEN WSPÓLNY PANEL STEROWANIA
-    dbc.Card([
+    # 1. PANEL GŁÓWNY (Osoba + Tydzień)
+    # ZMIANA: Dodano id='timeline-card-selection'
+    dbc.Card(id='timeline-card-selection', children=[
         dbc.CardBody([
-            
-            # --- SEKCJA A: DROPDOWNY ---
             dbc.Row([
                 dbc.Col([
                     html.Label("Wybierz Osobę:", className="fw-bold small"),
                     dcc.Dropdown(id='timeline-user-select', placeholder="Wybierz użytkownika...", clearable=False)
                 ], width=12, md=4),
-                
                 dbc.Col([
                     html.Label("Wybierz Tydzień:", className="fw-bold small"),
                     dcc.Dropdown(id='timeline-week-select', placeholder="Najpierw wybierz osobę...", clearable=False)
                 ], width=12, md=8),
-            ], className="g-3 align-items-end mb-4"), # mb-4 daje odstęp od sekcji poniżej
-
-            # --- SEKCJA B: SUWAK (Wydzielony tłem, bez kreski) ---
-            html.Div([                              
-                dcc.RangeSlider(
-                    id='timeline-slider',
-                    min=0, 
-                    max=24, 
-                    step=1, 
-                    value=[0, 24], 
-                    marks={i: {'label': f'{i}:00', 'style': {'fontSize': '10px'}} for i in range(0, 25)}, 
-                    allowCross=False, 
-                    pushable=1
-                )
-            ], className="bg-light bg-opacity-75 rounded-3 p-3") 
-            # ^^^ KLUCZOWE KLASY:
-            # bg-light: jasnoszare tło
-            # rounded-3: zaokrąglone rogi
-            # p-3: padding wewnątrz szarego pola
+            ], className="g-3 align-items-end mb-4"),
             
         ], className="p-4")
     ], className="shadow-sm mb-4"),
 
-    # 2. WYKRES
+    # 2. PANEL ZE SLIDEREM
+    # ZMIANA: Dodano id='timeline-card-slider'
+    dbc.Card(id='timeline-card-slider', children=[
+        html.Div([
+                html.Label("🔎 Zakres doby:", className="small text-muted fw-bold mb-3 ms-1"),
+                dcc.RangeSlider(
+                    id='timeline-slider',
+                    min=0, max=24, step=1, value=[0, 24], 
+                    marks={i: {'label': f'{i}:00', 'style': {'fontSize': '10px'}} for i in range(0, 25)}, 
+                    allowCross=False, pushable=1
+                )
+            ], className="bg-light bg-opacity-75 rounded-3 p-3")
+    ], className="shadow-sm mb-4"),
+
+    # 3. PANEL FILTROWANIA (Fasolki)
+    # ZMIANA: Dodano id='timeline-card-filters'
+    dbc.Card(id='timeline-card-filters', children=[
+        dbc.CardBody([
+            dbc.Row([
+                dbc.Col([                    
+                    dbc.RadioItems(
+                        id="timeline-mode-switch",
+                        options=[{"label": "Kategorie", "value": "category"}, {"label": "Aplikacje", "value": "app"}],
+                        value="category",
+                        inline=True,
+                        className="btn-group",
+                        inputClassName="btn-check",
+                        labelClassName="btn btn-outline-primary",
+                        labelCheckedClassName="active"
+                    ),
+                ], width=12, md=2, className="border-end pe-2"),
+
+                dbc.Col([                                               
+                    dcc.Loading(
+                        html.Div([
+                            html.Div([
+                                dbc.Button("Zaznacz wszystko", id="timeline-btn-all", size="sm", outline=True, color="dark", className="me-1 rounded-pill"),
+                                dbc.Button("Odznacz", id="timeline-btn-none", size="sm", outline=True, color="dark", className="rounded-pill")
+                            ], 
+                            className="d-inline-block border-end pe-2 me-3 flex-shrink-0"), 
+
+                            html.Div([
+                                dbc.Checklist(
+                                    id="timeline-top-filter",
+                                    options=[], value=[], inline=True,
+                                    input_class_name="btn-check",
+                                    label_class_name="btn btn-outline-secondary rounded-pill mb-1",
+                                    label_checked_class_name="active btn-secondary text-white",
+                                )
+                            ], className="flex-grow-1") 
+                            
+                        ], className="d-flex align-items-start"), 
+                        type="dot", color="#6c757d"
+                    )
+                ], width=12, md=10, className="ps-md-2")
+            ], className="align-items-start")
+        ], className="py-3")
+    ], className="shadow-sm mb-4"),
+
+    # 4. WYKRES (Tego nie chowamy)
     dbc.Card([
         dbc.CardBody([
             dcc.Loading(
@@ -591,8 +630,8 @@ app.layout = html.Div([
                         # text-primary -> Niebieski kolor (jak na stronach)
                         # fw-normal -> Zwykła grubość czcionki (bardziej elegancka)
                         # m-0 -> Brak marginesów
-                        # ms-4 -> Odstęp od guzików
-                        className="m-0 text-primary fw-normal ms-4",
+                        # ms-2 -> Odstęp od guzików
+                        className="m-0 text-primary fw-normal ms-0",
                         style={"letterSpacing": "1px", "fontSize": "3rem"}
                     ),
                     # ZMIANA: width="auto" sprawia, że kolumna jest tylko tak szeroka jak napis
@@ -618,6 +657,14 @@ app.layout = html.Div([
                     }),
                     width="auto",
                     className="d-flex align-items-center" # Wyśrodkowanie linii w pionie
+                ),
+                # --- SEKCJA 2: LOKALNA (TUTAJ WSKAKUJĄ GUZIKI) ---
+                # Bez tego ID guziki się nie pojawią!
+                dbc.Col(
+                    id="page-action-container", 
+                    children=[], # Domyślnie pusto
+                    width="auto",
+                    className="d-flex align-items-center"
                 ),
                 
                 # 5. WYPYCHACZ (To on zajmuje resztę miejsca po prawej)
@@ -691,8 +738,289 @@ def update_header_title(pathname):
     elif pathname == "/addFile": 
         return "Import Danych"
     return ""
+@app.callback(Output("page-action-container", "children"), Input("url", "pathname"))
+def display_timeline_toggle_buttons(pathname):
+    if pathname == "/timeline":
+        return [
+            # Guzik 1: Wybór Osoby
+            dbc.Button(
+                [html.I(className="bi bi-person-bounding-box")], 
+                id="btn-toggle-selection", 
+                color="success", 
+                # ZMIANA: Dodałem 'px-4' (szerszy) i 'py-2' (trochę wyższy, opcjonalnie)
+                className="shadow-sm text-white me-2 px-4", 
+                title="Pokaż/Ukryj wybór osoby"
+            ),
+            
+            # Guzik 2: Suwak Czasu
+            dbc.Button(
+                [html.I(className="bi bi-clock")], 
+                id="btn-toggle-slider", 
+                color="warning", 
+                # ZMIANA: Dodałem 'px-4'
+                className="shadow-sm text-white me-2 px-4",
+                title="Pokaż/Ukryj suwak czasu"
+            ),
+            
+            # Guzik 3: Filtry
+            dbc.Button(
+                [html.I(className="bi bi-tags")], 
+                id="btn-toggle-filters", 
+                color="danger", 
+                # ZMIANA: Dodałem 'px-4'
+                className="shadow-sm text-white px-4",
+                title="Pokaż/Ukryj filtry (Top 10)"
+            )
+        ]
+    return []
+
+
+@app.callback(
+    [Output("timeline-card-selection", "style"),
+     Output("timeline-card-slider", "style"),
+     Output("timeline-card-filters", "style")],
+    [Input("btn-toggle-selection", "n_clicks"),
+     Input("btn-toggle-slider", "n_clicks"),
+     Input("btn-toggle-filters", "n_clicks")],
+    [State("timeline-card-selection", "style"),
+     State("timeline-card-slider", "style"),
+     State("timeline-card-filters", "style")],
+    prevent_initial_call=True
+)
+def toggle_timeline_cards(n1, n2, n3, style1, style2, style3):
+    # Domyślne style (jeśli są None, to zamień na puste słowniki)
+    style1 = style1 or {}
+    style2 = style2 or {}
+    style3 = style3 or {}
+
+    # Sprawdzamy, który guzik został kliknięty
+    triggered_id = ctx.triggered_id
+
+    # Funkcja pomocnicza do przełączania widoczności
+    def toggle_display(current_style):
+        if current_style.get('display') == 'none':
+            return {} # Pokaż (usuń display:none)
+        else:
+            return {'display': 'none'} # Ukryj
+
+    # Logika sterowania
+    if triggered_id == "btn-toggle-selection":
+        style1 = toggle_display(style1)
+    elif triggered_id == "btn-toggle-slider":
+        style2 = toggle_display(style2)
+    elif triggered_id == "btn-toggle-filters":
+        style3 = toggle_display(style3)
+
+    return style1, style2, style3
 # endregion
 # region CALLBACK - WYKRESY
+# --- CALLBACK: GENEROWANIE FASOLEK (TOP 10) ---
+@app.callback(
+    [Output("timeline-top-filter", "options"),
+     Output("timeline-top-filter", "value")],
+    [
+        Input("timeline-mode-switch", "value"),
+        Input("timeline-user-select", "value"),
+        Input("timeline-week-select", "value"),
+        # Globalne
+        Input('watcher-date-picker', 'start_date'),
+        Input('watcher-date-picker', 'end_date'),
+        Input('min-duration-input', 'value'),
+        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+        Input('afk-mode-selector', 'value')
+    ],
+    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
+)
+def update_timeline_filter_options(mode, user, week, s_date, e_date, min_dur, f_vals, afk, f_ids):
+    # 1. Pobieramy dane (Globalne filtry)
+    df_filtered = create_filtered_df(s_date, e_date, min_dur, f_vals, afk, f_ids)
+    if df_filtered.empty or not user or not week:
+        return [], []
+
+    # Fix daty
+    df_filtered['timestamp'] = pd.to_datetime(df_filtered['timestamp'])
+    if df_filtered['timestamp'].dt.tz is not None:
+        df_filtered['timestamp'] = df_filtered['timestamp'].dt.tz_localize(None)
+
+    # 2. Filtrujemy do konkretnego tygodnia i usera
+    week_start = pd.Timestamp(week)
+    week_end = week_start + pd.Timedelta(days=7)
+    
+    df_week = df_filtered[
+        (df_filtered['osoba'] == user) & 
+        (df_filtered['timestamp'] >= week_start) & 
+        (df_filtered['timestamp'] < week_end)
+    ]
+
+    if df_week.empty:
+        return [], []
+
+    # 3. Agregacja Top 10 wg wybranego trybu
+    # Wybieramy kolumnę do grupowania
+    col_group = 'category' if mode == 'category' else ('app' if 'app' in df_week.columns else 'category')
+    
+    # Sumujemy czas
+    top_items = df_week.groupby(col_group)['duration'].sum().sort_values(ascending=False).head(10)
+    
+    # Tworzymy opcje
+    options = [{'label': item, 'value': item} for item in top_items.index]
+    
+    # Domyślnie zaznaczamy wszystko co znaleźliśmy
+    initial_value = [opt['value'] for opt in options]
+    
+    return options, initial_value
+
+
+# --- CALLBACK: OBSŁUGA GUZIKÓW SELECT ALL / DESELECT ALL ---
+@app.callback(
+    Output("timeline-top-filter", "value", allow_duplicate=True),
+    [Input("timeline-btn-all", "n_clicks"),
+     Input("timeline-btn-none", "n_clicks")],
+    [State("timeline-top-filter", "options")],
+    prevent_initial_call=True
+)
+def handle_select_buttons(n_all, n_none, options):
+    ctx_id = ctx.triggered_id
+    if ctx_id == "timeline-btn-all":
+        return [opt['value'] for opt in options]
+    elif ctx_id == "timeline-btn-none":
+        return []
+    return dash.no_update
+
+
+# --- CALLBACK: RYSOWANIE WYKRESU (ZAKTUALIZOWANY) ---
+@app.callback(
+    Output('timeline-graph', 'figure'),
+    [
+        Input('timeline-user-select', 'value'),
+        Input('timeline-week-select', 'value'),
+        Input('timeline-slider', 'value'),
+        # NOWE INPUTY
+        Input('timeline-mode-switch', 'value'), # Tryb (Cat/App)
+        Input('timeline-top-filter', 'value'),  # Wybrane fasolki
+        
+        # Globalne
+        Input('watcher-date-picker', 'start_date'),
+        Input('watcher-date-picker', 'end_date'),
+        Input('min-duration-input', 'value'),
+        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+        Input('afk-mode-selector', 'value')
+    ],
+    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
+)
+def update_timeline_graph(selected_user, start_of_week_str, slider_range, 
+                          mode, selected_filters, # Nowe argumenty
+                          start_date, end_date, min_dur, filter_values, afk_mode, filter_ids):
+    
+    if not selected_user or not start_of_week_str:
+        return go.Figure().update_layout(title="Wybierz użytkownika i tydzień", template='plotly_white')
+
+    if not slider_range: slider_range = [0, 24]
+
+    # 1. Dane
+    filtered_df = create_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids)
+    if filtered_df.empty: return go.Figure().update_layout(title="Brak danych", template='plotly_white')
+
+    filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp'])
+    if filtered_df['timestamp'].dt.tz is not None:
+        filtered_df['timestamp'] = filtered_df['timestamp'].dt.tz_localize(None)
+
+    # 2. Tydzień
+    week_start = pd.Timestamp(start_of_week_str)
+    week_end = week_start + pd.Timedelta(days=7)
+    
+    df_week = filtered_df[
+        (filtered_df['osoba'] == selected_user) & 
+        (filtered_df['timestamp'] >= week_start) & 
+        (filtered_df['timestamp'] < week_end)
+    ].copy()
+
+    if df_week.empty: return go.Figure().update_layout(title="Brak danych w tym tygodniu", template='plotly_white')
+
+    # 3. FILTROWANIE PO FASOLKACH (Kluczowa zmiana)
+    # Ustalamy kolumnę sterującą
+    target_col = 'category' if mode == 'category' else ('app' if 'app' in df_week.columns else 'category')
+    
+    # Zostawiamy tylko to, co jest zaznaczone na liście fasolek
+    if selected_filters is not None:
+        df_week = df_week[df_week[target_col].isin(selected_filters)]
+
+    if df_week.empty:
+        return go.Figure().update_layout(title="Odznaczono wszystkie elementy", template='plotly_white')
+
+    # 4. Etykiety Dni
+    days_labels = []
+    pl_days = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela']
+    for i in range(7):
+        current_day = week_start + pd.Timedelta(days=i)
+        label = f"{pl_days[i]} {current_day.strftime('%d.%m')}"
+        days_labels.append(label)
+
+   # 5. Agregacja
+    df_week['day_index'] = (df_week['timestamp'] - week_start).dt.days
+    df_week['y_label'] = df_week['day_index'].map(lambda x: days_labels[int(x)] if 0 <= x < 7 else None)
+    
+    # Grupujemy po target_col (żeby kolorować wg wybranego trybu)
+    group_keys = [pd.Grouper(key='timestamp', freq='15min'), target_col, 'y_label']
+    
+    # --- POPRAWKA TUTAJ ---
+    # Dodajemy 'app' do grupowania tylko jeśli istnieje I NIE JEST już wybrane jako target_col.
+    # Wcześniej dodawało 'app' zawsze, co przy trybie "Aplikacje" powodowało dublowanie klucza.
+    if 'app' in df_week.columns and target_col != 'app':
+        group_keys.append('app')
+    # ----------------------
+
+    df_res = df_week.groupby(group_keys)['duration'].sum().reset_index()
+    df_res = df_res[df_res['duration'] > 0]
+
+    df_res['start_decimal'] = df_res['timestamp'].dt.hour + (df_res['timestamp'].dt.minute / 60)
+    df_res['duration_h'] = df_res['duration'] / 3600
+
+    # 6. Rysowanie
+    fig = go.Figure()
+    
+    # Unikalne elementy do legendy (Kategorie lub Aplikacje)
+    unique_items = sorted(df_res[target_col].unique())
+
+    for item in unique_items:
+        subset = df_res[df_res[target_col] == item]
+        
+        # Tooltip content
+        if 'app' in subset.columns and mode == 'category':
+            # Tryb Kategoria: Pokaż nazwę apki w dymku
+            custom_d = subset[['app']]
+            hover_tmpl = f"<b>{item}</b><br>%{{customdata[0]}}<br>Start: %{{base:.2f}}<br>Czas: %{{x:.2f}}h<extra></extra>"
+        else:
+            # Tryb App: Pokaż po prostu nazwę (item)
+            custom_d = subset[[target_col]] # dummy
+            hover_tmpl = f"<b>{item}</b><br>Start: %{{base:.2f}}<br>Czas: %{{x:.2f}}h<extra></extra>"
+
+        fig.add_trace(go.Bar(
+            y=subset['y_label'],
+            x=subset['duration_h'],
+            base=subset['start_decimal'],
+            orientation='h',
+            name=str(item), # To co w legendzie
+            hovertemplate=hover_tmpl,
+            customdata=custom_d,
+            width=0.8,
+            opacity=0.8,
+            marker=dict(line=dict(width=0))
+        ))
+
+    # 7. Layout
+    fig.update_layout(
+        title=f"Harmonogram ({'Kategorie' if mode=='category' else 'Aplikacje'}): {selected_user} (Start: {week_start.strftime('%Y-%m-%d')})",
+        height=600,
+        template='plotly_white',
+        barmode='stack',
+        yaxis=dict(title="", categoryorder='array', categoryarray=days_labels, autorange="reversed", showgrid=True, gridcolor='#f0f0f0'),
+        xaxis=dict(title="Godzina Dnia", range=slider_range, tickmode='linear', dtick=1, showgrid=True, gridcolor='#e0e0e0', zeroline=False, side='top'),
+        legend=dict(orientation="h", y=-0.1, x=0.5, xanchor="center"),
+        margin=dict(l=100, r=20, t=80, b=40)
+    )
+
+    return fig
 # --- CALLBACK A: AKTUALIZACJA OPCJI W DROP-DOWNACH ---
 @app.callback(
     [
@@ -737,128 +1065,6 @@ def update_timeline_controls(current_user, current_week, start_date, end_date, m
 
     return user_opts, selected_user, week_opts, selected_week
 # --- CALLBACK B: RYSOWANIE WYKRESU TYGODNIOWEGO ---
-@app.callback(
-    Output('timeline-graph', 'figure'),
-    [
-        Input('timeline-user-select', 'value'),
-        Input('timeline-week-select', 'value'),
-        # NOWY INPUT: Suwak
-        Input('timeline-slider', 'value'),
-        
-        # Globalne
-        Input('watcher-date-picker', 'start_date'),
-        Input('watcher-date-picker', 'end_date'),
-        Input('min-duration-input', 'value'),
-        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
-        Input('afk-mode-selector', 'value')
-    ],
-    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
-)
-def update_timeline_graph(selected_user, start_of_week_str, slider_range, start_date, end_date, min_dur, filter_values, afk_mode, filter_ids):
-    # Bezpieczniki
-    if not selected_user or not start_of_week_str:
-        return go.Figure().update_layout(title="Wybierz użytkownika i tydzień", template='plotly_white')
-
-    # Domyślny zakres jeśli slider jeszcze nie załadował
-    if not slider_range: slider_range = [0, 24]
-
-    # 1. Dane globalne
-    filtered_df = create_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids)
-    if filtered_df.empty:
-        return go.Figure().update_layout(title="Brak danych", template='plotly_white')
-
-    filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp'])
-    if filtered_df['timestamp'].dt.tz is not None:
-        filtered_df['timestamp'] = filtered_df['timestamp'].dt.tz_localize(None)
-
-    # 2. Filtracja lokalna
-    week_start = pd.Timestamp(start_of_week_str)
-    week_end = week_start + pd.Timedelta(days=7)
-    
-    df_week = filtered_df[
-        (filtered_df['osoba'] == selected_user) & 
-        (filtered_df['timestamp'] >= week_start) & 
-        (filtered_df['timestamp'] < week_end)
-    ].copy()
-
-    if df_week.empty:
-        return go.Figure().update_layout(title="Brak danych w tym tygodniu", template='plotly_white')
-
-    # 3. Etykiety Dni
-    days_labels = []
-    pl_days = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela']
-    
-    for i in range(7):
-        current_day = week_start + pd.Timedelta(days=i)
-        label = f"{pl_days[i]} {current_day.strftime('%d.%m')}"
-        days_labels.append(label)
-
-    # 4. Przetwarzanie
-    df_week['day_index'] = (df_week['timestamp'] - week_start).dt.days
-    df_week['y_label'] = df_week['day_index'].map(lambda x: days_labels[int(x)] if 0 <= x < 7 else None)
-    
-    df_res = df_week.groupby(
-        [pd.Grouper(key='timestamp', freq='15min'), 'category', 'app', 'y_label']
-    )['duration'].sum().reset_index()
-    
-    df_res = df_res[df_res['duration'] > 0]
-
-    df_res['start_decimal'] = df_res['timestamp'].dt.hour + (df_res['timestamp'].dt.minute / 60)
-    df_res['duration_h'] = df_res['duration'] / 3600
-
-    # 5. Rysowanie
-    fig = go.Figure()
-    categories = sorted(df_res['category'].unique())
-
-    for cat in categories:
-        subset = df_res[df_res['category'] == cat]
-        
-        fig.add_trace(go.Bar(
-            y=subset['y_label'],
-            x=subset['duration_h'],
-            base=subset['start_decimal'],
-            orientation='h',
-            name=cat,
-            hovertemplate=f"<b>{cat}</b><br>%{{customdata[0]}}<br>Start: %{{base:.2f}}<br>Czas: %{{x:.2f}}h<extra></extra>",
-            customdata=subset[['app']],
-            width=0.8,
-            opacity=0.8,
-            marker=dict(line=dict(width=0))
-        ))
-
-    # 6. Layout
-    fig.update_layout(
-        title=f"Harmonogram: {selected_user} (Start: {week_start.strftime('%Y-%m-%d')})",
-        height=600,
-        template='plotly_white',
-        barmode='stack',
-        
-        yaxis=dict(
-            title="",
-            categoryorder='array',
-            categoryarray=days_labels,
-            autorange="reversed",
-            showgrid=True,
-            gridcolor='#f0f0f0'
-        ),
-        
-        xaxis=dict(
-            title="Godzina Dnia",
-            # --- ZMIANA: ZAKRES STEROWANY SUWAKIEM ---
-            range=slider_range, 
-            # -----------------------------------------
-            tickmode='linear',
-            dtick=1,
-            showgrid=True,
-            gridcolor='#e0e0e0',
-            zeroline=False,
-            side='top'
-        ),
-        legend=dict(orientation="h", y=-0.1, x=0.5, xanchor="center"),
-        margin=dict(l=100, r=20, t=80, b=40)
-    )
-
-    return fig
 @app.callback(
     Output('weekly_hours_plotly', 'figure'),
     [
