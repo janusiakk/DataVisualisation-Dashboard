@@ -4,6 +4,7 @@ import json
 from sys import argv
 
 def classify_activity(combined):    
+    combined = combined.lower()
     # 1. Studia (Data Science & Engineering focus)
     # Dodano MATLAB i LeON na podstawie podglądu pliku
     ds_keywords = [
@@ -23,7 +24,7 @@ def classify_activity(combined):
     comm_keywords = [
         'discord', 'messenger', 'whatsapp', 'signal', 'telegram', 'teams', 
         'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird',
-        'facebook', 'instagram', 'twitter', 'x.com', 'linkedin'
+        'facebook', 'instagram', 'twitter', 'x.com', 'linkedin', ' x — '
     ]
     if any(k in combined for k in comm_keywords):
         return 'Komunikatory'
@@ -33,7 +34,7 @@ def classify_activity(combined):
         'steam', 'epic games', 'riot', 'league of legends', 'lol', 'valorant', 
         'cs', 'counter-strike', 'minecraft', 'roblox', 'fortnite', 'gta', 
         'wiedźmin', 'cyberpunk', 'blizzard', 'battlenet', 'ubisoft', 'game', 
-        'gra', 'binding of isaac', 'hollow knight', 'clash of clans'
+        'gra', 'binding of isaac', 'hollow knight', 'clash of clans', 'half-life', 'half life'
     ]
     if any(k in combined for k in game_keywords):
         return 'gry komputerowe'
@@ -121,10 +122,12 @@ def load_desktop_data(watcher: str, afk: str, person: str) -> None:
     time_temp = max(df_final['end_time']).strftime("%d.%m.%Y")
     df_final["timestamp"] = df_final["timestamp"].dt.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
     df_final = df_final.drop(columns=["title", "end_time", "end_time_afk"])
+    df_final['status'] = np.where(df_final['app']=='LockApp.exe', 'afk', df_final['status'])
     df_final.to_json(
     f"Dane Dash\\PC-SUM-{person}-{time_temp}.json",
     orient="records",
-    indent=4
+    indent=4,
+    force_ascii=False
 )
 if __name__ == "__main__":
     load_desktop_data(f"Dane prywatne\\{argv[1]}.json", f"Dane prywatne\\{argv[2]}.json", argv[3])
