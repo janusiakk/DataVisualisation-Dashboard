@@ -1,16 +1,6 @@
-import os
-import json
-import time
-import dash
-import pandas as pd
-import dash_bootstrap_components as dbc
-import numpy as np
-import plotly.graph_objs as go
-import plotly.express as px
-from dash import Input, Output, State, dcc, html, dash_table, ALL
-from dash import MATCH,ctx
-
-
+import os, json, time, numpy as np, pandas as pd, dash
+import plotly.express as px, plotly.graph_objs as go, dash_bootstrap_components as dbc
+from dash import Input, Output, State, dcc, html, dash_table, ALL, MATCH, ctx
 # Start
 app = dash.Dash(
     __name__,
@@ -20,18 +10,13 @@ app = dash.Dash(
     ],
     suppress_callback_exceptions=True
 )
-
-
 DATA_FOLDER = 'Dane Dash/' #Folder do zczytania gotowych danych
 frames = []  
 for filename in os.listdir(DATA_FOLDER):
     if filename.endswith('.json'):
         filepath = os.path.join(DATA_FOLDER, filename)
         frames.append(pd.read_json(filepath))
-
-
 df = pd.concat(frames, ignore_index=True)
-
 # --- 1. FUNKCJE POMOCNICZE ---
 # --- DEFINICJA ZAWARTOŚCI FILTRÓW (OFFCANVAS) ---
 def get_base_panel_style(left_pos="0px"):
@@ -114,7 +99,6 @@ def create_global_filters_layout():
         
         html.Div(create_filter_chips(df), id='user-device-filters-container')
     ], className="p-1")
-
 def create_smart_slot(side, title, is_app_mode=False):
     
     
@@ -180,8 +164,6 @@ def create_smart_slot(side, title, is_app_mode=False):
         ], className="shadow-sm h-100"),
         width=12, md=6, className="mb-4"
     )
-
-
 def get_data_summary():
     summary_list = []
     if not os.path.exists(DATA_FOLDER):
@@ -206,7 +188,6 @@ def get_data_summary():
             except Exception:
                 pass
     return pd.DataFrame(summary_list)
-
 def create_users_tables_view():
     df = get_data_summary()
     if df.empty:
@@ -237,7 +218,6 @@ def create_users_tables_view():
         layout_elements.append(html.Hr())
         
     return html.Div(layout_elements)
-
 def process_uploaded_file(name,cos):
     return
 def create_filter_chips(df_in):
@@ -298,8 +278,6 @@ def create_filter_chips(df_in):
         rows_list.append(user_row)
         
     return html.Div(rows_list, className="p-2")
-    
-
 # LAYOUTY (STRONY) ---
 # STRONA 1 : Użytkownicy /
 content_users = html.Div([
@@ -307,9 +285,7 @@ content_users = html.Div([
     dbc.Alert("Poniżej znajduje się wykaz wczytanych plików.", color="light"),
     create_users_tables_view()
 ])
-
 # STRONA 2 : Obserwatorium /watcher
-
 content_watcher = html.Div([
     html.H2("Obserwatorium Danych", className="mb-4 display-6 text-primary"),
 
@@ -326,15 +302,22 @@ content_watcher = html.Div([
         create_smart_slot('right', "Analiza Aplikacji (Top N)", is_app_mode=True)
     ]),
 
-    html.Div(id='watcher-content-container')
+    #html.Div(id='watcher-content-container')
 ])
 # STRONA 3 : Podsumowanie /summary
-content_summary=[]
+content_summary= html.Div([
+    html.H1('Test AK'),
+    dash_table.DataTable(
+        data=df.head().to_dict('records'),
+        columns=[{"name": i, "id": i} for i in df.columns],
+        page_size=5,
+        style_table={'overflowX': 'auto'}
+    )
+])
 # STRONA 4 : Oś czasu /timeline
 content_timeline=[]
 # STRONA 5 : Ustawienia /settings
 content_settings = html.Div([html.H1("Ustawienia"), dbc.Alert("Panel administracyjny.", color="dark")])
-
 # STRONA 6 : Dodaj nowe pliki /addFile (Docelowo to będzie surowy activity watch)
 content_addFile = html.Div([
     html.H1("Dodaj nowe dane"),
@@ -373,7 +356,6 @@ content_addFile = html.Div([
     # MIEJSCE NA KOMUNIKAT ZWROTNY
     html.Div(id='output-file-upload', className="mt-4")
 ])
-
 # --- 3. GŁÓWNA STRUKTURA ---
 sidebar = html.Div(
     [
@@ -390,12 +372,10 @@ sidebar = html.Div(
     ],
     style={"width": "16rem", "height": "100vh", "background-color": "#f8f9fa", "padding": "2rem 1rem"}
 )
-
 # --- STAŁE WYMIARY ---
 HEADER_HEIGHT = "70px"
 PANEL_WIDTH_NUM = 545      # Szerokość w pikselach (int do obliczeń)
 PANEL_WIDTH = f"{PANEL_WIDTH_NUM}px" # String do CSS
-
 filters_panel = dbc.Offcanvas(
     children=[create_global_filters_layout()],
     id="filters-offcanvas",
@@ -404,12 +384,10 @@ filters_panel = dbc.Offcanvas(
     # Styl startowy (zostanie nadpisany przez callback, ale musi być)
     style=get_base_panel_style("16rem") 
 )
-
 # Zwiększenie warstwy panel 2
 extra_panel_style = get_base_panel_style("16rem")
 # Ręcznie podbijamy warstwę (baza ma 1045)
 extra_panel_style["zIndex"] = 1060 
-
 extra_panel = dbc.Offcanvas(
     children=[
         html.H6("⚙️ Dodatkowe Opcje", className="fw-bold text-primary mb-3"),
@@ -422,7 +400,6 @@ extra_panel = dbc.Offcanvas(
     placement="top", scrollable=True, backdrop=False, is_open=False,
     style=extra_panel_style
 )
-
 app.layout = html.Div([
     dcc.Location(id="url", refresh=False),
     
@@ -472,7 +449,6 @@ app.layout = html.Div([
         ], fluid=True, className="p-0")
     ], style={"flexGrow": 1, "padding": "0", "overflow": "auto", "height": "100vh"})
 ], className="d-flex")# --- 4. CALLBACKI ---
-
 @app.callback(Output("page-content", "children"), Input("url", "pathname"))
 def render_page_content(pathname):
     if pathname == "/": 
@@ -490,7 +466,6 @@ def render_page_content(pathname):
     
     # Obsługa błędu 404
     return dbc.Alert(f"404: Nie znaleziono strony o adresie {pathname}", color="danger")
-
 @app.callback(Output('output-file-upload', 'children'),
               Input('upload-data', 'contents'),
               State('upload-data', 'filename'))
@@ -511,30 +486,6 @@ def update_output(list_of_contents, list_of_names):
             )
         return messages
     return "" # Pusty string jeśli nic nie wrzucono
-
-# @app.callback(Output("sidebar", "is_open"), Input("sidebar-toggle", "n_clicks"), [State("sidebar", "is_open")])
-# def toggle_sidebar(n, is_open):
-#     if n: return not is_open
-#     return is_open
-
-@app.callback(Output("tab-content", "children"), [Input("tabs", "active_tab"), Input("store", "data")])
-def render_tab_content(active_tab, data):
-    if active_tab and data:
-        if active_tab == "scatter": return dcc.Graph(figure=data["scatter"])
-        elif active_tab == "histogram": return dbc.Row([dbc.Col(dcc.Graph(figure=data["hist_1"]), width=6), dbc.Col(dcc.Graph(figure=data["hist_2"]), width=6)])
-    return "Kliknij 'Generuj Wykresy'."
-
-@app.callback(Output("store", "data"), [Input("button", "n_clicks")])
-def generate_graphs(n):
-    if not n: return None
-    time.sleep(0.5)
-    data = np.random.multivariate_normal([0, 0], [[1, 0.5], [0.5, 1]], 100)
-    return {
-        "scatter": go.Figure(data=[go.Scatter(x=data[:, 0], y=data[:, 1], mode="markers")]),
-        "hist_1": go.Figure(data=[go.Histogram(x=data[:, 0])]),
-        "hist_2": go.Figure(data=[go.Histogram(x=data[:, 1])])
-    }
-
 @app.callback(
     Output('summary-bar-chart', 'figure'),
     [
@@ -631,7 +582,6 @@ def update_watcher_chart(start_date, end_date, min_duration, filter_values, afk_
         )
 
     return fig
-
 # --- CALLBACK 2: OBSŁUGA PRZEŁĄCZNIKA (Master Switch) ---
 @app.callback(
     [
@@ -686,8 +636,7 @@ def toggle_user_devices(master_switch_on, device_ids, saved_memory):
                 new_disabled.append(True)
                 new_classes.append(f"{base_class} disabled opacity-50")
 
-    return new_values, new_disabled, new_classes
-    
+    return new_values, new_disabled, new_classes  
 # --- CALLBACK 1: ZAPAMIĘTYWANIE STANU (Memory Keeper) ---
 @app.callback(
     Output({'type': 'user-memory', 'user': MATCH}, 'data'),
@@ -712,7 +661,6 @@ def save_user_state(checkbox_values, is_master_on, checkbox_ids, current_memory)
         new_memory[device_name] = val
         
     return new_memory
-
 @app.callback(
     [
         Output('chart-1', 'figure'),
@@ -877,7 +825,6 @@ def update_quad_charts(start_date, end_date, min_duration, filter_values, afk_mo
         # #4: Ranking Userów (Kolor = Aplikacja)
         generate_fig(type4, agg_4, 'osoba', app_col, f"Ranking (Top {limit_4} App)")
     )
-
 @app.callback(
     [Output('smart-left-type', 'options'), Output('smart-left-type', 'value'),
      Output('smart-right-type', 'options'), Output('smart-right-type', 'value')],
@@ -908,7 +855,6 @@ def update_smart_options(left_scope, right_scope):
     r_opts, r_val = get_opts(right_scope)
     
     return l_opts, l_val, r_opts, r_val
-
 @app.callback(
     [
         Output("sidebar", "is_open"),           # 1. Stan Sidebara
