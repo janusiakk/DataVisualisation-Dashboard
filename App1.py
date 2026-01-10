@@ -357,8 +357,11 @@ content_watcher = html.Div([
 # STRONA 3 : Podsumowanie /summary
 content_summary= html.Div([
     html.H1('Typowy tydzień'),
-    create_options_for_weekly_screentime(df),
-    dcc.Graph(id='weekly_hours_plotly')
+    dbc.Card(dbc.CardBody([
+        html.H6("Wybierz osobę", className="card-title mb-2 text-muted fw-bold"),
+        create_options_for_weekly_screentime(df),
+        dcc.Graph(id='weekly_hours_plotly',config={'displayModeBar': False})
+    ]))
 ])
 # STRONA 4 : Oś czasu /timeline
 content_timeline=[]
@@ -562,19 +565,26 @@ def weekly_hours(start_date, end_date, min_duration, filter_values, afk_mode,  f
     filtered_df['weekday_number'] = timestamp_pl.dt.weekday + 1
     filtered_df['hour'] = timestamp_pl.dt.hour
     # Obliczam średni czas aktywności w danym dnium tygodniaz podziałem na kategorie
-    df2 = filtered_df.groupby(["osoba","weekday","weekday_number","category","day_of_year"])['duration'].aggregate(total_activity = "sum").reset_index()
-    df2 = df2.groupby(["osoba","weekday","weekday_number","category"])['total_activity'].aggregate(average_activity = "mean").reset_index()
-    df2['average_activity'] /= 3600
+    #agregator = "category"
+    agregator = "app"
+    # Zliczam ile razy u danej osoby wystąpił dany dzień tygodnia
+    Dni = filtered_df[['osoba',"weekday","weekday_number","day_of_year"]].drop_duplicates()
+    Dni = Dni.groupby(["osoba","weekday","weekday_number"])['day_of_year'].aggregate(n = 'count').reset_index().sort_values(['osoba','weekday_number'])
+
+    df2 = filtered_df.groupby(["osoba","weekday","weekday_number",agregator])['duration'].aggregate(total_activity = 'sum').reset_index()
+    df2['total_activity'] /= 3600
+    # Teraz podzilić przez liczbę zarejestrowanych dni
+    df2 = pd.merge(df2,Dni)
+    df2['average_activity'] = df2['total_activity'] / df2['n']
     # Tworze wykres
-    #osoba = "AK" # TODO
     df3 = df2[df2['osoba'] == osoba]
     ylim = np.ceil(df2.groupby(['osoba','weekday'])['average_activity'].sum().reset_index()['average_activity'].max())
     plot = px.bar(df3,
             x='weekday',
             y = 'average_activity',
-            color='category',
+            color=agregator,
             category_orders={'weekday':['Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota','Niedziela']},
-            labels={'weekday':'dzień tygodnia','average_activity':'średnia aktywność (godz.)','category':'kategoria'},
+            labels={'weekday':'dzień tygodnia','average_activity':'średnia aktywność (godz.)',agregator:agregator},
             title=f"Średnia aktywność w dniach tygodnia: {osoba}",
             template='plotly_white',
             range_y=[0,ylim])
