@@ -279,6 +279,39 @@ def create_filter_chips(df_in):
         rows_list.append(user_row)
         
     return html.Div(rows_list, className="p-2")
+def create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids):
+    """ Zwraca ramkę dannych przefiltrowaną zgodnie z głównym filtrem na górze. 
+        Callbacki wykresów będą z tego korzystać """
+     # 1. Sprawdzenie czy są dane
+    if df.empty:
+        return go.Figure().update_layout(title="Brak wczytanych danych")
+    
+    # 2. Logika filtrów (Data, Duration, Urządzenia) - BEZ ZMIAN
+    s_date = pd.to_datetime(start_date).date() if start_date else df['timestamp'].min().date()
+    e_date = pd.to_datetime(end_date).date() if end_date else df['timestamp'].max().date()
+
+    allowed_combinations = set()
+    if not filter_values:
+        allowed_combinations = set(zip(df['osoba'], df['device']))
+    else:
+        for val, id_dict in zip(filter_values, filter_ids):
+            if val:
+                allowed_combinations.add((id_dict['user'], id_dict['device']))
+
+    mask_date = (df['timestamp'].dt.date >= s_date) & (df['timestamp'].dt.date <= e_date)
+    min_duration_sec = (min_duration or 0) * 60
+    mask_dur = df['duration'] >= min_duration_sec
+    mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed_combinations, axis=1)
+    
+    filtered_df = df[mask_date & mask_dur & mask_dev].copy()
+
+    # 3. Filtr AFK - BEZ ZMIAN
+    if 'status' in filtered_df.columns:
+        if afk_mode == 'active_only':
+            filtered_df = filtered_df[filtered_df['status'] != 'afk']
+        elif afk_mode == 'afk_only':
+            filtered_df = filtered_df[filtered_df['status'] == 'afk']
+    return filtered_df
 #endregion
 #region --- 2. LAYOUTY (STRONY) ---
 # STRONA 1 : Użytkownicy /
@@ -309,13 +342,7 @@ content_watcher = html.Div([
 # STRONA 3 : Podsumowanie /summary
 content_summary= html.Div([
     html.H1('Test AK'),
-    dash_table.DataTable(
-        data=df.head().to_dict('records'),
-        columns=[{"name": i, "id": i} for i in df.columns],
-        page_size=5,
-        style_table={'overflowX': 'auto'}
-    ),
-    dcc.Graph(id='Testowy_wykres_plotly')
+    dcc.Graph(id='Testowy_wykres_plotly'),
 ])
 # STRONA 4 : Oś czasu /timeline
 content_timeline=[]
@@ -495,6 +522,12 @@ def update_output(list_of_contents, list_of_names):
     return "" # Pusty string jeśli nic nie wrzucono
 # endregion
 # region CALLBACK - WYKRESY
+# Testowy wykres
+@app.callback(Output('Testowy_wykres_plotly','figure'),Input('url', 'pathname'))
+def test_plotly(u):
+    plot = px.bar([1,2,3],[1,2,3])
+    return plot
+
 @app.callback(
     Output('summary-bar-chart', 'figure'),
     [
@@ -508,35 +541,8 @@ def update_output(list_of_contents, list_of_names):
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
 )
 def update_watcher_chart(start_date, end_date, min_duration, filter_values, afk_mode, chart_type, filter_ids):
-    # 1. Sprawdzenie czy są dane
-    if df.empty:
-        return go.Figure().update_layout(title="Brak wczytanych danych")
     
-    # 2. Logika filtrów (Data, Duration, Urządzenia) - BEZ ZMIAN
-    s_date = pd.to_datetime(start_date).date() if start_date else df['timestamp'].min().date()
-    e_date = pd.to_datetime(end_date).date() if end_date else df['timestamp'].max().date()
-
-    allowed_combinations = set()
-    if not filter_values:
-        allowed_combinations = set(zip(df['osoba'], df['device']))
-    else:
-        for val, id_dict in zip(filter_values, filter_ids):
-            if val:
-                allowed_combinations.add((id_dict['user'], id_dict['device']))
-
-    mask_date = (df['timestamp'].dt.date >= s_date) & (df['timestamp'].dt.date <= e_date)
-    min_duration_sec = (min_duration or 0) * 60
-    mask_dur = df['duration'] >= min_duration_sec
-    mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed_combinations, axis=1)
-    
-    filtered_df = df[mask_date & mask_dur & mask_dev].copy()
-
-    # 3. Filtr AFK - BEZ ZMIAN
-    if 'status' in filtered_df.columns:
-        if afk_mode == 'active_only':
-            filtered_df = filtered_df[filtered_df['status'] != 'afk']
-        elif afk_mode == 'afk_only':
-            filtered_df = filtered_df[filtered_df['status'] == 'afk']
+    filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
 
     if filtered_df.empty:
         return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
