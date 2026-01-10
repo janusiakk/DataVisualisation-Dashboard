@@ -31,7 +31,7 @@ def classify_activity(combined):
 
     # 3. Gry komputerowe
     game_keywords = [
-        'steam', 'epic games', 'riot', 'league of legends', 'lol', 'valorant', 
+        'steam','sandfall', 'epic games', 'riot', 'league of legends', 'lol', 'valorant', 
         'cs', 'counter-strike', 'minecraft', 'roblox', 'fortnite', 'gta', 
         'wiedźmin', 'cyberpunk', 'blizzard', 'battlenet', 'ubisoft', 'game', 
         'gra', 'binding of isaac', 'hollow knight', 'clash of clans', 'half-life', 'half life'
