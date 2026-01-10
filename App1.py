@@ -312,6 +312,21 @@ def create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mo
         elif afk_mode == 'afk_only':
             filtered_df = filtered_df[filtered_df['status'] == 'afk']
     return filtered_df
+def create_options_for_weekly_screentime(df_in):
+    # 1. Pobieramy listę użytkowników
+    unique_users = sorted(df_in['osoba'].astype(str).unique())
+    # 2. Budujemy opcje głównego Dropdowna (Scope)
+    # Mamy  listę osób
+    opcje = [{'label': f"👤 {u}", 'value': u} for u in unique_users]
+    dropdown =  dcc.Dropdown(
+    id=f'Wybor-osoby-weekly-time',
+    options=opcje,
+    #value='comparison', # Domyślnie tryb porównania
+    clearable=False, searchable=False,
+    style={'fontSize': '0.85rem'}
+    )
+    return dropdown
+
 #endregion
 #region --- 2. LAYOUTY (STRONY) ---
 # STRONA 1 : Użytkownicy /
@@ -341,8 +356,9 @@ content_watcher = html.Div([
 ])
 # STRONA 3 : Podsumowanie /summary
 content_summary= html.Div([
-    html.H1('Test AK'),
-    dcc.Graph(id='Testowy_wykres_plotly'),
+    #html.H1('Test AK'),
+    create_options_for_weekly_screentime(df),
+    dcc.Graph(id='weekly_hours_plotly')
 ])
 # STRONA 4 : Oś czasu /timeline
 content_timeline=[]
@@ -522,10 +538,45 @@ def update_output(list_of_contents, list_of_names):
     return "" # Pusty string jeśli nic nie wrzucono
 # endregion
 # region CALLBACK - WYKRESY
-# Testowy wykres
-@app.callback(Output('Testowy_wykres_plotly','figure'),Input('url', 'pathname'))
-def test_plotly(u):
-    plot = px.bar([1,2,3],[1,2,3])
+
+@app.callback(
+    Output('weekly_hours_plotly', 'figure'),
+    [
+        Input('watcher-date-picker', 'start_date'),
+        Input('watcher-date-picker', 'end_date'),
+        Input('min-duration-input', 'value'),
+        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+        Input('afk-mode-selector', 'value'),
+    ],
+    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
+)
+def weekly_hours(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids):
+    filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
+    # dodajemy kolumny z nazwą i numerem tygodnia i godziną
+    timestamp = filtered_df['timestamp']
+    timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
+    filtered_df['timestamp_pl'] = timestamp_pl
+    filtered_df['day_of_year'] = timestamp_pl.dt.day_of_year
+    filtered_df['weekday'] = timestamp_pl.dt.day_name('Pl')
+    filtered_df['weekday_number'] = timestamp_pl.dt.weekday + 1
+    filtered_df['hour'] = timestamp_pl.dt.hour
+    # Obliczam średni czas aktywności w danym dnium tygodniaz podziałem na kategorie
+    df2 = filtered_df.groupby(["osoba","weekday","weekday_number","category","day_of_year"])['duration'].aggregate(total_activity = "sum").reset_index()
+    df2 = df2.groupby(["osoba","weekday","weekday_number","category"])['total_activity'].aggregate(average_activity = "mean").reset_index()
+    df2['average_activity'] /= 3600
+    # Tworze wykres
+    osoba = "AK" # TODO
+    df3 = df2[df2['osoba'] == osoba]
+    ylim = np.ceil(df2.groupby(['osoba','weekday'])['average_activity'].sum().reset_index()['average_activity'].max())
+    plot = px.bar(df3,
+            x='weekday',
+            y = 'average_activity',
+            color='category',
+            category_orders={'weekday':['Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota','Niedziela']},
+            labels={'weekday':'dzień tygodnia','average_activity':'średnia aktywność (godz.)','category':'kategoria'},
+            title=f"Średnia aktywność w dniach tygodnia: {osoba}",
+            template='plotly_white',
+            range_y=[0,ylim])
     return plot
 
 @app.callback(
@@ -541,7 +592,7 @@ def test_plotly(u):
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
 )
 def update_watcher_chart(start_date, end_date, min_duration, filter_values, afk_mode, chart_type, filter_ids):
-    
+    # to co tu było wcześniej, teraz robi poniższa funkcja
     filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
 
     if filtered_df.empty:
