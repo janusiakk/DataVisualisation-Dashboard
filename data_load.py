@@ -15,7 +15,7 @@ def classify_activity(combined):
         'data science', 'machine learning', 'ai', 'sztuczna inteligencja',
         'gemini', 'chatgpt', 'openai', 'claude', 'leon', 'usos', 'politechnika',
         'pochodna', 'całka', 'zapiski', 'laboratorium', 'projekt', 'studia',
-        '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack'
+        '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack', 'dysk'
     ]
     if any(k in combined for k in ds_keywords):
         return 'studia'
@@ -24,7 +24,7 @@ def classify_activity(combined):
     comm_keywords = [
         'discord', 'messenger', 'whatsapp', 'signal', 'telegram', 'teams', 
         'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird',
-        'facebook', 'instagram', 'twitter', 'x.com', 'linkedin', ' x — '
+        'facebook', 'instagram', 'twitter', 'x.com', 'linkedin', ' x — ', 'reddit', 'telefon'
     ]
     if any(k in combined for k in comm_keywords):
         return 'Komunikatory'
@@ -34,7 +34,8 @@ def classify_activity(combined):
         'steam', 'epic games', 'riot', 'league of legends', 'lol', 'valorant', 
         'cs', 'counter-strike', 'minecraft', 'roblox', 'fortnite', 'gta', 
         'wiedźmin', 'cyberpunk', 'blizzard', 'battlenet', 'ubisoft', 'game', 
-        'gra', 'binding of isaac', 'hollow knight', 'clash of clans', 'half-life', 'half life'
+        'gra', 'binding of isaac', 'hollow knight', 'clash of clans', 'half-life', 'half life',
+        'oldboy', 'myboy', 'melonds', 'drastic', 'citra', 'clash royale', 'sandfall'
     ]
     if any(k in combined for k in game_keywords):
         return 'gry komputerowe'
@@ -43,7 +44,7 @@ def classify_activity(combined):
     video_keywords = [
         'youtube', 'youtu.be', 'netflix', 'hbo', 'disney', 'prime video', 
         'twitch', 'vlc', 'potplayer', 'cda', 'film', 'movie', 'serial', 
-        'wmplayer', 'windows media player'
+        'wmplayer', 'windows media player', 'vod'
     ]
     if any(k in combined for k in video_keywords):
         return 'oglądanie filmów'
