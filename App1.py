@@ -321,7 +321,7 @@ def create_options_for_weekly_screentime(df_in):
     dropdown =  dcc.Dropdown(
     id=f'Wybor-osoby-weekly-time',
     options=opcje,
-    #value='comparison', # Domyślnie tryb porównania
+    value=unique_users[0], # Domyślnie pierwszy z listy
     clearable=False, searchable=False,
     style={'fontSize': '0.85rem'}
     )
@@ -356,7 +356,7 @@ content_watcher = html.Div([
 ])
 # STRONA 3 : Podsumowanie /summary
 content_summary= html.Div([
-    #html.H1('Test AK'),
+    html.H1('Typowy tydzień'),
     create_options_for_weekly_screentime(df),
     dcc.Graph(id='weekly_hours_plotly')
 ])
@@ -548,9 +548,10 @@ def update_output(list_of_contents, list_of_names):
         Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
         Input('afk-mode-selector', 'value'),
     ],
-    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
+    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
+    Input('Wybor-osoby-weekly-time','value')
 )
-def weekly_hours(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids):
+def weekly_hours(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids,osoba):
     filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
     # dodajemy kolumny z nazwą i numerem tygodnia i godziną
     timestamp = filtered_df['timestamp']
@@ -565,7 +566,7 @@ def weekly_hours(start_date, end_date, min_duration, filter_values, afk_mode,  f
     df2 = df2.groupby(["osoba","weekday","weekday_number","category"])['total_activity'].aggregate(average_activity = "mean").reset_index()
     df2['average_activity'] /= 3600
     # Tworze wykres
-    osoba = "AK" # TODO
+    #osoba = "AK" # TODO
     df3 = df2[df2['osoba'] == osoba]
     ylim = np.ceil(df2.groupby(['osoba','weekday'])['average_activity'].sum().reset_index()['average_activity'].max())
     plot = px.bar(df3,
