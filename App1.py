@@ -314,7 +314,8 @@ content_summary= html.Div([
         columns=[{"name": i, "id": i} for i in df.columns],
         page_size=5,
         style_table={'overflowX': 'auto'}
-    )
+    ),
+    dcc.Graph(id='Testowy_wykres_plotly')
 ])
 # STRONA 4 : Oś czasu /timeline
 content_timeline=[]
@@ -454,6 +455,7 @@ app.layout = html.Div([
 ], className="d-flex")# --- 4. CALLBACKI ---
 #endregion
 # region CALLBACKS
+# region CALLBACK - PAGE LOADERS
 @app.callback(Output("page-content", "children"), Input("url", "pathname"))
 def render_page_content(pathname):
     if pathname == "/": 
@@ -491,6 +493,8 @@ def update_output(list_of_contents, list_of_names):
             )
         return messages
     return "" # Pusty string jeśli nic nie wrzucono
+# endregion
+# region CALLBACK - WYKRESY
 @app.callback(
     Output('summary-bar-chart', 'figure'),
     [
@@ -587,7 +591,8 @@ def update_watcher_chart(start_date, end_date, min_duration, filter_values, afk_
         )
 
     return fig
-# --- CALLBACK 2: OBSŁUGA PRZEŁĄCZNIKA (Master Switch) ---
+# endregion
+# region --- CALLBACK 2: OBSŁUGA PRZEŁĄCZNIKA (Master Switch) ---
 @app.callback(
     [
         Output({'type': 'device-filter', 'user': MATCH, 'device': ALL}, 'value'),
@@ -642,7 +647,8 @@ def toggle_user_devices(master_switch_on, device_ids, saved_memory):
                 new_classes.append(f"{base_class} disabled opacity-50")
 
     return new_values, new_disabled, new_classes  
-# --- CALLBACK 1: ZAPAMIĘTYWANIE STANU (Memory Keeper) ---
+#endregion
+# region --- CALLBACK ZAPAMIĘTYWANIE STANU (Memory Keeper) ---
 @app.callback(
     Output({'type': 'user-memory', 'user': MATCH}, 'data'),
     Input({'type': 'device-filter', 'user': MATCH, 'device': ALL}, 'value'),
@@ -1043,6 +1049,7 @@ def update_smart_charts(start_date, end_date, min_duration, filter_values, afk_m
     fig_right = build_chart(r_scope, r_type, main_df, app_col, limit=r_limit)
 
     return fig_left, fig_right
+# endregion
 # endregion
 if __name__ == "__main__":
     app.run(debug=True, port=8888)
