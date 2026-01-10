@@ -367,11 +367,26 @@ def create_options_for_weekly_screentime(df_in):
         clearable=False,
         searchable=False
     )
+    
+    topn_col = dbc.Col([
+        html.H6('Top N aplikacji', className="card-title mb-2 text-muted fw-bold"),
+        dcc.Input(
+            id='TopN-app-weekly',
+            type='number',
+            value=10,
+            min=1,
+            step=1,
+            placeholder='Top N aplikacji',
+            style={'width': '100px'}
+        )
+    ], id='TopN-col', style={'display': 'none'})
+    
     dropdowns = dbc.Row([
         dbc.Col([html.H6('Wybierz osobę',className="card-title mb-2 text-muted fw-bold"),osoba_dropdown]),
-        dbc.Col([html.H6('Metoda agregacji',className="card-title mb-2 text-muted fw-bold"),categ_app_dropdown])],
+        dbc.Col([html.H6('Metoda agregacji',className="card-title mb-2 text-muted fw-bold"),categ_app_dropdown]),
+        topn_col
     #style={'display': 'flex', 'gap': '10px', 'alignItems': 'center'}
-    )
+    ])
     return dropdowns
 
 #endregion
@@ -1061,10 +1076,19 @@ def update_timeline_controls(current_user, current_week, start_date, end_date, m
     ],
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
     Input('Wybor-osoby-weekly-time','value'),
-    Input('Wybor-kateg-weekly-time','value')
+    Input('Wybor-kateg-weekly-time','value'),
+    Input('TopN-app-weekly','value')
 )
-def weekly_hours(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids,osoba,agregator):
+def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids,osoba,agregator,topn):
     filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
+    # W trybie app, bierzemy topn aplikacji (liczymy dla konkretnej osoby)
+    Popular_apps = filtered_df[filtered_df['osoba']==osoba].groupby('app')['duration'].aggregate(total_duration = 'sum').reset_index()
+    Popular_apps = Popular_apps.sort_values('total_duration',ascending=False).reset_index(drop=True)
+    Popular_apps = Popular_apps.head(topn)
+    if agregator == 'app':
+        filtered_df = filtered_df[filtered_df['app'].isin(Popular_apps['app'])]
+
+
     # dodajemy kolumny z nazwą i numerem tygodnia i godziną
     timestamp = filtered_df['timestamp']
     timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
@@ -1100,6 +1124,14 @@ def weekly_hours(start_date, end_date, min_duration, filter_values, afk_mode,  f
             range_y=[0,ylim])
     return plot
 
+@app.callback(
+    Output('TopN-col', 'style'),
+    Input('Wybor-kateg-weekly-time', 'value')
+)
+def show_topn_col(agregator):
+    if agregator == 'app':
+        return {'visibility': 'visible'}
+    return {'visibility': 'hidden'}
 @app.callback(
     Output('summary-bar-chart', 'figure'),
     [
