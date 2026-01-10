@@ -117,6 +117,7 @@ def load_desktop_data(watcher: str, afk: str, person: str) -> None:
     )
     df_final = df_final[df_final['duration'] > 0]
     df_final['category'] = df_final['title'].apply(classify_activity)
+    df_final['category'] = np.where(df_final['category']=='inne', df_final['app'].apply(classify_activity), df_final['category'])
     df_final['osoba'] = person
     df_final['device'] = 'PC'
     time_temp = max(df_final['end_time']).strftime("%d.%m.%Y")
