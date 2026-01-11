@@ -1167,13 +1167,14 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
             'weekday':False
             })
     for trace in fig.data:
-        # Ustawiamy ładne hover info
+        # bierzemy tylko wiersze df3, które pasują do tego trace (trace.name = nazwa grupy)
+        subset = df3[df3[agregator] == trace.name].copy()
         trace.customdata = np.stack(
-            (df3[agregator], df3['average_activity_hm']), axis=-1
+            (subset[agregator], subset['average_activity_hm']), axis=-1
         )
         trace.hovertemplate = (
-            "<b>%{customdata[0]}</b><br>"   # Aplikacja / Kategoria
-            "Czas średni: %{customdata[1]}"  # 1h 15m
+            "<b>%{customdata[0]}</b><br>"
+            "Czas średni: %{customdata[1]}"
             "<extra></extra>"
         )
     return fig
