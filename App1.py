@@ -1543,7 +1543,7 @@ def update_quad_charts(start_date, end_date, min_duration, filter_values, afk_mo
                        type1, type2, type3, type4, 
                        user_1, user_2, limit_2, limit_4, # Nowe argumenty
                        filter_ids):
-    
+    print("QUAD CHARST UPDATE AKTYWACJA - TEST")
     # --- 1. FILTROWANIE GLOBALNE ---
     empty = go.Figure().update_layout(title="Brak danych")
     if df.empty: return empty, empty, empty, empty
@@ -1705,63 +1705,7 @@ def update_smart_options(left_scope, right_scope):
     r_opts, r_val = get_opts(right_scope)
     
     return l_opts, l_val, r_opts, r_val
-@app.callback(
-    [
-        Output("sidebar", "is_open"),         # 1. Stan Sidebara
-        Output("filters-offcanvas", "is_open"), # 2. Stan Filtrów
-        Output("filters-offcanvas", "style"), # 3. Pozycja Filtrów
-        Output("extra-offcanvas", "is_open"), # 4. Stan Extra
-        Output("extra-offcanvas", "style"),   # 5. Pozycja Extra
-    ],
-    [
-        Input("sidebar-toggle", "n_clicks"),
-        Input("open-filters-btn", "n_clicks"),
-        Input("open-extra-btn", "n_clicks"),
-    ],
-    [
-        State("sidebar", "is_open"),
-        State("filters-offcanvas", "is_open"),
-        State("extra-offcanvas", "is_open"),
-    ]
-)
-def manage_layout(n_side, n_filt, n_extra, side_open, filt_open, extra_open):
-    # Sprawdzamy, który guzik został kliknięty
-    ctx_id = ctx.triggered_id
 
-    # 1. AKTUALIZACJA STANÓW (OTWARTE/ZAMKNIĘTE)
-    if ctx_id == "sidebar-toggle":
-        side_open = not side_open
-    elif ctx_id == "open-filters-btn":
-        filt_open = not filt_open
-    elif ctx_id == "open-extra-btn":
-        extra_open = not extra_open
-
-    # 2. OBLICZANIE PUNKTU STARTOWEGO (OFFSET)
-    # Jeśli sidebar otwarty, startujemy od 16rem. Jeśli zamknięty, od 0.
-    # Uwaga: 16rem to ok. 256px, ale dla bezpieczeństwa w CSS użyjemy stringa calc()
-    base_offset_css = "16rem" if side_open else "0px"
-
-    # 3. OBLICZANIE POZYCJI PANELI (LOGIKA SLOTÓW)
-    
-    # Styl bazowy
-    style_filt = get_base_panel_style()
-    style_extra = get_base_panel_style()
-
-    # --- Logika dla Panelu 1 (Filtry) ---
-    # Filtry zawsze chcą być pierwsze (Slot 1)
-    style_filt["left"] = base_offset_css
-    
-    # --- Logika dla Panelu 2 (Extra) ---
-    if filt_open:
-        # Jeśli Filtry są otwarte, Extra musi stanąć OBOK nich (Slot 2)
-        # Używamy CSS calc: Base + Szerokość Panelu
-        style_extra["left"] = f"calc({base_offset_css} + {PANEL_WIDTH})"
-    else:
-        # Jeśli Filtry są zamknięte, Extra zajmuje pierwsze wolne miejsce (Slot 1)
-        style_extra["left"] = base_offset_css
-
-    # 4. ZWROT WYNIKÓW
-    return side_open, filt_open, style_filt, extra_open, style_extra
 @app.callback(
     [Output('smart-left-chart', 'figure'), Output('smart-right-chart', 'figure')],
     [
@@ -1896,6 +1840,65 @@ def update_smart_charts(start_date, end_date, min_duration, filter_values, afk_m
     fig_right = build_chart(r_scope, r_type, main_df, app_col, limit=r_limit)
 
     return fig_left, fig_right
+
+@app.callback(
+    [
+        Output("sidebar", "is_open"),         # 1. Stan Sidebara
+        Output("filters-offcanvas", "is_open"), # 2. Stan Filtrów
+        Output("filters-offcanvas", "style"), # 3. Pozycja Filtrów
+        Output("extra-offcanvas", "is_open"), # 4. Stan Extra
+        Output("extra-offcanvas", "style"),   # 5. Pozycja Extra
+    ],
+    [
+        Input("sidebar-toggle", "n_clicks"),
+        Input("open-filters-btn", "n_clicks"),
+        Input("open-extra-btn", "n_clicks"),
+    ],
+    [
+        State("sidebar", "is_open"),
+        State("filters-offcanvas", "is_open"),
+        State("extra-offcanvas", "is_open"),
+    ]
+)
+def manage_layout(n_side, n_filt, n_extra, side_open, filt_open, extra_open):
+    # Sprawdzamy, który guzik został kliknięty
+    ctx_id = ctx.triggered_id
+
+    # 1. AKTUALIZACJA STANÓW (OTWARTE/ZAMKNIĘTE)
+    if ctx_id == "sidebar-toggle":
+        side_open = not side_open
+    elif ctx_id == "open-filters-btn":
+        filt_open = not filt_open
+    elif ctx_id == "open-extra-btn":
+        extra_open = not extra_open
+
+    # 2. OBLICZANIE PUNKTU STARTOWEGO (OFFSET)
+    # Jeśli sidebar otwarty, startujemy od 16rem. Jeśli zamknięty, od 0.
+    # Uwaga: 16rem to ok. 256px, ale dla bezpieczeństwa w CSS użyjemy stringa calc()
+    base_offset_css = "16rem" if side_open else "0px"
+
+    # 3. OBLICZANIE POZYCJI PANELI (LOGIKA SLOTÓW)
+    
+    # Styl bazowy
+    style_filt = get_base_panel_style()
+    style_extra = get_base_panel_style()
+
+    # --- Logika dla Panelu 1 (Filtry) ---
+    # Filtry zawsze chcą być pierwsze (Slot 1)
+    style_filt["left"] = base_offset_css
+    
+    # --- Logika dla Panelu 2 (Extra) ---
+    if filt_open:
+        # Jeśli Filtry są otwarte, Extra musi stanąć OBOK nich (Slot 2)
+        # Używamy CSS calc: Base + Szerokość Panelu
+        style_extra["left"] = f"calc({base_offset_css} + {PANEL_WIDTH})"
+    else:
+        # Jeśli Filtry są zamknięte, Extra zajmuje pierwsze wolne miejsce (Slot 1)
+        style_extra["left"] = base_offset_css
+
+    # 4. ZWROT WYNIKÓW
+    return side_open, filt_open, style_filt, extra_open, style_extra
+
 
 content_sleep = html.Div([
     dbc.Card(dbc.CardBody([
