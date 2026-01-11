@@ -330,8 +330,8 @@ def create_filter_chips(df_in):
         
     return html.Div(rows_list, className="p-2")
 def create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, get_sleep=False):
-    """ Zwraca ramkę dannych przefiltrowaną zgodnie z głównym filtrem na górze. 
-        Callbacki wykresów będą z tego korzystać """
+    """ Zwraca ramkę danych przefiltrowaną zgodnie z głównym filtrem na górze. 
+        Callbacki wykresów będą z tego korzystać. """
      # 1. Sprawdzenie czy są dane
     if df.empty:
         return go.Figure().update_layout(title="Brak wczytanych danych")
@@ -351,7 +351,10 @@ def create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mo
     mask_date = (df['timestamp'].dt.date >= s_date) & (df['timestamp'].dt.date <= e_date)
     min_duration_sec = (min_duration or 0) * 60
     mask_dur = df['duration'] >= min_duration_sec
-    mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed_combinations, axis=1)
+    if get_sleep:
+        mask_dev = df['osoba'].isin([x[0] for x in allowed_combinations])
+    else:
+        mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed_combinations, axis=1)
     
     filtered_df = df[mask_date & mask_dur & mask_dev].copy()
 
@@ -1909,7 +1912,11 @@ content_sleep = html.Div([
                                 )]
         )]),
         dcc.Graph(id='sleep-line-plot',config={'displayModeBar': False})
-     ]))
+     ])),
+     dbc.Card(dbc.CardBody([
+        dbc.Row([dbc.Col(html.H4("Dzienny rozkład snu"))]),
+        dcc.Graph(id='sleep-times-plot',config={'displayModeBar': False})
+     ])),
 ])
 @app.callback(
     Output('sleep-line-plot', 'figure'),
@@ -1925,6 +1932,64 @@ content_sleep = html.Div([
 )
 def activity_line_watcher(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options):
     return activity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options, sleep=True)
+
+@app.callback(
+    Output('sleep-times-plot', 'figure'),
+    [
+        Input('watcher-date-picker', 'start_date'),
+        Input('watcher-date-picker', 'end_date'),
+        Input('min-duration-input', 'value'),
+        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+        Input('afk-mode-selector', 'value'),
+    ],
+    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
+    Input("highlight-options", "value")
+)
+def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options):
+    df_sleep = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, get_sleep=True)
+    df_sleep = df_sleep.loc[lambda df: df['status']=='sleep']
+    print(df_sleep)
+    if df_sleep.empty: return go.Figure().update_layout(title="Brak danych", template='plotly_white')
+    fig = go.Figure()
+    fig.update_yaxes(categoryorder='array', categoryarray=pd.unique(df_sleep['osoba']))
+    df_sleep['timestamp'] = df_sleep['timestamp'].dt.tz_convert("Etc/GMT-1")
+    df_sleep['tm'] = df_sleep['timestamp'].dt.hour + df_sleep['timestamp'].dt.minute / 60
+    start_hour = max(18, min(np.floor((df_sleep['tm'])[df_sleep['tm'] > 18])))
+    df_tmp = df_sleep.loc[df_sleep['timestamp'].dt.hour < 18]
+    max_hour = np.max(np.ceil(df_tmp['tm']+(df_tmp['duration']/3600)))
+    df_sleep['tm'] = np.where(df_sleep['tm']<=max_hour, df_sleep['tm']+24, df_sleep['tm'])
+    hour_range = np.arange(start_hour, max_hour+24)
+    fig.update_layout(
+        barmode='overlay',
+        xaxis=dict(
+            title="Godzina",
+            range=[start_hour, max_hour+24],
+            tickvals=hour_range,
+            ticktext=np.where(hour_range>=24, hour_range-24, hour_range),
+        ),
+        showlegend=False,
+        yaxis_title="Osoba"
+    )
+    osoba_number = df_sleep.groupby('osoba').size()
+    for item in df_sleep.itertuples():
+        print(item)
+        fig.add_trace(
+            go.Bar(
+            y=[item.osoba],
+            x=[item.duration/3600],
+            base=[item.tm],
+            orientation='h',
+            name='g',
+            hovertemplate=None,
+            customdata=None,
+            width=0.8,
+            opacity=1 - (0.3)**(1/(osoba_number.loc[item.osoba])),
+            marker=dict(
+                color=get_colour('sen'),
+                line=dict(width=0)),
+            ) 
+        )
+    return fig
 
 # endregion
 # endregion
