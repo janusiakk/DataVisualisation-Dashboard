@@ -406,7 +406,16 @@ def create_options_for_weekly_screentime(df_in):
     #style={'display': 'flex', 'gap': '10px', 'alignItems': 'center'}
     ])
     return dropdowns
-
+CURRENT_FILTER = [None, None, 0, [], False, []]
+FILTERED_DF = df
+def get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids):
+    global CURRENT_FILTER
+    global FILTERED_DF
+    new_filter = [start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids]
+    if new_filter != CURRENT_FILTER:
+        CURRENT_FILTER = new_filter
+        FILTERED_DF = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
+    return FILTERED_DF
 #endregion
 #region --- 2. LAYOUTY (STRONY) ---
 # STRONA 1 : Użytkownicy /
@@ -990,7 +999,7 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
     if not slider_range: slider_range = [0, 24]
 
     # 1. Dane
-    filtered_df = create_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids)
+    filtered_df = get_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids).copy()
     if filtered_df.empty: return go.Figure().update_layout(title="Brak danych", template='plotly_white')
 
     filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp']).dt.tz_convert('Europe/Warsaw') # Zapomniałeś o tym :)
@@ -1163,10 +1172,10 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
     filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
     filtered_df = filtered_df.loc[lambda df: df['category'] != 'sen']
     # W trybie app, bierzemy topn aplikacji (liczymy dla konkretnej osoby)
-    Popular_apps = filtered_df[filtered_df['osoba']==osoba].groupby('app')['duration'].aggregate(total_duration = 'sum').reset_index()
-    Popular_apps = Popular_apps.sort_values('total_duration',ascending=False).reset_index(drop=True)
-    Popular_apps = Popular_apps.head(topn)
     if agregator == 'app':
+        Popular_apps = filtered_df[filtered_df['osoba']==osoba].groupby('app')['duration'].aggregate(total_duration = 'sum').reset_index()
+        Popular_apps = Popular_apps.sort_values('total_duration',ascending=False).reset_index(drop=True)
+        Popular_apps = Popular_apps.head(topn)
         filtered_df = filtered_df[filtered_df['app'].isin(Popular_apps['app'])]
 
 
@@ -1362,7 +1371,7 @@ def show_topn_col(agregator):
 )
 def update_watcher_chart(start_date, end_date, min_duration, filter_values, afk_mode, chart_type, filter_ids):
     # to co tu było wcześniej, teraz robi poniższa funkcja
-    filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
+    filtered_df = get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids).copy()
 
     if filtered_df.empty:
         return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
