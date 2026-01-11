@@ -78,7 +78,7 @@ def get_base_panel_style(left_pos="0px"):
         "width": PANEL_WIDTH,
         "left": left_pos,
         
-        "position": "fixed",   
+        "position": "fixed", 
         "border": "1px solid #dee2e6",
         "borderTop": "0", "borderLeft": "0",
         "borderRadius": "0 0 10px 10px",
@@ -129,8 +129,8 @@ def create_global_filters_layout():
                         },
                     ],
                     value="active_only",
-                    className="btn-group w-100",       # w-100 rozciąga grupę na całą szerokość
-                    inputClassName="btn-check",        # Ukrywa kropki radia
+                    className="btn-group w-100",     # w-100 rozciąga grupę na całą szerokość
+                    inputClassName="btn-check",      # Ukrywa kropki radia
                     labelClassName="btn btn-outline-primary", # Styl guzików
                     labelCheckedClassName="active"     # Styl aktywnego guzika
                 )
@@ -384,7 +384,7 @@ def create_options_for_weekly_screentime(df_in):
             {'label': 'według kategorii', 'value': 'category'},
             {'label': 'według aplikacji', 'value': 'app'}
         ],
-        value='category',  # domyślnie pierwsza opcja
+        value='category', # domyślnie pierwsza opcja
         clearable=False,
         searchable=False
     )
@@ -411,13 +411,13 @@ def create_options_for_weekly_screentime(df_in):
     return dropdowns
 CURRENT_FILTER = [None, None, 0, [], False, []]
 FILTERED_DF = df
-def get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids):
+def get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids):
     global CURRENT_FILTER
     global FILTERED_DF
-    new_filter = [start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids]
+    new_filter = [start_date, end_date, min_duration, filter_values, afk_mode, filter_ids]
     if new_filter != CURRENT_FILTER:
         CURRENT_FILTER = new_filter
-        FILTERED_DF = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
+        FILTERED_DF = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
     return FILTERED_DF.copy()
 #endregion
 #region --- 2. LAYOUTY (STRONY) ---
@@ -453,7 +453,7 @@ content_watcher = html.Div([
                                     #{"label": "Poniedziałki", "value": "weekend_mon"},
                                     {"label": "Święta", "value": "holiday"}
                                     ],
-                                    value=["weekend","holiday"],   # domyślnie zaznaczone
+                                    value=["weekend","holiday"], # domyślnie zaznaczone
                                     id="highlight-options",
                                     inline=True          # checkboxy w jednej linii
                                 )]
@@ -621,7 +621,7 @@ content_addFile = html.Div([
             'textAlign': 'center',
             'borderColor': '#0d6efd', # Kolor primary bootstrapa
             'backgroundColor': '#f8f9fa',
-            'display': 'flex',           # Centrowanie Flexbox
+            'display': 'flex',         # Centrowanie Flexbox
             'flexDirection': 'column',
             'justifyContent': 'center',
             'alignItems': 'center',
@@ -732,7 +732,7 @@ app.layout = html.Div([
                 dbc.Col(
                     html.Div(style={
                         "borderLeft": "2px solid #dee2e6", # Jasnoszara linia
-                        "height": "24px",                  # Wysokość linii (nie za wysoka)
+                        "height": "24px",                # Wysokość linii (nie za wysoka)
                         "margin": "0 10px"                 # Odstępy po bokach
                     }),
                     width="auto",
@@ -981,7 +981,7 @@ def handle_select_buttons(n_all, n_none, options):
         Input('timeline-slider', 'value'),
         # NOWE INPUTY
         Input('timeline-mode-switch', 'value'), # Tryb (Cat/App)
-        Input('timeline-top-filter', 'value'),  # Wybrane fasolki
+        Input('timeline-top-filter', 'value'), # Wybrane fasolki
         
         # Globalne
         Input('watcher-date-picker', 'start_date'),
@@ -1095,7 +1095,7 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
             hovertemplate=hover_tmpl,
             customdata=custom_d,
             width=0.8,
-            opacity=0.8 if str(item).lower() != 'sen' else 0.4,
+            opacity=0.8 if (str(item).lower() != 'sen') and (str(item).lower() != '') else 0.4,
             marker=dict(
                 color=get_colour(str(item)),
                 line=dict(width=0)),
@@ -1173,7 +1173,7 @@ def update_timeline_controls(current_user, current_week, start_date, end_date, m
     Input('Wybor-kateg-weekly-time','value'),
     Input('TopN-app-weekly','value')
 )
-def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids,osoba,agregator,topn):
+def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids,osoba,agregator,topn):
     filtered_df = get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
     filtered_df = filtered_df.loc[lambda df: df['category'] != 'sen']
     # W trybie app, bierzemy topn aplikacji (liczymy dla konkretnej osoby)
@@ -1222,9 +1222,9 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
             template='plotly_white',
             range_y=[0,ylim],
             hover_data={
-            agregator: True,                  # pokaż nazwę aplikacji/kategorii
-            'average_activity_hm': True,      # pokaż czas w Hh Mm
-            'average_activity': True,          # ukryj dziesiętne godziny
+            agregator: True,                # pokaż nazwę aplikacji/kategorii
+            'average_activity_hm': True,    # pokaż czas w Hh Mm
+            'average_activity': True,        # ukryj dziesiętne godziny
             'weekday':False
             })
     for trace in fig.data:
@@ -1252,9 +1252,9 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
     Input("highlight-options", "value")
 )
-def activity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options):
+def activity_line(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, highlight_options):
     filtered_df = get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
-    filtered_df = filtered_df.loc[(df['category'] != 'sen')]
+    filtered_df = filtered_df[filtered_df['category'] != 'sen']
     if filtered_df.empty:
         return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
     # Zmiana na czas polski
@@ -1279,7 +1279,7 @@ def activity_line(start_date, end_date, min_duration, filter_values, afk_mode,  
     Suma_z_dnia,
     x='date',
     y='duration',
-    color='osoba',           # każda osoba będzie miała osobną linię
+    color='osoba',         # każda osoba będzie miała osobną linię
     labels={'date':'Data', 'duration':'Czas aktywności', 'osoba':'Osoba'},
    # title='Dzienna aktywność',
     template='plotly_white',
@@ -1334,16 +1334,16 @@ def activity_line(start_date, end_date, min_duration, filter_values, afk_mode,  
         fig.add_vrect(
             x0=holiday_start,
             x1=holiday_end,
-            fillcolor="red",   # np. czerwony pasek
-            opacity=0.15,       # półprzezroczysty
+            fillcolor="red", # np. czerwony pasek
+            opacity=0.15,     # półprzezroczysty
             layer="below",
             line_width=0,
             annotation=dict(
-                text="<b>Przerwa świąteczna</b>",   # napis
-                x=(holiday_start + (holiday_end - holiday_start)/2),  # środek prostokąta
-                y=1.1,                        # na samej górze wykresu
+                text="<b>Przerwa świąteczna</b>", # napis
+                x=(holiday_start + (holiday_end - holiday_start)/2), # środek prostokąta
+                y=1.1,                      # na samej górze wykresu
                 showarrow=False,
-                font=dict(size=20, color="red", family="Arial"),  # większa i kolorowa czcionka
+                font=dict(size=20, color="red", family="Arial"), # większa i kolorowa czcionka
                 xanchor="center"
                 )
         )
@@ -1373,7 +1373,7 @@ def show_topn_col(agregator):
 )
 def update_watcher_chart(start_date, end_date, min_duration, filter_values, afk_mode, chart_type, filter_ids):
     # to co tu było wcześniej, teraz robi poniższa funkcja
-    filtered_df = get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids).copy()
+    filtered_df = get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids).copy()
 
     if filtered_df.empty:
         return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
@@ -1532,7 +1532,7 @@ def save_user_state(checkbox_values, is_master_on, checkbox_ids, current_memory)
         # Specyficzne kontrolki
         Input('chart-1-user-select', 'value'), # User dla #1
         Input('chart-2-user-select', 'value'), # User dla #2
-        Input('chart-2-limit', 'value'),       # Top N dla #2
+        Input('chart-2-limit', 'value'),     # Top N dla #2
         Input('chart-4-limit', 'value')        # Top N dla #4
     ],
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
@@ -1705,11 +1705,11 @@ def update_smart_options(left_scope, right_scope):
     return l_opts, l_val, r_opts, r_val
 @app.callback(
     [
-        Output("sidebar", "is_open"),           # 1. Stan Sidebara
+        Output("sidebar", "is_open"),         # 1. Stan Sidebara
         Output("filters-offcanvas", "is_open"), # 2. Stan Filtrów
-        Output("filters-offcanvas", "style"),   # 3. Pozycja Filtrów
-        Output("extra-offcanvas", "is_open"),   # 4. Stan Extra
-        Output("extra-offcanvas", "style"),     # 5. Pozycja Extra
+        Output("filters-offcanvas", "style"), # 3. Pozycja Filtrów
+        Output("extra-offcanvas", "is_open"), # 4. Stan Extra
+        Output("extra-offcanvas", "style"),   # 5. Pozycja Extra
     ],
     [
         Input("sidebar-toggle", "n_clicks"),
@@ -1770,11 +1770,11 @@ def manage_layout(n_side, n_filt, n_extra, side_open, filt_open, extra_open):
         Input('afk-mode-selector', 'value'),
         
         # Nowe Inputy z inteligentnych okien
-        Input('smart-left-scope', 'value'),  # Kto? (Lewe)
-        Input('smart-left-type', 'value'),   # Jaki wykres? (Lewe)
+        Input('smart-left-scope', 'value'), # Kto? (Lewe)
+        Input('smart-left-type', 'value'), # Jaki wykres? (Lewe)
         
         Input('smart-right-scope', 'value'), # Kto? (Prawe)
-        Input('smart-right-type', 'value'),  # Jaki wykres? (Prawe)
+        Input('smart-right-type', 'value'), # Jaki wykres? (Prawe)
         Input('smart-right-limit', 'value')  # Top N (Prawe)
     ],
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
@@ -1825,7 +1825,7 @@ def update_smart_charts(start_date, end_date, min_duration, filter_values, afk_m
         limit: opcjonalny limit Top N
         """
         local_df = data_source.copy()
-        local_df = local_df.loc[lambda df: df['category'] != 'sen']
+        local_df = local_df[local_df['category'] != 'sen']
         # A. FILTRACJA ZAKRESU (Osoba czy Wszyscy?)
         if scope != 'comparison':
             local_df = local_df[local_df['osoba'] == scope]
@@ -1905,7 +1905,7 @@ content_sleep = html.Div([
                                     #{"label": "Poniedziałki", "value": "weekend_mon"},
                                     {"label": "Święta", "value": "holiday"}
                                     ],
-                                    value=["weekend","holiday"],   # domyślnie zaznaczone
+                                    value=["weekend","holiday"], # domyślnie zaznaczone
                                     id="highlight-options",
                                     inline=True          # checkboxy w jednej linii
                                 )]
@@ -1929,7 +1929,7 @@ content_sleep = html.Div([
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
     Input("highlight-options", "value")
 )
-def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options):
+def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, highlight_options):
     filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, get_sleep=True)
     filtered_df = filtered_df.loc[(df['category'] == 'sen')]
     if filtered_df.empty:
@@ -1959,7 +1959,7 @@ def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_m
     Suma_z_dnia,
     x='date',
     y='duration',
-    color='osoba',           # każda osoba będzie miała osobną linię
+    color='osoba',         # każda osoba będzie miała osobną linię
     labels={'date':'Data', 'duration':'Czas aktywności', 'osoba':'Osoba'},
    # title='Dzienna aktywność',
     template='plotly_white',
@@ -2014,16 +2014,16 @@ def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_m
         fig.add_vrect(
             x0=holiday_start,
             x1=holiday_end,
-            fillcolor="red",   # np. czerwony pasek
-            opacity=0.15,       # półprzezroczysty
+            fillcolor="red", # np. czerwony pasek
+            opacity=0.15,     # półprzezroczysty
             layer="below",
             line_width=0,
             annotation=dict(
-                text="<b>Przerwa świąteczna</b>",   # napis
-                x=(holiday_start + (holiday_end - holiday_start)/2),  # środek prostokąta
-                y=1.1,                        # na samej górze wykresu
+                text="<b>Przerwa świąteczna</b>", # napis
+                x=(holiday_start + (holiday_end - holiday_start)/2), # środek prostokąta
+                y=1.1,                      # na samej górze wykresu
                 showarrow=False,
-                font=dict(size=20, color="red", family="Arial"),  # większa i kolorowa czcionka
+                font=dict(size=20, color="red", family="Arial"), # większa i kolorowa czcionka
                 xanchor="center"
                 )
         )
@@ -2042,7 +2042,7 @@ def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_m
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
     Input("highlight-options", "value")
 )
-def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options):
+def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, highlight_options):
     df_sleep = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, get_sleep=True)
     df_sleep = df_sleep.loc[lambda df: df['status']=='sleep']
     if df_sleep.empty: return go.Figure().update_layout(title="Brak danych", template='plotly_white')
@@ -2078,7 +2078,7 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
             hovertemplate=None,
             customdata=None,
             width=0.8,
-            opacity=1 - (0.3)**(1/(osoba_number.loc[item.osoba])),
+            opacity=1 - (0.4)**(1/(osoba_number.loc[item.osoba])),
             marker=dict(
                 color=get_colour('sen'),
                 line=dict(width=0)),
