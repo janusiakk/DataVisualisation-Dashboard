@@ -1543,7 +1543,7 @@ def update_quad_charts(start_date, end_date, min_duration, filter_values, afk_mo
                        type1, type2, type3, type4, 
                        user_1, user_2, limit_2, limit_4, # Nowe argumenty
                        filter_ids):
-    print("QUAD CHARST UPDATE AKTYWACJA - TEST")
+    print("QUAD CHART UPDATE AKTYWACJA - TEST")
     # --- 1. FILTROWANIE GLOBALNE ---
     empty = go.Figure().update_layout(title="Brak danych")
     if df.empty: return empty, empty, empty, empty
