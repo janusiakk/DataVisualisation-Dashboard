@@ -3,6 +3,7 @@ import plotly.express as px, plotly.graph_objs as go, dash_bootstrap_components 
 from dash import Input, Output, State, dcc, html, dash_table, ALL, MATCH, ctx
 from hashlib import md5
 from colorsys import hsv_to_rgb
+#region Start
 COLOURS = {'muzyka': '#5544ee', 
            'nauka': "#df6092", 
            'studia': '#dd5544', 
@@ -17,7 +18,7 @@ def get_colour(text: str) -> str:
     else:
         h = int(md5(text.encode("utf-8")).hexdigest(), 16)
         return "rgb(%d,%d,%d)" % tuple([int(i*255) for i in hsv_to_rgb(((h >> 10)%360)/360, 0.7+(0.3*(((h >> 20)%360)/360)), 0.8+(0.2*(((h >> 30)%360)/360)))])
-#region Start
+
 app = dash.Dash(
     __name__,
     external_stylesheets=[
@@ -34,7 +35,13 @@ for filename in os.listdir(DATA_FOLDER):
         frames.append(pd.read_json(filepath))
 df = pd.concat(frames, ignore_index=True)
 OSOBY = df['osoba'].drop_duplicates().reset_index(drop=True) 
-
+# Kolumny czasowe
+timestamp = df['timestamp']
+timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
+df['timestamp_pl'] = timestamp_pl
+df['day_of_year'] = timestamp_pl.dt.day_of_year
+df['weekday'] = timestamp_pl.dt.day_name('Pl')
+df['weekday_number'] = timestamp_pl.dt.weekday
 #endregion
 #region --- 1. FUNKCJE POMOCNICZE ---
 # --- DEFINICJA ZAWARTOŚCI FILTRÓW (OFFCANVAS) ---
@@ -953,8 +960,6 @@ def update_timeline_filter_options(mode, user, week, s_date, e_date, min_dur, f_
     initial_value = [opt['value'] for opt in options]
     
     return options, initial_value
-
-
 # --- CALLBACK: OBSŁUGA GUZIKÓW SELECT ALL / DESELECT ALL ---
 @app.callback(
     Output("timeline-top-filter", "value", allow_duplicate=True),
@@ -970,8 +975,6 @@ def handle_select_buttons(n_all, n_none, options):
     elif ctx_id == "timeline-btn-none":
         return []
     return dash.no_update
-
-
 # --- CALLBACK: RYSOWANIE WYKRESU (ZAKTUALIZOWANY) ---
 @app.callback(
     Output('timeline-graph', 'figure'),
@@ -1185,12 +1188,12 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
 
 
     # dodajemy kolumny z nazwą i numerem tygodnia i godziną
-    timestamp = filtered_df['timestamp']
-    timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
-    filtered_df['timestamp_pl'] = timestamp_pl
-    filtered_df['day_of_year'] = timestamp_pl.dt.day_of_year
-    filtered_df['weekday'] = timestamp_pl.dt.day_name('Pl')
-    filtered_df['weekday_number'] = timestamp_pl.dt.weekday + 1
+    #timestamp = filtered_df['timestamp']
+    #timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
+    #filtered_df['timestamp_pl'] = timestamp_pl
+    #filtered_df['day_of_year'] = timestamp_pl.dt.day_of_year
+    #filtered_df['weekday'] = timestamp_pl.dt.day_name('Pl')
+    #filtered_df['weekday_number'] = timestamp_pl.dt.weekday + 1
     #filtered_df['hour'] = timestamp_pl.dt.hour
     # Obliczam średni czas aktywności w danym dnium tygodniaz podziałem na kategorie
     # Zliczam ile razy u danej osoby wystąpił dany dzień tygodnia
@@ -1349,8 +1352,6 @@ def activity_line(start_date, end_date, min_duration, filter_values, afk_mode, f
         )
     
     return fig
-
-
 @app.callback(
     Output('TopN-col', 'style'),
     Input('Wybor-kateg-weekly-time', 'value')
