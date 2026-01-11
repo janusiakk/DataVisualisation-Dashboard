@@ -930,7 +930,8 @@ def update_timeline_filter_options(mode, user, week, s_date, e_date, min_dur, f_
         return [], []
 
     # Fix daty
-    df_filtered['timestamp'] = pd.to_datetime(df_filtered['timestamp'])
+    # NOWOSC, używam polskiego czasu
+    df_filtered['timestamp'] = df_filtered['timestamp_pl']
     if df_filtered['timestamp'].dt.tz is not None:
         df_filtered['timestamp'] = df_filtered['timestamp'].dt.tz_localize(None)
 
@@ -1268,7 +1269,7 @@ def activity_line(start_date, end_date, min_duration, filter_values, afk_mode, f
 
     Suma_z_dnia = filtered_df.groupby(['osoba','date'])['duration'].sum().reset_index().sort_values('duration',ascending=False)
     Suma_z_dnia['duration'] = round(Suma_z_dnia['duration'] / 3600,2)
-    Suma_z_dnia = Suma_z_dnia.sort_values(['osoba','date']) 
+    #Suma_z_dnia = Suma_z_dnia.sort_values(['osoba','date']) 
     # Uzupełniam brakujące dni zerami
     osoby = Suma_z_dnia['osoba'].unique()
     daty = pd.date_range(Suma_z_dnia['date'].min(), Suma_z_dnia['date'].max())
