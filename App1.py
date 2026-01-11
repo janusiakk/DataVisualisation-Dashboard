@@ -1148,7 +1148,9 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
     cols2 = {i: get_colour(i) for i in df3[agregator]}
 
     ylim = np.ceil(df2.groupby(['osoba','weekday'])['average_activity'].sum().reset_index()['average_activity'].max())
-    plot = px.bar(df3,
+    df3['average_activity_hm'] = df3['average_activity'].apply(lambda x: f"{int(x)}h {int(((x%1)*60))}m")
+    
+    fig = px.bar(df3,
             x='weekday',
             y = 'average_activity',
             color=agregator,
@@ -1157,8 +1159,24 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
             labels={'weekday':'dzień tygodnia','average_activity':'średnia aktywność (godz.)',agregator:tytuly.get(agregator)},
             title=f"Średnia aktywność w dniach tygodnia: {osoba}",
             template='plotly_white',
-            range_y=[0,ylim])
-    return plot
+            range_y=[0,ylim],
+            hover_data={
+            agregator: True,                  # pokaż nazwę aplikacji/kategorii
+            'average_activity_hm': True,      # pokaż czas w Hh Mm
+            'average_activity': True,          # ukryj dziesiętne godziny
+            'weekday':False
+            })
+    for trace in fig.data:
+        # Ustawiamy ładne hover info
+        trace.customdata = np.stack(
+            (df3[agregator], df3['average_activity_hm']), axis=-1
+        )
+        trace.hovertemplate = (
+            "<b>%{customdata[0]}</b><br>"   # Aplikacja / Kategoria
+            "Czas średni: %{customdata[1]}"  # 1h 15m
+            "<extra></extra>"
+        )
+    return fig
 
 @app.callback(
     Output('TopN-col', 'style'),
