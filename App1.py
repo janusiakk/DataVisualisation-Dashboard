@@ -1059,8 +1059,8 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
         # Tooltip content
         if 'app' in subset.columns and mode == 'category':
             # Tryb Kategoria: Pokaż nazwę apki w dymku
-            custom_d = subset[['app']]
-            hover_tmpl = f"<b>{item}</b><br>%{{customdata[0]}}<br>Start: %{{base:.2f}}<br>Czas: %{{x:.2f}}h<extra></extra>"
+            custom_d[2] = subset[['app']]
+            hover_tmpl = f"<b>{item}</b><br>%{{customdata[2]}}<br>Start: %{{customdata[0]}}<br>Czas: %{{customdata[1]}} min<extra></extra>"
         else:
             # Tryb App: Pokaż po prostu nazwę (item)
             custom_d[2] = subset[[target_col]] # dummy
