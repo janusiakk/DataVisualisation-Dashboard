@@ -418,7 +418,7 @@ def get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,
     if new_filter != CURRENT_FILTER:
         CURRENT_FILTER = new_filter
         FILTERED_DF = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
-    return FILTERED_DF
+    return FILTERED_DF.copy()
 #endregion
 #region --- 2. LAYOUTY (STRONY) ---
 # STRONA 1 : Użytkownicy /
