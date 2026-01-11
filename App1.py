@@ -1002,10 +1002,12 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
     if not slider_range: slider_range = [0, 24]
 
     # 1. Dane
-    filtered_df = get_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids).copy()
+    filtered_df = get_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids)
     if filtered_df.empty: return go.Figure().update_layout(title="Brak danych", template='plotly_white')
-
-    filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp']).dt.tz_convert('Europe/Warsaw') # Zapomniałeś o tym :)
+    try:
+        filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp']).dt.tz_convert('Europe/Warsaw') # Zapomniałeś o tym :)
+    except:
+        filtered_df['timestamp']= pd.to_datetime(filtered_df['timestamp']).dt.tz_localize('UTC').dt.tz_convert('Europe/Warsaw')
     if filtered_df['timestamp'].dt.tz is not None:
         filtered_df['timestamp'] = filtered_df['timestamp'].dt.tz_localize(None)
 
@@ -1250,12 +1252,9 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
     Input("highlight-options", "value")
 )
-def activity_line_watcher(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options):
-    return activity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options, sleep=False)
-
-def activity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options, sleep):
-    filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, get_sleep=sleep)
-    filtered_df = filtered_df.loc[lambda df: (df['category'] == 'sen') if sleep else (df['category'] != 'sen')]
+def activity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options):
+    filtered_df = get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
+    filtered_df = filtered_df.loc[(df['category'] != 'sen')]
     if filtered_df.empty:
         return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
     # Zmiana na czas polski
@@ -1930,8 +1929,106 @@ content_sleep = html.Div([
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
     Input("highlight-options", "value")
 )
-def activity_line_watcher(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options):
-    return activity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options, sleep=True)
+def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options):
+    filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, get_sleep=True)
+    filtered_df = filtered_df.loc[(df['category'] == 'sen')]
+    if filtered_df.empty:
+        return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
+    # Zmiana na czas polski
+    timestamp = filtered_df['timestamp']
+    try:
+        timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
+    except:
+        timestamp_pl = timestamp.dt.tz_localize('UTC').dt.tz_convert('Europe/Warsaw')
+    filtered_df['timestamp_pl'] = timestamp_pl
+    filtered_df['date'] = timestamp_pl.dt.date
+
+    Suma_z_dnia = filtered_df.groupby(['osoba','date'])['duration'].sum().reset_index().sort_values('duration',ascending=False)
+    Suma_z_dnia['duration'] = round(Suma_z_dnia['duration'] / 3600,2)
+    Suma_z_dnia = Suma_z_dnia.sort_values(['osoba','date']) 
+    # Uzupełniam brakujące dni zerami
+    osoby = Suma_z_dnia['osoba'].unique()
+    daty = pd.date_range(Suma_z_dnia['date'].min(), Suma_z_dnia['date'].max())
+
+    full_index = pd.MultiIndex.from_product([osoby, daty], names=['osoba', 'date'])
+    Suma_z_dnia = Suma_z_dnia.set_index(['osoba', 'date']).reindex(full_index, fill_value=0).reset_index()
+    Suma_z_dnia.sort_values(["osoba","date"]).reset_index(drop=True)
+    Suma_z_dnia['duration_hm'] = Suma_z_dnia['duration'].apply(lambda x: f"{int(x)}h {int((x%1*60))}m")
+
+    fig = px.line(
+    Suma_z_dnia,
+    x='date',
+    y='duration',
+    color='osoba',           # każda osoba będzie miała osobną linię
+    labels={'date':'Data', 'duration':'Czas aktywności', 'osoba':'Osoba'},
+   # title='Dzienna aktywność',
+    template='plotly_white',
+    line_shape='spline',
+    category_orders={'osoba':OSOBY}
+    )
+
+    # wymuszenie chronologicznej kolejności X, jeśli daty są datetime to Plotly zrobi to automatycznie
+    fig.update_yaxes(ticksuffix="h")
+    fig.update_layout(xaxis_tickangle=-45)  # dla czytelności etykiet dat
+    fig.update_traces(line=dict(width=4))  # np. 4 piksele
+
+    start = Suma_z_dnia['date'].min()
+    end = Suma_z_dnia['date'].max()
+    tick_vals = pd.date_range(start, end, freq='2D')  # co 2 dni
+    fig.update_xaxes(tickvals=tick_vals, tickformat="%Y-%m-%d")
+    for trace in fig.data:
+        osoba = trace.name  # nazwa linii = osoba
+        # filtrujemy dane tylko dla tej osoby
+        df_osoba = Suma_z_dnia[Suma_z_dnia['osoba'] == osoba]
+        # przypisujemy customdata dla tej linii
+        trace.customdata = df_osoba[['duration_hm']].values
+        # własny hovertemplate
+        trace.hovertemplate = (
+            f"<b>{osoba}</b><br>"       # nazwa osoby
+            "Data: %{x|%Y-%m-%d}<br>"   # data
+            "Czas aktywności: %{customdata[0]}<extra></extra>"  # Hh Mm
+        )
+    # -------------------
+    # Dodawanie weekendów
+    # -------------------
+    if ('weekend' in highlight_options):
+        current = start
+        while current <= end:
+            if current.weekday() >= 5:
+            # jeśli dzień to sobota (5) lub niedziela (6)
+                fig.add_vrect(
+                    x0=current-pd.Timedelta(hours=12),
+                    x1=current+pd.Timedelta(hours=12),
+                    fillcolor="lightgrey",
+                    opacity=0.5,
+                    layer="below",
+                    line_width=0
+                )
+            current += pd.Timedelta(days=1)
+    if ('holiday' in highlight_options):
+        # Święta
+        # Załóżmy, że przerwa świąteczna trwa od 24 grudnia do 26 grudnia
+        holiday_start = pd.to_datetime("2025-12-24")
+        holiday_end   = pd.to_datetime("2026-01-06")
+
+        fig.add_vrect(
+            x0=holiday_start,
+            x1=holiday_end,
+            fillcolor="red",   # np. czerwony pasek
+            opacity=0.15,       # półprzezroczysty
+            layer="below",
+            line_width=0,
+            annotation=dict(
+                text="<b>Przerwa świąteczna</b>",   # napis
+                x=(holiday_start + (holiday_end - holiday_start)/2),  # środek prostokąta
+                y=1.1,                        # na samej górze wykresu
+                showarrow=False,
+                font=dict(size=20, color="red", family="Arial"),  # większa i kolorowa czcionka
+                xanchor="center"
+                )
+        )
+    
+    return fig
 
 @app.callback(
     Output('sleep-times-plot', 'figure'),
@@ -1948,7 +2045,6 @@ def activity_line_watcher(start_date, end_date, min_duration, filter_values, afk
 def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options):
     df_sleep = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, get_sleep=True)
     df_sleep = df_sleep.loc[lambda df: df['status']=='sleep']
-    print(df_sleep)
     if df_sleep.empty: return go.Figure().update_layout(title="Brak danych", template='plotly_white')
     fig = go.Figure()
     fig.update_yaxes(categoryorder='array', categoryarray=pd.unique(df_sleep['osoba']))
@@ -1972,7 +2068,6 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
     )
     osoba_number = df_sleep.groupby('osoba').size()
     for item in df_sleep.itertuples():
-        print(item)
         fig.add_trace(
             go.Bar(
             y=[item.osoba],
