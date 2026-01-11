@@ -42,6 +42,7 @@ df['timestamp_pl'] = timestamp_pl
 df['day_of_year'] = timestamp_pl.dt.day_of_year
 df['weekday'] = timestamp_pl.dt.day_name('Pl')
 df['weekday_number'] = timestamp_pl.dt.weekday
+df['date'] = timestamp_pl.dt.date
 #endregion
 #region --- 1. FUNKCJE POMOCNICZE ---
 # --- DEFINICJA ZAWARTOŚCI FILTRÓW (OFFCANVAS) ---
@@ -1007,13 +1008,17 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
     # 1. Dane
     filtered_df = get_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids)
     if filtered_df.empty: return go.Figure().update_layout(title="Brak danych", template='plotly_white')
-    try:
-        filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp']).dt.tz_convert('Europe/Warsaw') # Zapomniałeś o tym :)
-    except:
-        filtered_df['timestamp']= pd.to_datetime(filtered_df['timestamp']).dt.tz_localize('UTC').dt.tz_convert('Europe/Warsaw')
+    #try:
+    #    filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp']).dt.tz_convert('Europe/Warsaw') # Zapomniałeś o tym :)
+    #except:
+    #    filtered_df['timestamp']= pd.to_datetime(filtered_df['timestamp']).dt.tz_localize('UTC').dt.tz_convert('Europe/Warsaw')
+    
     if filtered_df['timestamp'].dt.tz is not None:
-        filtered_df['timestamp'] = filtered_df['timestamp'].dt.tz_localize(None)
-
+        # Używam nowej kolumny w df, ktora juz jest w strefie +1
+        filtered_df['timestamp'] = filtered_df['timestamp_pl'].dt.tz_localize(None)
+        # Tutaj nazwa timestamp jest troche niefortunna, bo może się mylić z timestamp w df, 
+        # który jest niezlokalizowany (UTC + 0). W tej funkcji lokalizujemy czas, zeby porównywaź potem
+        # z week_start itd, które nie mają danej strefy.
     # 2. Tydzień
     week_start = pd.Timestamp(start_of_week_str)
     week_end = week_start + pd.Timedelta(days=7)
@@ -1260,11 +1265,6 @@ def activity_line(start_date, end_date, min_duration, filter_values, afk_mode, f
     filtered_df = filtered_df[filtered_df['category'] != 'sen']
     if filtered_df.empty:
         return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
-    # Zmiana na czas polski
-    timestamp = filtered_df['timestamp']
-    timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
-    filtered_df['timestamp_pl'] = timestamp_pl
-    filtered_df['date'] = timestamp_pl.dt.date
 
     Suma_z_dnia = filtered_df.groupby(['osoba','date'])['duration'].sum().reset_index().sort_values('duration',ascending=False)
     Suma_z_dnia['duration'] = round(Suma_z_dnia['duration'] / 3600,2)
