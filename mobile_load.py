@@ -12,7 +12,7 @@ def load_mobile_data(bucket: str, person: str) -> None:
     df_out['timestamp'] = [i['timestamp'] for i in data]
     df_out['duration'] = [i['duration'] for i in data]
     df_out['app'] = [i['data']['app'] for i in data]
-    df_out['status'] = 'not_afk'
+    df_out['status'] = 'not-afk'
     df_out['device'] = 'Phone'
     df_out['osoba'] = person
     df_out['category'] = df_out['app'].apply(classify_activity)

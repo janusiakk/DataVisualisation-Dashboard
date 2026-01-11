@@ -1,0 +1,326 @@
+[
+    {
+        "timestamp": "2025-12-13T01:37:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 38820.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-14T01:34:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 31740.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-15T01:57:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 29640.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-15T22:57:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 179.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-15T23:00:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 27420.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-16T23:21:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 27660.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-18T01:34:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 30180.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-18T22:11:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 2939.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-18T23:00:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 27780.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-19T23:19:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 28560.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-21T00:16:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 27900.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-21T22:01:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 3539.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-21T23:00:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 20220.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-22T21:59:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 3659.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-22T23:00:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 20280.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-24T01:29:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 32820.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-25T02:11:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 29040.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-26T01:16:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 30660.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-27T01:21:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 35100.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-28T00:19:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 29700.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-29T01:31:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 33120.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-30T00:10:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 31020.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-30T23:56:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 24840.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-01T02:07:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 28020.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-02T01:26:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 34680.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-03T02:21:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 26160.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-04T01:16:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 30840.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-04T23:19:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 27060.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-06T00:19:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 34260.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-06T22:57:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 179.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-06T23:00:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 27600.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-07T23:37:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 38520.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-08T22:12:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 2879.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-08T23:00:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 35400.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-09T23:47:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 42069.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-11T01:21:00.000000Z",
+        "app": "",
+        "status": "sleep",
+        "duration": 36480.0,
+        "category": "sen",
+        "osoba": "J",
+        "device": "Phone"
+    }
+]

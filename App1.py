@@ -9,7 +9,8 @@ COLOURS = {'muzyka': '#5544ee',
            'Komunikatory' : '#77ee44',
            'gry komputerowe': '#8855aa',
            'oglądanie filmów': "#F7D83B",
-           'inne': '#00c0ff'}
+           'inne': '#00c0ff',
+           'sen': '#4c4099'}
 def get_colour(text: str) -> str:
     if text in COLOURS.keys():
         return COLOURS[text]
@@ -127,7 +128,7 @@ def create_global_filters_layout():
                             "value": "afk_only"
                         },
                     ],
-                    value="all",
+                    value="active_only",
                     className="btn-group w-100",       # w-100 rozciąga grupę na całą szerokość
                     inputClassName="btn-check",        # Ukrywa kropki radia
                     labelClassName="btn btn-outline-primary", # Styl guzików
@@ -328,7 +329,7 @@ def create_filter_chips(df_in):
         rows_list.append(user_row)
         
     return html.Div(rows_list, className="p-2")
-def create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids):
+def create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, get_sleep=False):
     """ Zwraca ramkę dannych przefiltrowaną zgodnie z głównym filtrem na górze. 
         Callbacki wykresów będą z tego korzystać """
      # 1. Sprawdzenie czy są dane
@@ -357,9 +358,9 @@ def create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mo
     # 3. Filtr AFK - BEZ ZMIAN
     if 'status' in filtered_df.columns:
         if afk_mode == 'active_only':
-            filtered_df = filtered_df[filtered_df['status'] != 'afk']
+            filtered_df = filtered_df[(filtered_df['status'] == 'not-afk') | (filtered_df['status'] == 'not_afk') | (get_sleep & (filtered_df['status'] == 'sleep'))]
         elif afk_mode == 'afk_only':
-            filtered_df = filtered_df[filtered_df['status'] == 'afk']
+            filtered_df = filtered_df[((filtered_df['status'] != 'not-afk') & (filtered_df['status'] != 'not_afk')) | (get_sleep & (filtered_df['status'] == 'sleep'))]
     return filtered_df
 def create_options_for_weekly_screentime(df_in):
     # 1. Pobieramy listę użytkowników
@@ -632,6 +633,7 @@ sidebar = html.Div(
             dbc.NavLink("Obserwatorium", href="/watcher", active="exact"),
             dbc.NavLink("Podsumowanie", href="/summary", active="exact"),
             dbc.NavLink("Oś czasu", href="/timeline", active="exact"),
+            dbc.NavLink("Sen", href="/sleep", active="exact"),
             dbc.NavLink("Ustawienia", href="/settings", active="exact"),
             #dbc.NavLink("Załącz pliki", href="/addFile", active="exact"), # raczej do wycofania
         ], vertical=True, pills=True),
@@ -762,6 +764,8 @@ def render_page_content(pathname):
         return content_summary
     elif pathname == "/timeline": 
         return content_timeline
+    elif pathname == "/sleep": 
+        return content_sleep
     elif pathname == "/settings": 
         return content_settings
     elif pathname == "/addFile": 
@@ -799,6 +803,8 @@ def update_header_title(pathname):
         return "Podsumowanie"
     elif pathname == "/timeline": 
         return "Oś Czasu"
+    elif pathname == "/sleep": 
+        return "Sen"
     elif pathname == "/settings": 
         return "Ustawienia"
     elif pathname == "/addFile": 
@@ -1075,7 +1081,7 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
             hovertemplate=hover_tmpl,
             customdata=custom_d,
             width=0.8,
-            opacity=0.8,
+            opacity=0.8 if str(item).lower() != 'sen' else 0.4,
             marker=dict(
                 color=get_colour(str(item)),
                 line=dict(width=0)),
@@ -1154,7 +1160,8 @@ def update_timeline_controls(current_user, current_week, start_date, end_date, m
     Input('TopN-app-weekly','value')
 )
 def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids,osoba,agregator,topn):
-    filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
+    filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
+    filtered_df = filtered_df.loc[lambda df: df['category'] != 'sen']
     # W trybie app, bierzemy topn aplikacji (liczymy dla konkretnej osoby)
     Popular_apps = filtered_df[filtered_df['osoba']==osoba].groupby('app')['duration'].aggregate(total_duration = 'sum').reset_index()
     Popular_apps = Popular_apps.sort_values('total_duration',ascending=False).reset_index(drop=True)
@@ -1231,8 +1238,12 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
     Input("highlight-options", "value")
 )
-def acctivity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids,highlight_options):
-    filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
+def activity_line_watcher(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options):
+    return activity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options, sleep=False)
+
+def activity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options, sleep):
+    filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, get_sleep=sleep)
+    filtered_df = filtered_df.loc[lambda df: (df['category'] == 'sen') if sleep else (df['category'] != 'sen')]
     if filtered_df.empty:
         return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
     # Zmiana na czas polski
@@ -1292,21 +1303,11 @@ def acctivity_line(start_date, end_date, min_duration, filter_values, afk_mode, 
     if ('weekend' in highlight_options):
         current = start
         while current <= end:
+            if current.weekday() >= 5:
             # jeśli dzień to sobota (5) lub niedziela (6)
-            if current.weekday() == 5:  # sobota
-                week_end = current + pd.Timedelta(days=1)  # do niedzieli
                 fig.add_vrect(
-                    x0=current,
-                    x1=week_end,
-                    fillcolor="lightgrey",
-                    opacity=0.5,
-                    layer="below",
-                    line_width=0
-                )
-            elif current.weekday() == 6:  # niedziela, jeśli nie zaczęliśmy od soboty
-                fig.add_vrect(
-                    x0=current,
-                    x1=current,
+                    x0=current-pd.Timedelta(hours=12),
+                    x1=current+pd.Timedelta(hours=12),
                     fillcolor="lightgrey",
                     opacity=0.5,
                     layer="below",
@@ -1813,7 +1814,7 @@ def update_smart_charts(start_date, end_date, min_duration, filter_values, afk_m
         limit: opcjonalny limit Top N
         """
         local_df = data_source.copy()
-
+        local_df = local_df.loc[lambda df: df['category'] != 'sen']
         # A. FILTRACJA ZAKRESU (Osoba czy Wszyscy?)
         if scope != 'comparison':
             local_df = local_df[local_df['osoba'] == scope]
@@ -1882,6 +1883,40 @@ def update_smart_charts(start_date, end_date, min_duration, filter_values, afk_m
     fig_right = build_chart(r_scope, r_type, main_df, app_col, limit=r_limit)
 
     return fig_left, fig_right
+
+content_sleep = html.Div([
+    dbc.Card(dbc.CardBody([
+        dbc.Row([dbc.Col(html.H4("Dzienna długość snu")),dbc.Col([
+                            html.H5("Zaznacz"),
+                            dbc.Checklist(
+                                options=[
+                                    {"label": "Weekendy", "value": "weekend"},
+                                    #{"label": "Poniedziałki", "value": "weekend_mon"},
+                                    {"label": "Święta", "value": "holiday"}
+                                    ],
+                                    value=["weekend","holiday"],   # domyślnie zaznaczone
+                                    id="highlight-options",
+                                    inline=True          # checkboxy w jednej linii
+                                )]
+        )]),
+        dcc.Graph(id='sleep-line-plot',config={'displayModeBar': False})
+     ]))
+])
+@app.callback(
+    Output('sleep-line-plot', 'figure'),
+    [
+        Input('watcher-date-picker', 'start_date'),
+        Input('watcher-date-picker', 'end_date'),
+        Input('min-duration-input', 'value'),
+        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+        Input('afk-mode-selector', 'value'),
+    ],
+    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
+    Input("highlight-options", "value")
+)
+def activity_line_watcher(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options):
+    return activity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids, highlight_options, sleep=True)
+
 # endregion
 # endregion
 if __name__ == "__main__":
