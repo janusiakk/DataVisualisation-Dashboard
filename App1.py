@@ -1,6 +1,6 @@
 import os, json, numpy as np, pandas as pd, dash
 import plotly.express as px, plotly.graph_objs as go, dash_bootstrap_components as dbc
-from dash import Input, Output, State, dcc, html, dash_table, ALL, MATCH, ctx
+from dash import Input, Output, State, dcc, html, ALL, MATCH, ctx
 from hashlib import md5
 from colorsys import hsv_to_rgb
 COLOURS = {'muzyka': '#5544ee', 
@@ -10,7 +10,7 @@ COLOURS = {'muzyka': '#5544ee',
            'gry komputerowe': '#8855aa',
            'oglądanie filmów': "#F7D83B",
            'inne': '#00c0ff',
-           'sen': '#4c4099'}
+           'sen': "#605697"}
 def get_colour(text: str) -> str:
     if text in COLOURS.keys():
         return COLOURS[text]
@@ -351,10 +351,7 @@ def create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mo
     mask_date = (df['timestamp'].dt.date >= s_date) & (df['timestamp'].dt.date <= e_date)
     min_duration_sec = (min_duration or 0) * 60
     mask_dur = df['duration'] >= min_duration_sec
-    if get_sleep:
-        mask_dev = df['osoba'].isin([x[0] for x in allowed_combinations])
-    else:
-        mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed_combinations, axis=1)
+    mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed_combinations, axis=1) | ((df['osoba'].isin([x[0] for x in allowed_combinations]) & (df['category'] == 'sen')))
     
     filtered_df = df[mask_date & mask_dur & mask_dev].copy()
 
@@ -1175,7 +1172,7 @@ def update_timeline_controls(current_user, current_week, start_date, end_date, m
 )
 def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids,osoba,agregator,topn):
     filtered_df = get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
-    filtered_df = filtered_df.loc[lambda df: df['category'] != 'sen']
+    filtered_df = filtered_df[df['category'] != 'sen']
     # W trybie app, bierzemy topn aplikacji (liczymy dla konkretnej osoby)
     if agregator == 'app':
         Popular_apps = filtered_df[filtered_df['osoba']==osoba].groupby('app')['duration'].aggregate(total_duration = 'sum').reset_index()

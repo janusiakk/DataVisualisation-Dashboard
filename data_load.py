@@ -16,7 +16,7 @@ def classify_activity(combined):
         'gemini', 'chatgpt', 'openai', 'claude', 'leon', 'usos', 'politechnika',
         'pochodna', 'całka', 'zapiski', 'laboratorium', 'projekt', 'studia',
         '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack', 'gemini', 'dysk',
-        'intellij'
+        'intellij', 'idea'
     ]
     if any(k in combined for k in ds_keywords):
         return 'studia'
