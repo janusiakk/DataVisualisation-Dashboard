@@ -429,7 +429,7 @@ content_watcher = html.Div([
         create_smart_slot('left', "Analiza Kategorii", is_app_mode=False),
         create_smart_slot('right', "Analiza Aplikacji (Top N)", is_app_mode=True)
     ]),
-
+    dcc.Graph(id='activity-line-plot',config={'displayModeBar': False})
     #html.Div(id='watcher-content-container')
 ])
 # STRONA 3 : Podsumowanie /summary
@@ -1178,6 +1178,72 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
             "<extra></extra>"
         )
     return fig
+# --- CALLBACK C: LINIA AKTYWNOŚCI
+@app.callback(
+    Output('activity-line-plot', 'figure'),
+    [
+        Input('watcher-date-picker', 'start_date'),
+        Input('watcher-date-picker', 'end_date'),
+        Input('min-duration-input', 'value'),
+        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+        Input('afk-mode-selector', 'value'),
+    ],
+    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
+)
+def acctivity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids):
+    filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
+    # Zmiana na czas polski
+    timestamp = filtered_df['timestamp']
+    timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
+    filtered_df['timestamp_pl'] = timestamp_pl
+    filtered_df['date'] = timestamp_pl.dt.date
+
+    Suma_z_dnia = filtered_df.groupby(['osoba','date'])['duration'].sum().reset_index().sort_values('duration',ascending=False)
+    Suma_z_dnia['duration'] = round(Suma_z_dnia['duration'] / 3600,2)
+    Suma_z_dnia = Suma_z_dnia.sort_values(['osoba','date']) 
+    # Uzupełniam brakujące dni zerami
+    osoby = Suma_z_dnia['osoba'].unique()
+    daty = pd.date_range(Suma_z_dnia['date'].min(), Suma_z_dnia['date'].max())
+
+    full_index = pd.MultiIndex.from_product([osoby, daty], names=['osoba', 'date'])
+    Suma_z_dnia = Suma_z_dnia.set_index(['osoba', 'date']).reindex(full_index, fill_value=0).reset_index()
+    Suma_z_dnia.sort_values(["osoba","date"]).reset_index(drop=True)
+    Suma_z_dnia['duration_hm'] = Suma_z_dnia['duration'].apply(lambda x: f"{int(x)}h {int((x%1*60))}m")
+
+    fig = px.line(
+    Suma_z_dnia,
+    x='date',
+    y='duration',
+    color='osoba',           # każda osoba będzie miała osobną linię
+    labels={'date':'Data', 'duration':'Czas aktywności', 'osoba':'Osoba'},
+    title='Dzienna aktywność',
+    template='plotly_white',
+    line_shape='spline'
+    )
+
+    # wymuszenie chronologicznej kolejności X, jeśli daty są datetime to Plotly zrobi to automatycznie
+    fig.update_yaxes(ticksuffix="h")
+    fig.update_layout(xaxis_tickangle=-45)  # dla czytelności etykiet dat
+    fig.update_traces(line=dict(width=4))  # np. 4 piksele
+
+    start = Suma_z_dnia['date'].min()
+    end = Suma_z_dnia['date'].max()
+    tick_vals = pd.date_range(start, end, freq='2D')  # co 2 dni
+    fig.update_xaxes(tickvals=tick_vals, tickformat="%Y-%m-%d")
+    for trace in fig.data:
+        osoba = trace.name  # nazwa linii = osoba
+        # filtrujemy dane tylko dla tej osoby
+        df_osoba = Suma_z_dnia[Suma_z_dnia['osoba'] == osoba]
+        # przypisujemy customdata dla tej linii
+        trace.customdata = df_osoba[['duration_hm']].values
+        # własny hovertemplate
+        trace.hovertemplate = (
+            f"<b>{osoba}</b><br>"       # nazwa osoby
+            "Data: %{x|%Y-%m-%d}<br>"   # data
+            "Czas aktywności: %{customdata[0]}<extra></extra>"  # Hh Mm
+        )
+    return fig
+
 
 @app.callback(
     Output('TopN-col', 'style'),
