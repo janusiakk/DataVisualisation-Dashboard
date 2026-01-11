@@ -917,7 +917,7 @@ def toggle_timeline_cards(n1, n2, n3, style1, style2, style3):
 )
 def update_timeline_filter_options(mode, user, week, s_date, e_date, min_dur, f_vals, afk, f_ids):
     # 1. Pobieramy dane (Globalne filtry)
-    df_filtered = create_filtered_df(s_date, e_date, min_dur, f_vals, afk, f_ids)
+    df_filtered = get_filtered_df(s_date, e_date, min_dur, f_vals, afk, f_ids)
     if df_filtered.empty or not user or not week:
         return [], []
 
@@ -1137,7 +1137,7 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
 )
 def update_timeline_controls(current_user, current_week, start_date, end_date, min_dur, filter_values, afk_mode, filter_ids):
     # 1. Filtrujemy dane globalnie (tą samą funkcją co zawsze)
-    filtered_df = create_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids)
+    filtered_df = get_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids)
     
     if filtered_df.empty:
         return [], None, [], None
