@@ -16,7 +16,6 @@ def get_colour(text: str) -> str:
     else:
         h = int(md5(text.encode("utf-8")).hexdigest(), 16)
         return "rgb(%d,%d,%d)" % tuple([int(i*255) for i in hsv_to_rgb(((h >> 10)%360)/360, 0.7+(0.3*(((h >> 20)%360)/360)), 0.8+(0.2*(((h >> 30)%360)/360)))])
-
 #region Start
 app = dash.Dash(
     __name__,
@@ -33,6 +32,8 @@ for filename in os.listdir(DATA_FOLDER):
         filepath = os.path.join(DATA_FOLDER, filename)
         frames.append(pd.read_json(filepath))
 df = pd.concat(frames, ignore_index=True)
+OSOBY = df['osoba'].drop_duplicates().reset_index(drop=True) 
+
 #endregion
 #region --- 1. FUNKCJE POMOCNICZE ---
 # --- DEFINICJA ZAWARTOŚCI FILTRÓW (OFFCANVAS) ---
@@ -1192,6 +1193,8 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
 )
 def acctivity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids):
     filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
+    if filtered_df.empty:
+        return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
     # Zmiana na czas polski
     timestamp = filtered_df['timestamp']
     timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
@@ -1218,7 +1221,8 @@ def acctivity_line(start_date, end_date, min_duration, filter_values, afk_mode, 
     labels={'date':'Data', 'duration':'Czas aktywności', 'osoba':'Osoba'},
     title='Dzienna aktywność',
     template='plotly_white',
-    line_shape='spline'
+    line_shape='spline',
+    category_orders={'osoba':OSOBY}
     )
 
     # wymuszenie chronologicznej kolejności X, jeśli daty są datetime to Plotly zrobi to automatycznie
