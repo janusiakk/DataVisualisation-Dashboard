@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from datetime import datetime, timedelta
 import json
 from sys import argv
@@ -60,7 +61,7 @@ def sleep_load(file: str, user_name: str) -> None:
             })
             
 
-    time_temp = "11.01.2026"
+    time_temp = df['Date_StartTime'].max().strftime("%d.%m.%Y")
     json_file = f"Dane Dash\\SLEEP-SUM-{user_name}-{time_temp}.json"
     with open(json_file, "w", encoding="utf-8") as f:
         json.dump(json_list, f, ensure_ascii=False, indent=4)

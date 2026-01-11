@@ -1101,7 +1101,7 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
             hovertemplate=hover_tmpl,
             customdata=custom_d,
             width=0.8,
-            opacity=0.8 if (str(item).lower() != 'sen') and (str(item).lower() != '') else 0.4,
+            opacity=0.8 if (str(item).lower() != 'sen') else 0.4,
             marker=dict(
                 color=get_colour(str(item)),
                 line=dict(width=0)),
@@ -1942,8 +1942,10 @@ def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_m
         timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
     except:
         timestamp_pl = timestamp.dt.tz_localize('UTC').dt.tz_convert('Europe/Warsaw')
-    filtered_df['timestamp_pl'] = timestamp_pl
-    filtered_df['date'] = timestamp_pl.dt.date
+
+    # trik: "dzień" dla snu trwa od 20:00 dnia poprzedniego do 19:59    
+    filtered_df['timestamp_pl'] = timestamp_pl+pd.Timedelta(hours=4)
+    filtered_df['date'] = filtered_df['timestamp_pl'].dt.date
 
     Suma_z_dnia = filtered_df.groupby(['osoba','date'])['duration'].sum().reset_index().sort_values('duration',ascending=False)
     Suma_z_dnia['duration'] = round(Suma_z_dnia['duration'] / 3600,2)
@@ -2066,25 +2068,31 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
             ticktext=np.where(hour_range>=24, hour_range-24, hour_range),
         ),
         showlegend=False,
-        yaxis_title="Osoba"
+        yaxis_title="Osoba",
+        template='plotly_white'
     )
     osoba_number = df_sleep.groupby('osoba').size()
+    hover_tmpl = f"Data:%{{customdata[0]}}<br>Od:%{{customdata[1]}}<br>Do:%{{customdata[2]}}<extra></extra>"
     for item in df_sleep.itertuples():
+        custom_data = [None, None, None]
+        custom_data[0] = (item.timestamp+pd.Timedelta(days=1)).strftime("%d.%m.%Y")
+        custom_data[1] = (item.timestamp).strftime("%H:%M:%S")
+        custom_data[2] = (item.timestamp+pd.Timedelta(seconds=item.duration)).strftime("%H:%M:%S")
         fig.add_trace(
             go.Bar(
             y=[item.osoba],
             x=[item.duration/3600],
             base=[item.tm],
             orientation='h',
-            name='g',
-            hovertemplate=None,
-            customdata=None,
+            name='',
+            hovertemplate=hover_tmpl,
+            customdata=[custom_data],
             width=0.8,
-            opacity=1 - (0.4)**(1/(osoba_number.loc[item.osoba])),
+            opacity=1 - (0.3)**(1/(osoba_number.loc[item.osoba])),
             marker=dict(
                 color=get_colour('sen'),
                 line=dict(width=0)),
-            ) 
+            )
         )
     return fig
 
