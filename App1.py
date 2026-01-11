@@ -1299,11 +1299,17 @@ def acctivity_line(start_date, end_date, min_duration, filter_values, afk_mode, 
             x0=holiday_start,
             x1=holiday_end,
             fillcolor="red",   # np. czerwony pasek
-            opacity=0.1,       # półprzezroczysty
+            opacity=0.15,       # półprzezroczysty
             layer="below",
             line_width=0,
-            annotation_text="Przerwa świąteczna",  # napis na pasku
-            #annotation_position="middle centre"
+            annotation=dict(
+                text="<b>Przerwa świąteczna</b>",   # napis
+                x=(holiday_start + (holiday_end - holiday_start)/2),  # środek prostokąta
+                y=1.1,                        # na samej górze wykresu
+                showarrow=False,
+                font=dict(size=20, color="red", family="Arial"),  # większa i kolorowa czcionka
+                xanchor="center"
+                )
         )
     
     return fig
