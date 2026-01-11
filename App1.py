@@ -937,14 +937,14 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
     filtered_df = create_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids)
     if filtered_df.empty: return go.Figure().update_layout(title="Brak danych", template='plotly_white')
 
-    filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp'])
+    filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp']).dt.tz_convert('Europe/Warsaw') # Zapomniałeś o tym :)
     if filtered_df['timestamp'].dt.tz is not None:
         filtered_df['timestamp'] = filtered_df['timestamp'].dt.tz_localize(None)
 
     # 2. Tydzień
     week_start = pd.Timestamp(start_of_week_str)
     week_end = week_start + pd.Timedelta(days=7)
-    
+
     df_week = filtered_df[
         (filtered_df['osoba'] == selected_user) & 
         (filtered_df['timestamp'] >= week_start) & 
@@ -991,6 +991,9 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
 
     df_res['start_decimal'] = df_res['timestamp'].dt.hour + (df_res['timestamp'].dt.minute / 60)
     df_res['duration_h'] = df_res['duration'] / 3600
+    df_res['start_hhmm'] = df_res['timestamp'].dt.strftime('%H:%M') # NOWE
+    df_res['duration_hm'] = df_res['duration_h'].apply(lambda x: f"{int(x)}h {int(((x%1)*60))}m")
+
 
     # 6. Rysowanie
     fig = go.Figure()
@@ -1004,13 +1007,25 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
         # Tooltip content
         if 'app' in subset.columns and mode == 'category':
             # Tryb Kategoria: Pokaż nazwę apki w dymku
-            custom_d = subset[['app']]
-            hover_tmpl = f"<b>{item}</b><br>%{{customdata[0]}}<br>Start: %{{base:.2f}}<br>Czas: %{{x:.2f}}h<extra></extra>"
+            custom_d = subset[['app','start_hhmm','duration_hm']]
+            #hover_tmpl = f"<b>{item}</b><br>%{{customdata[0]}}<br>Start: %{{base:.2f}}<br>Czas: %{{x:.2f}}h<extra></extra>"
+            hover_tmpl = (
+                f"<b>{item}</b><br>"
+                "App: %{customdata[0]}<br>"
+                "Start: %{customdata[1]}<br>"
+                "Czas: %{customdata[2]}"
+                "<extra></extra>"
+            )
         else:
             # Tryb App: Pokaż po prostu nazwę (item)
-            custom_d = subset[[target_col]] # dummy
-            hover_tmpl = f"<b>{item}</b><br>Start: %{{base:.2f}}<br>Czas: %{{x:.2f}}h<extra></extra>"
-
+            #custom_d = subset[[target_col]] # dummy
+            custom_d = subset[['app', 'start_hhmm', 'duration_hm']]
+            hover_tmpl = (
+                f"<b>{item}</b><br>"
+                "Start: %{customdata[1]}<br>"
+                "Czas: %{customdata[2]}"
+                "<extra></extra>"
+            )
         fig.add_trace(go.Bar(
             y=subset['y_label'],
             x=subset['duration_h'],
