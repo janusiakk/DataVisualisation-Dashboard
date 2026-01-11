@@ -4,11 +4,11 @@ from dash import Input, Output, State, dcc, html, dash_table, ALL, MATCH, ctx
 from hashlib import md5
 from colorsys import hsv_to_rgb
 COLOURS = {'muzyka': '#5544ee', 
-           'nauka': '#ee4488', 
+           'nauka': "#df6092", 
            'studia': '#dd5544', 
            'Komunikatory' : '#77ee44',
            'gry komputerowe': '#8855aa',
-           'oglądanie filmów': '#998833',
+           'oglądanie filmów': "#F7D83B",
            'inne': '#00c0ff'}
 def get_colour(text: str) -> str:
     if text in COLOURS.keys():
@@ -16,7 +16,6 @@ def get_colour(text: str) -> str:
     else:
         h = int(md5(text.encode("utf-8")).hexdigest(), 16)
         return "rgb(%d,%d,%d)" % tuple([int(i*255) for i in hsv_to_rgb(((h >> 10)%360)/360, 0.7+(0.3*(((h >> 20)%360)/360)), 0.8+(0.2*(((h >> 30)%360)/360)))])
-
 #region Start
 app = dash.Dash(
     __name__,
@@ -33,6 +32,8 @@ for filename in os.listdir(DATA_FOLDER):
         filepath = os.path.join(DATA_FOLDER, filename)
         frames.append(pd.read_json(filepath))
 df = pd.concat(frames, ignore_index=True)
+OSOBY = df['osoba'].drop_duplicates().reset_index(drop=True) 
+
 #endregion
 #region --- 1. FUNKCJE POMOCNICZE ---
 # --- DEFINICJA ZAWARTOŚCI FILTRÓW (OFFCANVAS) ---
@@ -429,8 +430,23 @@ content_watcher = html.Div([
         create_smart_slot('left', "Analiza Kategorii", is_app_mode=False),
         create_smart_slot('right', "Analiza Aplikacji (Top N)", is_app_mode=True)
     ]),
-
-    #html.Div(id='watcher-content-container')
+   # dcc.Graph(id='activity-line-plot',config={'displayModeBar': False}),
+    dbc.Card(dbc.CardBody([
+        dbc.Row([dbc.Col(html.H4("Dzienna aktywność")),dbc.Col([
+                            html.H5("Zaznacz"),
+                            dbc.Checklist(
+                                options=[
+                                    {"label": "Weekendy", "value": "weekend"},
+                                    #{"label": "Poniedziałki", "value": "weekend_mon"},
+                                    {"label": "Święta", "value": "holiday"}
+                                    ],
+                                    value=["weekend","holiday"],   # domyślnie zaznaczone
+                                    id="highlight-options",
+                                    inline=True          # checkboxy w jednej linii
+                                )]
+        )]),
+        dcc.Graph(id='activity-line-plot',config={'displayModeBar': False})
+     ]))
 ])
 # STRONA 3 : Podsumowanie /summary
 content_summary= html.Div([
@@ -971,14 +987,14 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
     filtered_df = create_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids)
     if filtered_df.empty: return go.Figure().update_layout(title="Brak danych", template='plotly_white')
 
-    filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp'])
+    filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp']).dt.tz_convert('Europe/Warsaw') # Zapomniałeś o tym :)
     if filtered_df['timestamp'].dt.tz is not None:
         filtered_df['timestamp'] = filtered_df['timestamp'].dt.tz_localize(None)
 
     # 2. Tydzień
     week_start = pd.Timestamp(start_of_week_str)
     week_end = week_start + pd.Timedelta(days=7)
-    
+
     df_week = filtered_df[
         (filtered_df['osoba'] == selected_user) & 
         (filtered_df['timestamp'] >= week_start) & 
@@ -1025,6 +1041,9 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
 
     df_res['start_decimal'] = df_res['timestamp'].dt.hour + (df_res['timestamp'].dt.minute / 60)
     df_res['duration_h'] = df_res['duration'] / 3600
+    df_res['start_hhmm'] = df_res['timestamp'].dt.strftime('%H:%M') # NOWE
+    df_res['duration_hm'] = df_res['duration_h'].apply(lambda x: f"{int(x)}h {int(((x%1)*60))}m")
+
 
     # 6. Rysowanie
     fig = go.Figure()
@@ -1040,8 +1059,8 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
         # Tooltip content
         if 'app' in subset.columns and mode == 'category':
             # Tryb Kategoria: Pokaż nazwę apki w dymku
-            custom_d[2] = subset[['app']]
-            hover_tmpl = f"<b>{item}</b><br>%{{customdata[2]}}<br>Start: %{{customdata[0]}}<br>Czas: %{{customdata[1]}} min<extra></extra>"
+            custom_d = subset[['app']]
+            hover_tmpl = f"<b>{item}</b><br>%{{customdata[0]}}<br>Start: %{{base:.2f}}<br>Czas: %{{x:.2f}}h<extra></extra>"
         else:
             # Tryb App: Pokaż po prostu nazwę (item)
             custom_d[2] = subset[[target_col]] # dummy
@@ -1151,7 +1170,7 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
     filtered_df['day_of_year'] = timestamp_pl.dt.day_of_year
     filtered_df['weekday'] = timestamp_pl.dt.day_name('Pl')
     filtered_df['weekday_number'] = timestamp_pl.dt.weekday + 1
-    filtered_df['hour'] = timestamp_pl.dt.hour
+    #filtered_df['hour'] = timestamp_pl.dt.hour
     # Obliczam średni czas aktywności w danym dnium tygodniaz podziałem na kategorie
     # Zliczam ile razy u danej osoby wystąpił dany dzień tygodnia
     Dni = filtered_df[['osoba',"weekday","weekday_number","day_of_year"]].drop_duplicates()
@@ -1165,10 +1184,13 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
     # Tworze wykres
     # Podpis legendy
     tytuly = {'category': 'kategorie','app': 'aplikacje'}
-    cols2 = {i: get_colour(i) for i in filtered_df[agregator]}
     df3 = df2[df2['osoba'] == osoba]
+    cols2 = {i: get_colour(i) for i in df3[agregator]}
+
     ylim = np.ceil(df2.groupby(['osoba','weekday'])['average_activity'].sum().reset_index()['average_activity'].max())
-    plot = px.bar(df3,
+    df3['average_activity_hm'] = df3['average_activity'].apply(lambda x: f"{int(x)}h {int(((x%1)*60))}m")
+    
+    fig = px.bar(df3,
             x='weekday',
             y = 'average_activity',
             color=agregator,
@@ -1177,8 +1199,145 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
             labels={'weekday':'dzień tygodnia','average_activity':'średnia aktywność (godz.)',agregator:tytuly.get(agregator)},
             title=f"Średnia aktywność w dniach tygodnia: {osoba}",
             template='plotly_white',
-            range_y=[0,ylim])
-    return plot
+            range_y=[0,ylim],
+            hover_data={
+            agregator: True,                  # pokaż nazwę aplikacji/kategorii
+            'average_activity_hm': True,      # pokaż czas w Hh Mm
+            'average_activity': True,          # ukryj dziesiętne godziny
+            'weekday':False
+            })
+    for trace in fig.data:
+        # bierzemy tylko wiersze df3, które pasują do tego trace (trace.name = nazwa grupy)
+        subset = df3[df3[agregator] == trace.name].copy()
+        trace.customdata = np.stack(
+            (subset[agregator], subset['average_activity_hm']), axis=-1
+        )
+        trace.hovertemplate = (
+            "<b>%{customdata[0]}</b><br>"
+            "Czas średni: %{customdata[1]}"
+            "<extra></extra>"
+        )
+    return fig
+# --- CALLBACK C: LINIA AKTYWNOŚCI
+@app.callback(
+    Output('activity-line-plot', 'figure'),
+    [
+        Input('watcher-date-picker', 'start_date'),
+        Input('watcher-date-picker', 'end_date'),
+        Input('min-duration-input', 'value'),
+        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+        Input('afk-mode-selector', 'value'),
+    ],
+    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
+    Input("highlight-options", "value")
+)
+def acctivity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids,highlight_options):
+    filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
+    if filtered_df.empty:
+        return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
+    # Zmiana na czas polski
+    timestamp = filtered_df['timestamp']
+    timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
+    filtered_df['timestamp_pl'] = timestamp_pl
+    filtered_df['date'] = timestamp_pl.dt.date
+
+    Suma_z_dnia = filtered_df.groupby(['osoba','date'])['duration'].sum().reset_index().sort_values('duration',ascending=False)
+    Suma_z_dnia['duration'] = round(Suma_z_dnia['duration'] / 3600,2)
+    Suma_z_dnia = Suma_z_dnia.sort_values(['osoba','date']) 
+    # Uzupełniam brakujące dni zerami
+    osoby = Suma_z_dnia['osoba'].unique()
+    daty = pd.date_range(Suma_z_dnia['date'].min(), Suma_z_dnia['date'].max())
+
+    full_index = pd.MultiIndex.from_product([osoby, daty], names=['osoba', 'date'])
+    Suma_z_dnia = Suma_z_dnia.set_index(['osoba', 'date']).reindex(full_index, fill_value=0).reset_index()
+    Suma_z_dnia.sort_values(["osoba","date"]).reset_index(drop=True)
+    Suma_z_dnia['duration_hm'] = Suma_z_dnia['duration'].apply(lambda x: f"{int(x)}h {int((x%1*60))}m")
+
+    fig = px.line(
+    Suma_z_dnia,
+    x='date',
+    y='duration',
+    color='osoba',           # każda osoba będzie miała osobną linię
+    labels={'date':'Data', 'duration':'Czas aktywności', 'osoba':'Osoba'},
+   # title='Dzienna aktywność',
+    template='plotly_white',
+    line_shape='spline',
+    category_orders={'osoba':OSOBY}
+    )
+
+    # wymuszenie chronologicznej kolejności X, jeśli daty są datetime to Plotly zrobi to automatycznie
+    fig.update_yaxes(ticksuffix="h")
+    fig.update_layout(xaxis_tickangle=-45)  # dla czytelności etykiet dat
+    fig.update_traces(line=dict(width=4))  # np. 4 piksele
+
+    start = Suma_z_dnia['date'].min()
+    end = Suma_z_dnia['date'].max()
+    tick_vals = pd.date_range(start, end, freq='2D')  # co 2 dni
+    fig.update_xaxes(tickvals=tick_vals, tickformat="%Y-%m-%d")
+    for trace in fig.data:
+        osoba = trace.name  # nazwa linii = osoba
+        # filtrujemy dane tylko dla tej osoby
+        df_osoba = Suma_z_dnia[Suma_z_dnia['osoba'] == osoba]
+        # przypisujemy customdata dla tej linii
+        trace.customdata = df_osoba[['duration_hm']].values
+        # własny hovertemplate
+        trace.hovertemplate = (
+            f"<b>{osoba}</b><br>"       # nazwa osoby
+            "Data: %{x|%Y-%m-%d}<br>"   # data
+            "Czas aktywności: %{customdata[0]}<extra></extra>"  # Hh Mm
+        )
+    # -------------------
+    # Dodawanie weekendów
+    # -------------------
+    if ('weekend' in highlight_options):
+        current = start
+        while current <= end:
+            # jeśli dzień to sobota (5) lub niedziela (6)
+            if current.weekday() == 5:  # sobota
+                week_end = current + pd.Timedelta(days=1)  # do niedzieli
+                fig.add_vrect(
+                    x0=current,
+                    x1=week_end,
+                    fillcolor="lightgrey",
+                    opacity=0.5,
+                    layer="below",
+                    line_width=0
+                )
+            elif current.weekday() == 6:  # niedziela, jeśli nie zaczęliśmy od soboty
+                fig.add_vrect(
+                    x0=current,
+                    x1=current,
+                    fillcolor="lightgrey",
+                    opacity=0.5,
+                    layer="below",
+                    line_width=0
+                )
+            current += pd.Timedelta(days=1)
+    if ('holiday' in highlight_options):
+        # Święta
+        # Załóżmy, że przerwa świąteczna trwa od 24 grudnia do 26 grudnia
+        holiday_start = pd.to_datetime("2025-12-24")
+        holiday_end   = pd.to_datetime("2026-01-06")
+
+        fig.add_vrect(
+            x0=holiday_start,
+            x1=holiday_end,
+            fillcolor="red",   # np. czerwony pasek
+            opacity=0.15,       # półprzezroczysty
+            layer="below",
+            line_width=0,
+            annotation=dict(
+                text="<b>Przerwa świąteczna</b>",   # napis
+                x=(holiday_start + (holiday_end - holiday_start)/2),  # środek prostokąta
+                y=1.1,                        # na samej górze wykresu
+                showarrow=False,
+                font=dict(size=20, color="red", family="Arial"),  # większa i kolorowa czcionka
+                xanchor="center"
+                )
+        )
+    
+    return fig
+
 
 @app.callback(
     Output('TopN-col', 'style'),
