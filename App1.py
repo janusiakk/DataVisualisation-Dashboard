@@ -3,6 +3,7 @@ import plotly.express as px, plotly.graph_objs as go, dash_bootstrap_components 
 from dash import Input, Output, State, dcc, html, ALL, MATCH, ctx
 from hashlib import md5
 from colorsys import hsv_to_rgb
+#region Start
 COLOURS = {'muzyka': '#5544ee', 
            'nauka': "#df6092", 
            'studia': '#dd5544', 
@@ -17,7 +18,7 @@ def get_colour(text: str) -> str:
     else:
         h = int(md5(text.encode("utf-8")).hexdigest(), 16)
         return "rgb(%d,%d,%d)" % tuple([int(i*255) for i in hsv_to_rgb(((h >> 10)%360)/360, 0.7+(0.3*(((h >> 20)%360)/360)), 0.8+(0.2*(((h >> 30)%360)/360)))])
-#region Start
+
 app = dash.Dash(
     __name__,
     external_stylesheets=[
@@ -34,7 +35,14 @@ for filename in os.listdir(DATA_FOLDER):
         frames.append(pd.read_json(filepath))
 df = pd.concat(frames, ignore_index=True)
 OSOBY = df['osoba'].drop_duplicates().reset_index(drop=True) 
-
+# Kolumny czasowe
+timestamp = df['timestamp']
+timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
+df['timestamp_pl'] = timestamp_pl
+df['day_of_year'] = timestamp_pl.dt.day_of_year
+df['weekday'] = timestamp_pl.dt.day_name('Pl')
+df['weekday_number'] = timestamp_pl.dt.weekday
+df['date'] = timestamp_pl.dt.date
 #endregion
 #region --- 1. FUNKCJE POMOCNICZE ---
 # --- DEFINICJA ZAWARTOŚCI FILTRÓW (OFFCANVAS) ---
@@ -919,7 +927,8 @@ def update_timeline_filter_options(mode, user, week, s_date, e_date, min_dur, f_
         return [], []
 
     # Fix daty
-    df_filtered['timestamp'] = pd.to_datetime(df_filtered['timestamp'])
+    # NOWOSC, używam polskiego czasu
+    df_filtered['timestamp'] = df_filtered['timestamp_pl']
     if df_filtered['timestamp'].dt.tz is not None:
         df_filtered['timestamp'] = df_filtered['timestamp'].dt.tz_localize(None)
 
@@ -950,8 +959,6 @@ def update_timeline_filter_options(mode, user, week, s_date, e_date, min_dur, f_
     initial_value = [opt['value'] for opt in options]
     
     return options, initial_value
-
-
 # --- CALLBACK: OBSŁUGA GUZIKÓW SELECT ALL / DESELECT ALL ---
 @app.callback(
     Output("timeline-top-filter", "value", allow_duplicate=True),
@@ -967,8 +974,6 @@ def handle_select_buttons(n_all, n_none, options):
     elif ctx_id == "timeline-btn-none":
         return []
     return dash.no_update
-
-
 # --- CALLBACK: RYSOWANIE WYKRESU (ZAKTUALIZOWANY) ---
 @app.callback(
     Output('timeline-graph', 'figure'),
@@ -1001,13 +1006,17 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
     # 1. Dane
     filtered_df = get_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids)
     if filtered_df.empty: return go.Figure().update_layout(title="Brak danych", template='plotly_white')
-    try:
-        filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp']).dt.tz_convert('Europe/Warsaw') # Zapomniałeś o tym :)
-    except:
-        filtered_df['timestamp']= pd.to_datetime(filtered_df['timestamp']).dt.tz_localize('UTC').dt.tz_convert('Europe/Warsaw')
+    #try:
+    #    filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp']).dt.tz_convert('Europe/Warsaw') # Zapomniałeś o tym :)
+    #except:
+    #    filtered_df['timestamp']= pd.to_datetime(filtered_df['timestamp']).dt.tz_localize('UTC').dt.tz_convert('Europe/Warsaw')
+    
     if filtered_df['timestamp'].dt.tz is not None:
-        filtered_df['timestamp'] = filtered_df['timestamp'].dt.tz_localize(None)
-
+        # Używam nowej kolumny w df, ktora juz jest w strefie +1
+        filtered_df['timestamp'] = filtered_df['timestamp_pl'].dt.tz_localize(None)
+        # Tutaj nazwa timestamp jest troche niefortunna, bo może się mylić z timestamp w df, 
+        # który jest niezlokalizowany (UTC + 0). W tej funkcji lokalizujemy czas, zeby porównywaź potem
+        # z week_start itd, które nie mają danej strefy.
     # 2. Tydzień
     week_start = pd.Timestamp(start_of_week_str)
     week_end = week_start + pd.Timedelta(days=7)
@@ -1182,12 +1191,12 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
 
 
     # dodajemy kolumny z nazwą i numerem tygodnia i godziną
-    timestamp = filtered_df['timestamp']
-    timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
-    filtered_df['timestamp_pl'] = timestamp_pl
-    filtered_df['day_of_year'] = timestamp_pl.dt.day_of_year
-    filtered_df['weekday'] = timestamp_pl.dt.day_name('Pl')
-    filtered_df['weekday_number'] = timestamp_pl.dt.weekday + 1
+    #timestamp = filtered_df['timestamp']
+    #timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
+    #filtered_df['timestamp_pl'] = timestamp_pl
+    #filtered_df['day_of_year'] = timestamp_pl.dt.day_of_year
+    #filtered_df['weekday'] = timestamp_pl.dt.day_name('Pl')
+    #filtered_df['weekday_number'] = timestamp_pl.dt.weekday + 1
     #filtered_df['hour'] = timestamp_pl.dt.hour
     # Obliczam średni czas aktywności w danym dnium tygodniaz podziałem na kategorie
     # Zliczam ile razy u danej osoby wystąpił dany dzień tygodnia
@@ -1254,15 +1263,10 @@ def activity_line(start_date, end_date, min_duration, filter_values, afk_mode, f
     filtered_df = filtered_df[filtered_df['category'] != 'sen']
     if filtered_df.empty:
         return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
-    # Zmiana na czas polski
-    timestamp = filtered_df['timestamp']
-    timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
-    filtered_df['timestamp_pl'] = timestamp_pl
-    filtered_df['date'] = timestamp_pl.dt.date
 
     Suma_z_dnia = filtered_df.groupby(['osoba','date'])['duration'].sum().reset_index().sort_values('duration',ascending=False)
     Suma_z_dnia['duration'] = round(Suma_z_dnia['duration'] / 3600,2)
-    Suma_z_dnia = Suma_z_dnia.sort_values(['osoba','date']) 
+    #Suma_z_dnia = Suma_z_dnia.sort_values(['osoba','date']) 
     # Uzupełniam brakujące dni zerami
     osoby = Suma_z_dnia['osoba'].unique()
     daty = pd.date_range(Suma_z_dnia['date'].min(), Suma_z_dnia['date'].max())
@@ -1346,8 +1350,6 @@ def activity_line(start_date, end_date, min_duration, filter_values, afk_mode, f
         )
     
     return fig
-
-
 @app.callback(
     Output('TopN-col', 'style'),
     Input('Wybor-kateg-weekly-time', 'value')
@@ -1538,7 +1540,7 @@ def update_quad_charts(start_date, end_date, min_duration, filter_values, afk_mo
                        type1, type2, type3, type4, 
                        user_1, user_2, limit_2, limit_4, # Nowe argumenty
                        filter_ids):
-    
+    print("QUAD CHART UPDATE AKTYWACJA - TEST")
     # --- 1. FILTROWANIE GLOBALNE ---
     empty = go.Figure().update_layout(title="Brak danych")
     if df.empty: return empty, empty, empty, empty
@@ -1700,63 +1702,7 @@ def update_smart_options(left_scope, right_scope):
     r_opts, r_val = get_opts(right_scope)
     
     return l_opts, l_val, r_opts, r_val
-@app.callback(
-    [
-        Output("sidebar", "is_open"),         # 1. Stan Sidebara
-        Output("filters-offcanvas", "is_open"), # 2. Stan Filtrów
-        Output("filters-offcanvas", "style"), # 3. Pozycja Filtrów
-        Output("extra-offcanvas", "is_open"), # 4. Stan Extra
-        Output("extra-offcanvas", "style"),   # 5. Pozycja Extra
-    ],
-    [
-        Input("sidebar-toggle", "n_clicks"),
-        Input("open-filters-btn", "n_clicks"),
-        Input("open-extra-btn", "n_clicks"),
-    ],
-    [
-        State("sidebar", "is_open"),
-        State("filters-offcanvas", "is_open"),
-        State("extra-offcanvas", "is_open"),
-    ]
-)
-def manage_layout(n_side, n_filt, n_extra, side_open, filt_open, extra_open):
-    # Sprawdzamy, który guzik został kliknięty
-    ctx_id = ctx.triggered_id
 
-    # 1. AKTUALIZACJA STANÓW (OTWARTE/ZAMKNIĘTE)
-    if ctx_id == "sidebar-toggle":
-        side_open = not side_open
-    elif ctx_id == "open-filters-btn":
-        filt_open = not filt_open
-    elif ctx_id == "open-extra-btn":
-        extra_open = not extra_open
-
-    # 2. OBLICZANIE PUNKTU STARTOWEGO (OFFSET)
-    # Jeśli sidebar otwarty, startujemy od 16rem. Jeśli zamknięty, od 0.
-    # Uwaga: 16rem to ok. 256px, ale dla bezpieczeństwa w CSS użyjemy stringa calc()
-    base_offset_css = "16rem" if side_open else "0px"
-
-    # 3. OBLICZANIE POZYCJI PANELI (LOGIKA SLOTÓW)
-    
-    # Styl bazowy
-    style_filt = get_base_panel_style()
-    style_extra = get_base_panel_style()
-
-    # --- Logika dla Panelu 1 (Filtry) ---
-    # Filtry zawsze chcą być pierwsze (Slot 1)
-    style_filt["left"] = base_offset_css
-    
-    # --- Logika dla Panelu 2 (Extra) ---
-    if filt_open:
-        # Jeśli Filtry są otwarte, Extra musi stanąć OBOK nich (Slot 2)
-        # Używamy CSS calc: Base + Szerokość Panelu
-        style_extra["left"] = f"calc({base_offset_css} + {PANEL_WIDTH})"
-    else:
-        # Jeśli Filtry są zamknięte, Extra zajmuje pierwsze wolne miejsce (Slot 1)
-        style_extra["left"] = base_offset_css
-
-    # 4. ZWROT WYNIKÓW
-    return side_open, filt_open, style_filt, extra_open, style_extra
 @app.callback(
     [Output('smart-left-chart', 'figure'), Output('smart-right-chart', 'figure')],
     [
@@ -1891,6 +1837,65 @@ def update_smart_charts(start_date, end_date, min_duration, filter_values, afk_m
     fig_right = build_chart(r_scope, r_type, main_df, app_col, limit=r_limit)
 
     return fig_left, fig_right
+
+@app.callback(
+    [
+        Output("sidebar", "is_open"),         # 1. Stan Sidebara
+        Output("filters-offcanvas", "is_open"), # 2. Stan Filtrów
+        Output("filters-offcanvas", "style"), # 3. Pozycja Filtrów
+        Output("extra-offcanvas", "is_open"), # 4. Stan Extra
+        Output("extra-offcanvas", "style"),   # 5. Pozycja Extra
+    ],
+    [
+        Input("sidebar-toggle", "n_clicks"),
+        Input("open-filters-btn", "n_clicks"),
+        Input("open-extra-btn", "n_clicks"),
+    ],
+    [
+        State("sidebar", "is_open"),
+        State("filters-offcanvas", "is_open"),
+        State("extra-offcanvas", "is_open"),
+    ]
+)
+def manage_layout(n_side, n_filt, n_extra, side_open, filt_open, extra_open):
+    # Sprawdzamy, który guzik został kliknięty
+    ctx_id = ctx.triggered_id
+
+    # 1. AKTUALIZACJA STANÓW (OTWARTE/ZAMKNIĘTE)
+    if ctx_id == "sidebar-toggle":
+        side_open = not side_open
+    elif ctx_id == "open-filters-btn":
+        filt_open = not filt_open
+    elif ctx_id == "open-extra-btn":
+        extra_open = not extra_open
+
+    # 2. OBLICZANIE PUNKTU STARTOWEGO (OFFSET)
+    # Jeśli sidebar otwarty, startujemy od 16rem. Jeśli zamknięty, od 0.
+    # Uwaga: 16rem to ok. 256px, ale dla bezpieczeństwa w CSS użyjemy stringa calc()
+    base_offset_css = "16rem" if side_open else "0px"
+
+    # 3. OBLICZANIE POZYCJI PANELI (LOGIKA SLOTÓW)
+    
+    # Styl bazowy
+    style_filt = get_base_panel_style()
+    style_extra = get_base_panel_style()
+
+    # --- Logika dla Panelu 1 (Filtry) ---
+    # Filtry zawsze chcą być pierwsze (Slot 1)
+    style_filt["left"] = base_offset_css
+    
+    # --- Logika dla Panelu 2 (Extra) ---
+    if filt_open:
+        # Jeśli Filtry są otwarte, Extra musi stanąć OBOK nich (Slot 2)
+        # Używamy CSS calc: Base + Szerokość Panelu
+        style_extra["left"] = f"calc({base_offset_css} + {PANEL_WIDTH})"
+    else:
+        # Jeśli Filtry są zamknięte, Extra zajmuje pierwsze wolne miejsce (Slot 1)
+        style_extra["left"] = base_offset_css
+
+    # 4. ZWROT WYNIKÓW
+    return side_open, filt_open, style_filt, extra_open, style_extra
+
 
 content_sleep = html.Div([
     dbc.Card(dbc.CardBody([
