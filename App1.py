@@ -1174,7 +1174,7 @@ def update_timeline_controls(current_user, current_week, start_date, end_date, m
     Input('TopN-app-weekly','value')
 )
 def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids,osoba,agregator,topn):
-    filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
+    filtered_df = get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
     filtered_df = filtered_df.loc[lambda df: df['category'] != 'sen']
     # W trybie app, bierzemy topn aplikacji (liczymy dla konkretnej osoby)
     if agregator == 'app':
