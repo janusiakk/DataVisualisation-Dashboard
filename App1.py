@@ -480,44 +480,78 @@ content_timeline = html.Div([
     # ZMIANA: Dodano id='timeline-card-filters'
     dbc.Card(id='timeline-card-filters', children=[
         dbc.CardBody([
-            dbc.Row([
-                dbc.Col([                    
-                    dbc.RadioItems(
-                        id="timeline-mode-switch",
-                        options=[{"label": "Kategorie", "value": "category"}, {"label": "Aplikacje", "value": "app"}],
-                        value="category",
-                        inline=True,
-                        className="btn-group",
-                        inputClassName="btn-check",
-                        labelClassName="btn btn-outline-primary",
-                        labelCheckedClassName="active"
-                    ),
-                ], width=12, md=2, className="border-end pe-2"),
+            dbc.Row(
+                    [
+                        # 1. MODE SWITCH
+                        dbc.Col(
+                            dbc.RadioItems(
+                                id="timeline-mode-switch",
+                                options=[
+                                    {"label": "Kategorie", "value": "category"},
+                                    {"label": "Aplikacje", "value": "app"},
+                                ],
+                                value="category",
+                                inline=True,
+                                className="btn-group",
+                                inputClassName="btn-check",
+                                labelClassName="btn btn-outline-primary me-0",
+                                labelCheckedClassName="active",
+                            ),
+                            width=12,
+                            md=3,
+                            className="border-end pe-2",
+                        ),
 
-                dbc.Col([                                               
-                    dcc.Loading(
-                        html.Div([
-                            html.Div([
-                                dbc.Button("Zaznacz wszystko", id="timeline-btn-all", size="sm", outline=True, color="dark", className="me-1 rounded-pill"),
-                                dbc.Button("Odznacz", id="timeline-btn-none", size="sm", outline=True, color="dark", className="rounded-pill")
-                            ], 
-                            className="d-inline-block border-end pe-2 me-3 flex-shrink-0"), 
+                        # 2. ACTION BUTTONS (OWN COLUMN)
+                        dbc.Col(
+                            html.Div(
+                                [
+                                    dbc.Button(
+                                        "Zaznacz wszystko",
+                                        id="timeline-btn-all",
+                                        size="sm",
+                                        outline=True,
+                                        color="dark",
+                                        className="mb-1 w-100",
+                                    ),
+                                    dbc.Button(
+                                        "Odznacz",
+                                        id="timeline-btn-none",
+                                        size="sm",
+                                        outline=True,
+                                        color="dark",
+                                        className="w-100",
+                                    ),
+                                ],
+                                className="d-flex flex-column",
+                            ),
+                            width=12,
+                            md=1,
+                            className="border-end pe-2",
+                        ),
 
-                            html.Div([
+                        # 3. FILTER CHECKLIST
+                        dbc.Col(
+                            dcc.Loading(
                                 dbc.Checklist(
                                     id="timeline-top-filter",
-                                    options=[], value=[], inline=True,
+                                    options=[],
+                                    value=[],
+                                    inline=True,
                                     input_class_name="btn-check",
                                     label_class_name="btn btn-outline-secondary rounded-pill mb-1",
                                     label_checked_class_name="active btn-secondary text-white",
-                                )
-                            ], className="flex-grow-1") 
-                            
-                        ], className="d-flex align-items-start"), 
-                        type="dot", color="#6c757d"
-                    )
-                ], width=12, md=10, className="ps-md-2")
-            ], className="align-items-start")
+                                ),
+                                type="dot",
+                                color="#6c757d",
+                            ),
+                            width=12,
+                            md=8,
+                            className="ps-md-2",
+                        ),
+                    ],
+                    className="align-items-start",
+                )
         ], className="py-3")
     ], className="shadow-sm mb-4"),
 
@@ -1000,16 +1034,18 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
 
     for item in unique_items:
         subset = df_res[df_res[target_col] == item]
-        
+        custom_d = pd.DataFrame()
+        custom_d[0] = subset['timestamp'].dt.strftime("%H:%M")
+        custom_d[1] = round(subset['duration_h']*60, 0)
         # Tooltip content
         if 'app' in subset.columns and mode == 'category':
             # Tryb Kategoria: Pokaż nazwę apki w dymku
-            custom_d = subset[['app']]
-            hover_tmpl = f"<b>{item}</b><br>%{{customdata[0]}}<br>Start: %{{base:.2f}}<br>Czas: %{{x:.2f}}h<extra></extra>"
+            custom_d[2] = subset[['app']]
+            hover_tmpl = f"<b>{item}</b><br>%{{customdata[2]}}<br>Start: %{{customdata[0]}}<br>Czas: %{{customdata[1]}} min<extra></extra>"
         else:
             # Tryb App: Pokaż po prostu nazwę (item)
-            custom_d = subset[[target_col]] # dummy
-            hover_tmpl = f"<b>{item}</b><br>Start: %{{base:.2f}}<br>Czas: %{{x:.2f}}h<extra></extra>"
+            custom_d[2] = subset[[target_col]] # dummy
+            hover_tmpl = f"<b>{item}</b><br>Start: %{{customdata[0]}}<br>Czas: %{{customdata[1]}} min<extra></extra>"
 
         fig.add_trace(go.Bar(
             y=subset['y_label'],
@@ -1637,6 +1673,11 @@ def update_smart_charts(start_date, end_date, min_duration, filter_values, afk_m
         if scope == 'comparison':
             # X=Osoba, Kolor=Kategoria
             agg = local_df.groupby(['osoba', group_col])['duration'].sum().reset_index()
+            agg['osoba'] = pd.Categorical(
+                agg['osoba'],
+                categories=sorted(agg['osoba'].unique()),
+                ordered=True
+            )
             x_axis = 'osoba'
             color_axis = group_col
             title = "Ranking Zespołu"
@@ -1646,9 +1687,10 @@ def update_smart_charts(start_date, end_date, min_duration, filter_values, afk_m
             x_axis = group_col
             color_axis = group_col
             title = f"Aktywność: {scope}"
+            agg = agg.sort_values(by='duration', ascending=True) # Sortowanie do wykresu
 
         agg['duration'] = (agg['duration'] / 3600).round(2)
-        agg = agg.sort_values(by='duration', ascending=True) # Sortowanie do wykresu
+        
 
         cols = {i: get_colour(i) for i in agg[color_axis].unique()}
 
