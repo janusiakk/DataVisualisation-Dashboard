@@ -4,11 +4,11 @@ from dash import Input, Output, State, dcc, html, dash_table, ALL, MATCH, ctx
 from hashlib import md5
 from colorsys import hsv_to_rgb
 COLOURS = {'muzyka': '#5544ee', 
-           'nauka': '#ee4488', 
+           'nauka': "#df6092", 
            'studia': '#dd5544', 
            'Komunikatory' : '#77ee44',
            'gry komputerowe': '#8855aa',
-           'oglądanie filmów': '#998833',
+           'oglądanie filmów': "#F7D83B",
            'inne': '#00c0ff'}
 def get_colour(text: str) -> str:
     if text in COLOURS.keys():
@@ -1115,7 +1115,7 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
     filtered_df['day_of_year'] = timestamp_pl.dt.day_of_year
     filtered_df['weekday'] = timestamp_pl.dt.day_name('Pl')
     filtered_df['weekday_number'] = timestamp_pl.dt.weekday + 1
-    filtered_df['hour'] = timestamp_pl.dt.hour
+    #filtered_df['hour'] = timestamp_pl.dt.hour
     # Obliczam średni czas aktywności w danym dnium tygodniaz podziałem na kategorie
     # Zliczam ile razy u danej osoby wystąpił dany dzień tygodnia
     Dni = filtered_df[['osoba',"weekday","weekday_number","day_of_year"]].drop_duplicates()
@@ -1129,8 +1129,9 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
     # Tworze wykres
     # Podpis legendy
     tytuly = {'category': 'kategorie','app': 'aplikacje'}
-    cols2 = {i: get_colour(i) for i in filtered_df[agregator]}
     df3 = df2[df2['osoba'] == osoba]
+    cols2 = {i: get_colour(i) for i in df3[agregator]}
+
     ylim = np.ceil(df2.groupby(['osoba','weekday'])['average_activity'].sum().reset_index()['average_activity'].max())
     plot = px.bar(df3,
             x='weekday',
