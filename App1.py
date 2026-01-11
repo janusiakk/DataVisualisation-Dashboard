@@ -432,7 +432,19 @@ content_watcher = html.Div([
     ]),
    # dcc.Graph(id='activity-line-plot',config={'displayModeBar': False}),
     dbc.Card(dbc.CardBody([
-        dbc.Row([dbc.Col(html.H5("Dzienna aktywność")),dbc.Col("...")]),
+        dbc.Row([dbc.Col(html.H4("Dzienna aktywność")),dbc.Col([
+                            html.H5("Zaznacz"),
+                            dbc.Checklist(
+                                options=[
+                                    {"label": "Weekendy", "value": "weekend"},
+                                    #{"label": "Poniedziałki", "value": "weekend_mon"},
+                                    {"label": "Święta", "value": "holiday"}
+                                    ],
+                                    value=["weekend","holiday"],   # domyślnie zaznaczone
+                                    id="highlight-options",
+                                    inline=True          # checkboxy w jednej linii
+                                )]
+        )]),
         dcc.Graph(id='activity-line-plot',config={'displayModeBar': False})
      ]))
 ])
@@ -1193,8 +1205,9 @@ def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mod
         Input('afk-mode-selector', 'value'),
     ],
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
+    Input("highlight-options", "value")
 )
-def acctivity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids):
+def acctivity_line(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids,highlight_options):
     filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,  filter_ids)
     if filtered_df.empty:
         return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
@@ -1249,48 +1262,55 @@ def acctivity_line(start_date, end_date, min_duration, filter_values, afk_mode, 
             "Data: %{x|%Y-%m-%d}<br>"   # data
             "Czas aktywności: %{customdata[0]}<extra></extra>"  # Hh Mm
         )
-    
     # -------------------
     # Dodawanie weekendów
     # -------------------
-    current = start
-    while current <= end:
-        # jeśli dzień to sobota (5) lub niedziela (6)
-        if current.weekday() == 5:  # sobota
-            week_end = current + pd.Timedelta(days=1)  # do niedzieli
-            fig.add_vrect(
-                x0=current,
-                x1=week_end,
-                fillcolor="lightgrey",
-                opacity=0.5,
-                layer="below",
-                line_width=0
-            )
-        elif current.weekday() == 6:  # niedziela, jeśli nie zaczęliśmy od soboty
-            fig.add_vrect(
-                x0=current,
-                x1=current,
-                fillcolor="lightgrey",
-                opacity=0.5,
-                layer="below",
-                line_width=0
-            )
-        current += pd.Timedelta(days=1)
-    # Święta
-    # Załóżmy, że przerwa świąteczna trwa od 24 grudnia do 26 grudnia
-    holiday_start = pd.to_datetime("2025-12-24")
-    holiday_end   = pd.to_datetime("2026-01-06")
+    if ('weekend' in highlight_options):
+        current = start
+        while current <= end:
+            # jeśli dzień to sobota (5) lub niedziela (6)
+            if current.weekday() == 5:  # sobota
+                week_end = current + pd.Timedelta(days=1)  # do niedzieli
+                fig.add_vrect(
+                    x0=current,
+                    x1=week_end,
+                    fillcolor="lightgrey",
+                    opacity=0.5,
+                    layer="below",
+                    line_width=0
+                )
+            elif current.weekday() == 6:  # niedziela, jeśli nie zaczęliśmy od soboty
+                fig.add_vrect(
+                    x0=current,
+                    x1=current,
+                    fillcolor="lightgrey",
+                    opacity=0.5,
+                    layer="below",
+                    line_width=0
+                )
+            current += pd.Timedelta(days=1)
+    if ('holiday' in highlight_options):
+        # Święta
+        # Załóżmy, że przerwa świąteczna trwa od 24 grudnia do 26 grudnia
+        holiday_start = pd.to_datetime("2025-12-24")
+        holiday_end   = pd.to_datetime("2026-01-06")
 
-    fig.add_vrect(
-        x0=holiday_start,
-        x1=holiday_end,
-        fillcolor="red",   # np. czerwony pasek
-        opacity=0.1,       # półprzezroczysty
-        layer="below",
-        line_width=0,
-        annotation_text="Przerwa świąteczna",  # napis na pasku
-        #annotation_position="middle centre"
-    )
+        fig.add_vrect(
+            x0=holiday_start,
+            x1=holiday_end,
+            fillcolor="red",   # np. czerwony pasek
+            opacity=0.15,       # półprzezroczysty
+            layer="below",
+            line_width=0,
+            annotation=dict(
+                text="<b>Przerwa świąteczna</b>",   # napis
+                x=(holiday_start + (holiday_end - holiday_start)/2),  # środek prostokąta
+                y=1.1,                        # na samej górze wykresu
+                showarrow=False,
+                font=dict(size=20, color="red", family="Arial"),  # większa i kolorowa czcionka
+                xanchor="center"
+                )
+        )
     
     return fig
 
