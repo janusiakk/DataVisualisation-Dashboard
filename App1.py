@@ -2159,11 +2159,15 @@ def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_m
     if filtered_df.empty:
         return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
     # Zmiana na czas polski
-    timestamp = filtered_df['timestamp']
-    try:
-        timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
-    except:
-        timestamp_pl = timestamp.dt.tz_localize('UTC').dt.tz_convert('Europe/Warsaw')
+    # timestamp = filtered_df['timestamp']
+    # try:
+    #     timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
+    # except:
+    #     timestamp_pl = timestamp.dt.tz_localize('UTC').dt.tz_convert('Europe/Warsaw')
+    
+    # POWYŻSZE JUŻ NIE POTRZEBNE
+    timestamp_pl = filtered_df['timestamp_pl']
+    # DALEJ BEZ ZMIAN
 
     # trik: "dzień" dla snu trwa od 20:00 dnia poprzedniego do 19:59    
     filtered_df['timestamp_pl'] = timestamp_pl+pd.Timedelta(hours=4)
@@ -2274,7 +2278,10 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
     if df_sleep.empty: return go.Figure().update_layout(title="Brak danych", template='plotly_white')
     fig = go.Figure()
     fig.update_yaxes(categoryorder='array', categoryarray=pd.unique(df_sleep['osoba']))
-    df_sleep['timestamp'] = df_sleep['timestamp'].dt.tz_convert("Etc/GMT-1")
+    #df_sleep['timestamp'] = df_sleep['timestamp'].dt.tz_convert("Etc/GMT-1")
+    # to już mamy zapisane w głównej ramce
+    df_sleep['timestamp'] = df_sleep['timestamp_pl']
+    # Dalej bez zmian
     df_sleep['tm'] = df_sleep['timestamp'].dt.hour + df_sleep['timestamp'].dt.minute / 60
     start_hour = max(18, min(np.floor((df_sleep['tm'])[df_sleep['tm'] > 18])))
     df_tmp = df_sleep.loc[df_sleep['timestamp'].dt.hour < 18]
