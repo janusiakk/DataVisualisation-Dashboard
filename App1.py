@@ -45,6 +45,8 @@ df['weekday_number'] = timestamp_pl.dt.weekday
 df['date'] = timestamp_pl.dt.date
 #endregion
 #region --- 1. FUNKCJE POMOCNICZE ---
+def process_uploaded_file(): #Placeholder od plików
+    return
 # --- DEFINICJA ZAWARTOŚCI FILTRÓW (OFFCANVAS) ---
 def get_week_options(df_in):
     """
