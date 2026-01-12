@@ -985,30 +985,30 @@ def toggle_timeline_cards(n1, n2, n3, style1, style2, style3):
     return style1, style2, style3
 # endregion
 # region CALLBACK - WYKRESY
-# @app.callback(
-#     [Output('watcher-main-type', 'options'), 
-#      Output('watcher-main-type', 'value')],
-#     [Input('watcher-main-scope', 'value')]
-# )
-# def update_watcher_chart_options(scope):
-#     if scope == 'comparison':
-#         # Dla porównania
-#         options = [
-#             {'label': 'Ranking (Paskowy)', 'value': 'bar_h'},
-#             {'label': 'Porównanie (Słupki)', 'value': 'bar'},
-#             {'label': 'Struktura (Stacked 100%)', 'value': 'bar_stack'}
-#         ]
-#         return options, 'bar_h'
-#     else:
-#         # Dla pojedynczej osoby
-#         options = [
-#             {'label': 'Kołowy (Pie)', 'value': 'pie'},
-#             {'label': 'Pierścieniowy (Donut)', 'value': 'donut'},
-#             {'label': 'Paskowy (Bar H)', 'value': 'bar_h'},
-#             {'label': 'Kolumnowy (Bar V)', 'value': 'bar'},
-#             {'label': 'Mapa Drzewa (Treemap)', 'value': 'treemap'}
-#         ]
-#         return options, 'pie'
+@app.callback(
+    [Output('watcher-main-type', 'options'), 
+     Output('watcher-main-type', 'value')],
+    [Input('watcher-main-scope', 'value')]
+)
+def update_watcher_chart_options(scope):
+    if scope == 'comparison':
+        # Dla porównania
+        options = [
+            {'label': 'Ranking (Paskowy)', 'value': 'bar_h'},
+            {'label': 'Porównanie (Słupki)', 'value': 'bar'},
+            {'label': 'Struktura (Stacked 100%)', 'value': 'bar_stack'}
+        ]
+        return options, 'bar_h'
+    else:
+        # Dla pojedynczej osoby
+        options = [
+            {'label': 'Kołowy (Pie)', 'value': 'pie'},
+            {'label': 'Pierścieniowy (Donut)', 'value': 'donut'},
+            {'label': 'Paskowy (Bar H)', 'value': 'bar_h'},
+            {'label': 'Kolumnowy (Bar V)', 'value': 'bar'},
+            {'label': 'Mapa Drzewa (Treemap)', 'value': 'treemap'}
+        ]
+        return options, 'pie'
 
 # --- CALLBACK: GENEROWANIE FASOLEK (TOP 10) ---
 @app.callback(
