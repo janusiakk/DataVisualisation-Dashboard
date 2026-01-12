@@ -985,30 +985,31 @@ def toggle_timeline_cards(n1, n2, n3, style1, style2, style3):
     return style1, style2, style3
 # endregion
 # region CALLBACK - WYKRESY
-@app.callback(
-    [Output('watcher-main-type', 'options'), 
-     Output('watcher-main-type', 'value')],
-    [Input('watcher-main-scope', 'value')]
-)
-def update_watcher_chart_options(scope):
-    if scope == 'comparison':
-        # Dla porównania
-        options = [
-            {'label': 'Ranking (Paskowy)', 'value': 'bar_h'},
-            {'label': 'Porównanie (Słupki)', 'value': 'bar'},
-            {'label': 'Struktura (Stacked 100%)', 'value': 'bar_stack'}
-        ]
-        return options, 'bar_h'
-    else:
-        # Dla pojedynczej osoby
-        options = [
-            {'label': 'Kołowy (Pie)', 'value': 'pie'},
-            {'label': 'Pierścieniowy (Donut)', 'value': 'donut'},
-            {'label': 'Paskowy (Bar H)', 'value': 'bar_h'},
-            {'label': 'Kolumnowy (Bar V)', 'value': 'bar'},
-            {'label': 'Mapa Drzewa (Treemap)', 'value': 'treemap'}
-        ]
-        return options, 'pie'
+# @app.callback(
+#     [Output('watcher-main-type', 'options'), 
+#      Output('watcher-main-type', 'value')],
+#     [Input('watcher-main-scope', 'value')]
+# )
+# def update_watcher_chart_options(scope):
+#     if scope == 'comparison':
+#         # Dla porównania
+#         options = [
+#             {'label': 'Ranking (Paskowy)', 'value': 'bar_h'},
+#             {'label': 'Porównanie (Słupki)', 'value': 'bar'},
+#             {'label': 'Struktura (Stacked 100%)', 'value': 'bar_stack'}
+#         ]
+#         return options, 'bar_h'
+#     else:
+#         # Dla pojedynczej osoby
+#         options = [
+#             {'label': 'Kołowy (Pie)', 'value': 'pie'},
+#             {'label': 'Pierścieniowy (Donut)', 'value': 'donut'},
+#             {'label': 'Paskowy (Bar H)', 'value': 'bar_h'},
+#             {'label': 'Kolumnowy (Bar V)', 'value': 'bar'},
+#             {'label': 'Mapa Drzewa (Treemap)', 'value': 'treemap'}
+#         ]
+#         return options, 'pie'
+
 # --- CALLBACK: GENEROWANIE FASOLEK (TOP 10) ---
 @app.callback(
     [Output("timeline-top-filter", "options"),
@@ -1576,75 +1577,75 @@ def show_topn_col(agregator):
     if agregator == 'app':
         return {'visibility': 'visible'}
     return {'visibility': 'hidden'}
-@app.callback(
-    Output('summary-bar-chart', 'figure'),
-    [
-        Input('watcher-date-picker', 'start_date'),
-        Input('watcher-date-picker', 'end_date'),
-        Input('min-duration-input', 'value'),
-        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
-        Input('afk-mode-selector', 'value'),
-        Input('chart-type-selector', 'value') # <--- NOWY INPUT (Typ wykresu)
-    ],
-    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
-)
-def update_watcher_chart(start_date, end_date, min_duration, filter_values, afk_mode, chart_type, filter_ids):
-    # to co tu było wcześniej, teraz robi poniższa funkcja
-    filtered_df = get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids).copy()
+# @app.callback(
+#     Output('summary-bar-chart', 'figure'),
+#     [
+#         Input('watcher-date-picker', 'start_date'),
+#         Input('watcher-date-picker', 'end_date'),
+#         Input('min-duration-input', 'value'),
+#         Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+#         Input('afk-mode-selector', 'value'),
+#         Input('chart-type-selector', 'value') # <--- NOWY INPUT (Typ wykresu)
+#     ],
+#     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
+# )
+# def update_watcher_chart(start_date, end_date, min_duration, filter_values, afk_mode, chart_type, filter_ids):
+#     # to co tu było wcześniej, teraz robi poniższa funkcja
+#     filtered_df = get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids).copy()
 
-    if filtered_df.empty:
-        return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
+#     if filtered_df.empty:
+#         return go.Figure().update_layout(title="Brak danych dla wybranych filtrów")
 
-    # 4. AGREGACJA DANYCH
-    group_col = 'category' if 'category' in filtered_df.columns else 'activity'
-    agg_df = filtered_df.groupby(group_col)['duration'].sum().reset_index()
+#     # 4. AGREGACJA DANYCH
+#     group_col = 'category' if 'category' in filtered_df.columns else 'activity'
+#     agg_df = filtered_df.groupby(group_col)['duration'].sum().reset_index()
     
-    # Przeliczenie na godziny
-    agg_df['duration'] = (agg_df['duration'] / 3600).round(2)
+#     # Przeliczenie na godziny
+#     agg_df['duration'] = (agg_df['duration'] / 3600).round(2)
 
-    # 5. GENEROWANIE WYKRESU ZALEŻNIE OD WYBORU (NOWOŚĆ)
-    common_title = f"Sumaryczny Czas Trwania ({afk_mode}) [godziny]"
+#     # 5. GENEROWANIE WYKRESU ZALEŻNIE OD WYBORU (NOWOŚĆ)
+#     common_title = f"Sumaryczny Czas Trwania ({afk_mode}) [godziny]"
     
-    if chart_type == 'pie' or chart_type == 'donut':
-        # Wykresy kołowe
-        fig = px.pie(
-            agg_df, 
-            names=group_col, 
-            values='duration', 
-            title=common_title,
-            hole=0.4 if chart_type == 'donut' else 0, # Dziura dla donuta
-            template='plotly_white'
-        )
-        fig.update_traces(textinfo='percent+label')
+#     if chart_type == 'pie' or chart_type == 'donut':
+#         # Wykresy kołowe
+#         fig = px.pie(
+#             agg_df, 
+#             names=group_col, 
+#             values='duration', 
+#             title=common_title,
+#             hole=0.4 if chart_type == 'donut' else 0, # Dziura dla donuta
+#             template='plotly_white'
+#         )
+#         fig.update_traces(textinfo='percent+label')
         
-    elif chart_type == 'bar_h':
-        # Wykres paskowy (poziomy)
-        fig = px.bar(
-            agg_df, 
-            x='duration', 
-            y=group_col, 
-            title=common_title,
-            orientation='h', # Kluczowe dla poziomego wykresu
-            labels={'duration': 'Czas (h)', group_col: 'Aktywność'},
-            color=group_col,
-            text_auto=True,
-            template='plotly_white'
-        )
+#     elif chart_type == 'bar_h':
+#         # Wykres paskowy (poziomy)
+#         fig = px.bar(
+#             agg_df, 
+#             x='duration', 
+#             y=group_col, 
+#             title=common_title,
+#             orientation='h', # Kluczowe dla poziomego wykresu
+#             labels={'duration': 'Czas (h)', group_col: 'Aktywność'},
+#             color=group_col,
+#             text_auto=True,
+#             template='plotly_white'
+#         )
         
-    else:
-        # Domyślny (Kolumnowy pionowy)
-        fig = px.bar(
-            agg_df, 
-            x=group_col, 
-            y='duration', 
-            title=common_title,
-            labels={'duration': 'Czas (h)', group_col: 'Aktywność'},
-            color=group_col,
-            text_auto=True,
-            template='plotly_white'
-        )
+#     else:
+#         # Domyślny (Kolumnowy pionowy)
+#         fig = px.bar(
+#             agg_df, 
+#             x=group_col, 
+#             y='duration', 
+#             title=common_title,
+#             labels={'duration': 'Czas (h)', group_col: 'Aktywność'},
+#             color=group_col,
+#             text_auto=True,
+#             template='plotly_white'
+#         )
 
-    return fig
+#     return fig
 # endregion
 # region --- CALLBACK 2: OBSŁUGA PRZEŁĄCZNIKA (Master Switch) ---
 @app.callback(
@@ -1726,335 +1727,336 @@ def save_user_state(checkbox_values, is_master_on, checkbox_ids, current_memory)
         new_memory[device_name] = val
         
     return new_memory
-@app.callback(
-    [
-        Output('chart-1', 'figure'),
-        Output('chart-2', 'figure'),
-        Output('chart-3', 'figure'),
-        Output('chart-4', 'figure')
-    ],
-    [
-        Input('watcher-date-picker', 'start_date'),
-        Input('watcher-date-picker', 'end_date'),
-        Input('min-duration-input', 'value'),
-        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
-        Input('afk-mode-selector', 'value'),
+# @app.callback(
+#     [
+#         Output('chart-1', 'figure'),
+#         Output('chart-2', 'figure'),
+#         Output('chart-3', 'figure'),
+#         Output('chart-4', 'figure')
+#     ],
+#     [
+#         Input('watcher-date-picker', 'start_date'),
+#         Input('watcher-date-picker', 'end_date'),
+#         Input('min-duration-input', 'value'),
+#         Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+#         Input('afk-mode-selector', 'value'),
         
-        # Typy Wykresów
-        Input('chart-selector-1', 'value'),
-        Input('chart-selector-2', 'value'),
-        Input('chart-selector-3', 'value'),
-        Input('chart-selector-4', 'value'),
+#         # Typy Wykresów
+#         Input('chart-selector-1', 'value'),
+#         Input('chart-selector-2', 'value'),
+#         Input('chart-selector-3', 'value'),
+#         Input('chart-selector-4', 'value'),
         
-        # Specyficzne kontrolki
-        Input('chart-1-user-select', 'value'), # User dla #1
-        Input('chart-2-user-select', 'value'), # User dla #2
-        Input('chart-2-limit', 'value'),     # Top N dla #2
-        Input('chart-4-limit', 'value')        # Top N dla #4
-    ],
-    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
-)
-def update_quad_charts(start_date, end_date, min_duration, filter_values, afk_mode, 
-                       type1, type2, type3, type4, 
-                       user_1, user_2, limit_2, limit_4, # Nowe argumenty
-                       filter_ids):
-    print("QUAD CHART UPDATE AKTYWACJA - TEST")
-    # --- 1. FILTROWANIE GLOBALNE ---
-    empty = go.Figure().update_layout(title="Brak danych")
-    if df.empty: return empty, empty, empty, empty
+#         # Specyficzne kontrolki
+#         Input('chart-1-user-select', 'value'), # User dla #1
+#         Input('chart-2-user-select', 'value'), # User dla #2
+#         Input('chart-2-limit', 'value'),     # Top N dla #2
+#         Input('chart-4-limit', 'value')        # Top N dla #4
+#     ],
+#     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
+# )
+# def update_quad_charts(start_date, end_date, min_duration, filter_values, afk_mode, 
+#                        type1, type2, type3, type4, 
+#                        user_1, user_2, limit_2, limit_4, # Nowe argumenty
+#                        filter_ids):
+#     print("QUAD CHART UPDATE AKTYWACJA - TEST")
+#     # --- 1. FILTROWANIE GLOBALNE ---
+#     empty = go.Figure().update_layout(title="Brak danych")
+#     if df.empty: return empty, empty, empty, empty
 
-    s_date = pd.to_datetime(start_date).date() if start_date else df['timestamp'].min().date()
-    e_date = pd.to_datetime(end_date).date() if end_date else df['timestamp'].max().date()
+#     s_date = pd.to_datetime(start_date).date() if start_date else df['timestamp'].min().date()
+#     e_date = pd.to_datetime(end_date).date() if end_date else df['timestamp'].max().date()
 
-    allowed = set()
-    if filter_values:
-        for val, id_dict in zip(filter_values, filter_ids):
-            if val: allowed.add((id_dict['user'], id_dict['device']))
-    else:
-        allowed = set(zip(df['osoba'], df['device']))
+#     allowed = set()
+#     if filter_values:
+#         for val, id_dict in zip(filter_values, filter_ids):
+#             if val: allowed.add((id_dict['user'], id_dict['device']))
+#     else:
+#         allowed = set(zip(df['osoba'], df['device']))
 
-    mask_date = (df['timestamp'].dt.date >= s_date) & (df['timestamp'].dt.date <= e_date)
-    min_dur_sec = (min_duration or 0) * 60
-    mask_dur = df['duration'] >= min_dur_sec
-    mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed, axis=1)
+#     mask_date = (df['timestamp'].dt.date >= s_date) & (df['timestamp'].dt.date <= e_date)
+#     min_dur_sec = (min_duration or 0) * 60
+#     mask_dur = df['duration'] >= min_dur_sec
+#     mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed, axis=1)
     
-    main_df = df[mask_date & mask_dur & mask_dev].copy()
+#     main_df = df[mask_date & mask_dur & mask_dev].copy()
 
-    if 'status' in main_df.columns:
-        if afk_mode == 'active_only': main_df = main_df[main_df['status'] != 'afk']
-        elif afk_mode == 'afk_only': main_df = main_df[main_df['status'] == 'afk']
+#     if 'status' in main_df.columns:
+#         if afk_mode == 'active_only': main_df = main_df[main_df['status'] != 'afk']
+#         elif afk_mode == 'afk_only': main_df = main_df[main_df['status'] == 'afk']
 
-    if main_df.empty: return empty, empty, empty, empty
+#     if main_df.empty: return empty, empty, empty, empty
 
-    # --- 2. PRZYGOTOWANIE DANYCH ---
+#     # --- 2. PRZYGOTOWANIE DANYCH ---
     
-    # Wybieramy nazwę kolumny kategorii (bezpiecznik)
-    cat_col = 'category' if 'category' in main_df.columns else 'activity'
-    # Wybieramy nazwę kolumny aplikacji (bezpiecznik - jeśli nie ma 'app', użyj kategorii)
-    app_col = 'app' if 'app' in main_df.columns else cat_col 
+#     # Wybieramy nazwę kolumny kategorii (bezpiecznik)
+#     cat_col = 'category' if 'category' in main_df.columns else 'activity'
+#     # Wybieramy nazwę kolumny aplikacji (bezpiecznik - jeśli nie ma 'app', użyj kategorii)
+#     app_col = 'app' if 'app' in main_df.columns else cat_col 
 
-    # --- FUNKCJA POMOCNICZA: Top N Filtering ---
-    def get_top_n_data(source_df, group_cols, value_col, limit):
-        """Zwraca DF ograniczony do N najpopularniejszych wartości w kolumnie value_col."""
-        # 1. Sumujemy czasy dla każdej apki
-        totals = source_df.groupby(value_col)['duration'].sum().sort_values(ascending=False)
-        # 2. Bierzemy top N nazw
-        top_names = totals.head(limit).index.tolist()
-        # 3. Filtrujemy dane, zostawiając tylko te apki
-        filtered = source_df[source_df[value_col].isin(top_names)].copy()
+#     # --- FUNKCJA POMOCNICZA: Top N Filtering ---
+#     def get_top_n_data(source_df, group_cols, value_col, limit):
+#         """Zwraca DF ograniczony do N najpopularniejszych wartości w kolumnie value_col."""
+#         # 1. Sumujemy czasy dla każdej apki
+#         totals = source_df.groupby(value_col)['duration'].sum().sort_values(ascending=False)
+#         # 2. Bierzemy top N nazw
+#         top_names = totals.head(limit).index.tolist()
+#         # 3. Filtrujemy dane, zostawiając tylko te apki
+#         filtered = source_df[source_df[value_col].isin(top_names)].copy()
         
-        # Opcjonalnie: Resztę wrzucamy do worka "Inne" (dla czytelności wykresu)
-        # Ale user prosił o ograniczenie, więc proste ucięcie jest czystsze.
-        return filtered, top_names
+#         # Opcjonalnie: Resztę wrzucamy do worka "Inne" (dla czytelności wykresu)
+#         # Ale user prosił o ograniczenie, więc proste ucięcie jest czystsze.
+#         return filtered, top_names
 
-    # --- DANE DLA WYKRESU #1 (Kategorie + User) ---
-    df_1 = main_df.copy()
-    title_1 = "Wszyscy"
-    if user_1 and user_1 != 'all':
-        df_1 = df_1[df_1['osoba'] == user_1]
-        title_1 = user_1
+#     # --- DANE DLA WYKRESU #1 (Kategorie + User) ---
+#     df_1 = main_df.copy()
+#     title_1 = "Wszyscy"
+#     if user_1 and user_1 != 'all':
+#         df_1 = df_1[df_1['osoba'] == user_1]
+#         title_1 = user_1
     
-    agg_1 = df_1.groupby([cat_col, 'osoba'])['duration'].sum().reset_index()
-    agg_1['duration'] = (agg_1['duration']/3600).round(2)
+#     agg_1 = df_1.groupby([cat_col, 'osoba'])['duration'].sum().reset_index()
+#     agg_1['duration'] = (agg_1['duration']/3600).round(2)
 
-    # --- DANE DLA WYKRESU #2 (Aplikacje + User + Limit) ---
-    df_2 = main_df.copy()
-    title_2 = "Wszyscy"
-    if user_2 and user_2 != 'all':
-        df_2 = df_2[df_2['osoba'] == user_2]
-        title_2 = user_2
+#     # --- DANE DLA WYKRESU #2 (Aplikacje + User + Limit) ---
+#     df_2 = main_df.copy()
+#     title_2 = "Wszyscy"
+#     if user_2 and user_2 != 'all':
+#         df_2 = df_2[df_2['osoba'] == user_2]
+#         title_2 = user_2
     
-    # Najpierw ucinamy Top N Aplikacji dla wybranego zakresu
-    df_2_limited, _ = get_top_n_data(df_2, [], app_col, limit_2 or 10)
+#     # Najpierw ucinamy Top N Aplikacji dla wybranego zakresu
+#     df_2_limited, _ = get_top_n_data(df_2, [], app_col, limit_2 or 10)
     
-    agg_2 = df_2_limited.groupby([app_col, 'osoba'])['duration'].sum().reset_index()
-    agg_2['duration'] = (agg_2['duration']/3600).round(2)
+#     agg_2 = df_2_limited.groupby([app_col, 'osoba'])['duration'].sum().reset_index()
+#     agg_2['duration'] = (agg_2['duration']/3600).round(2)
 
-    # --- DANE DLA WYKRESU #3 (Ranking Userów wg Kategorii) ---
-    # Tutaj nie limitujemy kategorii, bo zazwyczaj jest ich mało (YouTube, Excel...)
-    agg_3 = main_df.groupby(['osoba', cat_col])['duration'].sum().reset_index()
-    agg_3['duration'] = (agg_3['duration']/3600).round(2)
+#     # --- DANE DLA WYKRESU #3 (Ranking Userów wg Kategorii) ---
+#     # Tutaj nie limitujemy kategorii, bo zazwyczaj jest ich mało (YouTube, Excel...)
+#     agg_3 = main_df.groupby(['osoba', cat_col])['duration'].sum().reset_index()
+#     agg_3['duration'] = (agg_3['duration']/3600).round(2)
 
-    # --- DANE DLA WYKRESU #4 (Ranking Userów wg Aplikacji + Limit) ---
-    # Tutaj limitujemy aplikacje globalnie (żeby kolory były spójne dla wszystkich userów)
-    df_4_limited, _ = get_top_n_data(main_df, [], app_col, limit_4 or 10)
+#     # --- DANE DLA WYKRESU #4 (Ranking Userów wg Aplikacji + Limit) ---
+#     # Tutaj limitujemy aplikacje globalnie (żeby kolory były spójne dla wszystkich userów)
+#     df_4_limited, _ = get_top_n_data(main_df, [], app_col, limit_4 or 10)
     
-    agg_4 = df_4_limited.groupby(['osoba', app_col])['duration'].sum().reset_index()
-    agg_4['duration'] = (agg_4['duration']/3600).round(2)
+#     agg_4 = df_4_limited.groupby(['osoba', app_col])['duration'].sum().reset_index()
+#     agg_4['duration'] = (agg_4['duration']/3600).round(2)
 
 
-    # --- 3. GENEROWANIE WYKRESÓW ---
-    def generate_fig(chart_type, data, x, color, title):
-        if data.empty: return go.Figure().update_layout(title="Brak danych")
+#     # --- 3. GENEROWANIE WYKRESÓW ---
+#     def generate_fig(chart_type, data, x, color, title):
+#         if data.empty: return go.Figure().update_layout(title="Brak danych")
         
-        # Sortowanie dla słupków skumulowanych (żeby największe kawałki były na dole/lewej)
-        data = data.sort_values(by='duration', ascending=False)
+#         # Sortowanie dla słupków skumulowanych (żeby największe kawałki były na dole/lewej)
+#         data = data.sort_values(by='duration', ascending=False)
 
-        if chart_type in ['pie', 'donut']:
-            # Kołowy sumuje po głównym wymiarze
-            pie_d = data.groupby(x if x != 'duration' else color)['duration'].sum().reset_index()
-            # Jeśli app/category jest osią, to używamy jej jako names
-            names_col = x if x != 'duration' else color
+#         if chart_type in ['pie', 'donut']:
+#             # Kołowy sumuje po głównym wymiarze
+#             pie_d = data.groupby(x if x != 'duration' else color)['duration'].sum().reset_index()
+#             # Jeśli app/category jest osią, to używamy jej jako names
+#             names_col = x if x != 'duration' else color
             
-            fig = px.pie(pie_d, names=names_col, values='duration', title=title,
-                         hole=0.4 if chart_type=='donut' else 0, template='plotly_white')
-            fig.update_traces(textinfo='percent+label')
+#             fig = px.pie(pie_d, names=names_col, values='duration', title=title,
+#                          hole=0.4 if chart_type=='donut' else 0, template='plotly_white')
+#             fig.update_traces(textinfo='percent+label')
         
-        elif chart_type == 'bar_h':
-            fig = px.bar(data, x='duration', y=x, color=color, title=title, orientation='h',
-                         labels={'duration': 'h', x: ''}, text_auto=True, template='plotly_white')
-        else:
-            fig = px.bar(data, x=x, y='duration', color=color, title=title,
-                         labels={'duration': 'h', x: ''}, text_auto=True, template='plotly_white')
+#         elif chart_type == 'bar_h':
+#             fig = px.bar(data, x='duration', y=x, color=color, title=title, orientation='h',
+#                          labels={'duration': 'h', x: ''}, text_auto=True, template='plotly_white')
+#         else:
+#             fig = px.bar(data, x=x, y='duration', color=color, title=title,
+#                          labels={'duration': 'h', x: ''}, text_auto=True, template='plotly_white')
 
-        fig.update_layout(
-            margin=dict(l=20, r=20, t=40, b=20),
-            legend=dict(orientation="h", y=-0.2), # Legenda pod spodem
-            # Skracanie etykiet osi Y dla aplikacji, bo nazwy plików exe bywają długie
-            yaxis=dict(tickfont=dict(size=10)) 
-        )
-        return fig
+#         fig.update_layout(
+#             margin=dict(l=20, r=20, t=40, b=20),
+#             legend=dict(orientation="h", y=-0.2), # Legenda pod spodem
+#             # Skracanie etykiet osi Y dla aplikacji, bo nazwy plików exe bywają długie
+#             yaxis=dict(tickfont=dict(size=10)) 
+#         )
+#         return fig
 
-    return (
-        # #1: Kategorie (dla Usera)
-        generate_fig(type1, agg_1, cat_col, 'osoba', f"Kat.: {title_1}"),
+#     return (
+#         # #1: Kategorie (dla Usera)
+#         generate_fig(type1, agg_1, cat_col, 'osoba', f"Kat.: {title_1}"),
         
-        # #2: Aplikacje (dla Usera) -> Oś X to Aplikacja, Kolor to Osoba (choć to jedna osoba)
-        # Przy jednej osobie kolorowanie po osobie jest zbędne, ale zachowuje spójność.
-        # Alternatywnie color=app_col by był bardziej kolorowy. Zróbmy color=app_col dla czytelności.
-        generate_fig(type2, agg_2, app_col, app_col if user_2 != 'all' else 'osoba', f"Top {limit_2} App: {title_2}"),
+#         # #2: Aplikacje (dla Usera) -> Oś X to Aplikacja, Kolor to Osoba (choć to jedna osoba)
+#         # Przy jednej osobie kolorowanie po osobie jest zbędne, ale zachowuje spójność.
+#         # Alternatywnie color=app_col by był bardziej kolorowy. Zróbmy color=app_col dla czytelności.
+#         generate_fig(type2, agg_2, app_col, app_col if user_2 != 'all' else 'osoba', f"Top {limit_2} App: {title_2}"),
         
-        # #3: Ranking Userów (Kolor = Kategoria)
-        generate_fig(type3, agg_3, 'osoba', cat_col, "Ranking (Kategorie)"),
+#         # #3: Ranking Userów (Kolor = Kategoria)
+#         generate_fig(type3, agg_3, 'osoba', cat_col, "Ranking (Kategorie)"),
         
-        # #4: Ranking Userów (Kolor = Aplikacja)
-        generate_fig(type4, agg_4, 'osoba', app_col, f"Ranking (Top {limit_4} App)")
-    )
-@app.callback(
-    [Output('smart-left-type', 'options'), Output('smart-left-type', 'value'),
-     Output('smart-right-type', 'options'), Output('smart-right-type', 'value')],
-    [Input('smart-left-scope', 'value'), Input('smart-right-scope', 'value')]
-)
-def update_smart_options(left_scope, right_scope):
-    """
-    Dynamicznie zmienia listę dostępnych wykresów w zależności od tego,
-    czy wybrano tryb 'comparison' czy konkretną osobę.
-    """
+#         # #4: Ranking Userów (Kolor = Aplikacja)
+#         generate_fig(type4, agg_4, 'osoba', app_col, f"Ranking (Top {limit_4} App)")
+#     )
+
+# @app.callback(
+#     [Output('smart-left-type', 'options'), Output('smart-left-type', 'value'),
+#      Output('smart-right-type', 'options'), Output('smart-right-type', 'value')],
+#     [Input('smart-left-scope', 'value'), Input('smart-right-scope', 'value')]
+# )
+# def update_smart_options(left_scope, right_scope):
+#     """
+#     Dynamicznie zmienia listę dostępnych wykresów w zależności od tego,
+#     czy wybrano tryb 'comparison' czy konkretną osobę.
+#     """
     
-    def get_opts(scope):
-        if scope == 'comparison':
-            return [
-                {'label': 'Ranking (Paskowy)', 'value': 'bar_h'},
-                {'label': 'Porównanie (Słupki)', 'value': 'bar'},
-                {'label': 'Struktura (Stacked 100%)', 'value': 'bar_stack'}
-            ], 'bar_h'
-        else:
-            return [
-                {'label': 'Kołowy (Pie)', 'value': 'pie'},
-                {'label': 'Pierścieniowy (Donut)', 'value': 'donut'},
-                {'label': 'Paskowy (Bar H)', 'value': 'bar_h'},
-                {'label': 'Kolumnowy (Bar V)', 'value': 'bar'}
-            ], 'pie' # Dla osoby domyślnie kołowy
+#     def get_opts(scope):
+#         if scope == 'comparison':
+#             return [
+#                 {'label': 'Ranking (Paskowy)', 'value': 'bar_h'},
+#                 {'label': 'Porównanie (Słupki)', 'value': 'bar'},
+#                 {'label': 'Struktura (Stacked 100%)', 'value': 'bar_stack'}
+#             ], 'bar_h'
+#         else:
+#             return [
+#                 {'label': 'Kołowy (Pie)', 'value': 'pie'},
+#                 {'label': 'Pierścieniowy (Donut)', 'value': 'donut'},
+#                 {'label': 'Paskowy (Bar H)', 'value': 'bar_h'},
+#                 {'label': 'Kolumnowy (Bar V)', 'value': 'bar'}
+#             ], 'pie' # Dla osoby domyślnie kołowy
 
-    l_opts, l_val = get_opts(left_scope)
-    r_opts, r_val = get_opts(right_scope)
+#     l_opts, l_val = get_opts(left_scope)
+#     r_opts, r_val = get_opts(right_scope)
     
-    return l_opts, l_val, r_opts, r_val
+#     return l_opts, l_val, r_opts, r_val
 
-@app.callback(
-    [Output('smart-left-chart', 'figure'), Output('smart-right-chart', 'figure')],
-    [
-        Input('watcher-date-picker', 'start_date'),
-        Input('watcher-date-picker', 'end_date'),
-        Input('min-duration-input', 'value'),
-        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
-        Input('afk-mode-selector', 'value'),
+# @app.callback(
+#     [Output('smart-left-chart', 'figure'), Output('smart-right-chart', 'figure')],
+#     [
+#         Input('watcher-date-picker', 'start_date'),
+#         Input('watcher-date-picker', 'end_date'),
+#         Input('min-duration-input', 'value'),
+#         Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+#         Input('afk-mode-selector', 'value'),
         
-        # Nowe Inputy z inteligentnych okien
-        Input('smart-left-scope', 'value'), # Kto? (Lewe)
-        Input('smart-left-type', 'value'), # Jaki wykres? (Lewe)
+#         # Nowe Inputy z inteligentnych okien
+#         Input('smart-left-scope', 'value'), # Kto? (Lewe)
+#         Input('smart-left-type', 'value'), # Jaki wykres? (Lewe)
         
-        Input('smart-right-scope', 'value'), # Kto? (Prawe)
-        Input('smart-right-type', 'value'), # Jaki wykres? (Prawe)
-        Input('smart-right-limit', 'value')  # Top N (Prawe)
-    ],
-    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
-)
-def update_smart_charts(start_date, end_date, min_duration, filter_values, afk_mode, 
-                        l_scope, l_type, 
-                        r_scope, r_type, r_limit,
-                        filter_ids):
+#         Input('smart-right-scope', 'value'), # Kto? (Prawe)
+#         Input('smart-right-type', 'value'), # Jaki wykres? (Prawe)
+#         Input('smart-right-limit', 'value')  # Top N (Prawe)
+#     ],
+#     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
+# )
+# def update_smart_charts(start_date, end_date, min_duration, filter_values, afk_mode, 
+#                         l_scope, l_type, 
+#                         r_scope, r_type, r_limit,
+#                         filter_ids):
 
-    # --- 1. FILTROWANIE GLOBALNE (Standard) ---
-    empty = go.Figure().update_layout(title="Brak danych", template='plotly_white')
-    if df.empty: return empty, empty
+#     # --- 1. FILTROWANIE GLOBALNE (Standard) ---
+#     empty = go.Figure().update_layout(title="Brak danych", template='plotly_white')
+#     if df.empty: return empty, empty
 
-    s_date = pd.to_datetime(start_date).date() if start_date else df['timestamp'].min().date()
-    e_date = pd.to_datetime(end_date).date() if end_date else df['timestamp'].max().date()
+#     s_date = pd.to_datetime(start_date).date() if start_date else df['timestamp'].min().date()
+#     e_date = pd.to_datetime(end_date).date() if end_date else df['timestamp'].max().date()
 
-    allowed = set()
-    if filter_values:
-        for val, id_dict in zip(filter_values, filter_ids):
-            if val: allowed.add((id_dict['user'], id_dict['device']))
-    else:
-        allowed = set(zip(df['osoba'], df['device']))
+#     allowed = set()
+#     if filter_values:
+#         for val, id_dict in zip(filter_values, filter_ids):
+#             if val: allowed.add((id_dict['user'], id_dict['device']))
+#     else:
+#         allowed = set(zip(df['osoba'], df['device']))
 
-    mask_date = (df['timestamp'].dt.date >= s_date) & (df['timestamp'].dt.date <= e_date)
-    min_dur_sec = (min_duration or 0) * 60
-    mask_dur = df['duration'] >= min_dur_sec
-    mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed, axis=1)
+#     mask_date = (df['timestamp'].dt.date >= s_date) & (df['timestamp'].dt.date <= e_date)
+#     min_dur_sec = (min_duration or 0) * 60
+#     mask_dur = df['duration'] >= min_dur_sec
+#     mask_dev = df.apply(lambda x: (x['osoba'], x['device']) in allowed, axis=1)
     
-    main_df = df[mask_date & mask_dur & mask_dev].copy()
+#     main_df = df[mask_date & mask_dur & mask_dev].copy()
 
-    if 'status' in main_df.columns:
-        if afk_mode == 'active_only': main_df = main_df[main_df['status'] != 'afk']
-        elif afk_mode == 'afk_only': main_df = main_df[main_df['status'] == 'afk']
+#     if 'status' in main_df.columns:
+#         if afk_mode == 'active_only': main_df = main_df[main_df['status'] != 'afk']
+#         elif afk_mode == 'afk_only': main_df = main_df[main_df['status'] == 'afk']
 
-    if main_df.empty: return empty, empty
+#     if main_df.empty: return empty, empty
 
-    # --- 2. PRZYGOTOWANIE KOLUMN ---
-    cat_col = 'category' if 'category' in main_df.columns else 'activity'
-    app_col = 'app' if 'app' in main_df.columns else cat_col # Fallback
+#     # --- 2. PRZYGOTOWANIE KOLUMN ---
+#     cat_col = 'category' if 'category' in main_df.columns else 'activity'
+#     app_col = 'app' if 'app' in main_df.columns else cat_col # Fallback
 
-    # --- 3. UNIWERSALNA FUNKCJA GENERUJĄCA WYKRES ---
-    def build_chart(scope, chart_type, data_source, group_col, limit=None):
-        """
-        scope: 'comparison' lub nazwa usera
-        chart_type: 'bar', 'pie', etc.
-        data_source: przefiltrowany DataFrame
-        group_col: po czym grupujemy (kategoria lub app)
-        limit: opcjonalny limit Top N
-        """
-        local_df = data_source.copy()
-        local_df = local_df[local_df['category'] != 'sen']
-        # A. FILTRACJA ZAKRESU (Osoba czy Wszyscy?)
-        if scope != 'comparison':
-            local_df = local_df[local_df['osoba'] == scope]
-            if local_df.empty: return empty
+#     # --- 3. UNIWERSALNA FUNKCJA GENERUJĄCA WYKRES ---
+#     def build_chart(scope, chart_type, data_source, group_col, limit=None):
+#         """
+#         scope: 'comparison' lub nazwa usera
+#         chart_type: 'bar', 'pie', etc.
+#         data_source: przefiltrowany DataFrame
+#         group_col: po czym grupujemy (kategoria lub app)
+#         limit: opcjonalny limit Top N
+#         """
+#         local_df = data_source.copy()
+#         local_df = local_df[local_df['category'] != 'sen']
+#         # A. FILTRACJA ZAKRESU (Osoba czy Wszyscy?)
+#         if scope != 'comparison':
+#             local_df = local_df[local_df['osoba'] == scope]
+#             if local_df.empty: return empty
 
-        # B. LOGIKA TOP N (Dla prawej strony)
-        if limit:
-            # Znajdź Top N wartości w całej wybranej populacji
-            top_vals = local_df.groupby(group_col)['duration'].sum().sort_values(ascending=False).head(limit).index
-            local_df = local_df[local_df[group_col].isin(top_vals)]
+#         # B. LOGIKA TOP N (Dla prawej strony)
+#         if limit:
+#             # Znajdź Top N wartości w całej wybranej populacji
+#             top_vals = local_df.groupby(group_col)['duration'].sum().sort_values(ascending=False).head(limit).index
+#             local_df = local_df[local_df[group_col].isin(top_vals)]
 
-        # C. AGREGACJA
-        # Jeśli Comparison -> Grupujemy po [Osoba, Kategoria] (żeby mieć kolory per kategoria)
-        # Jeśli Single User -> Grupujemy po [Kategoria]
+#         # C. AGREGACJA
+#         # Jeśli Comparison -> Grupujemy po [Osoba, Kategoria] (żeby mieć kolory per kategoria)
+#         # Jeśli Single User -> Grupujemy po [Kategoria]
         
-        if scope == 'comparison':
-            # X=Osoba, Kolor=Kategoria
-            agg = local_df.groupby(['osoba', group_col])['duration'].sum().reset_index()
-            agg['osoba'] = pd.Categorical(
-                agg['osoba'],
-                categories=sorted(agg['osoba'].unique()),
-                ordered=True
-            )
-            x_axis = 'osoba'
-            color_axis = group_col
-            title = "Ranking Zespołu"
-        else:
-            # X=Kategoria, Kolor=Kategoria
-            agg = local_df.groupby(group_col)['duration'].sum().reset_index()
-            x_axis = group_col
-            color_axis = group_col
-            title = f"Aktywność: {scope}"
-            agg = agg.sort_values(by='duration', ascending=True) # Sortowanie do wykresu
+#         if scope == 'comparison':
+#             # X=Osoba, Kolor=Kategoria
+#             agg = local_df.groupby(['osoba', group_col])['duration'].sum().reset_index()
+#             agg['osoba'] = pd.Categorical(
+#                 agg['osoba'],
+#                 categories=sorted(agg['osoba'].unique()),
+#                 ordered=True
+#             )
+#             x_axis = 'osoba'
+#             color_axis = group_col
+#             title = "Ranking Zespołu"
+#         else:
+#             # X=Kategoria, Kolor=Kategoria
+#             agg = local_df.groupby(group_col)['duration'].sum().reset_index()
+#             x_axis = group_col
+#             color_axis = group_col
+#             title = f"Aktywność: {scope}"
+#             agg = agg.sort_values(by='duration', ascending=True) # Sortowanie do wykresu
 
-        agg['duration'] = (agg['duration'] / 3600).round(2)
+#         agg['duration'] = (agg['duration'] / 3600).round(2)
         
 
-        cols = {i: get_colour(i) for i in agg[color_axis].unique()}
+#         cols = {i: get_colour(i) for i in agg[color_axis].unique()}
 
-        # D. RYSOWANIE
-        if chart_type in ['pie', 'donut']:
-            fig = px.pie(agg, names=x_axis, values='duration', hole=0.4 if chart_type=='donut' else 0, color_discrete_map=cols)
-            fig.update_traces(textinfo='percent+label')
+#         # D. RYSOWANIE
+#         if chart_type in ['pie', 'donut']:
+#             fig = px.pie(agg, names=x_axis, values='duration', hole=0.4 if chart_type=='donut' else 0, color_discrete_map=cols)
+#             fig.update_traces(textinfo='percent+label')
         
-        elif chart_type == 'bar_h':
-            fig = px.bar(agg, x='duration', y=x_axis, color=color_axis, orientation='h', text_auto=True, color_discrete_map=cols)
+#         elif chart_type == 'bar_h':
+#             fig = px.bar(agg, x='duration', y=x_axis, color=color_axis, orientation='h', text_auto=True, color_discrete_map=cols)
             
-        elif chart_type == 'bar':
-            fig = px.bar(agg, x=x_axis, y='duration', color=color_axis, text_auto=True, color_discrete_map=cols)
+#         elif chart_type == 'bar':
+#             fig = px.bar(agg, x=x_axis, y='duration', color=color_axis, text_auto=True, color_discrete_map=cols)
             
-        elif chart_type == 'bar_stack':
-            # Specjalny tryb znormalizowany (kto ma jaki % udziału w pracy)
-            # W Plotly Express robi się to normalnym bar chartem, logika jest w danych
-            fig = px.bar(agg, x='duration', y=x_axis, color=color_axis, orientation='h', text_auto=True, color_discrete_map=cols)
-            # Można dodać barnorm='percent' w update_layout jeśli chcesz % na osi
+#         elif chart_type == 'bar_stack':
+#             # Specjalny tryb znormalizowany (kto ma jaki % udziału w pracy)
+#             # W Plotly Express robi się to normalnym bar chartem, logika jest w danych
+#             fig = px.bar(agg, x='duration', y=x_axis, color=color_axis, orientation='h', text_auto=True, color_discrete_map=cols)
+#             # Można dodać barnorm='percent' w update_layout jeśli chcesz % na osi
 
-        fig.update_layout(title=title, template='plotly_white', margin=dict(l=20, r=20, t=40, b=20))
-        return fig
+#         fig.update_layout(title=title, template='plotly_white', margin=dict(l=20, r=20, t=40, b=20))
+#         return fig
 
-    # --- 4. WYWOŁANIE DLA LEWEJ I PRAWEJ STRONY ---
+#     # --- 4. WYWOŁANIE DLA LEWEJ I PRAWEJ STRONY ---
     
-    # LEWA: Kategorie (bez limitu)
-    fig_left = build_chart(l_scope, l_type, main_df, cat_col, limit=None)
+#     # LEWA: Kategorie (bez limitu)
+#     fig_left = build_chart(l_scope, l_type, main_df, cat_col, limit=None)
     
-    # PRAWA: Aplikacje (z limitem Top N)
-    fig_right = build_chart(r_scope, r_type, main_df, app_col, limit=r_limit)
+#     # PRAWA: Aplikacje (z limitem Top N)
+#     fig_right = build_chart(r_scope, r_type, main_df, app_col, limit=r_limit)
 
-    return fig_left, fig_right
+#     return fig_left, fig_right
 
 @app.callback(
     [
