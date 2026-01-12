@@ -11641,7 +11641,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":1.028,
-        "category":"Komunikatory",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -60043,7 +60043,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":18.3,
-        "category":"Komunikatory",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -60880,7 +60880,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"Komunikatory",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -68647,7 +68647,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":3.032,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -68665,7 +68665,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":1.023,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -69052,7 +69052,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":1.029,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -69070,7 +69070,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":1.024,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -69079,7 +69079,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":6.133,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -70204,7 +70204,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":3.054,
-        "category":"Komunikatory",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -70213,7 +70213,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"Komunikatory",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112513,7 +112513,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.004,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112567,7 +112567,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.031,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112576,7 +112576,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.078,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112594,7 +112594,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.062,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112603,7 +112603,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112612,7 +112612,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.054,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112819,7 +112819,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.087,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112891,7 +112891,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.06,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112909,7 +112909,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.039,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112936,7 +112936,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":9.13,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112954,7 +112954,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":9.136,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112972,7 +112972,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":9.108,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112981,7 +112981,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.061,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112990,7 +112990,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.005,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -112999,7 +112999,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":13.206,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113017,7 +113017,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.089,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113053,7 +113053,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.019,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113062,7 +113062,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.052,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113071,7 +113071,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":23.333,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113080,7 +113080,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.067,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113089,7 +113089,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.03,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113107,7 +113107,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.086,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113134,7 +113134,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.09,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113152,7 +113152,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.025,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113170,7 +113170,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.024,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113188,7 +113188,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":26.372,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113206,7 +113206,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":21.315,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113224,7 +113224,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":27.414,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113260,7 +113260,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.078,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113269,7 +113269,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":9.153,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113287,7 +113287,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.042,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113296,7 +113296,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.068,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113341,7 +113341,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.065,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113359,7 +113359,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.023,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113368,7 +113368,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":8.081,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113377,7 +113377,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":11.134,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113395,7 +113395,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":13.193,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113404,7 +113404,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.061,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113431,7 +113431,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.058,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113440,7 +113440,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":8.132,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113449,7 +113449,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":16.289,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113458,7 +113458,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.043,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113467,7 +113467,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.029,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113476,7 +113476,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.018,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113485,7 +113485,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.021,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113494,7 +113494,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.041,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113539,7 +113539,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":11.155,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113548,7 +113548,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.099,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113557,7 +113557,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":12.182,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113629,7 +113629,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.079,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113656,7 +113656,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.061,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113674,7 +113674,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.046,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113746,7 +113746,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":9.14,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113782,7 +113782,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.062,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113791,7 +113791,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.034,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113800,7 +113800,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.04,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113809,7 +113809,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.068,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113818,7 +113818,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":12.173,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113836,7 +113836,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.096,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113845,7 +113845,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.035,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113854,7 +113854,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.021,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113863,7 +113863,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.152,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113890,7 +113890,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.009,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -113899,7 +113899,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.055,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114592,7 +114592,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.024,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114601,7 +114601,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.076,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114610,7 +114610,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.025,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114619,7 +114619,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":31.474,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114646,7 +114646,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.133,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114682,7 +114682,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.077,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114736,7 +114736,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":35.58,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114745,7 +114745,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.054,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114781,7 +114781,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":26.331,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114799,7 +114799,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":7.116,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114817,7 +114817,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.109,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114826,7 +114826,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":21.323,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114835,7 +114835,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.097,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114844,7 +114844,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":7.115,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114853,7 +114853,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.074,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114862,7 +114862,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":36.536,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114871,7 +114871,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":23.318,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114880,7 +114880,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":29.497,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114889,7 +114889,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":7.15,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114898,7 +114898,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":7.112,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114916,7 +114916,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":42.673,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114934,7 +114934,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.056,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114952,7 +114952,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.032,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114970,7 +114970,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":234.433,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114979,7 +114979,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":12.187,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114988,7 +114988,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":19.284,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -114997,7 +114997,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":17.229,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115006,7 +115006,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.057,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115015,7 +115015,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":111.631,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115078,7 +115078,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.032,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115096,7 +115096,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.027,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115114,7 +115114,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.028,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115123,7 +115123,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.064,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115141,7 +115141,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.157,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115159,7 +115159,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115177,7 +115177,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.049,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115195,7 +115195,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.031,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115231,7 +115231,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.062,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115249,7 +115249,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.03,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115267,7 +115267,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.011,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115285,7 +115285,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.026,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115303,7 +115303,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.033,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115321,7 +115321,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":15.252,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115330,7 +115330,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.029,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115339,7 +115339,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.011,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115348,7 +115348,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":25.44,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115357,7 +115357,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":8.092,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115366,7 +115366,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":7.066,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115375,7 +115375,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":16.235,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115393,7 +115393,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":35.552,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115411,7 +115411,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.165,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115438,7 +115438,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.066,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115447,7 +115447,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.099,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115465,7 +115465,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":7.112,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115483,7 +115483,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":8.104,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115501,7 +115501,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.035,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115519,7 +115519,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":18.297,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115537,7 +115537,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":8.135,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115546,7 +115546,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.026,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115564,7 +115564,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":61.981,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115582,7 +115582,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.046,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115600,7 +115600,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.049,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115609,7 +115609,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":9.149,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115618,7 +115618,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.087,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115636,7 +115636,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.039,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115654,7 +115654,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.037,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115672,7 +115672,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":25.338,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115690,7 +115690,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":48.77,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115699,7 +115699,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.086,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115708,7 +115708,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.068,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115717,7 +115717,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.084,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115726,7 +115726,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.159,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115735,7 +115735,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":13.265,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115744,7 +115744,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.073,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115753,7 +115753,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":35.52,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115762,7 +115762,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.085,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115771,7 +115771,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":11.144,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115780,7 +115780,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":26.428,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115789,7 +115789,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.012,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115798,7 +115798,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":21.309,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115807,7 +115807,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.029,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115816,7 +115816,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":19.35,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115825,7 +115825,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.164,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115834,7 +115834,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.024,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115843,7 +115843,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":38.61,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115852,7 +115852,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.08,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115870,7 +115870,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.018,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115888,7 +115888,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":24.324,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115906,7 +115906,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.044,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115915,7 +115915,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115942,7 +115942,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":43.69,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115969,7 +115969,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.044,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115978,7 +115978,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.075,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -115987,7 +115987,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.081,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116005,7 +116005,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.056,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116014,7 +116014,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.012,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116023,7 +116023,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.04,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116032,7 +116032,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":7.084,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116041,7 +116041,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.083,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116050,7 +116050,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.026,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116059,7 +116059,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.139,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116068,7 +116068,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.058,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116077,7 +116077,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":28.437,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116095,7 +116095,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":26.416,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116104,7 +116104,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":8.169,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116113,7 +116113,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.063,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116149,7 +116149,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.007,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116158,7 +116158,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":56.777,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116167,7 +116167,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.056,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116176,7 +116176,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":8.123,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116194,7 +116194,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":67.037,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116203,7 +116203,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.06,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116275,7 +116275,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.02,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116302,7 +116302,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.017,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116320,7 +116320,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.04,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116338,7 +116338,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.072,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116356,7 +116356,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.12,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116365,7 +116365,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.016,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116374,7 +116374,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.067,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116392,7 +116392,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":20.267,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116617,7 +116617,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":8.113,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116626,7 +116626,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.074,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116635,7 +116635,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.033,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116644,7 +116644,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.115,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116653,7 +116653,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":48.805,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116662,7 +116662,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.024,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -116671,7 +116671,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.03,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -117184,7 +117184,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.019,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -118723,7 +118723,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":5.079,
-        "category":"Komunikatory",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -170158,7 +170158,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.006,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -170689,7 +170689,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.051,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172210,7 +172210,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.018,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172273,7 +172273,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.087,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172282,7 +172282,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.086,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172291,7 +172291,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.012,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172300,7 +172300,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.019,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172318,7 +172318,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.017,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172336,7 +172336,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":11.106,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172354,7 +172354,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":18.231,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172372,7 +172372,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.085,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172381,7 +172381,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.048,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172390,7 +172390,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.046,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172408,7 +172408,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":15.209,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172435,7 +172435,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":20.351,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172453,7 +172453,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172471,7 +172471,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":9.154,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172489,7 +172489,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.019,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172498,7 +172498,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.052,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172516,7 +172516,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.193,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172525,7 +172525,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.132,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172534,7 +172534,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.034,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172543,7 +172543,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.018,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172552,7 +172552,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.027,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172561,7 +172561,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.049,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172570,7 +172570,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.008,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172579,7 +172579,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.075,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172615,7 +172615,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.018,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172642,7 +172642,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.028,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172651,7 +172651,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.019,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172678,7 +172678,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.036,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172696,7 +172696,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.034,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172705,7 +172705,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.019,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172714,7 +172714,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.106,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172723,7 +172723,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.021,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172732,7 +172732,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.04,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172741,7 +172741,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.093,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172750,7 +172750,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":20.276,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172795,7 +172795,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.076,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172804,7 +172804,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.011,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172813,7 +172813,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.074,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172822,7 +172822,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.049,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172831,7 +172831,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":8.119,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172840,7 +172840,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":14.234,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172849,7 +172849,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.015,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172858,7 +172858,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":8.118,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172867,7 +172867,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.023,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172885,7 +172885,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.021,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172894,7 +172894,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.02,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172903,7 +172903,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":30.395,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172912,7 +172912,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.155,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172921,7 +172921,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":7.11,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172930,7 +172930,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":20.297,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172939,7 +172939,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":24.354,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172948,7 +172948,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.015,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172957,7 +172957,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":12.174,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172975,7 +172975,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.038,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -172984,7 +172984,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.033,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173011,7 +173011,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.032,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173029,7 +173029,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":14.201,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173038,7 +173038,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.15,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173083,7 +173083,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":14.2,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173101,7 +173101,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.031,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173110,7 +173110,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.017,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173119,7 +173119,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.061,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173137,7 +173137,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":38.569,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173164,7 +173164,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.044,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173182,7 +173182,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.02,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173191,7 +173191,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":44.633,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173200,7 +173200,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":8.119,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173218,7 +173218,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.079,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173227,7 +173227,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.089,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173236,7 +173236,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.022,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173245,7 +173245,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.023,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173263,7 +173263,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.008,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173290,7 +173290,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.035,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173317,7 +173317,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.074,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173335,7 +173335,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":12.184,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173398,7 +173398,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.12,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173434,7 +173434,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.079,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173443,7 +173443,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.085,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173461,7 +173461,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":9.144,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173470,7 +173470,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.038,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173479,7 +173479,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":7.114,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173506,7 +173506,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.069,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173515,7 +173515,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":27.374,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173524,7 +173524,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.077,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173533,7 +173533,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.042,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173542,7 +173542,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":15.229,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173551,7 +173551,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.014,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173560,7 +173560,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":11.161,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173569,7 +173569,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":18.281,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173578,7 +173578,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.05,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173587,7 +173587,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":33.544,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173596,7 +173596,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.04,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173605,7 +173605,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.056,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173614,7 +173614,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":13.178,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173623,7 +173623,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":24.362,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173632,7 +173632,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":20.252,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173830,7 +173830,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":22.432,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173848,7 +173848,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.054,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173875,7 +173875,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.074,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173884,7 +173884,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.085,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173902,7 +173902,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.149,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173911,7 +173911,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":35.522,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173920,7 +173920,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":91.385,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173929,7 +173929,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":15.254,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173938,7 +173938,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.027,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173947,7 +173947,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":40.614,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173956,7 +173956,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":47.774,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173965,7 +173965,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.037,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173974,7 +173974,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":28.473,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -173992,7 +173992,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.05,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -174001,7 +174001,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":82.117,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -174019,7 +174019,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":15.188,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -174028,7 +174028,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":38.604,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -174046,7 +174046,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":27.44,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -174055,7 +174055,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.014,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -174064,7 +174064,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.09,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -175729,7 +175729,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.027,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -176899,7 +176899,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -179077,7 +179077,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":3.048,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182281,7 +182281,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.004,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182299,7 +182299,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.025,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182308,7 +182308,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.015,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182317,7 +182317,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.016,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182326,7 +182326,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.008,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182344,7 +182344,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":18.095,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182353,7 +182353,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":6.023,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182362,7 +182362,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":8.033,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182371,7 +182371,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.005,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182380,7 +182380,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.006,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182398,7 +182398,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.012,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182407,7 +182407,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.02,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182416,7 +182416,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.03,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182425,7 +182425,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.026,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182434,7 +182434,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.058,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182443,7 +182443,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":9.057,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182452,7 +182452,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.013,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182461,7 +182461,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.022,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182470,7 +182470,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":27.124,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182488,7 +182488,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":21.115,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182497,7 +182497,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.017,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182506,7 +182506,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":7.045,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182515,7 +182515,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":10.047,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182524,7 +182524,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":5.027,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182533,7 +182533,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":15.067,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182542,7 +182542,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":45.257,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182551,7 +182551,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.018,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182614,7 +182614,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.018,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182632,7 +182632,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.011,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182641,7 +182641,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.005,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182668,7 +182668,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":15.09,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182677,7 +182677,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.009,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182686,7 +182686,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":8.045,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182695,7 +182695,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":27.186,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182704,7 +182704,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.016,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182713,7 +182713,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.011,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182722,7 +182722,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":12.066,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182731,7 +182731,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":2.016,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182740,7 +182740,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":12.086,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182767,7 +182767,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182776,7 +182776,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":4.022,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182821,7 +182821,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.014,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -182839,7 +182839,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.022,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -189868,7 +189868,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":1.08,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -189877,7 +189877,7 @@
         "app":"idea64.exe",
         "status":"afk",
         "duration":0.016,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -189886,7 +189886,7 @@
         "app":"idea64.exe",
         "status":"afk",
         "duration":421.19,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -189895,7 +189895,7 @@
         "app":"idea64.exe",
         "status":"afk",
         "duration":10.02,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -189904,7 +189904,7 @@
         "app":"idea64.exe",
         "status":"afk",
         "duration":5.013,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -189913,7 +189913,7 @@
         "app":"idea64.exe",
         "status":"afk",
         "duration":10.022,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -189922,7 +189922,7 @@
         "app":"idea64.exe",
         "status":"afk",
         "duration":8397.33,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -189931,7 +189931,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":0.001,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -189940,7 +189940,7 @@
         "app":"idea64.exe",
         "status":"not-afk",
         "duration":3.431,
-        "category":"inne",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -197473,7 +197473,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":6.069,
-        "category":"Komunikatory",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
@@ -197491,7 +197491,7 @@
         "app":"firefox.exe",
         "status":"not-afk",
         "duration":10.133,
-        "category":"Komunikatory",
+        "category":"studia",
         "osoba":"J",
         "device":"PC"
     },
