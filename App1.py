@@ -43,6 +43,7 @@ df['day_of_year'] = timestamp_pl.dt.day_of_year
 df['weekday'] = timestamp_pl.dt.day_name('Pl')
 df['weekday_number'] = timestamp_pl.dt.weekday
 df['date'] = timestamp_pl.dt.date
+df['localized_time_pl'] = df['timestamp_pl'].dt.tz_localize(None)
 #endregion
 #region --- 1. FUNKCJE POMOCNICZE ---
 def process_uploaded_file(): #Placeholder od plików
@@ -1035,10 +1036,10 @@ def update_timeline_filter_options(mode, user, week, s_date, e_date, min_dur, f_
 
     # Fix daty
     # NOWOSC, używam polskiego czasu
-    df_filtered['timestamp'] = df_filtered['timestamp_pl']
-    if df_filtered['timestamp'].dt.tz is not None:
-        df_filtered['timestamp'] = df_filtered['timestamp'].dt.tz_localize(None)
-
+    # df_filtered['timestamp'] = df_filtered['timestamp_pl']
+    # if df_filtered['timestamp'].dt.tz is not None:
+    #     df_filtered['timestamp'] = df_filtered['timestamp'].dt.tz_localize(None)
+    df_filtered['timestamp'] = df_filtered['localized_time_pl'] # optymalizacja
     # 2. Filtrujemy do konkretnego tygodnia i usera
     week_start = pd.Timestamp(week)
     week_end = week_start + pd.Timedelta(days=7)
@@ -1230,13 +1231,14 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
     #except:
     #    filtered_df['timestamp']= pd.to_datetime(filtered_df['timestamp']).dt.tz_localize('UTC').dt.tz_convert('Europe/Warsaw')
     
-    if filtered_df['timestamp'].dt.tz is not None:
+   # if filtered_df['timestamp'].dt.tz is not None:
         # Używam nowej kolumny w df, ktora juz jest w strefie +1
-        filtered_df['timestamp'] = filtered_df['timestamp_pl'].dt.tz_localize(None)
+    #    filtered_df['timestamp'] = filtered_df['timestamp_pl'].dt.tz_localize(None)
         # Tutaj nazwa timestamp jest troche niefortunna, bo może się mylić z timestamp w df, 
         # który jest niezlokalizowany (UTC + 0). W tej funkcji lokalizujemy czas, zeby porównywaź potem
         # z week_start itd, które nie mają danej strefy.
     # 2. Tydzień
+    filtered_df['timestamp'] = filtered_df['localized_time_pl'] # optymalizacja
     week_start = pd.Timestamp(start_of_week_str)
     week_end = week_start + pd.Timedelta(days=7)
 
