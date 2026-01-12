@@ -277,8 +277,7 @@ def create_users_tables_view():
         layout_elements.append(html.Hr())
         
     return html.Div(layout_elements)
-def process_uploaded_file(name,cos):
-    return
+
 def create_filter_chips(df_in):
     if df_in.empty:
         return html.Div("Brak danych.", className="text-muted")
@@ -433,47 +432,130 @@ content_users = html.Div([
     create_users_tables_view()
 ])
 # STRONA 2 : Obserwatorium /watcher
+# --- Przygotowanie opcji do Dropdowna (robione raz przy starcie) ---
+_unique_users = sorted(df['osoba'].astype(str).unique())
+_scope_options = [
+    {'label': '👥 PORÓWNANIE (Ranking)', 'value': 'comparison'},
+    {'label': '--- Użytkownicy ---', 'value': 'disabled', 'disabled': True}
+] + [{'label': f"👤 {u}", 'value': u} for u in _unique_users]
+
+# --- NOWY CONTENT_WATCHER (Układ 2 kolumnowy w 1 rzędzie) ---
 content_watcher = html.Div([
-    # html.H2("Obserwatorium Danych", className="mb-4 display-6 text-primary"),
-
-    # SEKCJA KPI
-    html.Div(id='watcher-kpi-container', className="mb-4"),
-
-    # --- TU BYŁY FILTRY - USUNIĘTE ---
-    # Zostawiamy ewentualnie informację, jakie filtry są aktywne (opcjonalnie)
     
-    html.H4("Analiza Szczegółowa", className="mb-3 text-secondary"),
-    
+    # --- RZĄD 1: DWA GŁÓWNE WYKRESY OBOK SIEBIE ---
     dbc.Row([
-        create_smart_slot('left', "Analiza Kategorii", is_app_mode=False),
-        create_smart_slot('right', "Analiza Aplikacji (Top N)", is_app_mode=True)
-    ]),
-   # dcc.Graph(id='activity-line-plot',config={'displayModeBar': False}),
-    dbc.Card(dbc.CardBody([
-        dbc.Row([dbc.Col(html.H4("Dzienna aktywność")),dbc.Col([
-                            html.H5("Zaznacz"),
-                            dbc.Checklist(
+        
+        # KOLUMNA LEWA: Główna Analiza
+        dbc.Col([
+            dbc.Card([
+                dbc.CardHeader("Zgrupowane Dane", className="fw-bold"),
+                dbc.CardBody([
+                    # RZĄD KONTROLEK
+                    dbc.Row([
+                        # 1. SCOPE
+                        dbc.Col([
+                            html.Label("Wybierz osobę", className="small text-muted fw-bold"),
+                            dcc.Dropdown(
+                                id='watcher-main-scope',
+                                options=_scope_options,
+                                value='comparison', 
+                                clearable=False, searchable=False
+                            )
+                        ], width=12, md=3),
+
+                        # 2. MODE
+                        dbc.Col([
+                            html.Label("Metoda agregacji", className="small text-muted fw-bold"),
+                            dcc.Dropdown(
+                                id='watcher-main-mode',
                                 options=[
-                                    {"label": "Weekendy", "value": "weekend"},
-                                    #{"label": "Poniedziałki", "value": "weekend_mon"},
-                                    {"label": "Święta", "value": "holiday"}
-                                    ],
-                                    value=["weekend","holiday"], # domyślnie zaznaczone
-                                    id="highlight-options",
-                                    inline=True          # checkboxy w jednej linii
-                                )]
-        )]),
-        dcc.Graph(id='activity-line-plot',config={'displayModeBar': False})
-     ]))
-])
-# STRONA 3 : Podsumowanie /summary
-content_summary= html.Div([
-    html.H1('Typowy tydzień'),
-    dbc.Card(dbc.CardBody([
-        create_options_for_weekly_screentime(df),
-        dcc.Graph(id='weekly_hours_plotly',config={'displayModeBar': False})
-    ]))
-])
+                                    {'label': '📂 Kategorie', 'value': 'category'},
+                                    {'label': '📱 Aplikacje', 'value': 'app'}
+                                ],
+                                value='category',
+                                clearable=False, searchable=False
+                            )
+                        ], width=12, md=3),
+
+                        # 3. LIMIT
+                        dbc.Col([
+                            html.Label("Top N kategorii", className="small text-muted fw-bold"),
+                            dbc.Input(
+                                id='watcher-main-limit',
+                                type='number',
+                                value=10, min=1, max=50, step=1
+                            )
+                        ], width=12, md=2),
+
+                        # 4. TYP WYKRESU
+                        dbc.Col([
+                            html.Label("4. Typ Wykresu", className="small text-muted fw-bold"),
+                            dcc.Dropdown(
+                                id='watcher-main-type',
+                                options=[], 
+                                value='bar_h',
+                                clearable=False, searchable=False
+                            )
+                        ], width=12, md=4),
+                    ], className="g-2 mb-3"),
+
+                    # html.Hr(),
+
+                    # WYKRES
+                    dcc.Loading(
+                        dcc.Graph(id='watcher-main-chart', config={'displayModeBar': False}, style={'height': '400px'}),
+                        type="dot", color="#0d6efd"
+                    )
+                ])
+            ], className="shadow-sm h-100") 
+        ], width=12, lg=6, className="mb-4"), # POPRAWKA: width=12 (mobile), lg=6 (desktop)
+
+        # KOLUMNA PRAWA: Typowy Tydzień
+        dbc.Col([
+            dbc.Card([
+                # POPRAWKA: Usunięto nadmiarowy nawias [ przed CardHeader
+                dbc.CardHeader("Typowy Tydzień", className="fw-bold"),
+                dbc.CardBody([
+                    create_options_for_weekly_screentime(df), 
+                    html.Br(),
+                    dcc.Loading(
+                        dcc.Graph(id='weekly_hours_plotly', config={'displayModeBar': False}, style={'height': '400px'}),
+                        type="dot"
+                    )
+                ])
+            ], className="shadow-sm h-100") 
+        ], width=12, lg=6, className="mb-4"), # POPRAWKA: width=12 (mobile), lg=6 (desktop)
+
+    ]), # Koniec Rzędu 1
+
+    # --- RZĄD 2: LINIA CZASU (Na całą szerokość) ---    
+    dbc.Card([
+        dbc.CardHeader("Dzienna aktywność", className="fw-bold"),
+        dbc.CardBody([
+            dbc.Row([            
+                dbc.Col([
+                    html.Label("Zaznacz:", className="me-2 small fw-bold"),
+                    dbc.Checklist(
+                        options=[
+                            {"label": "Weekendy", "value": "weekend"},
+                            {"label": "Święta", "value": "holiday"}
+                        ],
+                        value=["weekend", "holiday"],
+                        id="highlight-options",
+                        inline=True
+                    )
+                ])
+            ], className="align-items-center mb-2"),
+            dcc.Graph(id='activity-line-plot', config={'displayModeBar': False})
+        ])
+    ], className="shadow-sm mb-4")
+])# content_summary= html.Div([
+#     html.H1('Typowy tydzień'),
+#     dbc.Card(dbc.CardBody([
+#         create_options_for_weekly_screentime(df),
+#         dcc.Graph(id='weekly_hours_plotly',config={'displayModeBar': False})
+#     ]))
+# ])
 # STRONA 4 : Oś czasu /timeline
 content_timeline = html.Div([
     # html.H2("Oś Czasu - Tygodniowy Harmonogram", className="mb-4 display-6 text-primary"),
@@ -648,7 +730,7 @@ sidebar = html.Div(
         dbc.Nav([
             dbc.NavLink("Użytkownicy", href="/", active="exact"),
             dbc.NavLink("Obserwatorium", href="/watcher", active="exact"),
-            dbc.NavLink("Podsumowanie", href="/summary", active="exact"),
+            # dbc.NavLink("Podsumowanie", href="/summary", active="exact"),
             dbc.NavLink("Oś czasu", href="/timeline", active="exact"),
             dbc.NavLink("Sen", href="/sleep", active="exact"),
             dbc.NavLink("Ustawienia", href="/settings", active="exact"),
@@ -777,8 +859,6 @@ def render_page_content(pathname):
         return content_users
     elif pathname == "/watcher": 
         return content_watcher
-    elif pathname == "/summary": 
-        return content_summary
     elif pathname == "/timeline": 
         return content_timeline
     elif pathname == "/sleep": 
@@ -903,6 +983,30 @@ def toggle_timeline_cards(n1, n2, n3, style1, style2, style3):
     return style1, style2, style3
 # endregion
 # region CALLBACK - WYKRESY
+@app.callback(
+    [Output('watcher-main-type', 'options'), 
+     Output('watcher-main-type', 'value')],
+    [Input('watcher-main-scope', 'value')]
+)
+def update_watcher_chart_options(scope):
+    if scope == 'comparison':
+        # Dla porównania
+        options = [
+            {'label': 'Ranking (Paskowy)', 'value': 'bar_h'},
+            {'label': 'Porównanie (Słupki)', 'value': 'bar'},
+            {'label': 'Struktura (Stacked 100%)', 'value': 'bar_stack'}
+        ]
+        return options, 'bar_h'
+    else:
+        # Dla pojedynczej osoby
+        options = [
+            {'label': 'Kołowy (Pie)', 'value': 'pie'},
+            {'label': 'Pierścieniowy (Donut)', 'value': 'donut'},
+            {'label': 'Paskowy (Bar H)', 'value': 'bar_h'},
+            {'label': 'Kolumnowy (Bar V)', 'value': 'bar'},
+            {'label': 'Mapa Drzewa (Treemap)', 'value': 'treemap'}
+        ]
+        return options, 'pie'
 # --- CALLBACK: GENEROWANIE FASOLEK (TOP 10) ---
 @app.callback(
     [Output("timeline-top-filter", "options"),
@@ -960,6 +1064,118 @@ def update_timeline_filter_options(mode, user, week, s_date, e_date, min_dur, f_
     
     return options, initial_value
 # --- CALLBACK: OBSŁUGA GUZIKÓW SELECT ALL / DESELECT ALL ---
+@app.callback(
+    Output('watcher-main-chart', 'figure'),
+    [
+        # Globalne Filtry
+        Input('watcher-date-picker', 'start_date'),
+        Input('watcher-date-picker', 'end_date'),
+        Input('min-duration-input', 'value'),
+        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+        Input('afk-mode-selector', 'value'),
+        
+        # Lokalne kontrolki (4 inputy)
+        Input('watcher-main-scope', 'value'), # 1. Kto
+        Input('watcher-main-mode', 'value'),  # 2. Co
+        Input('watcher-main-limit', 'value'), # 3. Ile
+        Input('watcher-main-type', 'value')   # 4. Jak
+    ],
+    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')]
+)
+def update_main_watcher_chart(start_date, end_date, min_duration, filter_values, afk_mode,
+                              scope, mode, limit, chart_type,
+                              filter_ids):
+    
+    # 1. Pobieramy przefiltrowane dane
+    filtered_df = get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
+    
+    if filtered_df.empty:
+        return go.Figure().update_layout(title="Brak danych", template='plotly_white')
+    
+    # Usuwamy sen z analizy ogólnej (zwykle nie chcemy go w tym widoku)
+    df_work = filtered_df[filtered_df['category'] != 'sen'].copy()
+    if df_work.empty:
+        return go.Figure().update_layout(title="Brak danych (po usunięciu snu)", template='plotly_white')
+
+    # 2. Ustalamy kolumnę grupującą (App vs Category)
+    # Zabezpieczenie: jeśli wybrano 'app' a nie ma takiej kolumny, wracamy do 'category'
+    group_col = 'app' if (mode == 'app' and 'app' in df_work.columns) else 'category'
+    label_text = "Aplikacja" if group_col == 'app' else "Kategoria"
+
+    # 3. Filtrowanie po Osobie (Scope)
+    title_prefix = ""
+    if scope == 'comparison':
+        title_prefix = "Ranking Zespołu"
+    else:
+        df_work = df_work[df_work['osoba'] == scope]
+        title_prefix = f"Analiza: {scope}"
+        if df_work.empty:
+            return go.Figure().update_layout(title=f"Brak danych dla użytkownika: {scope}")
+
+    # 4. Logika Top N (Ograniczamy ilość elementów)
+    # Grupujemy po tym, co chcemy pokazać (np. aplikacje) i sumujemy czas
+    # Jeśli to porównanie, to chcemy Top N aplikacji OGÓŁEM dla wszystkich, żeby kolory były spójne
+    top_items = df_work.groupby(group_col)['duration'].sum().sort_values(ascending=False).head(limit or 10).index
+    
+    # Zostawiamy w danych tylko te topowe elementy
+    df_final = df_work[df_work[group_col].isin(top_items)].copy()
+
+    # 5. Agregacja pod wykres
+    if scope == 'comparison':
+        # X = Osoba, Kolor = Aplikacja/Kategoria
+        agg_df = df_final.groupby(['osoba', group_col])['duration'].sum().reset_index()
+        x_axis = 'osoba'
+        color_axis = group_col
+    else:
+        # X = Aplikacja/Kategoria, Kolor = Aplikacja/Kategoria
+        agg_df = df_final.groupby(group_col)['duration'].sum().reset_index()
+        x_axis = group_col
+        color_axis = group_col
+
+    # Przeliczamy na godziny i sortujemy
+    agg_df['duration'] = (agg_df['duration'] / 3600).round(2)
+    agg_df = agg_df.sort_values(by='duration', ascending=(True if chart_type == 'bar_h' else False))
+
+    # Pobieramy kolory z Twojej mapy kolorów
+    cols_map = {i: get_colour(str(i)) for i in agg_df[color_axis].unique()}
+
+    # 6. Rysowanie Wykresu
+    title = f"{title_prefix} - Top {limit} ({label_text})"
+    
+    if chart_type in ['pie', 'donut']:
+        fig = px.pie(agg_df, names=x_axis, values='duration', color=color_axis,
+                     color_discrete_map=cols_map, hole=0.4 if chart_type=='donut' else 0)
+        fig.update_traces(textinfo='percent+label')
+
+    elif chart_type == 'treemap':
+        agg_df['root'] = title_prefix # Korzeń dla drzewa
+        fig = px.treemap(agg_df, path=['root', x_axis], values='duration', color=color_axis,
+                         color_discrete_map=cols_map)
+        fig.update_traces(root_color="lightgrey")
+
+    elif chart_type == 'bar_h':
+        fig = px.bar(agg_df, x='duration', y=x_axis, color=color_axis, orientation='h',
+                     color_discrete_map=cols_map, text_auto=True)
+        # Sortowanie całkowite (najdłuższy pasek na górze)
+        fig.update_layout(yaxis={'categoryorder': 'total ascending'}) 
+
+    elif chart_type == 'bar_stack':
+        # Dla comparison: Paski ułożone jeden na drugim
+        fig = px.bar(agg_df, x='duration', y='osoba', color=color_axis, orientation='h',
+                     color_discrete_map=cols_map, text_auto=True)
+
+    else: # bar (pionowy)
+        fig = px.bar(agg_df, x=x_axis, y='duration', color=color_axis,
+                     color_discrete_map=cols_map, text_auto=True)
+
+    fig.update_layout(
+        title=title,
+        template='plotly_white',
+        margin=dict(l=20, r=20, t=50, b=20),
+        legend=dict(orientation="h", y=-0.2, x=0.5, xanchor="center")
+    )
+
+    return fig
 @app.callback(
     Output("timeline-top-filter", "value", allow_duplicate=True),
     [Input("timeline-btn-all", "n_clicks"),
