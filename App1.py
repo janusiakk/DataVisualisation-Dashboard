@@ -777,13 +777,10 @@ extra_panel_style = get_base_panel_style("16rem")
 extra_panel_style["zIndex"] = 1060 
 extra_panel = dbc.Offcanvas(
     children=[
-        html.H6("⚙️ Dodatkowe Opcje", className="fw-bold text-primary mb-3"),
-        dbc.Alert("To jest drugi niezależny panel.", color="info"),
-        html.P("Może zawierać ustawienia eksportu, zaawansowane parametry itp."),
-        dbc.Button("Przykładowa akcja", color="dark", outline=True, size="sm")
+        html.H6("ale animacja jest", className="fw-bold text-primary mb-3"),        
     ],
     id="extra-offcanvas",
-    title="Opcje Dodatkowe",
+    title="Nie wiem czy tu coś zrobimy",
     placement="top", scrollable=True, backdrop=False, is_open=False,
     style=extra_panel_style
 )
