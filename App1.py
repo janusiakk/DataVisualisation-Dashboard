@@ -28,12 +28,17 @@ app = dash.Dash(
     suppress_callback_exceptions=True
 )
 DATA_FOLDER = 'Dane Dash/' #Folder do zczytania gotowych danych
-frames = []  
-for filename in os.listdir(DATA_FOLDER):
-    if filename.endswith('.json'):
-        filepath = os.path.join(DATA_FOLDER, filename)
-        frames.append(pd.read_json(filepath))
-df = pd.concat(frames, ignore_index=True)
+DATA_CACHED = 'Dane DASH Fastboot/'
+if not os.listdir(DATA_CACHED):
+    frames = []  
+    for filename in os.listdir(DATA_FOLDER):
+        if filename.endswith('.json'):
+            filepath = os.path.join(DATA_FOLDER, filename)
+            frames.append(pd.read_json(filepath))
+    df = pd.concat(frames, ignore_index=True)
+    df.to_feather(DATA_CACHED + 'dane.feather')
+else:
+    df = pd.read_feather("Dane Dash Fastboot/dane.feather")
 OSOBY = df['osoba'].drop_duplicates().reset_index(drop=True) 
 # Kolumny czasowe
 timestamp = df['timestamp']
@@ -230,7 +235,8 @@ def get_data_summary():
     summary_list = []
     if not os.path.exists(DATA_FOLDER):
         return pd.DataFrame()
-
+    if os.path.exists(DATA_CACHED +'summary.feather'):
+        return pd.read_feather(DATA_CACHED +'summary.feather')
     for filename in os.listdir(DATA_FOLDER):
         if filename.endswith('.json'):
             filepath = os.path.join(DATA_FOLDER, filename)
@@ -249,7 +255,9 @@ def get_data_summary():
                     })
             except Exception as e:
                 print(e)
-    return pd.DataFrame(summary_list)
+    summary_list=pd.DataFrame(summary_list)       
+    summary_list.to_feather(DATA_CACHED +'summary.feather')
+    return summary_list
 def create_users_tables_view():
     df = get_data_summary()
     if df.empty:
