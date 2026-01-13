@@ -1033,21 +1033,20 @@ def update_watcher_chart_options(scope):
     if scope == 'comparison':
         # Dla porównania
         options = [
-            {'label': 'Ranking (Paskowy)', 'value': 'bar_h'},
-            {'label': 'Porównanie (Słupki)', 'value': 'bar'},
-            {'label': 'Struktura (Stacked 100%)', 'value': 'bar_stack'}
+            {'label': 'Słupkowy poziomy', 'value': 'bar_h'},
+            {'label': 'Słupkowy pionowy', 'value': 'bar'}
         ]
         return options, 'bar_h'
     else:
         # Dla pojedynczej osoby
         options = [
-            {'label': 'Kołowy (Pie)', 'value': 'pie'},
-            {'label': 'Pierścieniowy (Donut)', 'value': 'donut'},
-            {'label': 'Paskowy (Bar H)', 'value': 'bar_h'},
-            {'label': 'Kolumnowy (Bar V)', 'value': 'bar'},
-            {'label': 'Mapa Drzewa (Treemap)', 'value': 'treemap'}
+            {'label': 'Słupkowy poziomy', 'value': 'bar_h'},
+            {'label': 'Słupkowy pionowy', 'value': 'bar'},
+            {'label': 'Treemap', 'value': 'treemap'},
+            {'label': 'Kołowy', 'value': 'pie'},
+            {'label': 'Pierścieniowy', 'value': 'donut'}
         ]
-        return options, 'pie'
+        return options, 'bar_h'
 
 # --- CALLBACK: GENEROWANIE FASOLEK (TOP 10) ---
 @app.callback(
