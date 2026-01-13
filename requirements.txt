@@ -3,3 +3,4 @@ dash>=3.3.0
 plotly>=6.5.1
 pandas>=2.2.3
 numpy>=2.1.2
+pyarrow>=22.0.0
