@@ -51,6 +51,15 @@ df['date'] = timestamp_pl.dt.date
 df['localized_time_pl'] = df['timestamp_pl'].dt.tz_localize(None)
 #endregion
 #region --- 1. FUNKCJE POMOCNICZE ---
+def create_button_content(label, main_icon, is_open):
+    # do przycisków w content_timeline
+    """Tworzy zawartość przycisku: Ikona główna + Tekst + Szewron"""
+    chevron_icon = "bi-chevron-up" if is_open else "bi-chevron-down"
+    return [
+        html.I(className=f"bi {main_icon} me-2"), # Główna ikona (po lewej)
+        label,
+        html.I(className=f"bi {chevron_icon} ms-2 small") # Szewron (po prawej)
+    ]
 def process_uploaded_file(): #Placeholder od plików
     return
 # --- DEFINICJA ZAWARTOŚCI FILTRÓW (OFFCANVAS) ---
@@ -396,8 +405,8 @@ def create_options_for_weekly_screentime(df_in):
     categ_app_dropdown = dcc.Dropdown(
         id = 'Wybor-kateg-weekly-time',
         options=[
-            {'label': 'według kategorii', 'value': 'category'},
-            {'label': 'według aplikacji', 'value': 'app'}
+            {'label': '📂 Kategorie', 'value': 'category'},
+            {'label': '📱 Aplikacje', 'value': 'app'}
         ],
         value='category', # domyślnie pierwsza opcja
         clearable=False,
@@ -921,44 +930,58 @@ def update_header_title(pathname):
 @app.callback(Output("page-action-container", "children"), Input("url", "pathname"))
 def display_timeline_toggle_buttons(pathname):
     if pathname == "/timeline":
+        #0096ff #4b83d8
+        kolor_guzikow='#4b83d8'
         return [
             # Guzik 1: Wybór Osoby
             dbc.Button(
-                [html.I(className="bi bi-person-bounding-box")], 
+                create_button_content("Osoba", "bi-person-bounding-box", True),
                 id="btn-toggle-selection", 
-                color="success", 
-                # ZMIANA: Dodałem 'px-4' (szerszy) i 'py-2' (trochę wyższy, opcjonalnie)
-                className="shadow-sm text-white me-2 px-4", 
-                title="Pokaż/Ukryj wybór osoby"
+                style={
+                            "backgroundColor": kolor_guzikow,
+                            "borderColor": kolor_guzikow,
+                            "color": "white"
+                        },
+                className="shadow-sm text-white me-2 px-4 d-flex align-items-center", 
             ),
             
             # Guzik 2: Suwak Czasu
             dbc.Button(
-                [html.I(className="bi bi-clock")], 
+                create_button_content("Czas", "bi-clock", True),
                 id="btn-toggle-slider", 
-                color="warning", 
-                # ZMIANA: Dodałem 'px-4'
-                className="shadow-sm text-white me-2 px-4",
-                title="Pokaż/Ukryj suwak czasu"
+                style={
+                            "backgroundColor": kolor_guzikow,
+                            "borderColor": kolor_guzikow,
+                            "color": "white"
+                        },
+                className="shadow-sm text-white me-2 px-4 d-flex align-items-center",
             ),
             
             # Guzik 3: Filtry
             dbc.Button(
-                [html.I(className="bi bi-tags")], 
+                create_button_content("Filtry", "bi-tags", True),
                 id="btn-toggle-filters", 
-                color="danger", 
-                # ZMIANA: Dodałem 'px-4'
-                className="shadow-sm text-white px-4",
-                title="Pokaż/Ukryj filtry (Top 10)"
+                style={
+                            "backgroundColor": kolor_guzikow,
+                            "borderColor": kolor_guzikow,
+                            "color": "white"
+                        },
+                className="shadow-sm text-white px-4 d-flex align-items-center",
             )
         ]
     return []
 
-
 @app.callback(
-    [Output("timeline-card-selection", "style"),
+    [
+     # Wyjścia stylów (Karty)
+     Output("timeline-card-selection", "style"),
      Output("timeline-card-slider", "style"),
-     Output("timeline-card-filters", "style")],
+     Output("timeline-card-filters", "style"),
+     # Nowe wyjścia treści (Przyciski)
+     Output("btn-toggle-selection", "children"),
+     Output("btn-toggle-slider", "children"),
+     Output("btn-toggle-filters", "children")
+    ],
     [Input("btn-toggle-selection", "n_clicks"),
      Input("btn-toggle-slider", "n_clicks"),
      Input("btn-toggle-filters", "n_clicks")],
@@ -968,31 +991,41 @@ def display_timeline_toggle_buttons(pathname):
     prevent_initial_call=True
 )
 def toggle_timeline_cards(n1, n2, n3, style1, style2, style3):
-    # Domyślne style (jeśli są None, to zamień na puste słowniki)
+    # 1. Inicjalizacja stylów (jeśli są None)
     style1 = style1 or {}
     style2 = style2 or {}
     style3 = style3 or {}
 
-    # Sprawdzamy, który guzik został kliknięty
     triggered_id = ctx.triggered_id
 
-    # Funkcja pomocnicza do przełączania widoczności
+    # Funkcja pomocnicza do przełączania display
     def toggle_display(current_style):
         if current_style.get('display') == 'none':
-            return {} # Pokaż (usuń display:none)
+            return {} # Pokaż
         else:
             return {'display': 'none'} # Ukryj
 
-    # Logika sterowania
-    if triggered_id == "btn-toggle-selection":
+    # 2. Logika zmiany STYLU (tylko dla klikniętego elementu)
+    # Warunek 'and nX' zapobiega odpaleniu przy ładowaniu strony
+    if triggered_id == "btn-toggle-selection" and n1:
         style1 = toggle_display(style1)
-    elif triggered_id == "btn-toggle-slider":
+    elif triggered_id == "btn-toggle-slider" and n2:
         style2 = toggle_display(style2)
-    elif triggered_id == "btn-toggle-filters":
+    elif triggered_id == "btn-toggle-filters" and n3:
         style3 = toggle_display(style3)
 
-    return style1, style2, style3
-# endregion
+    # 3. Logika zmiany IKON (dla WSZYSTKICH przycisków na podstawie nowych stylów)
+    # Sprawdzamy czy styl NIE ma 'display: none' -> znaczy że jest otwarte
+    is_open1 = style1.get('display') != 'none'
+    is_open2 = style2.get('display') != 'none'
+    is_open3 = style3.get('display') != 'none'
+
+    # Generujemy nową zawartość guzików
+    content1 = create_button_content("Osoba", "bi-person-bounding-box", is_open1)
+    content2 = create_button_content("Czas", "bi-clock", is_open2)
+    content3 = create_button_content("Kategorie", "bi-tags", is_open3)
+
+    return style1, style2, style3, content1, content2, content3# endregion
 # region CALLBACK - WYKRESY
 @app.callback(
     [Output('watcher-main-type', 'options'), 
@@ -1379,7 +1412,7 @@ def update_timeline_controls(current_user, current_week, start_date, end_date, m
 
     # 2. Lista Użytkowników
     users = sorted(filtered_df['osoba'].astype(str).unique())
-    user_opts = [{'label': u, 'value': u} for u in users]
+    user_opts = [{'label': '👤 '+u, 'value': u} for u in users]
     
     # Logika wyboru usera (jeśli obecny jest na liście, zostaw go, inaczej wybierz pierwszego)
     selected_user = current_user if current_user in users else users[0]
