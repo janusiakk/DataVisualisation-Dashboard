@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import json
 from sys import argv
+from os import system
 
 def classify_activity(combined):    
     combined = combined.lower()
@@ -63,6 +64,9 @@ def classify_activity(combined):
         return 'studia'
     # 7. Inne (System, Przeglądarka ogólna, Zakupy, Zdjęcia itp.)
     return 'inne'
+
+def delete_cache() -> None:
+    system(r'del ".\\Dane Dash Fastboot\\*" /q')
 
 def load_desktop_data(watcher: str, afk: str, person: str) -> None:
     with open(afk, 'r', encoding='utf-8') as f: #Scieżka
@@ -129,3 +133,4 @@ def load_desktop_data(watcher: str, afk: str, person: str) -> None:
 )
 if __name__ == "__main__":
     load_desktop_data(f"Dane prywatne\\{argv[1]}.json", f"Dane prywatne\\{argv[2]}.json", argv[3])
+    delete_cache()

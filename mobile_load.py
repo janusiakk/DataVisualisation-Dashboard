@@ -1,4 +1,4 @@
-from data_load import classify_activity
+from data_load import classify_activity, delete_cache
 import pandas as pd
 import numpy as np
 import json
@@ -27,3 +27,4 @@ def load_mobile_data(bucket: str, person: str) -> None:
     )
 if __name__ == "__main__":
     load_mobile_data(f"Dane prywatne\\{argv[1]}.json", argv[2])
+    delete_cache()

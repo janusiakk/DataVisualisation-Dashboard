@@ -3,6 +3,7 @@ import numpy as np
 from datetime import datetime, timedelta
 import json
 from sys import argv
+from data_load import delete_cache
 
 def sleep_load(file: str, user_name: str) -> None:
     df = pd.read_csv(file, parse_dates=[['Date','StartTime']], dayfirst=True)
@@ -68,3 +69,4 @@ def sleep_load(file: str, user_name: str) -> None:
 
 if __name__ == "__main__":
     sleep_load(f"Dane prywatne\\{argv[1]}.csv", argv[2])
+    delete_cache()
