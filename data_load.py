@@ -5,31 +5,7 @@ from sys import argv
 
 def classify_activity(combined):    
     combined = combined.lower()
-    # 1. Studia (Data Science & Engineering focus)
-    # Dodano MATLAB i LeON na podstawie podglądu pliku
-    ds_keywords = [
-        'python', 'pandas', 'numpy', 'scikit', 'sklearn', 'jupyter', 'colab', 
-        'code.exe', 'visual studio', 'vscode', 'pycharm', 'rstudio', 
-        'matlab', 'mathworks', 'simulink', 'numeryczne', 'metody numeryczne',
-        'sql', 'kaggle', 'github', 'git', 'stack overflow', 'stackoverflow', 
-        'data science', 'machine learning', 'ai', 'sztuczna inteligencja',
-        'gemini', 'chatgpt', 'openai', 'claude', 'leon', 'usos', 'politechnika',
-        'pochodna', 'całka', 'zapiski', 'laboratorium', 'projekt', 'studia',
-        '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack', 'gemini', 'dysk',
-        'intellij', 'idea'
-    ]
-    if any(k in combined for k in ds_keywords):
-        return 'studia'
-
-    # 2. Komunikatory
-    comm_keywords = [
-        'discord', 'messenger', 'whatsapp', 'signal', 'telegram', 'teams', 
-        'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird',
-        'facebook', 'instagram', 'twitter', 'x.com', 'linkedin', ' x — ', 'reddit', 'telefon'
-    ]
-    if any(k in combined for k in comm_keywords):
-        return 'Komunikatory'
-
+    
     # 3. Gry komputerowe
     game_keywords = [
         'steam','sandfall', 'epic games', 'riot', 'league of legends', 'lol', 'valorant', 
@@ -37,12 +13,20 @@ def classify_activity(combined):
         'wiedźmin', 'cyberpunk', 'blizzard', 'battlenet', 'ubisoft', 'game', 
         'gra', 'binding of isaac', 'hollow knight', 'clash of clans', 'half-life', 'half life',
         'oldboy', 'myboy', 'melonds', 'drastic', 'citra', 'clash royale', 'sandfall', 'aces',
-        'javaw', # minecraft
+        'javaw', 'Clash of clans', 'warthunder'
 
         ]
     if any(k in combined for k in game_keywords):
         return 'gry komputerowe'
-
+    
+    # 2. Komunikatory
+    comm_keywords = [
+        'discord', 'messenger', 'whatsapp', 'signal', 'telegram', 'teams', 
+        'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird',
+        'facebook', 'instagram', 'twitter', 'x.com', 'linkedin', ' x — ', 'reddit', 'telefon'
+    ]
+    if any(k in combined for k in comm_keywords):
+        return 'Komunikatory'   
     # 4. Oglądanie filmów
     video_keywords = [
         'youtube', 'youtu.be', 'netflix', 'hbo', 'disney', 'prime video', 
@@ -59,15 +43,23 @@ def classify_activity(combined):
     ]
     if any(k in combined for k in music_keywords):
         return 'muzyka'
-
-    # 6. Nauka (Ogólna - jeśli nie wpadło do Data Science)
-    learn_keywords = [
-        'wikipedia','obsidian' 'wiki', 'kurs', 'course', 'udemy', 'coursera', 'edx', 
-        'duolingo', 'tłumacz', 'translate', 'słownik', 'dictionary', 'notion', 'obsidian'
+    a# 1. Studia (Data Science & Engineering focus)
+    # Dodano MATLAB i LeON na podstawie podglądu pliku
+    ds_keywords = [
+        'python', 'pandas', 'numpy', 'scikit', 'sklearn', 'jupyter', 'colab', 
+        'code.exe', 'visual studio', 'vscode', 'pycharm', 'rstudio', 
+        'matlab', 'mathworks', 'simulink', 'numeryczne', 'metody numeryczne',
+        'sql', 'kaggle', 'github', 'git', 'stack overflow', 'stackoverflow', 
+        'data science', 'machine learning', 'ai', 'sztuczna inteligencja',
+        'gemini', 'chatgpt', 'openai', 'claude', 'leon', 'usos', 'politechnika',
+        'pochodna', 'całka', 'zapiski', 'laboratorium', 'projekt', 'studia',
+        '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack', 'gemini', 'dysk',
+        'intellij', 'idea','obsidian','wikipedia'',wiki', 'kurs', 'course', 'udemy', 'coursera', 'edx', 
+        'duolingo', 'tłumacz', 'translate', 'słownik', 'dictionary', 'notion','Angielski',
+        'Rosyjski','asd','tp','metody numeryczne','TWD','Fizyka','RStudio'
     ]
-    if any(k in combined for k in learn_keywords):
-        return 'nauka'
-
+    if any(k in combined for k in ds_keywords):
+        return 'studia'
     # 7. Inne (System, Przeglądarka ogólna, Zakupy, Zdjęcia itp.)
     return 'inne'
 
