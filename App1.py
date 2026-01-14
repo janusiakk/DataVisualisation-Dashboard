@@ -11,7 +11,7 @@ COLOURS = {'muzyka': '#5544ee',
            'gry komputerowe': '#8855aa',
            'oglądanie filmów': "#F7D83B",
            'inne': '#00c0ff',
-           'sen': "#605697"}
+           'sen': "#423A6E"}
 def get_colour(text: str) -> str:
     if text in COLOURS.keys():
         return COLOURS[text]
@@ -23,7 +23,8 @@ app = dash.Dash(
     __name__,
     external_stylesheets=[
         dbc.themes.BOOTSTRAP, #Wygląd
-        "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+        "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css",
+        "/assets/01_style.css"
     ],
     suppress_callback_exceptions=True
 )
@@ -2174,7 +2175,36 @@ content_sleep = html.Div([
         dcc.Graph(id='sleep-line-plot',config={'displayModeBar': False})
      ])),
      dbc.Card(dbc.CardBody([
-        dbc.Row([dbc.Col(html.H4("Dzienny rozkład snu"))]),
+        dbc.Row([dbc.Col(html.H4("Dzienna długość snu"), width=12, md=3),
+                 dbc.Col([
+                            html.H5("Wybierz dni tygodnia"),
+                            dbc.Checklist(
+                                options=[
+                                    {"label": "Poniedziałki", "value": "0"},
+                                    {"label": "Wtorki", "value": "1"},
+                                    {"label": "Środy", "value": "2"},
+                                    {"label": "Czwartki", "value": "3"},
+                                    {"label": "Piątki", "value": "4"},
+                                    {"label": "Soboty", "value": "5"},
+                                    {"label": "Niedziele", "value": "6"},
+                                    ],
+                                    value=["1", "2", "3", "4", "5", "6", "0"],
+                                    id="highlight-options-3",
+                                    inline=True
+                                )],
+                                width=12, md=7),
+                dbc.Col([
+                            html.H5("Zaznaczenia"),
+                            dbc.Checklist(
+                                options=[
+                                    {"label": "Wyróżnij weekendy", "value": "a"}
+                                    ],
+                                    value=["a"],
+                                    id="highlight-options-2",
+                                    inline=True
+                                )],
+                                width=12, md=2),
+                ]),
         dcc.Graph(id='sleep-times-plot',config={'displayModeBar': False})
      ])),
 ])
@@ -2307,9 +2337,14 @@ def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_m
         Input('afk-mode-selector', 'value'),
     ],
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
-    Input("highlight-options", "value")
+    Input("highlight-options-3", "value"),
+    Input("highlight-options-2", "value")
 )
-def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, highlight_options):
+def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, highlight_options_3, highlight_options_2):
+    highlight_options_3 = [int(i) for i in highlight_options_3]
+    maxd = max(highlight_options_3)
+    if(0 in highlight_options_3):
+        highlight_options_3.append(7)
     df_sleep = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, get_sleep=True)
     df_sleep = df_sleep.loc[lambda df: df['status']=='sleep']
     if df_sleep.empty: return go.Figure().update_layout(title="Brak danych", template='plotly_white')
@@ -2331,7 +2366,7 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
             title="Godzina",
             range=[start_hour, max_hour+24],
             tickvals=hour_range,
-            ticktext=np.where(hour_range>=24, hour_range-24, hour_range),
+            ticktext=(((np.where(hour_range>=24, hour_range-24, hour_range)).astype(np.int8)).astype(str))+':00',
         ),
         showlegend=False,
         yaxis_title="Osoba",
@@ -2339,26 +2374,47 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
     )
     osoba_number = df_sleep.groupby('osoba').size()
     hover_tmpl = f"Data:%{{customdata[0]}}<br>Od:%{{customdata[1]}}<br>Do:%{{customdata[2]}}<extra></extra>"
+    y_map = {osoba: i for i, osoba in enumerate(pd.unique(df_sleep['osoba']))}
     for item in df_sleep.itertuples():
+        day_flag = item.timestamp.hour < 20
+        if (item.timestamp.weekday() not in highlight_options_3 and day_flag) or (item.timestamp.weekday()+1 not in highlight_options_3 and day_flag):
+            continue
         custom_data = [None, None, None]
-        custom_data[0] = (item.timestamp+pd.Timedelta(days=1)).strftime("%d.%m.%Y")
+        custom_data[0] = (item.timestamp+pd.Timedelta(days=int(not day_flag))).strftime("%d.%m.%Y")
         custom_data[1] = (item.timestamp).strftime("%H:%M:%S")
         custom_data[2] = (item.timestamp+pd.Timedelta(seconds=item.duration)).strftime("%H:%M:%S")
+        colour = get_colour('sen')
+        offset = 0
+        opacity_multiplier = 1
+        if (("a" in highlight_options_2) and ((item.timestamp.weekday() >= 5 and day_flag) or (item.timestamp.weekday() in [4, 5] and (not day_flag)))):
+            colour = "#1e624c"
+            offset = 0.45
+            opacity_multiplier = 7/2
+        elif("a" in highlight_options_2):
+            opacity_multiplier = 7/5
         fig.add_trace(
             go.Bar(
-            y=[item.osoba],
+            y=[y_map[item.osoba]+offset],
             x=[item.duration/3600],
             base=[item.tm],
             orientation='h',
             name='',
             hovertemplate=hover_tmpl,
             customdata=[custom_data],
-            width=0.8,
-            opacity=1 - (0.3)**(1/(osoba_number.loc[item.osoba])),
+            width=0.35+(0.45 if ("a" not in highlight_options_2 or maxd < 5) else 0),
+            opacity=(1 - (0.3)**(1/(osoba_number.loc[item.osoba])))*(opacity_multiplier),
             marker=dict(
-                color=get_colour('sen'),
+                color=colour,
                 line=dict(width=0)),
             )
+        )
+        fig.update_yaxes(
+            tickvals=list(y_map.values()),
+            ticktext=list(y_map.keys()),
+            tickfont=dict(size=18)
+        )
+        fig.update_xaxes(
+            tickfont=dict(size=14)
         )
     return fig
 
