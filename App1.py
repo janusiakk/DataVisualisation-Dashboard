@@ -386,9 +386,9 @@ def create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mo
     # 3. Filtr AFK - BEZ ZMIAN
     if 'status' in filtered_df.columns:
         if afk_mode == 'active_only':
-            filtered_df = filtered_df[(filtered_df['status'] == 'not-afk') | (filtered_df['status'] == 'not_afk') | (get_sleep & (filtered_df['status'] == 'sleep'))]
+            filtered_df = filtered_df[(filtered_df['status'] == 'not-afk') | (filtered_df['category'] == 'sen')]
         elif afk_mode == 'afk_only':
-            filtered_df = filtered_df[((filtered_df['status'] != 'not-afk') & (filtered_df['status'] != 'not_afk')) | (get_sleep & (filtered_df['status'] == 'sleep'))]
+            filtered_df = filtered_df[(filtered_df['status'] == 'afk') | (filtered_df['category'] == 'sen')]
     return filtered_df
 def create_options_for_weekly_screentime(df_in):
     # 1. Pobieramy listę użytkowników
@@ -1440,7 +1440,7 @@ def update_timeline_controls(current_user, current_week, start_date, end_date, m
 )
 def weekly_screentime(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids,osoba,agregator,topn):
     filtered_df = get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
-    filtered_df = filtered_df[df['category'] != 'sen']
+    filtered_df = filtered_df[filtered_df['category'] != 'sen']
     # W trybie app, bierzemy topn aplikacji (liczymy dla konkretnej osoby)
     if agregator == 'app':
         Popular_apps = filtered_df[filtered_df['osoba']==osoba].groupby('app')['duration'].aggregate(total_duration = 'sum').reset_index()
@@ -2345,8 +2345,8 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
     maxd = max(highlight_options_3)
     if(0 in highlight_options_3):
         highlight_options_3.append(7)
-    df_sleep = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, get_sleep=True)
-    df_sleep = df_sleep.loc[lambda df: df['status']=='sleep']
+    df_sleep = get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
+    df_sleep = df_sleep[df_sleep['status']=='sleep']
     if df_sleep.empty: return go.Figure().update_layout(title="Brak danych", template='plotly_white')
     fig = go.Figure()
     fig.update_yaxes(categoryorder='array', categoryarray=pd.unique(df_sleep['osoba']))
