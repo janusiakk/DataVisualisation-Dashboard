@@ -43,7 +43,8 @@ def classify_activity(combined):
     ]
     if any(k in combined for k in music_keywords):
         return 'muzyka'
-    a# 1. Studia (Data Science & Engineering focus)
+    
+    # 1. Studia (Data Science & Engineering focus)
     # Dodano MATLAB i LeON na podstawie podglądu pliku
     ds_keywords = [
         'python', 'pandas', 'numpy', 'scikit', 'sklearn', 'jupyter', 'colab', 
