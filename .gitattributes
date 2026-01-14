@@ -1,0 +1,6 @@
+*.html linguist-generated=true
+*.html linguist-detectable=False
+*.html linguist-language=Ignore
+*.ipynb linguist-generated=true
+*.ipynb linguist-detectable=False
+*.ipynb linguist-language=Ignore
