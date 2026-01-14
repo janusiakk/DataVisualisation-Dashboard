@@ -56,8 +56,8 @@ def classify_activity(combined):
         'pochodna', 'całka', 'zapiski', 'laboratorium', 'projekt', 'studia',
         '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack', 'gemini', 'dysk',
         'intellij', 'idea','obsidian','wikipedia', 'wiki', 'kurs', 'course', 'udemy', 'coursera', 'edx', 
-        'duolingo', 'tłumacz', 'translate', 'słownik', 'dictionary', 'notion','Angielski',
-        'Rosyjski','asd','tp','metody numeryczne','TWD','Fizyka','RStudio'
+        'duolingo', 'tłumacz', 'translate', 'słownik', 'dictionary', 'notion','angielski',
+        'rosyjski', 'asd', 'tp', 'metody numeryczne', 'twd', 'fizyka', 'rstudio'
     ]
     if any(k in combined for k in ds_keywords):
         return 'studia'
