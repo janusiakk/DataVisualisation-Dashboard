@@ -55,7 +55,7 @@ def classify_activity(combined):
         'gemini', 'chatgpt', 'openai', 'claude', 'leon', 'usos', 'politechnika',
         'pochodna', 'całka', 'zapiski', 'laboratorium', 'projekt', 'studia',
         '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack', 'gemini', 'dysk',
-        'intellij', 'idea','obsidian','wikipedia'',wiki', 'kurs', 'course', 'udemy', 'coursera', 'edx', 
+        'intellij', 'idea','obsidian','wikipedia', 'wiki', 'kurs', 'course', 'udemy', 'coursera', 'edx', 
         'duolingo', 'tłumacz', 'translate', 'słownik', 'dictionary', 'notion','Angielski',
         'Rosyjski','asd','tp','metody numeryczne','TWD','Fizyka','RStudio'
     ]
