@@ -1,24 +1,16 @@
 # TWD_Dashboard
 ## TO DO LIST :
 
-* Rozwiązanie kwestii pikselowej. (WAŻNE)Możliwość wymuszania skalowania wszystkich dbc.Cardów do wysokości ekranu jako opcja w aplikajci. Problem obsługi kilku rozdzielczości. Na potrzeby przedmiotu nie powinno się nic skrolować. Obecnie na fullhd w Obserwatorium jest full scrolling.
-
-
-* Zmienić ładowanie snu aby obliczało początek snu z danych z telefonu i dodawało zapisaną długość snu do tej godziny. 
-
+* Wstawić dane o śnie z ręcznym ustawieniem początku na bazie aktywności z timeline
 * Otateczne rozwiązanie kwestii optymalizacyjno-sennej...
-
-* Lepsze guziko do collapsowania osi czasu (ja kamil ogarnę)
 
 * jakieś wykorzystanie drugiego globalnego panelu jako customizowanie wykresów (okienko opcje) ewentualnie jego zakomentowanie (nie usunięcie😢)
 
-* Czy chcemy? zakładka z Pompą WoW Mega (Obserwatorium będzie git, timeline jest fajny, sen fajny 
-ale za mało tam się dzieje)
-
-
+* Dopieszczenie zakładki o śnie
 * Ogólne zadbanie o wykresy wielkość czcionek, powtórzenie informacji, (Rzeczy dokładnie oceniane na przedmiocie)
 * Więcej unikalnych rodzajów wykresów tam gdzie jest opcja wyboru wykresu z tych samych danych.
 
+* Końcowe ustawienie wykresów/aplikacji tak aby najlepiej wyglądały w rozdzielczości/laptopie Jerzego. 
 ## Może kiedyś
 
 * Załączanie plików
