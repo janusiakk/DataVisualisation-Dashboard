@@ -386,9 +386,11 @@ def create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mo
     # 3. Filtr AFK - BEZ ZMIAN
     if 'status' in filtered_df.columns:
         if afk_mode == 'active_only':
-            filtered_df = filtered_df[(filtered_df['status'] == 'not-afk') | (filtered_df['category'] == 'sen')]
+            # szybkie obejście literówki _ -
+            filtered_df = filtered_df[(filtered_df['status'].isin(['not-afk','not_afk'])) | (filtered_df['category'] == 'sen')]
         elif afk_mode == 'afk_only':
             filtered_df = filtered_df[(filtered_df['status'] == 'afk') | (filtered_df['category'] == 'sen')]
+    print(filtered_df['status'].value_counts(dropna=False))
     return filtered_df
 def create_options_for_weekly_screentime(df_in):
     # 1. Pobieramy listę użytkowników
