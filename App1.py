@@ -436,14 +436,19 @@ def create_options_for_weekly_screentime(df_in):
     return dropdowns
 CURRENT_FILTER = [None, None, 0, [], False, []]
 FILTERED_DF = df
+
+from threading import Lock
+FILTER_LOCK = Lock()
+
+
 def get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids):
-    global CURRENT_FILTER
-    global FILTERED_DF
-    new_filter = [start_date, end_date, min_duration, filter_values, afk_mode, filter_ids]
-    if new_filter != CURRENT_FILTER:
-        CURRENT_FILTER = new_filter
-        FILTERED_DF = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
-    return FILTERED_DF.copy()
+    global CURRENT_FILTER, FILTERED_DF
+    with FILTER_LOCK:
+        new_filter = [start_date, end_date, min_duration, filter_values, afk_mode, filter_ids]
+        if new_filter != CURRENT_FILTER:
+            CURRENT_FILTER = new_filter
+            FILTERED_DF = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids)
+        return FILTERED_DF.copy()
 #endregion
 #region --- 2. LAYOUTY (STRONY) ---
 # STRONA 1 : Użytkownicy /
@@ -1526,7 +1531,7 @@ def activity_line(start_date, end_date, min_duration, filter_values, afk_mode, f
 
     full_index = pd.MultiIndex.from_product([osoby, daty], names=['osoba', 'date'])
     Suma_z_dnia = Suma_z_dnia.set_index(['osoba', 'date']).reindex(full_index, fill_value=0).reset_index()
-    Suma_z_dnia.sort_values(["osoba","date"]).reset_index(drop=True)
+    Suma_z_dnia = Suma_z_dnia.sort_values(["osoba","date"]).reset_index(drop=True)
     Suma_z_dnia['duration_hm'] = Suma_z_dnia['duration'].apply(lambda x: f"{int(x)}h {int((x%1*60))}m")
 
     fig = px.line(
