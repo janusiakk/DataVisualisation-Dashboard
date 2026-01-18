@@ -1,0 +1,515 @@
+[
+    {
+        "timestamp": "2026-01-01T00:17:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 31140.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-01T23:02:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 36720.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-02T22:54:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 359.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-02T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 39300.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-04T01:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 34200.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-04T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 30600.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-05T22:48:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 719.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-05T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 30600.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-06T22:39:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 1259.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-06T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 23400.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-07T22:47:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 779.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-07T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 30420.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-08T23:01:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 23340.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-09T23:33:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 26220.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-10T23:51:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 25740.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-02T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 23220.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-03T22:42:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 1079.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-03T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 28800.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-04T22:44:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 959.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-04T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 28800.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-05T23:49:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 25800.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-06T23:48:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 25920.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-07T21:35:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 5099.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-07T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 28800.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-08T22:57:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 179.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-08T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 24000.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-09T22:35:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 1499.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-09T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 23400.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-10T22:35:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 1499.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-10T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 34200.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-11T23:10:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 25740.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-12T23:24:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 36300.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-13T23:14:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 27960.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-14T23:37:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 31440.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-15T22:45:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 899.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-15T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 23400.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-16T22:34:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 1559.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-16T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 23400.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-17T22:43:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 1019.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-17T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 30600.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-18T23:20:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 29400.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-19T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 30600.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-20T22:56:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 239.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-20T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 35520.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-22T00:13:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 26220.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-23T00:18:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 23220.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-23T22:47:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 779.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-23T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 30600.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-25T00:32:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 28680.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-26T00:40:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 28200.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-27T00:49:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 27660.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-28T00:30:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 34380.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-29T01:12:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 21960.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-29T22:51:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 539.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-29T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 36720.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-30T22:32:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 1679.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2025-12-30T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 40080.0,
+        "category": "sen",
+        "osoba": "AK",
+        "device": "Phone"
+    }
+]
