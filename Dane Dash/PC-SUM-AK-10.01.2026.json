@@ -6853,7 +6853,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":4.061,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7447,7 +7447,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":62.847,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7456,7 +7456,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":37.542,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7474,7 +7474,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":15.177,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7546,7 +7546,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":20.266,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7654,7 +7654,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":1.01,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7663,7 +7663,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":78.023,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7708,7 +7708,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":48.733,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7807,7 +7807,7 @@
         "app":"chrome.exe",
         "status":"afk",
         "duration":373.73,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7816,7 +7816,7 @@
         "app":"chrome.exe",
         "status":"afk",
         "duration":5.007,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7825,7 +7825,7 @@
         "app":"chrome.exe",
         "status":"afk",
         "duration":10.012,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7834,7 +7834,7 @@
         "app":"chrome.exe",
         "status":"afk",
         "duration":5.003,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7843,7 +7843,7 @@
         "app":"chrome.exe",
         "status":"afk",
         "duration":5.0,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7852,7 +7852,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":179.144,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7861,7 +7861,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":0.005,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -7870,7 +7870,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":128.352,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -13603,7 +13603,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":4.06,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -13612,7 +13612,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":6.08,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -42934,7 +42934,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":4.039,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -42943,7 +42943,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":49.547,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -42952,7 +42952,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":11.086,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -42961,7 +42961,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":40.371,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -42997,7 +42997,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":37.422,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43060,7 +43060,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":29.219,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43069,7 +43069,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":19.143,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43078,7 +43078,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":7.073,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43087,7 +43087,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":4.03,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43096,7 +43096,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":22.188,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43105,7 +43105,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":13.108,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43114,7 +43114,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":2.007,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43123,7 +43123,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43132,7 +43132,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":171.452,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43141,7 +43141,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":2.011,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43150,7 +43150,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":4.027,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43159,7 +43159,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":3.011,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43168,7 +43168,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":3.026,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -43177,7 +43177,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":2.019,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -57289,7 +57289,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":10.081,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -58306,7 +58306,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":71.845,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -58324,7 +58324,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":1.02,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -60043,7 +60043,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":7.073,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -66514,7 +66514,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":12.153,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -73966,7 +73966,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":53.658,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -73993,7 +73993,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":5.06,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -74011,7 +74011,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":24.256,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -74065,7 +74065,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":8.06,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -92839,7 +92839,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":128.719,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -92866,7 +92866,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":4.052,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },
@@ -92893,7 +92893,7 @@
         "app":"chrome.exe",
         "status":"not-afk",
         "duration":3.059,
-        "category":"nauka",
+        "category":"studia",
         "osoba":"AK",
         "device":"PC"
     },

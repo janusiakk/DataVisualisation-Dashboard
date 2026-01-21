@@ -5,7 +5,6 @@ from hashlib import md5
 from colorsys import hsv_to_rgb
 #region Start
 COLOURS = {'muzyka': "#13ba31", 
-           'nauka': "#df6092", 
            'studia': "#d72b2b", 
            'Komunikatory' : "#6accea",
            'gry komputerowe': "#6302a4",
