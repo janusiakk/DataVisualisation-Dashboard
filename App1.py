@@ -1807,16 +1807,16 @@ content_sleep = html.Div([
                             html.H5("Zaznaczenia"),
                             dbc.Checklist(
                                 options=[
-                                    {"label": "Wyróżnij weekendy", "value": "a"}
+                                    {"label": html.Div(["Wyróżnij weekendy", html.Br(), "(na zielono)"]), "value": "a"}
                                     ],
                                     value=["a"],
                                     id="highlight-options-2",
                                     inline=True
                                 )],
                                 width=12, md=2),
-                ]),
-        dcc.Graph(id='sleep-times-plot',config={'displayModeBar': False})
-     ])),
+                ], class_name='align-items-center g-2'),
+        dcc.Graph(id='sleep-times-plot',config={'displayModeBar': False},style={'height': '500px'})
+     ], style={'padding': '0rem'})),
 ])
 @app.callback(
     Output('sleep-line-plot', 'figure'),
@@ -1938,6 +1938,15 @@ def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_m
     return fig
 
 @app.callback(
+    Output("highlight-options-3", "value"),
+    Input("highlight-options-3", "value"),
+)
+def enforce_min_selection(selected):
+    if not selected:  # user tried to deselect everything
+        return ["0"]   # reset to default
+    return selected
+
+@app.callback(
     Output('sleep-times-plot', 'figure'),
     [
         Input('watcher-date-picker', 'start_date'),
@@ -1982,12 +1991,12 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
         yaxis_title="Osoba",
         template='plotly_white'
     )
-    osoba_number = df_sleep.groupby('osoba').size()
+    osoba_number = (df_sleep.groupby('osoba').size())*(7/len(highlight_options_3))
     hover_tmpl = f"Data:%{{customdata[0]}}<br>Od:%{{customdata[1]}}<br>Do:%{{customdata[2]}}<extra></extra>"
     y_map = {osoba: i for i, osoba in enumerate(pd.unique(df_sleep['osoba']))}
     for item in df_sleep.itertuples():
         day_flag = item.timestamp.hour < 20
-        if (item.timestamp.weekday() not in highlight_options_3 and day_flag) or (item.timestamp.weekday()+1 not in highlight_options_3 and day_flag):
+        if (item.timestamp.weekday() not in highlight_options_3 and day_flag) or (item.timestamp.weekday()+1 not in highlight_options_3 and not day_flag):
             continue
         custom_data = [None, None, None]
         custom_data[0] = (item.timestamp+pd.Timedelta(days=int(not day_flag))).strftime("%d.%m.%Y")
@@ -2000,7 +2009,7 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
             colour = "#1e624c"
             offset = 0.45
             opacity_multiplier = 7/2
-        elif("a" in highlight_options_2):
+        elif("a" in highlight_options_2 and maxd >= 5):
             opacity_multiplier = 7/5
         fig.add_trace(
             go.Bar(
@@ -2012,20 +2021,24 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
             hovertemplate=hover_tmpl,
             customdata=[custom_data],
             width=0.35+(0.45 if ("a" not in highlight_options_2 or maxd < 5) else 0),
-            opacity=(1 - (0.3)**(1/(osoba_number.loc[item.osoba])))*(opacity_multiplier),
+            opacity=(1 - (0.4)**(1/(osoba_number.loc[item.osoba])))*(opacity_multiplier),
             marker=dict(
                 color=colour,
                 line=dict(width=0)),
             )
         )
-        fig.update_yaxes(
-            tickvals=list(y_map.values()),
-            ticktext=list(y_map.keys()),
-            tickfont=dict(size=18)
-        )
         fig.update_xaxes(
             tickfont=dict(size=14)
         )
+    fig.update_yaxes(
+        tickvals=list(y_map.values()),
+        ticktext=list(y_map.keys()),
+        tickfont=dict(size=18),
+    )
+    fig.update_layout(
+        margin=dict(l=50, r=20, t=0, b=50),
+        height=400 + 40*len(y_map),
+    )
     return fig
 
 # endregion
