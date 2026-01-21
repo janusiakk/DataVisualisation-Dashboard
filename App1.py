@@ -390,7 +390,7 @@ def create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mo
             filtered_df = filtered_df[(filtered_df['status'].isin(['not-afk','not_afk'])) | (filtered_df['category'] == 'sen')]
         elif afk_mode == 'afk_only':
             filtered_df = filtered_df[(filtered_df['status'] == 'afk') | (filtered_df['category'] == 'sen')]
-    print(filtered_df['status'].value_counts(dropna=False))
+    # print(filtered_df['status'].value_counts(dropna=False))
     return filtered_df
 def create_options_for_weekly_screentime(df_in):
     # 1. Pobieramy listę użytkowników
@@ -454,6 +454,9 @@ def get_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode,
 #endregion
 #region --- 2. LAYOUTY (STRONY) ---
 # STRONA 1 : Użytkownicy /
+# Zakłada powitalna , opis skąd są dane co mówią, instrukcja 
+content_intro = html.Div([])
+
 content_users = html.Div([
     # html.H1("Panel kontroli danych wejściowych"),
     dbc.Alert("Poniżej znajduje się wykaz wczytanych plików.", color="light"),
@@ -753,15 +756,16 @@ content_addFile = html.Div([
 #region --- 3. GŁÓWNA STRUKTURA ---
 sidebar = html.Div(
     [
-        html.H2("Menu", className="display-6"),
+        html.H2("Panele", className="display-6"),
         html.Hr(),
         dbc.Nav([
-            dbc.NavLink("Użytkownicy", href="/", active="exact"),
+            dbc.NavLink("O projekcie", href="/", active="exact"),
+            dbc.NavLink("Wczytane dane", href="/wczytane", active="exact"),
             dbc.NavLink("Obserwatorium", href="/watcher", active="exact"),
             # dbc.NavLink("Podsumowanie", href="/summary", active="exact"),
             dbc.NavLink("Oś czasu", href="/timeline", active="exact"),
             dbc.NavLink("Sen", href="/sleep", active="exact"),
-            dbc.NavLink("Ustawienia", href="/settings", active="exact"),
+            # dbc.NavLink("Ustawienia", href="/settings", active="exact"),
             #dbc.NavLink("Załącz pliki", href="/addFile", active="exact"), # raczej do wycofania
         ], vertical=True, pills=True),
     ],
@@ -881,6 +885,8 @@ app.layout = html.Div([
 @app.callback(Output("page-content", "children"), Input("url", "pathname"))
 def render_page_content(pathname):
     if pathname == "/": 
+        return content_intro
+    elif pathname == "/wczytane": 
         return content_users
     elif pathname == "/watcher": 
         return content_watcher
@@ -918,7 +924,9 @@ def update_output(list_of_contents, list_of_names):
 @app.callback(Output("header-title", "children"), Input("url", "pathname"))
 def update_header_title(pathname):
     if pathname == "/": 
-        return "Użytkownicy"
+        return "O projekcie"
+    elif pathname == "/wczytane": 
+        return "Wczytane dane"
     elif pathname == "/watcher": 
         return "Obserwatorium"
     elif pathname == "/summary": 
