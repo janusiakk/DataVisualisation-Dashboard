@@ -4,13 +4,13 @@ from dash import Input, Output, State, dcc, html, ALL, MATCH, ctx
 from hashlib import md5
 from colorsys import hsv_to_rgb
 #region Start
-COLOURS = {'muzyka': '#5544ee', 
+COLOURS = {'muzyka': "#13ba31", 
            'nauka': "#df6092", 
-           'studia': '#dd5544', 
-           'Komunikatory' : '#77ee44',
-           'gry komputerowe': '#8855aa',
+           'studia': "#d72b2b", 
+           'Komunikatory' : "#6accea",
+           'gry komputerowe': "#6302a4",
            'oglądanie filmów': "#F7D83B",
-           'inne': '#00c0ff',
+           'inne': "#9ca5a8",
            'sen': "#423A6E"}
 def get_colour(text: str) -> str:
     if text in COLOURS.keys():
