@@ -837,10 +837,10 @@ app.layout = html.Div([
                 ], width="auto"),
 
                 # 3. NOWY GUZIK (Opcje)
-                dbc.Col([
-                    dbc.Button([html.I(className="bi bi-gear-fill me-2"), "Opcje"], 
-                               id="open-extra-btn", color="info", className="fw-bold shadow-sm text-white"),
-                ], width="auto"),
+                # dbc.Col([
+                #     dbc.Button([html.I(className="bi bi-gear-fill me-2"), "Opcje"], 
+                #                id="open-extra-btn", color="info", className="fw-bold shadow-sm text-white"),
+                # ], width="auto"),
                 dbc.Col(
                     html.Div(style={
                         "borderLeft": "2px solid #dee2e6", # Jasnoszara linia
@@ -1713,7 +1713,7 @@ def save_user_state(checkbox_values, is_master_on, checkbox_ids, current_memory)
     [
         Input("sidebar-toggle", "n_clicks"),
         Input("open-filters-btn", "n_clicks"),
-        Input("open-extra-btn", "n_clicks"),
+        # Input("open-extra-btn", "n_clicks"), #n_extra
     ],
     [
         State("sidebar", "is_open"),
@@ -1721,7 +1721,7 @@ def save_user_state(checkbox_values, is_master_on, checkbox_ids, current_memory)
         State("extra-offcanvas", "is_open"),
     ]
 )
-def manage_layout(n_side, n_filt, n_extra, side_open, filt_open, extra_open):
+def manage_layout(n_side, n_filt, side_open, filt_open, extra_open):
     # Sprawdzamy, który guzik został kliknięty
     ctx_id = ctx.triggered_id
 
@@ -1730,8 +1730,8 @@ def manage_layout(n_side, n_filt, n_extra, side_open, filt_open, extra_open):
         side_open = not side_open
     elif ctx_id == "open-filters-btn":
         filt_open = not filt_open
-    elif ctx_id == "open-extra-btn":
-        extra_open = not extra_open
+    # elif ctx_id == "open-extra-btn":
+    #     extra_open = not extra_open
 
     # 2. OBLICZANIE PUNKTU STARTOWEGO (OFFSET)
     # Jeśli sidebar otwarty, startujemy od 16rem. Jeśli zamknięty, od 0.
