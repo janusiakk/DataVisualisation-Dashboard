@@ -32,7 +32,7 @@ def classify_activity(combined):
     video_keywords = [
         'youtube', 'youtu.be', 'netflix', 'hbo', 'disney', 'prime video', 
         'twitch', 'vlc', 'potplayer', 'cda', 'film', 'movie', 'serial', 
-        'wmplayer', 'windows media player', 'vod'
+        'wmplayer', 'windows media player', 'vod'        
     ]
     if any(k in combined for k in video_keywords):
         return 'oglądanie filmów'
@@ -40,7 +40,8 @@ def classify_activity(combined):
     # 5. Muzyka
     music_keywords = [
         'spotify', 'tidal', 'apple music', 'soundcloud', 'deezer', 'foobar', 
-        'winamp', 'music', 'muzyka'
+        'winamp', 'music', 'muzyka',
+        'Firefox' # Daje do muzyki, bo tylko AK korzysta z tego na telefonie do muzyki bez reklam
     ]
     if any(k in combined for k in music_keywords):
         return 'muzyka'
