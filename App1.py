@@ -519,7 +519,7 @@ content_watcher = html.Div([
 
                         # 4. TYP WYKRESU
                         dbc.Col([
-                            html.Label("4. Typ Wykresu", className="small text-muted fw-bold"),
+                            html.Label("Typ Wykresu", className="small text-muted fw-bold"),
                             dcc.Dropdown(
                                 id='watcher-main-type',
                                 options=[], 
