@@ -6,10 +6,12 @@ from colorsys import hsv_to_rgb
 #region Start
 COLOURS = {'muzyka': "#13ba31", 
            'studia': "#d72b2b", 
-           'Komunikatory' : "#6accea",
-           'gry komputerowe': "#6302a4",
+           'komunikatory' : "#5a47ee",
+           'gry komputerowe': "#8102a4",
            'oglądanie filmów': "#F7D83B",
            'inne': "#9ca5a8",
+           'system': "#5A4E67",
+           'przeglądarka': '#6accea',
            'sen': "#423A6E"}
 def get_colour(text: str) -> str:
     if text in COLOURS.keys():
@@ -127,7 +129,7 @@ def create_global_filters_layout():
                 dcc.DatePickerRange(
                     id='watcher-date-picker',
                     min_date_allowed=None, max_date_allowed=None,
-                    start_date='2025-12-14',
+                    start_date=pd.Timestamp(year=2025, month=12, day=14),
                     end_date=df['timestamp'].max().date() if not df.empty else None,
                     display_format='YYYY-MM-DD',
                     style={'width': '100%', 'fontSize': '0.8rem'}
