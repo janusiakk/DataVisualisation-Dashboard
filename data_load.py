@@ -23,8 +23,8 @@ def classify_activity(combined):
     
     # 2. Komunikatory
     comm_keywords = [
-        'discord', 'messenger', 'whatsapp', 'signal', 'telegram', 
-        'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird',
+        'discord', 'messenger', 'whatsapp', 'signal', 'telegram','x','wiadomości','połącz.',
+        'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird','wiadomości',
         'facebook', 'instagram', 'twitter', 'x.com', 'linkedin', ' x — ', 'reddit', 'telefon'
     ]
     if any(k in combined for k in comm_keywords):
@@ -50,12 +50,12 @@ def classify_activity(combined):
     # Dodano MATLAB i LeON na podstawie podglądu pliku
     ds_keywords = [
         'python', 'pandas', 'numpy', 'scikit', 'sklearn', 'jupyter', 'colab', 
-        'code.exe', 'visual studio', 'vscode', 'pycharm', 'rstudio', 
-        'matlab', 'mathworks', 'simulink', 'numeryczne', 'metody numeryczne',
+        'code.exe', 'visual studio', 'vscode', 'pycharm', 'rstudio','to do'
+        'matlab', 'mathworks', 'simulink', 'numeryczne', 'metody numeryczne','onedrive.exe',
         'sql', 'kaggle', 'github', 'git', 'stack overflow', 'stackoverflow', 
-        'data science', 'machine learning', 'ai', 'sztuczna inteligencja',
+        'data science', 'machine learning', 'ai', 'sztuczna inteligencja','camscanner',
         'gemini', 'chatgpt', 'openai', 'claude', 'leon', 'usos', 'politechnika',
-        'pochodna', 'całka', 'zapiski', 'laboratorium', 'projekt', 'studia',
+        'pochodna', 'całka', 'zapiski', 'laboratorium', 'projekt', 'studia','wordPal.exe'
         '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack', 'gemini', 'dysk',
         'intellij', 'idea','obsidian','wikipedia', 'wiki', 'kurs', 'course', 'udemy', 'coursera', 'edx', 
         'duolingo', 'tłumacz', 'translate', 'słownik', 'dictionary', 'notion','angielski',
@@ -67,7 +67,7 @@ def classify_activity(combined):
         return 'studia'
     
     Browsers_keywords = [
-        "chrome",'firefox','brave.exe','chrome.exe','google','firefox.exe','msedge.exe'
+        "chrome",'firefox','brave.exe','chrome.exe','google','firefox.exe','msedge.exe','brave'
     ]
     if any(k in combined for k in Browsers_keywords):
         return 'przeglądarka'
@@ -76,7 +76,7 @@ def classify_activity(combined):
         'explorer.exe','LockApp.exe','ekran startowy one ui',
         'launcher systemu','zegar','systemowy menedżer pulpitu',
         'applicationframehost.exe','swusb.exe','stayfree','winword.exe',
-        'ustawienia','kontroler uprawnień','applicationframehost.exe'
+        'ustawienia','kontroler uprawnień','applicationframehost.exe','lockapp.exe'
     ]
     if any(k in combined for k in System_keywords):
         return 'system'
@@ -145,7 +145,7 @@ def load_desktop_data(watcher: str, afk: str, person: str) -> None:
     df_final = df_final.drop(columns=["title", "end_time", "end_time_afk"])
     df_final['status'] = np.where(df_final['app']=='LockApp.exe', 'afk', df_final['status'])
     df_final.to_json(
-    f"Dane Dash\\PC-SUM-{person}-{time_temp}.json",
+    f"Dane Dash\\LPC-SUM-{person}-{time_temp}.json",
     orient="records",
     indent=4,
     force_ascii=False
