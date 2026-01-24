@@ -12,7 +12,7 @@ def classify_activity(combined):
     
     # 3. Gry komputerowe
     game_keywords = [
-        'steam','sandfall', 'epic games', 'riot', 'league of legends', 'lol', 'valorant', 
+        'steam','sandfall-win64-shipping.exe', 'epic games', 'riot', 'league of legends', 'lol', 'valorant', 
         'cs', 'counter-strike', 'minecraft', 'roblox', 'fortnite', 'gta', 
         'wiedźmin', 'cyberpunk', 'blizzard', 'battlenet', 'ubisoft', 'game', 
         'gra', 'binding of isaac', 'hollow knight', 'clash of clans', 'half-life', 'half life',
@@ -53,7 +53,7 @@ def classify_activity(combined):
     # Dodano MATLAB i LeON na podstawie podglądu pliku
     ds_keywords = [
         'python', 'pandas', 'numpy', 'scikit', 'sklearn', 'jupyter', 'colab', 
-        'code.exe', 'visual studio', 'vscode', 'pycharm', 'rstudio','to do'
+        'code.exe', 'visual studio', 'vscode', 'pycharm', 'rstudio','to do',
         'matlab', 'mathworks', 'simulink', 'numeryczne', 'metody numeryczne','onedrive.exe',
         'sql', 'kaggle', 'github', 'git', 'stack overflow', 'stackoverflow', 
         'data science', 'machine learning', 'ai', 'sztuczna inteligencja','camscanner',

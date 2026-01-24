@@ -22,7 +22,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":21.313,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -40,7 +40,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":13.17,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -706,7 +706,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.015,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -715,7 +715,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":107.487,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -724,7 +724,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":7.051,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -733,7 +733,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":11.174,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -742,7 +742,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.01,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -751,7 +751,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":15.202,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -769,7 +769,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":21.329,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -787,7 +787,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":7.156,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -805,7 +805,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":10.164,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -868,7 +868,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.03,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -886,7 +886,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.029,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -922,7 +922,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":6.077,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -949,7 +949,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":0.188,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -958,7 +958,7 @@
         "app":"MATLAB.exe",
         "status":"afk",
         "duration":0.011,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -967,7 +967,7 @@
         "app":"MATLAB.exe",
         "status":"afk",
         "duration":199.619,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -994,7 +994,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":39.567,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1003,7 +1003,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":13.231,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1021,7 +1021,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1048,7 +1048,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":13.235,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1057,7 +1057,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":4.07,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1066,7 +1066,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":10.118,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1075,7 +1075,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":19.467,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1093,7 +1093,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":13.49,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1111,7 +1111,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":27.516,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1129,7 +1129,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.038,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1237,7 +1237,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.115,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1246,7 +1246,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":8.115,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1255,7 +1255,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.027,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1264,7 +1264,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.05,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1273,7 +1273,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":7.117,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1381,7 +1381,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.015,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1390,7 +1390,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":10.167,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1399,7 +1399,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.027,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1408,7 +1408,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.049,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1417,7 +1417,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":7.119,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1435,7 +1435,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":26.419,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1453,7 +1453,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":16.296,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1471,7 +1471,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":4.056,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1507,7 +1507,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":7.099,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1552,7 +1552,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.029,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1561,7 +1561,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":7.129,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1579,7 +1579,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":36.971,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1651,7 +1651,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":73.375,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1669,7 +1669,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":7.124,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1696,7 +1696,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":30.519,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1714,7 +1714,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.042,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1732,7 +1732,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.071,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1957,7 +1957,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":17.267,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1984,7 +1984,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":144.541,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2011,7 +2011,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":109.657,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2020,7 +2020,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":74.27,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2047,7 +2047,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":20.369,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2074,7 +2074,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":144.219,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2083,7 +2083,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":10.19,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2101,7 +2101,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":26.428,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2119,7 +2119,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":4.066,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2137,7 +2137,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.108,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2155,7 +2155,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":42.659,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2200,7 +2200,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":7.11,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2227,7 +2227,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":20.347,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2236,7 +2236,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":15.202,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2254,7 +2254,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":13.229,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2263,7 +2263,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":80.265,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2272,7 +2272,7 @@
         "app":"MATLAB.exe",
         "status":"afk",
         "duration":0.007,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2281,7 +2281,7 @@
         "app":"MATLAB.exe",
         "status":"afk",
         "duration":180.575,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2299,7 +2299,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":29.737,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2308,7 +2308,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":33.292,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2317,7 +2317,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":47.865,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2326,7 +2326,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":146.194,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2335,7 +2335,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.09,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2353,7 +2353,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":167.648,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2362,7 +2362,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.074,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2380,7 +2380,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":26.543,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2389,7 +2389,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.044,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2398,7 +2398,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":28.383,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2407,7 +2407,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":240.737,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2524,7 +2524,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.032,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2542,7 +2542,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":20.358,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2569,7 +2569,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":17.269,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2578,7 +2578,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":14.258,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2605,7 +2605,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":30.5,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2614,7 +2614,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":338.117,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2641,7 +2641,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":94.414,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2650,7 +2650,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":113.918,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2668,7 +2668,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":233.872,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2686,7 +2686,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":7.118,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -4711,7 +4711,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":13.175,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7366,7 +7366,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":9.135,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7393,7 +7393,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":6.059,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8284,7 +8284,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":4.057,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -10399,7 +10399,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":38.461,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11227,7 +11227,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":10.167,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11236,7 +11236,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.079,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11272,7 +11272,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.038,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11389,7 +11389,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.076,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11407,7 +11407,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":18.356,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11434,7 +11434,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":30.481,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11461,7 +11461,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":15.267,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11488,7 +11488,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":10.184,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11506,7 +11506,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.023,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11677,7 +11677,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.062,
-        "category":"przeglądarka",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11695,7 +11695,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.029,
-        "category":"przeglądarka",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11713,7 +11713,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":5.064,
-        "category":"przeglądarka",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11740,7 +11740,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":5.116,
-        "category":"przeglądarka",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11758,7 +11758,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":15.277,
-        "category":"przeglądarka",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11812,7 +11812,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.034,
-        "category":"przeglądarka",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11821,7 +11821,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":7.105,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11830,7 +11830,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":7.09,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11839,7 +11839,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.037,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11848,7 +11848,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":6.098,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11857,7 +11857,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":123.168,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11866,7 +11866,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11875,7 +11875,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":13.179,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11902,7 +11902,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.039,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11911,7 +11911,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.061,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11920,7 +11920,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":18.292,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11929,7 +11929,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.056,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11938,7 +11938,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.057,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11965,7 +11965,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.028,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11974,7 +11974,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":27.494,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11983,7 +11983,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.057,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11992,7 +11992,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":31.547,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12001,7 +12001,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.019,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12010,7 +12010,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":52.734,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12019,7 +12019,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.045,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12028,7 +12028,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":6.118,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12055,7 +12055,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":8.118,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12073,7 +12073,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":31.516,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12082,7 +12082,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.032,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12091,7 +12091,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.031,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12109,7 +12109,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":41.658,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12118,7 +12118,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.041,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12127,7 +12127,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":12.215,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12199,7 +12199,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.039,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13810,7 +13810,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":76.452,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -14215,7 +14215,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":23.378,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -14251,7 +14251,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":60.894,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19165,7 +19165,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":3.054,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19183,7 +19183,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":1.021,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23305,7 +23305,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.02,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23314,7 +23314,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":50.277,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23323,7 +23323,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":32.578,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23359,7 +23359,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":61.104,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23386,7 +23386,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":200.865,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23413,7 +23413,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.091,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23422,7 +23422,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.017,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23440,7 +23440,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.028,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23476,7 +23476,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":34.559,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23710,7 +23710,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.109,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23719,7 +23719,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":16.269,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23800,7 +23800,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":197.651,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -24979,7 +24979,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":9.217,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29137,7 +29137,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.032,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29146,7 +29146,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":16.292,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29155,7 +29155,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.045,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29164,7 +29164,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.091,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29173,7 +29173,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.1,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29182,7 +29182,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":6.158,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29218,7 +29218,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":62.931,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29353,7 +29353,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":7.162,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29380,7 +29380,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":48.958,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29443,7 +29443,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.024,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29452,7 +29452,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.02,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -30298,7 +30298,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.04,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -30307,7 +30307,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.066,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -30325,7 +30325,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.034,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -30334,7 +30334,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.051,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -30343,7 +30343,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":4.082,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -30352,7 +30352,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":11.209,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -30388,7 +30388,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":29.137,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -30397,7 +30397,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":6.506,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -30406,7 +30406,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.029,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -37867,7 +37867,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":155.234,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -41944,7 +41944,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":7.113,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -45922,7 +45922,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":7.079,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -47065,7 +47065,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":45.825,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -47092,7 +47092,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":20.353,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -47146,7 +47146,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":2.05,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -48874,7 +48874,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":15.169,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -49954,7 +49954,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":24.33,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -52339,7 +52339,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":18.264,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59269,7 +59269,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":10.163,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59449,7 +59449,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.045,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59512,7 +59512,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.033,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59521,7 +59521,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":4.033,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59530,7 +59530,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.064,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59539,7 +59539,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":9.157,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59575,7 +59575,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":124.344,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59593,7 +59593,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":72.027,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59620,7 +59620,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.048,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59638,7 +59638,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.046,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59656,7 +59656,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59674,7 +59674,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.017,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59683,7 +59683,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.079,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59692,7 +59692,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":9.15,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59719,7 +59719,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.06,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59791,7 +59791,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":13.258,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59827,7 +59827,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.052,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59845,7 +59845,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.02,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59872,7 +59872,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.044,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59881,7 +59881,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":7.118,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59890,7 +59890,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.023,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59899,7 +59899,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":4.076,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59908,7 +59908,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.019,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59917,7 +59917,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.04,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59944,7 +59944,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":4.072,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59971,7 +59971,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.049,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59998,7 +59998,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.1,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60025,7 +60025,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":4.066,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60097,7 +60097,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.125,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60106,7 +60106,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":13.136,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60187,7 +60187,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":13.139,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60232,7 +60232,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.032,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60241,7 +60241,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.074,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60250,7 +60250,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.028,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60259,7 +60259,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.091,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60331,7 +60331,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":53.819,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60358,7 +60358,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":54.141,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60376,7 +60376,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.055,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60448,7 +60448,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":8.138,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60457,7 +60457,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":23.352,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60466,7 +60466,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":2.043,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60475,7 +60475,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.074,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60484,7 +60484,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.039,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60529,7 +60529,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":4.074,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60538,7 +60538,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":5.092,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60547,7 +60547,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.02,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60556,7 +60556,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":6.101,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60583,7 +60583,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":22.336,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60601,7 +60601,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":3.046,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64561,7 +64561,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":18.255,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64705,7 +64705,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":144.161,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64714,7 +64714,7 @@
         "app":"MATLAB.exe",
         "status":"afk",
         "duration":0.006,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64723,7 +64723,7 @@
         "app":"MATLAB.exe",
         "status":"afk",
         "duration":0.005,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64732,7 +64732,7 @@
         "app":"MATLAB.exe",
         "status":"afk",
         "duration":180.559,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64759,7 +64759,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":9.156,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64777,7 +64777,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":160.35,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64795,7 +64795,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":38.598,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64894,7 +64894,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.019,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64912,7 +64912,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":262.163,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64939,7 +64939,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":105.68,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64948,7 +64948,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":108.806,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64957,7 +64957,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":0.152,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64966,7 +64966,7 @@
         "app":"MATLAB.exe",
         "status":"not-afk",
         "duration":1.043,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -68089,7 +68089,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":40.336,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -68134,7 +68134,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":21.212,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -68161,7 +68161,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":22.32,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -68701,7 +68701,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":16.287,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -68710,7 +68710,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":26.422,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -74317,7 +74317,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":17.211,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77809,7 +77809,7 @@
         "app":"ApplicationFrameHost.exe",
         "status":"not-afk",
         "duration":47.551,
-        "category":"system",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
