@@ -1213,17 +1213,17 @@ def update_main_watcher_chart(start_date, end_date, min_duration, filter_values,
         fig = px.bar(agg_df, x='duration', y=x_axis, color=color_axis, orientation='h',
                      color_discrete_map=cols_map, text_auto=True)
         # Sortowanie całkowite (najdłuższy pasek na górze)
-        fig.update_layout(yaxis={'categoryorder': 'total ascending'}) 
+        fig.update_layout(yaxis={'categoryorder': 'total ascending'},xaxis_title='liczba godzin') 
 
     elif chart_type == 'bar_stack':
         # Dla comparison: Paski ułożone jeden na drugim
         fig = px.bar(agg_df, x='duration', y='osoba', color=color_axis, orientation='h',
                      color_discrete_map=cols_map, text_auto=True)
-
+        fig.update_layout(xaxis_title='liczba godzin')
     else: # bar (pionowy)
         fig = px.bar(agg_df, x=x_axis, y='duration', color=color_axis,
                      color_discrete_map=cols_map, text_auto=True)
-
+        fig.update_layout(yaxis_title='liczba godzin')
     fig.update_layout(
         title=title,
         template='plotly_white',

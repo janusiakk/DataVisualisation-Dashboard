@@ -23,7 +23,7 @@ def classify_activity(combined):
     
     # 2. Komunikatory
     comm_keywords = [
-        'discord', 'messenger', 'whatsapp', 'signal', 'telegram', 'teams', 
+        'discord', 'messenger', 'whatsapp', 'signal', 'telegram', 
         'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird',
         'facebook', 'instagram', 'twitter', 'x.com', 'linkedin', ' x — ', 'reddit', 'telefon'
     ]
@@ -61,7 +61,7 @@ def classify_activity(combined):
         'duolingo', 'tłumacz', 'translate', 'słownik', 'dictionary', 'notion','angielski',
         'rosyjski', 'asd', 'tp', 'metody numeryczne', 'twd', 'fizyka', 'rstudio','powerpnt.exe',
         'excel.exe'	,'studio64.exe','acrobat.exe','notepad.exe','java.exe','cmd.exe',
-        'eclipse.exe','shellexperiencehost.exe','desmos'
+        'eclipse.exe','shellexperiencehost.exe','desmos', 'teams'
     ]
     if any(k in combined for k in ds_keywords):
         return 'studia'
