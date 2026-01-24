@@ -127,7 +127,7 @@ def create_global_filters_layout():
                 dcc.DatePickerRange(
                     id='watcher-date-picker',
                     min_date_allowed=None, max_date_allowed=None,
-                    start_date=df['timestamp'].min().date() if not df.empty else None,
+                    start_date='2025-12-14',
                     end_date=df['timestamp'].max().date() if not df.empty else None,
                     display_format='YYYY-MM-DD',
                     style={'width': '100%', 'fontSize': '0.8rem'}
@@ -176,7 +176,6 @@ def create_global_filters_layout():
         html.Div(create_filter_chips(df), id='user-device-filters-container')
     ], className="p-1")
 def create_smart_slot(side, title, is_app_mode=False):
-    
     
     # 1. Pobieramy listę użytkowników
     unique_users = sorted(df['osoba'].astype(str).unique())
@@ -2040,6 +2039,32 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
         height=400 + 40*len(y_map),
     )
     return fig
+
+content_intro = dbc.Container([
+    html.H2("My Cards Page", className="mb-4"),
+
+    dbc.Row([
+        dbc.Col([
+            dbc.Card(dbc.CardBody([
+                html.H4("Wprowadzenie"),
+                html.P("jan ryba"),
+                html.H4("Strony"),
+                html.H5("Wczytane dane"),
+                html.P(f"Strona przedstawiająca aktualnie wczytane pliki wg osoby oraz urządzenia, zawierająca informacje techniczne na temat wykorzystanych danych. Aktualnie wczytanych jest")
+            ]), className="mb-3"),
+            dbc.Card(dbc.CardBody([
+                html.H5("Card 2"),
+                html.P("Some description for card 2")
+            ]), className="mb-3"),
+        ], width=9, className="pe-3"),
+
+        dbc.Col(
+            dbc.Card(dbc.CardBody([
+                html.H5("Card 3"),
+                html.P("Some description for card 3")
+            ])), width=3, className="ps-3")
+    ])
+], fluid=True)
 
 # endregion
 # endregion
