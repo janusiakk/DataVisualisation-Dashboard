@@ -358,5 +358,131 @@
         "category": "sen",
         "osoba": "Jerzy",
         "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-15T01:21:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 30960.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-15T22:11:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 2939.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-15T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 25020.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-17T01:52:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 34500.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-18T02:03:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 33060.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-19T01:41:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 28500.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-19T22:23:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 2219.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-19T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 25140.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-20T22:51:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 539.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-20T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 26580.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-22T01:29:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 28560.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-22T22:19:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 2459.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-22T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 25260.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-24T01:43:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 25980.0,
+        "category": "sen",
+        "osoba": "Jerzy",
+        "device": "Phone"
     }
 ]
