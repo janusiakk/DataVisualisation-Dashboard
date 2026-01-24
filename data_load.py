@@ -23,7 +23,7 @@ def classify_activity(combined):
     
     # 2. Komunikatory
     comm_keywords = [
-        'discord', 'messenger', 'whatsapp', 'signal', 'telegram','x','wiadomości','połącz.',
+        'discord', 'messenger', 'whatsapp', 'signal', 'telegram','wiadomości','połącz.',
         'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird','wiadomości',
         'facebook', 'instagram', 'twitter', 'x.com', 'linkedin', ' x — ', 'reddit', 'telefon'
     ]
@@ -79,6 +79,10 @@ def classify_activity(combined):
     ]
     if any(k in combined for k in System_keywords):
         return 'system'
+    
+    comm_keywords = ['x'] #XDDD
+    if any(k in combined for k in comm_keywords):
+        return 'komunikatory'  
 
     # 7. Inne (System,  ogólna, Zakupy, Zdjęcia itp.)
     return 'inne'
