@@ -83,6 +83,10 @@ def classify_activity(combined):
     ]
     if any(k in combined for k in System_keywords):
         return 'system'
+    
+    comm_keywords = ['x'] #XDDD
+    if any(k in combined for k in comm_keywords):
+        return 'komunikatory'  
 
     # 7. Inne (System,  ogólna, Zakupy, Zdjęcia itp.)
     return 'inne'
