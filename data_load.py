@@ -14,7 +14,8 @@ def classify_activity(combined):
         'wiedźmin', 'cyberpunk', 'blizzard', 'battlenet', 'ubisoft', 'game', 
         'gra', 'binding of isaac', 'hollow knight', 'clash of clans', 'half-life', 'half life',
         'oldboy', 'myboy', 'melonds', 'drastic', 'citra', 'clash royale', 'sandfall', 'aces',
-        'javaw', 'Clash of clans', 'warthunder'
+        'javaw', 'clash of clans', 'warthunder','aces.exe','foundry.exe','kr battles',
+        'factorio.exe','geometry dash'
 
         ]
     if any(k in combined for k in game_keywords):
@@ -22,12 +23,12 @@ def classify_activity(combined):
     
     # 2. Komunikatory
     comm_keywords = [
-        'discord', 'messenger', 'whatsapp', 'signal', 'telegram', 'teams', 
+        'discord', 'messenger', 'whatsapp', 'signal', 'telegram', 
         'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird',
         'facebook', 'instagram', 'twitter', 'x.com', 'linkedin', ' x — ', 'reddit', 'telefon'
     ]
     if any(k in combined for k in comm_keywords):
-        return 'Komunikatory'   
+        return 'komunikatory'   
     # 4. Oglądanie filmów
     video_keywords = [
         'youtube', 'youtu.be', 'netflix', 'hbo', 'disney', 'prime video', 
@@ -41,7 +42,6 @@ def classify_activity(combined):
     music_keywords = [
         'spotify', 'tidal', 'apple music', 'soundcloud', 'deezer', 'foobar', 
         'winamp', 'music', 'muzyka',
-        'Firefox' # Daje do muzyki, bo tylko AK korzysta z tego na telefonie do muzyki bez reklam
     ]
     if any(k in combined for k in music_keywords):
         return 'muzyka'
@@ -59,11 +59,28 @@ def classify_activity(combined):
         '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack', 'gemini', 'dysk',
         'intellij', 'idea','obsidian','wikipedia', 'wiki', 'kurs', 'course', 'udemy', 'coursera', 'edx', 
         'duolingo', 'tłumacz', 'translate', 'słownik', 'dictionary', 'notion','angielski',
-        'rosyjski', 'asd', 'tp', 'metody numeryczne', 'twd', 'fizyka', 'rstudio'
+        'rosyjski', 'asd', 'tp', 'metody numeryczne', 'twd', 'fizyka', 'rstudio','powerpnt.exe',
+        'excel.exe'	,'studio64.exe','acrobat.exe','notepad.exe','java.exe','cmd.exe',
+        'eclipse.exe','shellexperiencehost.exe','desmos', 'teams'
     ]
     if any(k in combined for k in ds_keywords):
         return 'studia'
-    # 7. Inne (System, Przeglądarka ogólna, Zakupy, Zdjęcia itp.)
+    
+    Browsers_keywords = [
+        "chrome",'firefox','brave.exe','chrome.exe','google','firefox.exe','msedge.exe'
+    ]
+    if any(k in combined for k in Browsers_keywords):
+        return 'przeglądarka'
+    System_keywords = [
+        'explorer.exe','LockApp.exe','ekran startowy one ui',
+        'launcher systemu','zegar','systemowy menedżer pulpitu',
+        'applicationframehost.exe','swusb.exe','stayfree','winword.exe',
+        'ustawienia','kontroler uprawnień','applicationframehost.exe'
+    ]
+    if any(k in combined for k in System_keywords):
+        return 'system'
+
+    # 7. Inne (System,  ogólna, Zakupy, Zdjęcia itp.)
     return 'inne'
 
 def delete_cache() -> None:

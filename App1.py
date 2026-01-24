@@ -518,7 +518,7 @@ content_watcher = html.Div([
 
                         # 4. TYP WYKRESU
                         dbc.Col([
-                            html.Label("4. Typ Wykresu", className="small text-muted fw-bold"),
+                            html.Label("Typ Wykresu", className="small text-muted fw-bold"),
                             dcc.Dropdown(
                                 id='watcher-main-type',
                                 options=[], 
@@ -1208,21 +1208,23 @@ def update_main_watcher_chart(start_date, end_date, min_duration, filter_values,
                          color_discrete_map=cols_map)
         fig.update_traces(root_color="lightgrey")
 
-    elif chart_type == 'bar_h':
+    elif chart_type == 'bar_h': # porównanie 
+        label_text = 'osoba' if scope == 'comparison' else label_text
         fig = px.bar(agg_df, x='duration', y=x_axis, color=color_axis, orientation='h',
                      color_discrete_map=cols_map, text_auto=True)
         # Sortowanie całkowite (najdłuższy pasek na górze)
-        fig.update_layout(yaxis={'categoryorder': 'total ascending'}) 
-
+        fig.update_layout(yaxis={'categoryorder': 'total ascending'},xaxis_title='liczba godzin',
+                          legend_title_text=label_text,yaxis_title=label_text) 
+        
     elif chart_type == 'bar_stack':
         # Dla comparison: Paski ułożone jeden na drugim
         fig = px.bar(agg_df, x='duration', y='osoba', color=color_axis, orientation='h',
                      color_discrete_map=cols_map, text_auto=True)
-
-    else: # bar (pionowy)
+        fig.update_layout(xaxis_title='liczba godzinZ',legend_title_text=label_text,yaxis_title=label_text)
+    else: # bar (pionowy) osoba
         fig = px.bar(agg_df, x=x_axis, y='duration', color=color_axis,
                      color_discrete_map=cols_map, text_auto=True)
-
+        fig.update_layout(yaxis_title='liczba godzin',legend_title_text=label_text,xaxis_title="")
     fig.update_layout(
         title=title,
         template='plotly_white',
