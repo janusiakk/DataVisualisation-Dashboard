@@ -71,6 +71,7 @@ def classify_activity(combined):
     ]
     if any(k in combined for k in Browsers_keywords):
         return 'przeglądarka'
+    
     System_keywords = [
         'explorer.exe','LockApp.exe','ekran startowy one ui',
         'launcher systemu','zegar','systemowy menedżer pulpitu',
