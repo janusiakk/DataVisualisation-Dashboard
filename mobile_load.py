@@ -7,7 +7,7 @@ from sys import argv
 def load_mobile_data(bucket: str, person: str) -> None:
     with open(bucket, 'r', encoding='utf-8') as f: #Scieżka
         raw_data = json.load(f)
-    data = raw_data['buckets'][list(raw_data['buckets'].keys())[0]]['events']
+    data = raw_data['buckets']['aw-watcher-android-test']['events']
     df_out = pd.DataFrame()
     df_out['timestamp'] = [i['timestamp'] for i in data]
     df_out['duration'] = [i['duration'] for i in data]

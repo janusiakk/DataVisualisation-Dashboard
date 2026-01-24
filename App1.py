@@ -1867,7 +1867,7 @@ def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_m
     x='date',
     y='duration',
     color='osoba',         # każda osoba będzie miała osobną linię
-    labels={'date':'Data', 'duration':'Czas aktywności', 'osoba':'Osoba'},
+    labels={'date':'Data', 'duration':'Czas snu', 'osoba':'Osoba'},
    # title='Dzienna aktywność',
     template='plotly_white',
     line_shape='spline',
@@ -1985,7 +1985,7 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
             title="Godzina",
             range=[start_hour, max_hour+24],
             tickvals=hour_range,
-            ticktext=(((np.where(hour_range>=24, hour_range-24, hour_range)).astype(np.int8)).astype(str))+':00',
+            ticktext=(((np.where(hour_range>=24, hour_range-24, hour_range)).astype(np.int8)).astype(str).astype(object))+':00',
         ),
         showlegend=False,
         yaxis_title="Osoba",
