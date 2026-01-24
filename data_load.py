@@ -149,7 +149,7 @@ def load_desktop_data(watcher: str, afk: str, person: str) -> None:
     df_final = df_final.drop(columns=["title", "end_time", "end_time_afk"])
     df_final['status'] = np.where(df_final['app']=='LockApp.exe', 'afk', df_final['status'])
     df_final.to_json(
-    f"Dane Dash\\LPC-SUM-{person}-{time_temp}.json",
+    f"Dane Dash\\PC-SUM-{person}-{time_temp}.json",
     orient="records",
     indent=4,
     force_ascii=False
