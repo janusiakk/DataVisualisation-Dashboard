@@ -4,7 +4,10 @@ import json
 from sys import argv
 from os import system
 
-def classify_activity(combined):    
+def classify_activity(combined):
+    if(combined == "X"):
+        return 'komunikatory'
+        
     combined = combined.lower()
     
     # 3. Gry komputerowe
@@ -23,8 +26,8 @@ def classify_activity(combined):
     
     # 2. Komunikatory
     comm_keywords = [
-        'discord', 'messenger', 'whatsapp', 'signal', 'telegram','x','wiadomości','połącz.',
-        'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird','wiadomości',
+        'discord', 'messenger', 'whatsapp', 'signal', 'telegram', 'wiadomości', 'połącz',
+        'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird', 'wiadomości',
         'facebook', 'instagram', 'twitter', 'x.com', 'linkedin', ' x — ', 'reddit', 'telefon'
     ]
     if any(k in combined for k in comm_keywords):
@@ -145,7 +148,7 @@ def load_desktop_data(watcher: str, afk: str, person: str) -> None:
     df_final = df_final.drop(columns=["title", "end_time", "end_time_afk"])
     df_final['status'] = np.where(df_final['app']=='LockApp.exe', 'afk', df_final['status'])
     df_final.to_json(
-    f"Dane Dash\\LPC-SUM-{person}-{time_temp}.json",
+    f"Dane Dash\\PC-SUM-{person}-{time_temp}.json",
     orient="records",
     indent=4,
     force_ascii=False
