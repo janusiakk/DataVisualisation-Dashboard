@@ -4,7 +4,10 @@ import json
 from sys import argv
 from os import system
 
-def classify_activity(combined):    
+def classify_activity(combined):
+    if(combined == "X"):
+        return 'komunikatory'
+        
     combined = combined.lower()
     
     # 3. Gry komputerowe
@@ -23,8 +26,8 @@ def classify_activity(combined):
     
     # 2. Komunikatory
     comm_keywords = [
-        'discord', 'messenger', 'whatsapp', 'signal', 'telegram','wiadomości','połącz.',
-        'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird','wiadomości',
+        'discord', 'messenger', 'whatsapp', 'signal', 'telegram', 'wiadomości', 'połącz',
+        'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird', 'wiadomości',
         'facebook', 'instagram', 'twitter', 'x.com', 'linkedin', ' x — ', 'reddit', 'telefon'
     ]
     if any(k in combined for k in comm_keywords):
