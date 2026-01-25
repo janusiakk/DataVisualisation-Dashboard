@@ -1758,49 +1758,6 @@ content_sleep = html.Div([
         )]),
         dcc.Graph(id='sleep-line-plot',config={'displayModeBar': False})
      ])),
-    # dbc.Row([
-    #     dbc.Col(
-    #         dbc.Card(dbc.CardBody([
-    #              dbc.Row([dbc.Col(html.H4("Godzinowy układ snu"), width=12, md=3),
-    #              dbc.Col([
-    #                         html.H5("Wybierz dni tygodnia"),
-    #                         dbc.Checklist(
-    #                             options=[
-    #                                 {"label": "Poniedziałki", "value": "0"},
-    #                                 {"label": "Wtorki", "value": "1"},
-    #                                 {"label": "Środy", "value": "2"},
-    #                                 {"label": "Czwartki", "value": "3"},
-    #                                 {"label": "Piątki", "value": "4"},
-    #                                 {"label": "Soboty", "value": "5"},
-    #                                 {"label": "Niedziele", "value": "6"},
-    #                                 ],
-    #                                 value=["1", "2", "3", "4", "5", "6", "0"],
-    #                                 id="highlight-options-3",
-    #                                 inline=True
-    #                             )],
-    #                             width=12, md=7),
-    #              dbc.Col([
-    #                         html.H5("Zaznaczenia"),
-    #                         dbc.Checklist(
-    #                             options=[
-    #                                 {"label": html.Div(["Wyróżnij weekendy", html.Br(), "(na zielono)"]), "value": "a"}
-    #                                 ],
-    #                                 value=["a"],
-    #                                 id="highlight-options-2",
-    #                                 inline=True
-    #                             )],
-    #                             width=12, md=2),
-    #             ], class_name='align-items-center g-2'),
-    #     dcc.Graph(id='sleep-times-plot',config={'displayModeBar': False},style={'height': '500px'})
-    #  ], style={'padding': '0rem'})),
-    #     ),
-    #     dbc.Col(
-    #         dbc.Card(dbc.CardBody([
-    #         dcc.Graph(id='sleep_violin',config={'displayModeBar': False})
-    #         ])),
-    #     )
-    # ]) 
-
         dbc.Card(
             dbc.CardBody([
                 # Nagłówek i opcje w osobnym Row (w pionie w Card)
@@ -1842,7 +1799,6 @@ content_sleep = html.Div([
                 ])
             ])
         )
-
 ])
 # --- VIOLIN PLOT SEN
 @app.callback(
@@ -1914,8 +1870,7 @@ def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, 
                     violinmode='group',violingap=0.01)
     
     fig.update_yaxes(
-        tickfont=dict(size=18),
-        title_font=dict(size=20)
+        tickfont=dict(size=18)
     )
     fig.update_xaxes(
         tickfont=dict(size=18)
