@@ -20,6 +20,8 @@ def get_colour(text: str) -> str:
         h = int(md5(text.encode("utf-8")).hexdigest(), 16)
         return "rgb(%d,%d,%d)" % tuple([int(i*255) for i in hsv_to_rgb(((h >> 10)%360)/360, 0.7+(0.3*(((h >> 20)%360)/360)), 0.8+(0.2*(((h >> 30)%360)/360)))])
 
+prefix = "/home/appuser/app" if not os.path.exists('./Dane Dash') else "."
+
 app = dash.Dash(
     __name__,
     external_stylesheets=[
@@ -29,8 +31,8 @@ app = dash.Dash(
     ],
     suppress_callback_exceptions=True
 )
-DATA_FOLDER = 'Dane Dash/' #Folder do zczytania gotowych danych
-DATA_CACHED = 'Dane DASH Fastboot/'
+DATA_FOLDER = f'{prefix}/Dane Dash/' #Folder do zczytania gotowych danych
+DATA_CACHED = f'{prefix}/Dane Dash Fastboot/'
 if not os.listdir(DATA_CACHED):
     frames = []  
     for filename in os.listdir(DATA_FOLDER):
@@ -40,7 +42,7 @@ if not os.listdir(DATA_CACHED):
     df = pd.concat(frames, ignore_index=True)
     df.to_feather(DATA_CACHED + 'dane.feather')
 else:
-    df = pd.read_feather("Dane Dash Fastboot/dane.feather")
+    df = pd.read_feather(f"{prefix}/Dane Dash Fastboot/dane.feather")
 OSOBY = df['osoba'].drop_duplicates().reset_index(drop=True) 
 # Kolumny czasowe
 timestamp = df['timestamp']
@@ -1986,9 +1988,9 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
         barmode='overlay',
         xaxis=dict(
             title="Godzina",
-            range=[start_hour, max_hour+24],
+            range=[start_hour, (max_hour+24)-2],
             tickvals=hour_range,
-            ticktext=(((np.where(hour_range>=24, hour_range-24, hour_range)).astype(np.int8)).astype(str).astype(object))+':00',
+            ticktext=(((np.where(hour_range>=24, np.where(hour_range>=28, hour_range-22, hour_range-24), hour_range)).astype(np.int8)).astype(str).astype(object))+':00',
         ),
         showlegend=False,
         yaxis_title="Osoba",
@@ -2008,16 +2010,25 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
         colour = get_colour('sen')
         offset = 0
         opacity_multiplier = 1
+        length = item.duration/3600
         if (("a" in highlight_options_2) and ((item.timestamp.weekday() >= 5 and day_flag) or (item.timestamp.weekday() in [4, 5] and (not day_flag)))):
             colour = "#1e624c"
             offset = 0.45
             opacity_multiplier = 7/2
         elif("a" in highlight_options_2 and maxd >= 5):
             opacity_multiplier = 7/5
+        if(item.tm+(item.duration/3600) in range(27, 30)):
+            length = 3-(item.tm-24) + (1/3)*(length+(item.tm-24)-3)
+        elif(item.tm+(item.duration/3600) >= 30):
+            length -= 2
+        if(item.tm in range(27, 30)):
+            item.tm = ((item.tm-27)*(1/3))+27
+        if(item.tm > 30):
+            item.tm -= 2
         fig.add_trace(
             go.Bar(
             y=[y_map[item.osoba]+offset],
-            x=[item.duration/3600],
+            x=[length],
             base=[item.tm],
             orientation='h',
             name='',
@@ -2042,6 +2053,16 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
         margin=dict(l=50, r=20, t=0, b=50),
         height=400 + 40*len(y_map),
     )
+    fig.add_annotation(
+        x=27.5,
+        y=-0.05,
+        xref="x",
+        yref="paper",
+        text="//",
+        showarrow=False,
+        font=dict(size=20, color="black"),
+        align="center",
+    )
     return fig
 
 content_intro = dbc.Container(
@@ -2063,7 +2084,7 @@ content_intro = dbc.Container(
                                                 [
                                                     html.H4("Wczytane dane"),
                                                     html.P(
-                                                        f"Strona przedstawiająca aktualnie wczytane pliki wg osoby oraz urządzenia, zawierająca informacje techniczne na temat wykorzystanych danych. Aktualnie wczytanych jest {len([name for name in os.listdir('./Dane Dash')])} plików."
+                                                        f"Strona przedstawiająca aktualnie wczytane pliki wg osoby oraz urządzenia, zawierająca informacje techniczne na temat wykorzystanych danych. Aktualnie wczytanych jest {len([name for name in os.listdir(f'{prefix}/Dane Dash')])} plików."
                                                     ),
                                                 ],
                                             className="py-0"),
