@@ -1,6 +1,7 @@
 Dane prywatne/*
 !Dane prywatne/placeholder
 *.feather
+*.ipynb
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
