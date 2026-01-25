@@ -1,180 +1,9 @@
 [
     {
-        "timestamp": "2026-01-01T01:37:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 27060.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-01T23:56:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 25800.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-03T00:14:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 31500.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-03T23:40:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 27600.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-05T02:01:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 26700.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-05T23:32:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 27000.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-06T22:24:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 2159.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-06T23:00:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 27240.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-08T01:24:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 30120.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-08T22:28:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 1919.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-08T23:00:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 23220.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-10T01:04:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 28440.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-11T01:09:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 33900.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-12T01:36:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 27900.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-12T23:13:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 26640.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-13T22:55:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 299.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-13T23:00:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 25560.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2026-01-15T00:22:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 34140.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
         "timestamp": "2025-12-02T23:20:00.000000Z",
         "app": "Sen",
         "status": "sleep",
         "duration": 25800.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2025-12-03T21:53:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 4019.0,
         "category": "sen",
         "osoba": "Kamil",
         "device": "Phone"
@@ -220,15 +49,6 @@
         "app": "Sen",
         "status": "sleep",
         "duration": 25440.0,
-        "category": "sen",
-        "osoba": "Kamil",
-        "device": "Phone"
-    },
-    {
-        "timestamp": "2025-12-08T22:56:00.000000Z",
-        "app": "Sen",
-        "status": "sleep",
-        "duration": 239.0,
         "category": "sen",
         "osoba": "Kamil",
         "device": "Phone"
@@ -436,6 +256,258 @@
         "app": "Sen",
         "status": "sleep",
         "duration": 34620.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-01T01:37:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 27060.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-01T23:56:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 25800.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-03T00:14:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 31500.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-03T23:40:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 27600.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-05T02:01:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 26700.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-05T23:32:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 27000.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-06T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 29400.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-08T01:24:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 27360.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-08T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 25140.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-10T01:04:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 28440.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-11T01:09:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 33900.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-12T01:39:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 27900.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-12T23:13:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 26640.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-13T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 25860.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-15T01:06:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 34140.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-15T23:27:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 33240.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-17T00:51:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 31500.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-18T00:31:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 30600.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-18T23:02:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 29460.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-19T21:45:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 4499.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-19T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 23280.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-20T22:23:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 2219.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-20T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 25200.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-21T21:32:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 5279.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-21T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 25440.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-22T22:44:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 959.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-22T23:00:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 27240.0,
+        "category": "sen",
+        "osoba": "Kamil",
+        "device": "Phone"
+    },
+    {
+        "timestamp": "2026-01-23T23:37:00.000000Z",
+        "app": "Sen",
+        "status": "sleep",
+        "duration": 30540.0,
         "category": "sen",
         "osoba": "Kamil",
         "device": "Phone"
