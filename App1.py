@@ -712,46 +712,7 @@ content_timeline = html.Div([
         ])
     ], className="shadow-sm")
 ])
-# STRONA 5 : Ustawienia /settings
-content_settings = html.Div([html.H1("Ustawienia"), dbc.Alert("Panel administracyjny.", color="dark")])
-# STRONA 6 : Dodaj nowe pliki /addFile (Docelowo to będzie surowy activity watch)
-content_addFile = html.Div([
-    html.H1("Dodaj nowe dane"),
-    html.P("Przeciągnij pliki tutaj lub kliknij, aby otworzyć okno wyboru.", className="text-muted"),
-    html.Hr(),
-    
-    # KOMPONENT UPLOAD
-    dcc.Upload(
-        id='upload-data',
-        children=html.Div([
-            html.I(className="bi bi-cloud-arrow-up-fill display-4 text-primary"), # Ikona chmury
-            html.H5("Przeciągnij i upuść pliki tutaj", className="mt-2"),
-            html.Div("lub", className="small text-muted"),
-            html.A("Wybierz pliki z dysku", className="btn btn-outline-primary mt-2 btn-sm")
-        ]),
-        style={
-            'width': '100%',
-            'height': '250px',
-            'lineHeight': '60px',
-            'borderWidth': '2px',
-            'borderStyle': 'dashed',
-            'borderRadius': '10px',
-            'textAlign': 'center',
-            'borderColor': '#0d6efd', # Kolor primary bootstrapa
-            'backgroundColor': '#f8f9fa',
-            'display': 'flex',         # Centrowanie Flexbox
-            'flexDirection': 'column',
-            'justifyContent': 'center',
-            'alignItems': 'center',
-            'cursor': 'pointer'
-        },
-        # Allow multiple files to be uploaded
-        multiple=True
-    ),
-    
-    # MIEJSCE NA KOMUNIKAT ZWROTNY
-    html.Div(id='output-file-upload', className="mt-4")
-])
+
 # endregion
 #region --- 3. GŁÓWNA STRUKTURA ---
 sidebar = html.Div(
@@ -1394,6 +1355,8 @@ def update_timeline_graph(selected_user, start_of_week_str, slider_range,
     )
 
     return fig
+
+
 # --- CALLBACK A: AKTUALIZACJA OPCJI W DROP-DOWNACH ---
 @app.callback(
     [
@@ -1787,40 +1750,153 @@ content_sleep = html.Div([
         )]),
         dcc.Graph(id='sleep-line-plot',config={'displayModeBar': False})
      ])),
-     dbc.Card(dbc.CardBody([
-        dbc.Row([dbc.Col(html.H4("Godzinowy układ snu"), width=12, md=3),
-                 dbc.Col([
-                            html.H5("Wybierz dni tygodnia"),
-                            dbc.Checklist(
-                                options=[
-                                    {"label": "Poniedziałki", "value": "0"},
-                                    {"label": "Wtorki", "value": "1"},
-                                    {"label": "Środy", "value": "2"},
-                                    {"label": "Czwartki", "value": "3"},
-                                    {"label": "Piątki", "value": "4"},
-                                    {"label": "Soboty", "value": "5"},
-                                    {"label": "Niedziele", "value": "6"},
-                                    ],
-                                    value=["1", "2", "3", "4", "5", "6", "0"],
-                                    id="highlight-options-3",
-                                    inline=True
-                                )],
-                                width=12, md=7),
-                dbc.Col([
-                            html.H5("Zaznaczenia"),
-                            dbc.Checklist(
-                                options=[
-                                    {"label": html.Div(["Wyróżnij weekendy", html.Br(), "(na zielono)"]), "value": "a"}
-                                    ],
-                                    value=["a"],
-                                    id="highlight-options-2",
-                                    inline=True
-                                )],
-                                width=12, md=2),
+    # dbc.Row([
+    #     dbc.Col(
+    #         dbc.Card(dbc.CardBody([
+    #              dbc.Row([dbc.Col(html.H4("Godzinowy układ snu"), width=12, md=3),
+    #              dbc.Col([
+    #                         html.H5("Wybierz dni tygodnia"),
+    #                         dbc.Checklist(
+    #                             options=[
+    #                                 {"label": "Poniedziałki", "value": "0"},
+    #                                 {"label": "Wtorki", "value": "1"},
+    #                                 {"label": "Środy", "value": "2"},
+    #                                 {"label": "Czwartki", "value": "3"},
+    #                                 {"label": "Piątki", "value": "4"},
+    #                                 {"label": "Soboty", "value": "5"},
+    #                                 {"label": "Niedziele", "value": "6"},
+    #                                 ],
+    #                                 value=["1", "2", "3", "4", "5", "6", "0"],
+    #                                 id="highlight-options-3",
+    #                                 inline=True
+    #                             )],
+    #                             width=12, md=7),
+    #              dbc.Col([
+    #                         html.H5("Zaznaczenia"),
+    #                         dbc.Checklist(
+    #                             options=[
+    #                                 {"label": html.Div(["Wyróżnij weekendy", html.Br(), "(na zielono)"]), "value": "a"}
+    #                                 ],
+    #                                 value=["a"],
+    #                                 id="highlight-options-2",
+    #                                 inline=True
+    #                             )],
+    #                             width=12, md=2),
+    #             ], class_name='align-items-center g-2'),
+    #     dcc.Graph(id='sleep-times-plot',config={'displayModeBar': False},style={'height': '500px'})
+    #  ], style={'padding': '0rem'})),
+    #     ),
+    #     dbc.Col(
+    #         dbc.Card(dbc.CardBody([
+    #         dcc.Graph(id='sleep_violin',config={'displayModeBar': False})
+    #         ])),
+    #     )
+    # ]) 
+    
+    dbc.Row([
+    # Pierwszy Card
+    dbc.Col(
+        dbc.Card(
+            dbc.CardBody([
+                # Nagłówek i opcje w osobnym Row (w pionie w Card)
+                dbc.Row([
+                    dbc.Col(html.H4("Godzinowy układ snu"), width=12, md=3),
+                    dbc.Col([
+                        html.H5("Wybierz dni tygodnia"),
+                        dbc.Checklist(
+                            options=[
+                                {"label": "Poniedziałki", "value": "0"},
+                                {"label": "Wtorki", "value": "1"},
+                                {"label": "Środy", "value": "2"},
+                                {"label": "Czwartki", "value": "3"},
+                                {"label": "Piątki", "value": "4"},
+                                {"label": "Soboty", "value": "5"},
+                                {"label": "Niedziele", "value": "6"},
+                            ],
+                            value=["0","1","2","3","4","5","6"],
+                            id="highlight-options-3",
+                            inline=True
+                        )
+                    ], width=12, md=7),
+                    dbc.Col([
+                        html.H5("Zaznaczenia"),
+                        dbc.Checklist(
+                            options=[
+                                {"label": html.Div(["Wyróżnij weekendy", html.Br(), "(na zielono)"]), "value": "a"}
+                            ],
+                            value=["a"],
+                            id="highlight-options-2",
+                            inline=True
+                        )
+                    ], width=12, md=2)
                 ], class_name='align-items-center g-2'),
-        dcc.Graph(id='sleep-times-plot',config={'displayModeBar': False},style={'height': '500px'})
-     ], style={'padding': '0rem'})),
+                
+                # Wykres w pionie w tym samym Card
+                dcc.Graph(id='sleep-times-plot', config={'displayModeBar': False}, )#style={'height': '500px'}
+            ])
+        ),
+        width=6  # zajmuje połowę wiersza
+    ),
+
+    # Drugi Card z violin plot
+    dbc.Col(
+        dbc.Card(            
+            dbc.CardBody([
+                dbc.Row(html.H5("A")),
+                dcc.Graph(id='sleep_violin', config={'displayModeBar': False})
+            ])
+        ),
+        width=6  # druga połowa wiersza
+    ),
 ])
+
+    
+
+])
+# --- VIOLIN PLOT SEN
+@app.callback(
+    [
+        Output('sleep_violin','figure')
+    ],
+    [
+        # Globalne triggery
+        Input('watcher-date-picker', 'start_date'),
+        Input('watcher-date-picker', 'end_date'),
+        Input('min-duration-input', 'value'),
+        Input({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'value'),
+        Input('afk-mode-selector', 'value')
+    ],
+    [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
+    Input("highlight-options-3", "value"), # Dni tygodnia
+    Input("highlight-options-2", "value") # Weekendy
+)
+def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids,highlight_options_3, highlight_options_2):
+    sdf = get_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids)
+
+
+
+    sdf = sdf[sdf['status']=='sleep'].reset_index(drop=True)
+    sdf['duration'] /= 3600
+
+    # sen rozpoczęty wczoraj przenosimy na kolejny dzień
+    sdf.loc[sdf.timestamp_pl.dt.hour > 18,'day_of_year'] += 1
+    sdf.loc[sdf.timestamp_pl.dt.hour > 18,'weekday_number'] =(sdf.loc[sdf.timestamp_pl.dt.hour > 18,'weekday_number']+1)%  7
+
+    sdf.loc[sdf.day_of_year == 366,'day_of_year'] = 1
+
+    # Odfiltruj dni tygodna wskazane przez użytkownika
+    # highlight-options-3 - lista numerów dni tygodnia
+    highlight_options_3 = [int(i) for i in highlight_options_3]
+    sdf = sdf[sdf.weekday_number.isin(highlight_options_3)]
+
+    sdf2 = sdf.groupby(['osoba','day_of_year'])['duration'].sum().reset_index(drop=False)
+
+    fig = px.violin(sdf2,x='osoba',y='duration',title='Rozkład czasu snu')
+    fig.update_layout(yaxis_title='liczba godzin',
+                        template='plotly_white',
+                        xaxis_title="")
+    return [fig]
+
 @app.callback(
     Output('sleep-line-plot', 'figure'),
     [
@@ -1959,8 +2035,8 @@ def enforce_min_selection(selected):
         Input('afk-mode-selector', 'value'),
     ],
     [State({'type': 'device-filter', 'user': ALL, 'device': ALL}, 'id')],
-    Input("highlight-options-3", "value"),
-    Input("highlight-options-2", "value")
+    Input("highlight-options-3", "value"), # Dni tygodnia
+    Input("highlight-options-2", "value") # Weekendy
 )
 def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, highlight_options_3, highlight_options_2):
     highlight_options_3 = [int(i) for i in highlight_options_3]
