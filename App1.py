@@ -12,7 +12,9 @@ COLOURS = {'muzyka': "#13ba31",
            'inne': "#9ca5a8",
            'system': "#5A4E67",
            'przeglądarka': '#6accea',
-           'sen': "#423A6E"}
+           'sen': "#423A6E",
+           'weekend': '#1e624c'
+}
 DAYS = {
     0: "Poniedziałek",
     1: "Wtorek",
@@ -1844,25 +1846,15 @@ def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, 
         fig = go.Figure()
         sdf_weekend = sdf[sdf['weekday_number'].isin([5,6])].groupby(['osoba','day_of_year'])['duration'].sum().reset_index(drop=False)
         sdf_workday = sdf[~sdf['weekday_number'].isin([5,6])].groupby(['osoba','day_of_year'])['duration'].sum().reset_index(drop=False)
-        if not sdf_workday.empty:
-            trace_workday = px.violin(
-                sdf_workday, x='osoba', y='duration', points=False
-            ).data[0]
-            trace_workday.name = 'Workday'
-            trace_workday.marker.color = 'blue'
-            fig.add_trace(trace_workday)
-
-        # trace weekendów
-        if not sdf_weekend.empty:
-            trace_weekend = px.violin(
-                sdf_weekend, x='osoba', y='duration', points=False
-            ).data[0]
-            trace_weekend.name = 'Weekend'
-            trace_weekend.marker.color = 'green'
-            fig.add_trace(trace_weekend)
-
-        trace_workday.width = 0.2
-        trace_weekend.width = 0.2
+        for name, colour, i in zip(['Workday', 'Weekend'], [get_colour('sen'), get_colour('weekend')], [sdf_weekend, sdf_workday]):
+            if not i.empty:
+                trace_weekend = go.Violin(
+                    x=i['osoba'], y=i['duration'], points=False
+                )
+                trace_weekend.name = name
+                trace_weekend.marker.color = colour
+                fig.add_trace(trace_weekend)
+            trace_weekend.width = 0.26
 
     fig.update_layout(yaxis_title='liczba godzin',
                     template='plotly_white',
@@ -2066,7 +2058,7 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
         opacity_multiplier = 1
         length = item.duration/3600
         if (("a" in highlight_options_2) and ((item.timestamp.weekday() >= 5 and day_flag) or (item.timestamp.weekday() in [4, 5] and (not day_flag)))):
-            colour = "#1e624c"
+            colour = get_colour('weekend')
             offset = 0.45
             opacity_multiplier = 6/len([i for i in highlight_options_3 if i in range(5, 7)])
         elif("a" in highlight_options_2 and maxd >= 5):
