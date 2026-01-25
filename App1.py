@@ -1797,7 +1797,7 @@ content_sleep = html.Div([
                 # Wykresy 
                 dbc.Row([
                 dbc.Col(dcc.Graph(id='sleep-times-plot', config={'displayModeBar': False}),width=6),#style={'height': '500px'}
-                dbc.Col(dcc.Graph(id='sleep_violin', config={'displayModeBar': False}),width=6)
+                dbc.Col(dcc.Graph(id='sleep_violin', config={'displayModeBar': False,'staticPlot': True }),width=6)
                 ])
             ])
         )
