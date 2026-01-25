@@ -1850,7 +1850,7 @@ def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, 
             if not i.empty:
                 trace_weekend = go.Violin(
                     x=i['osoba'], y=i['duration'], points=False
-                ).data[0]
+                )
                 trace_weekend.name = name
                 trace_weekend.marker.color = colour
                 fig.add_trace(trace_weekend)
