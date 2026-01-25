@@ -1850,7 +1850,7 @@ content_sleep = html.Div([
     dbc.Col(
         dbc.Card(            
             dbc.CardBody([
-                dbc.Row(html.H5("Rozkład długości snu")),
+                dbc.Row(html.H4("Rozkład długości snu")),
                 dcc.Graph(id='sleep_violin', config={'displayModeBar': False})
             ])
         ),
@@ -1907,6 +1907,12 @@ def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, 
     fig.update_layout(yaxis_title='liczba godzin',
                         template='plotly_white',
                         xaxis_title="")
+    fig.update_yaxes(
+        tickfont=dict(size=18)
+    )
+    fig.update_xaxes(
+        tickfont=dict(size=18)
+    )
     return [fig]
 
 @app.callback(
