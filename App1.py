@@ -1800,10 +1800,7 @@ content_sleep = html.Div([
     #         ])),
     #     )
     # ]) 
-    
-    dbc.Row([
-    # Pierwszy Card
-    dbc.Col(
+
         dbc.Card(
             dbc.CardBody([
                 # Nagłówek i opcje w osobnym Row (w pionie w Card)
@@ -1838,27 +1835,13 @@ content_sleep = html.Div([
                         )
                     ], width=12, md=2)
                 ], class_name='align-items-center g-2'),
-                
-                # Wykres w pionie w tym samym Card
-                dcc.Graph(id='sleep-times-plot', config={'displayModeBar': False}, )#style={'height': '500px'}
+                # Wykresy 
+                dbc.Row([
+                dbc.Col(dcc.Graph(id='sleep-times-plot', config={'displayModeBar': False}),width=6),#style={'height': '500px'}
+                dbc.Col(dcc.Graph(id='sleep_violin', config={'displayModeBar': False}),width=6)
+                ])
             ])
-        ),
-        width=8  # zajmuje połowę wiersza
-    ),
-
-    # Drugi Card z violin plot
-    dbc.Col(
-        dbc.Card(            
-            dbc.CardBody([
-                dbc.Row(html.H4("Rozkład długości snu")),
-                dcc.Graph(id='sleep_violin', config={'displayModeBar': False})
-            ])
-        ),
-        width=4  # druga połowa wiersza
-    ),
-])
-
-    
+        )
 
 ])
 # --- VIOLIN PLOT SEN
@@ -1895,18 +1878,41 @@ def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, 
     highlight_options_3 = [int(i) for i in highlight_options_3]
     sdf = sdf[sdf.weekday_number.isin(highlight_options_3)]
 
-    sdf2 = sdf.groupby(['osoba','day_of_year'])['duration'].sum().reset_index(drop=False)
 
-    fig = go.Figure()
-    fig.add_trace(go.Violin(
-        x=sdf2["osoba"],
-        y=sdf2['duration'],
-        width=0.9,
-        points=False
-    ))  
+    if "a" not in highlight_options_2:
+        sdf2 = sdf.groupby(['osoba','day_of_year'])['duration'].sum().reset_index(drop=False)
+        fig = px.violin(sdf2,x='osoba',y='duration',title='Rozkład czasu snu',points=False)
+
+    else : # Osobno weekendy
+        # weekend = sobota (5) i niedziela (6)
+        fig = go.Figure()
+        sdf_weekend = sdf[sdf['weekday_number'].isin([5,6])].groupby(['osoba','day_of_year'])['duration'].sum().reset_index(drop=False)
+        sdf_workday = sdf[~sdf['weekday_number'].isin([5,6])].groupby(['osoba','day_of_year'])['duration'].sum().reset_index(drop=False)
+        if not sdf_workday.empty:
+            trace_workday = px.violin(
+                sdf_workday, x='osoba', y='duration', points=False
+            ).data[0]
+            trace_workday.name = 'Workday'
+            trace_workday.marker.color = 'blue'
+            fig.add_trace(trace_workday)
+
+        # trace weekendów
+        if not sdf_weekend.empty:
+            trace_weekend = px.violin(
+                sdf_weekend, x='osoba', y='duration', points=False
+            ).data[0]
+            trace_weekend.name = 'Weekend'
+            trace_weekend.marker.color = 'green'
+            fig.add_trace(trace_weekend)
+
+        trace_workday.width = 0.2
+        trace_weekend.width = 0.2
+
     fig.update_layout(yaxis_title='liczba godzin',
-                        template='plotly_white',
-                        xaxis_title="")
+                    template='plotly_white',
+                    xaxis_title="",
+                    violinmode='group',violingap=0.01)
+    
     fig.update_yaxes(
         tickfont=dict(size=18)
     )
