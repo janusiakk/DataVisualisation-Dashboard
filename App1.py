@@ -1914,7 +1914,8 @@ def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, 
                     violinmode='group',violingap=0.01)
     
     fig.update_yaxes(
-        tickfont=dict(size=18)
+        tickfont=dict(size=18),
+        title_font=dict(size=20)
     )
     fig.update_xaxes(
         tickfont=dict(size=18)
