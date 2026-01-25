@@ -38,7 +38,8 @@ app = dash.Dash(
         "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css",
         "/assets/01_style.css"
     ],
-    suppress_callback_exceptions=True
+    suppress_callback_exceptions=True,
+    title="Dashboard TWD (grupa 8)"
 )
 DATA_FOLDER = f'{prefix}/Dane Dash/' #Folder do zczytania gotowych danych
 DATA_CACHED = f'{prefix}/Dane Dash Fastboot/'
@@ -1842,18 +1843,18 @@ content_sleep = html.Div([
                 dcc.Graph(id='sleep-times-plot', config={'displayModeBar': False}, )#style={'height': '500px'}
             ])
         ),
-        width=6  # zajmuje połowę wiersza
+        width=8  # zajmuje połowę wiersza
     ),
 
     # Drugi Card z violin plot
     dbc.Col(
         dbc.Card(            
             dbc.CardBody([
-                dbc.Row(html.H5("A")),
+                dbc.Row(html.H5("Rozkład długości snu")),
                 dcc.Graph(id='sleep_violin', config={'displayModeBar': False})
             ])
         ),
-        width=6  # druga połowa wiersza
+        width=4  # druga połowa wiersza
     ),
 ])
 
@@ -1880,8 +1881,6 @@ content_sleep = html.Div([
 def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids,highlight_options_3, highlight_options_2):
     sdf = get_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids)
 
-
-
     sdf = sdf[sdf['status']=='sleep'].reset_index(drop=True)
     sdf['duration'] /= 3600
 
@@ -1898,7 +1897,13 @@ def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, 
 
     sdf2 = sdf.groupby(['osoba','day_of_year'])['duration'].sum().reset_index(drop=False)
 
-    fig = px.violin(sdf2,x='osoba',y='duration',title='Rozkład czasu snu')
+    fig = go.Figure()
+    fig.add_trace(go.Violin(
+        x=sdf2["osoba"],
+        y=sdf2['duration'],
+        width=0.9,
+        points=False
+    ))  
     fig.update_layout(yaxis_title='liczba godzin',
                         template='plotly_white',
                         xaxis_title="")
