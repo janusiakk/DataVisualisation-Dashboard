@@ -1788,7 +1788,7 @@ content_sleep = html.Div([
         dcc.Graph(id='sleep-line-plot',config={'displayModeBar': False})
      ])),
      dbc.Card(dbc.CardBody([
-        dbc.Row([dbc.Col(html.H4("Dzienna długość snu"), width=12, md=3),
+        dbc.Row([dbc.Col(html.H4("Godzinowy układ snu"), width=12, md=3),
                  dbc.Col([
                             html.H5("Wybierz dni tygodnia"),
                             dbc.Checklist(
@@ -2044,31 +2044,135 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
     )
     return fig
 
-content_intro = dbc.Container([
-    html.H2("My Cards Page", className="mb-4"),
+content_intro = dbc.Container(
+    [
+        html.H2("", className="mb-4"),
+        dbc.Row(
+            [
+                dbc.Col(
+                    [
+                        dbc.Card(
+                            dbc.CardBody(
+                                [
+                                    html.H3("Wprowadzenie"),
+                                    html.P("Projekt „JA”. Tematem projektu jest analiza wykorzystania czasu przez członków zespołu, poprzez agregację i wizualizację danych pochodzących z monitora aktywności zainstalowanego na telefonach oraz komputerach oraz danych dot. snu."),
+                                    html.H3("Strony"),
+                                    dbc.ListGroup(
+                                        [
+                                            dbc.ListGroupItem(
+                                                [
+                                                    html.H4("Wczytane dane"),
+                                                    html.P(
+                                                        f"Strona przedstawiająca aktualnie wczytane pliki wg osoby oraz urządzenia, zawierająca informacje techniczne na temat wykorzystanych danych. Aktualnie wczytanych jest {len([name for name in os.listdir('./Dane Dash')])} plików."
+                                                    ),
+                                                ],
+                                            className="py-0"),
+                                            dbc.ListGroupItem(
+                                                [
+                                                    html.H4("Obserwatorium"),
+                                                    html.P(
+                                                        "Wykresy przedstawiają zgrupowane dane z aktywności użytkowników."
+                                                    ),
+                                                    dbc.ListGroup(
+                                                        [
+                                                            dbc.ListGroupItem(
+                                                                html.P(
+                                                                    "Zgrupowane dane: aktywność podzielona na kategorie oraz według aplikacji. Dostępne jest porównanie użytkowników oraz wizualizacje dla jednej osoby."
+                                                                ),
+                                                            className="py-0"),
+                                                            dbc.ListGroupItem(
+                                                                html.P(
+                                                                    "Typowy tydzień: średnia aktywność według dnia tygodnia z podziałem na kategorie lub według aplikacji dla wybranej osoby."
+                                                                ),
+                                                            className="py-0"),
+                                                            dbc.ListGroupItem(
+                                                                html.P(
+                                                                    "Dzienna aktywność: sumaryczna aktywność z podziałem na osoby w każdym dniu."
+                                                                ),
+                                                            className="py-0"),
+                                                        ]
+                                                    ),
+                                                ],
+                                            className="py-0"),
+                                            dbc.ListGroupItem(
+                                                [
+                                                    html.H4("Oś czasu"),
+                                                    html.P("Dokładne przedstawienie aktywności wybranego użytkownika. Zwizualizowana jest każda aktywność niezależnie od długości czy znaczenia, filtrowanie zostaje pozostawione użytkownikowi. Dostępne jest filtrowanie wg kategorii, aplikacji, godziny, tygodnia i osoby. Na osi czasu przedstawiony jest także sen.")
+                                                ],
+                                            className="py-0"),
+                                            dbc.ListGroupItem(
+                                                [
+                                                    html.H4("Sen"),
+                                                    html.P("Wykresy przedstawiające czas i układ godzinowy snu każdego z użytkowników."),
+                                                    dbc.ListGroup([
+                                                        dbc.ListGroupItem(
+                                                            html.P("Dzienna długość snu: wykres przedstawiający długość snu w każdym dniu w celu zwizualizowania trendów czasowych."),
+                                                        className="py-0"),
+                                                        dbc.ListGroupItem(
+                                                            html.P("Godzinowy układ snu: wizualizacja każdego okresu snu przedstawiająca częstotliwość snu w danych godzinach, z możliwością oddzielenia weekendów oraz filtrowania po dniu tygodnia."),
+                                                        className="py-0"),
+                                                    ])
+                                                ],
+                                            className="py-0"),
+                                        ]
+                                    ),
+                                ]
+                            ),
+                            className="mb-3",
+                        )
+                    ],
+                    width=9,
+                    className="pe-3",
+                ),
 
-    dbc.Row([
-        dbc.Col([
-            dbc.Card(dbc.CardBody([
-                html.H4("Wprowadzenie"),
-                html.P("jan ryba"),
-                html.H4("Strony"),
-                html.H5("Wczytane dane"),
-                html.P(f"Strona przedstawiająca aktualnie wczytane pliki wg osoby oraz urządzenia, zawierająca informacje techniczne na temat wykorzystanych danych. Aktualnie wczytanych jest")
-            ]), className="mb-3"),
-            dbc.Card(dbc.CardBody([
-                html.H5("Card 2"),
-                html.P("Some description for card 2")
-            ]), className="mb-3"),
-        ], width=9, className="pe-3"),
+                dbc.Col([
+                    dbc.Card(
+                        dbc.CardBody(
+                            [
+                                dbc.ListGroup([
+                                    dbc.ListGroupItem(
+                                        html.H3("Wykorzystane technologie")
+                                    ),
+                                    dbc.ListGroupItem(
+                                        html.A(html.Img(src="/assets/plotly.png", style={"width": "100%"}, className="special-plotly"), href="https://plotly.com/")
+                                    ),
+                                    dbc.ListGroupItem(
+                                        html.A(html.Img(src="/assets/dash.png", style={"width": "100%"}), href="https://dash.plotly.com/")
+                                    ),
+                                    dbc.ListGroupItem(
+                                        dbc.Row([
+                                            dbc.Col(html.A(html.Img(src="/assets/python.png", style={"width": "100%"}), href="https://www.python.org/")),
+                                            dbc.Col(html.A(html.Img(src="/assets/aw.png", style={"width": "100%"}), href="https://activitywatch.net/"))
+                                        ])
+                                    )
+                                ])
+                            ]
+                        ),
+                    className="o-padding-a"),
+                    dbc.Card(
+                        dbc.CardBody(
+                            [
+                                html.H3("Autorzy:"),
+                                dbc.ListGroup([
+                                    dbc.ListGroupItem(html.H5("Antoni Kobosz")),
+                                    dbc.ListGroupItem(html.H5("Kamil Janusiak")),
+                                    dbc.ListGroupItem(html.H5("Jerzy Adrjan")),
+                                    None if pd.Timestamp.now().strftime("%H%M") != "2026" else dbc.ListGroupItem(html.H5("Jan Ryba"))
+                                ]),
+                                html.H6("Techniki Wizualizacji Danych  28 stycznia 2026")
+                            ]
+                        ),
+                    className="o-padding-b")],  
+                    width=3,
+                    className="ps-3",
+                ),
+            ]
+        ),
+    ],
+    fluid=True,
+    className="intro-container"
+)
 
-        dbc.Col(
-            dbc.Card(dbc.CardBody([
-                html.H5("Card 3"),
-                html.P("Some description for card 3")
-            ])), width=3, className="ps-3")
-    ])
-], fluid=True)
 
 # endregion
 # endregion
