@@ -229,7 +229,7 @@
         "app":"msedgewebview2.exe",
         "status":"not-afk",
         "duration":3.043,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -238,7 +238,7 @@
         "app":"msedgewebview2.exe",
         "status":"not-afk",
         "duration":2.055,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -679,7 +679,7 @@
         "app":"OpenWith.exe",
         "status":"not-afk",
         "duration":1.012,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -688,7 +688,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.009,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -931,7 +931,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -940,7 +940,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":4.065,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1030,7 +1030,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.027,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1219,7 +1219,7 @@
         "app":"OpenWith.exe",
         "status":"not-afk",
         "duration":4.042,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1228,7 +1228,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.021,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1336,7 +1336,7 @@
         "app":"PowerToys.Peek.UI.exe",
         "status":"not-afk",
         "duration":1.004,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -1363,7 +1363,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.061,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2173,7 +2173,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.017,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2794,7 +2794,7 @@
         "app":"OpenWith.exe",
         "status":"not-afk",
         "duration":2.034,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2821,7 +2821,7 @@
         "app":"soffice.bin",
         "status":"not-afk",
         "duration":1.014,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -2839,7 +2839,7 @@
         "app":"soffice.bin",
         "status":"not-afk",
         "duration":9.12,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -3541,7 +3541,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.021,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -3757,7 +3757,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.03,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -3766,7 +3766,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.039,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -3964,7 +3964,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":86.59,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -4090,7 +4090,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":10.122,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -4459,7 +4459,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.021,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -4639,7 +4639,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.016,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -4702,7 +4702,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.038,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -4729,7 +4729,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.021,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -4927,7 +4927,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.021,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -4936,7 +4936,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":8.606,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -5287,7 +5287,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.014,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -5368,7 +5368,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":4.073,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -5629,7 +5629,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.035,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -5647,7 +5647,7 @@
         "app":"PickerHost.exe",
         "status":"not-afk",
         "duration":12.196,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -6106,7 +6106,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.011,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -6115,7 +6115,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.041,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -6151,7 +6151,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.054,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -6943,7 +6943,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.06,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -6961,7 +6961,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":2.041,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -6979,7 +6979,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":96.86,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7006,7 +7006,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.034,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7330,7 +7330,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":8.129,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7357,7 +7357,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.03,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7384,7 +7384,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.039,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7573,7 +7573,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":7.943,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7582,7 +7582,7 @@
         "app":"WordPal.exe",
         "status":"afk",
         "duration":0.014,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7591,7 +7591,7 @@
         "app":"WordPal.exe",
         "status":"afk",
         "duration":180.421,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7708,7 +7708,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":11.195,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7717,7 +7717,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":13.214,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7735,7 +7735,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":666.398,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7744,7 +7744,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":22.424,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7753,7 +7753,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":38.731,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7762,7 +7762,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":373.049,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7807,7 +7807,7 @@
         "app":"osk.exe",
         "status":"not-afk",
         "duration":1.096,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7816,7 +7816,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":7.118,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7834,7 +7834,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":267.977,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7852,7 +7852,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":1.039,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7870,7 +7870,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":4.09,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7888,7 +7888,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":14.276,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7906,7 +7906,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":13.243,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7924,7 +7924,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":10.191,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7942,7 +7942,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":8.152,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7960,7 +7960,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":3.05,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7978,7 +7978,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":8.139,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -7987,7 +7987,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":5.108,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8005,7 +8005,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":13.238,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8023,7 +8023,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":9.15,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8041,7 +8041,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":28.552,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8059,7 +8059,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":4.077,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8077,7 +8077,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":11.248,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8095,7 +8095,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":7.131,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8104,7 +8104,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":17.303,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8221,7 +8221,7 @@
         "app":"WinSCP.exe",
         "status":"not-afk",
         "duration":7.091,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8239,7 +8239,7 @@
         "app":"WinSCP.exe",
         "status":"not-afk",
         "duration":2.041,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8248,7 +8248,7 @@
         "app":"WinSCP.exe",
         "status":"not-afk",
         "duration":9.129,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8275,7 +8275,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.039,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8302,7 +8302,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":3.043,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8446,7 +8446,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.034,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8770,7 +8770,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":16.253,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8779,7 +8779,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":19.352,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8797,7 +8797,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":56.783,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8815,7 +8815,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":38.603,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8851,7 +8851,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.015,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -8869,7 +8869,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.029,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -9382,7 +9382,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":3.063,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -9616,7 +9616,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.041,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -9859,7 +9859,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":4.052,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -9967,7 +9967,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.056,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -9976,7 +9976,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":1.109,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -10003,7 +10003,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":10.87,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -10327,7 +10327,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":8.107,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -10345,7 +10345,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.034,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -10390,7 +10390,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.008,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -10417,7 +10417,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.019,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11245,7 +11245,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.116,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11893,7 +11893,7 @@
         "app":"OpenWith.exe",
         "status":"not-afk",
         "duration":1.019,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -11956,7 +11956,7 @@
         "app":"OpenWith.exe",
         "status":"not-afk",
         "duration":1.015,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12163,7 +12163,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":7.118,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12190,7 +12190,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":6.2,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12208,7 +12208,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.09,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12343,7 +12343,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":4.094,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12622,7 +12622,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.021,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -12703,7 +12703,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":13.45,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13099,7 +13099,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.05,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13288,7 +13288,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.023,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13297,7 +13297,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":10.192,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13450,7 +13450,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":19.311,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13531,7 +13531,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.069,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13558,7 +13558,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.041,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13639,7 +13639,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.04,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13684,7 +13684,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.044,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13693,7 +13693,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.043,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13702,7 +13702,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":50.943,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13720,7 +13720,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.029,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13729,7 +13729,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":6.148,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13738,7 +13738,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":3.075,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13756,7 +13756,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":342.431,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13765,7 +13765,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.024,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13774,7 +13774,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":12.327,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13792,7 +13792,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.062,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13819,7 +13819,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.076,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13855,7 +13855,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.031,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13972,7 +13972,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":5.1,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -13990,7 +13990,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":4.086,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -14026,7 +14026,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":6.128,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -14035,7 +14035,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.042,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -14413,7 +14413,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":7.156,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -14449,7 +14449,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":5.082,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -14521,7 +14521,7 @@
         "app":"Spotify.exe",
         "status":"not-afk",
         "duration":3.075,
-        "category":"studia",
+        "category":"muzyka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -14611,7 +14611,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":0.675,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -14620,7 +14620,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":0.359,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -14845,7 +14845,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.035,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -14872,7 +14872,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.031,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -14944,7 +14944,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":1.019,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -14953,7 +14953,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -15007,7 +15007,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":52.997,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -15088,7 +15088,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.058,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -15853,7 +15853,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":4.077,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -15862,7 +15862,7 @@
         "app":"powershell.exe",
         "status":"not-afk",
         "duration":3.275,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -15871,7 +15871,7 @@
         "app":"powershell.exe",
         "status":"not-afk",
         "duration":5.398,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -15889,7 +15889,7 @@
         "app":"powershell.exe",
         "status":"not-afk",
         "duration":4.369,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -15907,7 +15907,7 @@
         "app":"powershell.exe",
         "status":"not-afk",
         "duration":25.935,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -16006,7 +16006,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":4.084,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -16015,7 +16015,7 @@
         "app":"powershell.exe",
         "status":"not-afk",
         "duration":32.81,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -16033,7 +16033,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.047,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -16042,7 +16042,7 @@
         "app":"WindowsTerminal.exe",
         "status":"not-afk",
         "duration":4.064,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -16411,7 +16411,7 @@
         "app":"PickerHost.exe",
         "status":"afk",
         "duration":164.293,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -16420,7 +16420,7 @@
         "app":"PickerHost.exe",
         "status":"afk",
         "duration":15.161,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -17221,7 +17221,7 @@
         "app":"WordPal.exe",
         "status":"not-afk",
         "duration":8.099,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -17302,7 +17302,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.036,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -17311,7 +17311,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.046,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -17320,7 +17320,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":15.183,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -17365,7 +17365,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.059,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -17491,7 +17491,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":8.11,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -17509,7 +17509,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":20.347,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -17518,7 +17518,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":299.044,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -17599,7 +17599,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -18724,7 +18724,7 @@
         "app":"StartMenuExperienceHost.exe",
         "status":"not-afk",
         "duration":10.114,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19084,7 +19084,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.071,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19138,7 +19138,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.059,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19156,7 +19156,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.04,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19192,7 +19192,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.015,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19246,7 +19246,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":5.065,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19273,7 +19273,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":14.245,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19282,7 +19282,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":1.014,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19309,7 +19309,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.063,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19354,7 +19354,7 @@
         "app":"updater.exe",
         "status":"afk",
         "duration":42.64,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19390,7 +19390,7 @@
         "app":"updater.exe",
         "status":"afk",
         "duration":29.437,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19417,7 +19417,7 @@
         "app":"updater.exe",
         "status":"afk",
         "duration":27.464,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19444,7 +19444,7 @@
         "app":"updater.exe",
         "status":"afk",
         "duration":30.475,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19669,7 +19669,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.026,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19912,7 +19912,7 @@
         "app":"OBS-Studio-32.0.4-Windows-x64-Installer.exe",
         "status":"not-afk",
         "duration":1.095,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19921,7 +19921,7 @@
         "app":"OBS-Studio-32.0.4-Windows-x64-Installer.exe",
         "status":"not-afk",
         "duration":2.243,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19930,7 +19930,7 @@
         "app":"OBS-Studio-32.0.4-Windows-x64-Installer.exe",
         "status":"not-afk",
         "duration":65.279,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19948,7 +19948,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":95.104,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19957,7 +19957,7 @@
         "app":"obs64.exe",
         "status":"afk",
         "duration":0.007,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19966,7 +19966,7 @@
         "app":"obs64.exe",
         "status":"afk",
         "duration":0.006,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19975,7 +19975,7 @@
         "app":"obs64.exe",
         "status":"afk",
         "duration":180.2,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -19993,7 +19993,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":1.027,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20002,7 +20002,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":0.199,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20011,7 +20011,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":7.933,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20020,7 +20020,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":14.278,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20029,7 +20029,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":2.05,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20038,7 +20038,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":5.091,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20047,7 +20047,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":0.622,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20056,7 +20056,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":10.015,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20065,7 +20065,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":5.696,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20083,7 +20083,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":25.559,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20101,7 +20101,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":6.136,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20110,7 +20110,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":8.133,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20146,7 +20146,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":1.034,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20191,7 +20191,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":7.143,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20218,7 +20218,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":1.024,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20236,7 +20236,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":2.043,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20245,7 +20245,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":4.083,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20254,7 +20254,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":1.026,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20272,7 +20272,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":35.635,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20290,7 +20290,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":36.614,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20308,7 +20308,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":5.097,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20326,7 +20326,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":33.584,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20362,7 +20362,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":1.02,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20371,7 +20371,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":2.042,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20398,7 +20398,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":14.274,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20416,7 +20416,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":21.374,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20461,7 +20461,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.079,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20470,7 +20470,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":2.227,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20479,7 +20479,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":5.099,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20497,7 +20497,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.051,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20857,7 +20857,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":35.667,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -20938,7 +20938,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":2.052,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21496,7 +21496,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.082,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21514,7 +21514,7 @@
         "app":"UserAccountBroker.exe",
         "status":"not-afk",
         "duration":2.027,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21586,7 +21586,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.033,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21613,7 +21613,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.052,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21667,7 +21667,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":2.063,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21676,7 +21676,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":40.352,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21685,7 +21685,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"afk",
         "duration":0.014,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21694,7 +21694,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"afk",
         "duration":196.129,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21757,7 +21757,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"afk",
         "duration":0.414,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21766,7 +21766,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":0.001,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21775,7 +21775,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":5.356,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21784,7 +21784,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"afk",
         "duration":0.011,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21793,7 +21793,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"afk",
         "duration":180.397,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21838,7 +21838,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":1.036,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21847,7 +21847,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":11.189,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21919,7 +21919,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.027,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21928,7 +21928,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":13.266,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -21973,7 +21973,7 @@
         "app":"PickerHost.exe",
         "status":"not-afk",
         "duration":11.18,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -22063,7 +22063,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":14.201,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -22144,7 +22144,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":4.087,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -22198,7 +22198,7 @@
         "app":"OfficeC2RClient.exe",
         "status":"not-afk",
         "duration":217.498,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -22207,7 +22207,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":4.055,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -22270,7 +22270,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":1.042,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -22279,7 +22279,7 @@
         "app":"CredentialUIBroker.exe",
         "status":"not-afk",
         "duration":13.233,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -22360,7 +22360,7 @@
         "app":"OpenWith.exe",
         "status":"not-afk",
         "duration":1.01,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -22387,7 +22387,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":5.06,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -22414,7 +22414,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":3.055,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -22450,7 +22450,7 @@
         "app":"obs64.exe",
         "status":"not-afk",
         "duration":17.324,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -22738,7 +22738,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":117.051,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -22765,7 +22765,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":32.55,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -22792,7 +22792,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":20.392,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23116,7 +23116,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.019,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23287,7 +23287,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.083,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23395,7 +23395,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.078,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23404,7 +23404,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":6.71,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23431,7 +23431,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":1.144,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23521,7 +23521,7 @@
         "app":"OpenWith.exe",
         "status":"not-afk",
         "duration":1.051,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23548,7 +23548,7 @@
         "app":"soffice.bin",
         "status":"not-afk",
         "duration":3.048,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23584,7 +23584,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":6.704,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23602,7 +23602,7 @@
         "app":"soffice.bin",
         "status":"not-afk",
         "duration":2.039,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23827,7 +23827,7 @@
         "app":"StartMenuExperienceHost.exe",
         "status":"not-afk",
         "duration":4.115,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23845,7 +23845,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.026,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -23863,7 +23863,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.021,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -24223,7 +24223,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.036,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -24457,7 +24457,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.04,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -24565,7 +24565,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.018,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -24673,7 +24673,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.031,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -24691,7 +24691,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.026,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -24781,7 +24781,7 @@
         "app":"PickerHost.exe",
         "status":"not-afk",
         "duration":46.606,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -24970,7 +24970,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.093,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -25231,7 +25231,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.011,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -25393,7 +25393,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.013,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -25438,7 +25438,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.075,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26158,7 +26158,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.038,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26239,7 +26239,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.033,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26257,7 +26257,7 @@
         "app":"dwm.exe",
         "status":"not-afk",
         "duration":1.112,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26275,7 +26275,7 @@
         "app":"android-studio-2025.2.2.8-windows.exe",
         "status":"not-afk",
         "duration":3.038,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26284,7 +26284,7 @@
         "app":"android-studio-2025.2.2.8-windows.exe",
         "status":"not-afk",
         "duration":5.451,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26302,7 +26302,7 @@
         "app":"android-studio-2025.2.2.8-windows.exe",
         "status":"not-afk",
         "duration":1.116,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26311,7 +26311,7 @@
         "app":"android-studio-2025.2.2.8-windows.exe",
         "status":"not-afk",
         "duration":1.212,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26320,7 +26320,7 @@
         "app":"android-studio-2025.2.2.8-windows.exe",
         "status":"afk",
         "duration":0.013,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26329,7 +26329,7 @@
         "app":"android-studio-2025.2.2.8-windows.exe",
         "status":"afk",
         "duration":181.106,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26455,7 +26455,7 @@
         "app":"android-studio-2025.2.2.8-windows.exe",
         "status":"not-afk",
         "duration":2.187,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26464,7 +26464,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":1.096,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26545,7 +26545,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":1.148,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26554,7 +26554,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.018,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26599,7 +26599,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":16.268,
-        "category":"komunikatory",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26689,7 +26689,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.072,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -26833,7 +26833,7 @@
         "app":"PickerHost.exe",
         "status":"not-afk",
         "duration":10.223,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -27211,7 +27211,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -27454,7 +27454,7 @@
         "app":"qemu-system-x86_64.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -27589,7 +27589,7 @@
         "app":"qemu-system-x86_64.exe",
         "status":"not-afk",
         "duration":3.065,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -27679,7 +27679,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":7.512,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -27769,7 +27769,7 @@
         "app":"qemu-system-x86_64.exe",
         "status":"not-afk",
         "duration":2.013,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -27787,7 +27787,7 @@
         "app":"qemu-system-x86_64.exe",
         "status":"not-afk",
         "duration":5.077,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -27823,7 +27823,7 @@
         "app":"qemu-system-x86_64.exe",
         "status":"not-afk",
         "duration":15.145,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -27832,7 +27832,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.009,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -27913,7 +27913,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.025,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -27922,7 +27922,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":9.797,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -27949,7 +27949,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.045,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -27967,7 +27967,7 @@
         "app":"qemu-system-x86_64.exe",
         "status":"not-afk",
         "duration":3.19,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -28048,7 +28048,7 @@
         "app":"studio64.exe",
         "status":"not-afk",
         "duration":86.098,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -28066,7 +28066,7 @@
         "app":"studio64.exe",
         "status":"not-afk",
         "duration":1.03,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -28084,7 +28084,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.042,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -28147,7 +28147,7 @@
         "app":"qemu-system-x86_64.exe",
         "status":"not-afk",
         "duration":46.991,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -28840,7 +28840,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.028,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29119,7 +29119,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.031,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29362,7 +29362,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":10.164,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -29470,7 +29470,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.033,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -30271,7 +30271,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.082,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -30658,7 +30658,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.01,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -31126,7 +31126,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.024,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -31135,7 +31135,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.035,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -31261,7 +31261,7 @@
         "app":"PickerHost.exe",
         "status":"not-afk",
         "duration":0.166,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -31270,7 +31270,7 @@
         "app":"PickerHost.exe",
         "status":"afk",
         "duration":0.007,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -31279,7 +31279,7 @@
         "app":"PickerHost.exe",
         "status":"afk",
         "duration":43.547,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -31324,7 +31324,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":3.062,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -31504,7 +31504,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -31522,7 +31522,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.044,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -31540,7 +31540,7 @@
         "app":"Magnify.exe",
         "status":"not-afk",
         "duration":63.45,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -31567,7 +31567,7 @@
         "app":"Magnify.exe",
         "status":"not-afk",
         "duration":8.815,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -31594,7 +31594,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.032,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -32458,7 +32458,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.456,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -32467,7 +32467,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":6.636,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -32485,7 +32485,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":5.085,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -32602,7 +32602,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.01,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -33124,7 +33124,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":4.072,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -33196,7 +33196,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":10.163,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -33214,7 +33214,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.025,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -34357,7 +34357,7 @@
         "app":"PickerHost.exe",
         "status":"not-afk",
         "duration":1.009,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -34609,7 +34609,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.014,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -34618,7 +34618,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":2.191,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -34636,7 +34636,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":3.336,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -34996,7 +34996,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":5.073,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -35014,7 +35014,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":3.04,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -35149,7 +35149,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":11.176,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -35311,7 +35311,7 @@
         "app":"explorer.exe",
         "status":"not-afk",
         "duration":18.237,
-        "category":"studia",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -35329,7 +35329,7 @@
         "app":"explorer.exe",
         "status":"not-afk",
         "duration":4.062,
-        "category":"studia",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -35338,7 +35338,7 @@
         "app":"OpenWith.exe",
         "status":"not-afk",
         "duration":2.022,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -35365,7 +35365,7 @@
         "app":"explorer.exe",
         "status":"not-afk",
         "duration":3.043,
-        "category":"studia",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -35581,7 +35581,7 @@
         "app":"explorer.exe",
         "status":"not-afk",
         "duration":1.004,
-        "category":"studia",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -35914,7 +35914,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.034,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -35941,7 +35941,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":3.056,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -35950,7 +35950,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.048,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -35959,7 +35959,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.061,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36040,7 +36040,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.08,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36103,7 +36103,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":395.879,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36112,7 +36112,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":0.033,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36121,7 +36121,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":258.174,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36130,7 +36130,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":5.009,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36139,7 +36139,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":9.659,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36148,7 +36148,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":0.001,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36157,7 +36157,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":52.019,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36184,7 +36184,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":3.058,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36220,7 +36220,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.009,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36229,7 +36229,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":14.254,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36238,7 +36238,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":6.132,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36319,7 +36319,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":81.223,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36328,7 +36328,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":715.792,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36337,7 +36337,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1295.689,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36427,7 +36427,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.028,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36895,7 +36895,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.03,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36949,7 +36949,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.04,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -36967,7 +36967,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.027,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -37003,7 +37003,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.02,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -37156,7 +37156,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":3.063,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -37201,7 +37201,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":20.391,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -37489,7 +37489,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":67.995,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -37498,7 +37498,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":10.132,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -37858,7 +37858,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.002,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -37957,7 +37957,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.037,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38119,7 +38119,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":13.149,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38128,7 +38128,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":6.089,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38137,7 +38137,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":178.557,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38146,7 +38146,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":11.209,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38155,7 +38155,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":6.077,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38164,7 +38164,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":4.077,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38173,7 +38173,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":60.822,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38182,7 +38182,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":9.15,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38191,7 +38191,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":158.444,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38200,7 +38200,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":42.676,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38209,7 +38209,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.031,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38218,7 +38218,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.024,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38227,7 +38227,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":6.104,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38236,7 +38236,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":9.131,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38245,7 +38245,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":10.137,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38254,7 +38254,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":4.091,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38263,7 +38263,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38272,7 +38272,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":7.961,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38281,7 +38281,7 @@
         "app":"Photos.exe",
         "status":"afk",
         "duration":0.013,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38290,7 +38290,7 @@
         "app":"Photos.exe",
         "status":"afk",
         "duration":180.789,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38434,7 +38434,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":62.871,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38443,7 +38443,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":6.082,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38452,7 +38452,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":6.117,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38461,7 +38461,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":7.099,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38470,7 +38470,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":29.426,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38479,7 +38479,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":9.132,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38488,7 +38488,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":5.039,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38497,7 +38497,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":6.047,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38506,7 +38506,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":14.267,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38515,7 +38515,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":2.032,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38524,7 +38524,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":62.903,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38533,7 +38533,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.029,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38659,7 +38659,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -38884,7 +38884,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.028,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -39127,7 +39127,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.026,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -39577,7 +39577,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.024,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -40252,7 +40252,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.047,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -40909,7 +40909,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.046,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -40936,7 +40936,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -41080,7 +41080,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.028,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -41188,7 +41188,7 @@
         "app":"Spotify.exe",
         "status":"not-afk",
         "duration":18.333,
-        "category":"komunikatory",
+        "category":"muzyka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -41215,7 +41215,7 @@
         "app":"Spotify.exe",
         "status":"not-afk",
         "duration":3.068,
-        "category":"komunikatory",
+        "category":"muzyka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -41368,7 +41368,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -41548,7 +41548,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.023,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -41584,7 +41584,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.031,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -41692,7 +41692,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.003,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -41827,7 +41827,7 @@
         "app":"msedge.exe",
         "status":"not-afk",
         "duration":4.079,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -41935,7 +41935,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.038,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -42241,7 +42241,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.029,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -42268,7 +42268,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.058,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -42457,7 +42457,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.024,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -42493,7 +42493,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":7.596,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -42610,7 +42610,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":9.124,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -43573,7 +43573,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":28.499,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -43780,7 +43780,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.046,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -43807,7 +43807,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.061,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -43816,7 +43816,7 @@
         "app":"Bitwarden.exe",
         "status":"not-afk",
         "duration":12.039,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -43825,7 +43825,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.023,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -43888,7 +43888,7 @@
         "app":"Bitwarden.exe",
         "status":"not-afk",
         "duration":43.593,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -43906,7 +43906,7 @@
         "app":"Bitwarden.exe",
         "status":"not-afk",
         "duration":2.163,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -43924,7 +43924,7 @@
         "app":"Bitwarden.exe",
         "status":"not-afk",
         "duration":1.095,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -43942,7 +43942,7 @@
         "app":"Bitwarden.exe",
         "status":"not-afk",
         "duration":2.146,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -43960,7 +43960,7 @@
         "app":"Bitwarden.exe",
         "status":"not-afk",
         "duration":17.429,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -45418,7 +45418,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.035,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -45616,7 +45616,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.011,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -45643,7 +45643,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":7.098,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -45868,7 +45868,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":180.341,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -46354,7 +46354,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.032,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -47002,7 +47002,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -47056,7 +47056,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.048,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -48433,7 +48433,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":4.072,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -48442,7 +48442,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":1.179,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -48460,7 +48460,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.029,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -48469,7 +48469,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":5.472,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -48739,7 +48739,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.039,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -48865,7 +48865,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.027,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -48883,7 +48883,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.031,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -48982,7 +48982,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.053,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -49054,7 +49054,7 @@
         "app":"osk.exe",
         "status":"not-afk",
         "duration":1.11,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -49072,7 +49072,7 @@
         "app":"osk.exe",
         "status":"not-afk",
         "duration":3.303,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -49207,7 +49207,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.074,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -49225,7 +49225,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.03,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -49234,7 +49234,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.041,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -49243,7 +49243,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":47.786,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -49288,7 +49288,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":3.053,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -49315,7 +49315,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -49945,7 +49945,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.033,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -49972,7 +49972,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":9.141,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50035,7 +50035,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.031,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50377,7 +50377,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":7.108,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50395,7 +50395,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":11.197,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50431,7 +50431,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":10.118,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50440,7 +50440,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":3.055,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50458,7 +50458,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50467,7 +50467,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.039,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50476,7 +50476,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.077,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50494,7 +50494,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50521,7 +50521,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.018,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50530,7 +50530,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.019,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50539,7 +50539,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.038,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50548,7 +50548,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.01,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50557,7 +50557,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.011,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50566,7 +50566,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.055,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50584,7 +50584,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.035,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50602,7 +50602,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.049,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50620,7 +50620,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.024,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50665,7 +50665,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.041,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50701,7 +50701,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.043,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50728,7 +50728,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.016,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50737,7 +50737,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.035,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50746,7 +50746,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":3.04,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -50881,7 +50881,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.068,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -51034,7 +51034,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":5.069,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -51205,7 +51205,7 @@
         "app":"PBIDesktopSetup_x64.exe",
         "status":"not-afk",
         "duration":2.031,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -51232,7 +51232,7 @@
         "app":"PBIDesktopSetup_x64.exe",
         "status":"not-afk",
         "duration":1.119,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -51241,7 +51241,7 @@
         "app":"PBIDesktopSetup_x64.exe",
         "status":"not-afk",
         "duration":2.199,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -51376,7 +51376,7 @@
         "app":"PBIDesktopSetup_x64.exe",
         "status":"not-afk",
         "duration":1.327,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -51493,7 +51493,7 @@
         "app":"PBIDesktopSetup_x64.exe",
         "status":"not-afk",
         "duration":1.154,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -51511,7 +51511,7 @@
         "app":"WerFault.exe",
         "status":"not-afk",
         "duration":2.217,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -51520,7 +51520,7 @@
         "app":"PBIDesktopSetup_x64.exe",
         "status":"not-afk",
         "duration":1.091,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -51619,7 +51619,7 @@
         "app":"PBIDesktopSetup_x64.exe",
         "status":"not-afk",
         "duration":1.127,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -51628,7 +51628,7 @@
         "app":"PBIDesktop.exe",
         "status":"not-afk",
         "duration":2.221,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -51682,7 +51682,7 @@
         "app":"PBIDesktop.exe",
         "status":"not-afk",
         "duration":5.464,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -51691,7 +51691,7 @@
         "app":"PBIDesktop.exe",
         "status":"not-afk",
         "duration":1.123,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -51700,7 +51700,7 @@
         "app":"PBIDesktop.exe",
         "status":"not-afk",
         "duration":60.867,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -52105,7 +52105,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":71.029,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -52123,7 +52123,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":27.378,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -52168,7 +52168,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":3.054,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -52177,7 +52177,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.021,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -52186,7 +52186,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.018,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -52249,7 +52249,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":44.764,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -52276,7 +52276,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":7.08,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -52330,7 +52330,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.054,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -52438,7 +52438,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.028,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -52681,7 +52681,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":4.049,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -52726,7 +52726,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":960.325,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -53050,7 +53050,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.016,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -53068,7 +53068,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -53419,7 +53419,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.056,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -53455,7 +53455,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.042,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -53464,7 +53464,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":4.432,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54670,7 +54670,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":103.51,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54679,7 +54679,7 @@
         "app":"Photos.exe",
         "status":"afk",
         "duration":0.007,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54688,7 +54688,7 @@
         "app":"Photos.exe",
         "status":"afk",
         "duration":180.479,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54706,7 +54706,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":5.043,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54805,7 +54805,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":5.119,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54814,7 +54814,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":609.697,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54823,7 +54823,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":3.04,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54832,7 +54832,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.007,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54859,7 +54859,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":2.034,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54868,7 +54868,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54877,7 +54877,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":48.822,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54904,7 +54904,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":348.363,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54913,7 +54913,7 @@
         "app":"Photos.exe",
         "status":"afk",
         "duration":0.013,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54922,7 +54922,7 @@
         "app":"Photos.exe",
         "status":"afk",
         "duration":180.196,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -54949,7 +54949,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":10.178,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55057,7 +55057,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":246.793,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55129,7 +55129,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.034,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55138,7 +55138,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.014,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55147,7 +55147,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":198.916,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55156,7 +55156,7 @@
         "app":"Photos.exe",
         "status":"afk",
         "duration":0.014,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55165,7 +55165,7 @@
         "app":"Photos.exe",
         "status":"afk",
         "duration":180.307,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55192,7 +55192,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":229.271,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55300,7 +55300,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":2.053,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55309,7 +55309,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":4.054,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55318,7 +55318,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":3.048,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55327,7 +55327,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.035,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55336,7 +55336,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.05,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55345,7 +55345,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":2.053,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55354,7 +55354,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":4.083,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55363,7 +55363,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":33.494,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55399,7 +55399,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":184.751,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55408,7 +55408,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.043,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55417,7 +55417,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":4.053,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55426,7 +55426,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":45.625,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55453,7 +55453,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":771.811,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55462,7 +55462,7 @@
         "app":"Photos.exe",
         "status":"afk",
         "duration":0.002,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55471,7 +55471,7 @@
         "app":"Photos.exe",
         "status":"afk",
         "duration":179.903,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55489,7 +55489,7 @@
         "app":"Photos.exe",
         "status":"afk",
         "duration":0.879,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55498,7 +55498,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":0.001,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55507,7 +55507,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":85.313,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55516,7 +55516,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":22.35,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55561,7 +55561,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":128.963,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55570,7 +55570,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":3.049,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55579,7 +55579,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":2.029,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -55588,7 +55588,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":13.246,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -56002,7 +56002,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":194.751,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -56011,7 +56011,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.034,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -56029,7 +56029,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":33.503,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -56065,7 +56065,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":16.231,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -56119,7 +56119,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":125.761,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -56128,7 +56128,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.04,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -56254,7 +56254,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":28.413,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -56344,7 +56344,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":3.065,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -57037,7 +57037,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.018,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -57379,7 +57379,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.042,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -57811,7 +57811,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.054,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -58045,7 +58045,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.017,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -58369,7 +58369,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":4.01,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59440,7 +59440,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.052,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59647,7 +59647,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.012,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59665,7 +59665,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.032,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59764,7 +59764,7 @@
         "app":"msedgewebview2.exe",
         "status":"not-afk",
         "duration":4.077,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -59863,7 +59863,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.015,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60061,7 +60061,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.014,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60079,7 +60079,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.035,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -60619,7 +60619,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -61042,7 +61042,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":4.046,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -61051,7 +61051,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":5.453,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -61087,7 +61087,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.028,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -61096,7 +61096,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":5.424,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -61429,7 +61429,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":20.354,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -61591,7 +61591,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.017,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -61690,7 +61690,7 @@
         "app":"soffice.bin",
         "status":"not-afk",
         "duration":41.585,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -61699,7 +61699,7 @@
         "app":"soffice.bin",
         "status":"not-afk",
         "duration":20.301,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -61843,7 +61843,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.05,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -61870,7 +61870,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":3.038,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -61879,7 +61879,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":6.153,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -62563,7 +62563,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.028,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -62572,7 +62572,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":2.218,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -62725,7 +62725,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.038,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -63292,7 +63292,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.015,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -63841,7 +63841,7 @@
         "app":"osk.exe",
         "status":"not-afk",
         "duration":10.677,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -63850,7 +63850,7 @@
         "app":"osk.exe",
         "status":"not-afk",
         "duration":1.094,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -63868,7 +63868,7 @@
         "app":"osk.exe",
         "status":"not-afk",
         "duration":2.155,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -63886,7 +63886,7 @@
         "app":"osk.exe",
         "status":"not-afk",
         "duration":1.082,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -63895,7 +63895,7 @@
         "app":"osk.exe",
         "status":"not-afk",
         "duration":5.339,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64516,7 +64516,7 @@
         "app":"osk.exe",
         "status":"not-afk",
         "duration":7.479,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64804,7 +64804,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.037,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64813,7 +64813,7 @@
         "app":"Taskmgr.exe",
         "status":"not-afk",
         "duration":10.886,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64822,7 +64822,7 @@
         "app":"Taskmgr.exe",
         "status":"afk",
         "duration":0.015,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -64831,7 +64831,7 @@
         "app":"Taskmgr.exe",
         "status":"afk",
         "duration":179.459,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -65452,7 +65452,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.025,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -65515,7 +65515,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.033,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -65731,7 +65731,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":3.035,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -65983,7 +65983,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.025,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -66100,7 +66100,7 @@
         "app":"PickerHost.exe",
         "status":"not-afk",
         "duration":1.021,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -66145,7 +66145,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.037,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -66505,7 +66505,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":46.916,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -66748,7 +66748,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.033,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -66793,7 +66793,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.069,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -66811,7 +66811,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":5.036,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -66820,7 +66820,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":7.128,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -66829,7 +66829,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.05,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -66838,7 +66838,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.069,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -66856,7 +66856,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":5.068,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -66874,7 +66874,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":14.247,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67342,7 +67342,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.029,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67387,7 +67387,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":10.13,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67396,7 +67396,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":8.139,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67405,7 +67405,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.057,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67495,7 +67495,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.022,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67513,7 +67513,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":64.877,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67567,7 +67567,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":60.846,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67576,7 +67576,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.024,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67585,7 +67585,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.034,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67594,7 +67594,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.032,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67639,7 +67639,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":137.763,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67720,7 +67720,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":14.159,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67729,7 +67729,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":6.103,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67747,7 +67747,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":21.252,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67756,7 +67756,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.023,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67765,7 +67765,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":11.122,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67774,7 +67774,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.006,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67801,7 +67801,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":7.048,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67828,7 +67828,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":126.577,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67882,7 +67882,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.046,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67909,7 +67909,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":63.746,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67927,7 +67927,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":18.176,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -67954,7 +67954,7 @@
         "app":"Photos.exe",
         "status":"not-afk",
         "duration":1.04,
-        "category":"komunikatory",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -68080,7 +68080,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.041,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -68125,7 +68125,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.011,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -68413,7 +68413,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":8.124,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -68440,7 +68440,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":7.072,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -68449,7 +68449,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":171.406,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -68638,7 +68638,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.043,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -69358,7 +69358,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.031,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -69655,7 +69655,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.034,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -69709,7 +69709,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":29.457,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -69898,7 +69898,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.036,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -69916,7 +69916,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":3.051,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -70177,7 +70177,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.068,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -70195,7 +70195,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":3.055,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -70483,7 +70483,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":3.041,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -70501,7 +70501,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.036,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -70636,7 +70636,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.036,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -70708,7 +70708,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.031,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -70762,7 +70762,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.026,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -70798,7 +70798,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.051,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -70825,7 +70825,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.025,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -70996,7 +70996,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.033,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -71050,7 +71050,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":95.457,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -71473,7 +71473,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":37.59,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -71635,7 +71635,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.034,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -73192,7 +73192,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.041,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -74308,7 +74308,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.036,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -75190,7 +75190,7 @@
         "app":"StartMenuExperienceHost.exe",
         "status":"not-afk",
         "duration":1.037,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -75325,7 +75325,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.031,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -75541,7 +75541,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.015,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -75667,7 +75667,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":1.031,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -76270,7 +76270,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.037,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -76351,7 +76351,7 @@
         "app":"SnippingTool.exe",
         "status":"not-afk",
         "duration":2.059,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -76864,7 +76864,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.038,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -76981,7 +76981,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":540.215,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -76990,7 +76990,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":0.016,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -76999,7 +76999,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":293.485,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77008,7 +77008,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":5.024,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77017,7 +77017,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":9.475,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77026,7 +77026,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":0.01,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77035,7 +77035,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":101.945,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77044,7 +77044,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":21.156,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77053,7 +77053,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":0.002,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77062,7 +77062,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":0.001,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77071,7 +77071,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":0.012,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77080,7 +77080,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":228.29,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77089,7 +77089,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":45.228,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77098,7 +77098,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.974,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77107,7 +77107,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":0.001,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77116,7 +77116,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":332.572,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77125,7 +77125,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":0.012,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77134,7 +77134,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":193.521,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77143,7 +77143,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":14.223,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77152,7 +77152,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":0.001,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77161,7 +77161,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":205.445,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77170,7 +77170,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.864,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77197,7 +77197,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":8.118,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77350,7 +77350,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.014,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77602,7 +77602,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.034,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77611,7 +77611,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.03,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77782,7 +77782,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.015,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77800,7 +77800,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":1.021,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77989,7 +77989,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.055,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -77998,7 +77998,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.03,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78016,7 +78016,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.034,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78025,7 +78025,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.012,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78034,7 +78034,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.042,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78043,7 +78043,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.014,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78052,7 +78052,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.04,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78070,7 +78070,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.052,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78079,7 +78079,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":3.035,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78088,7 +78088,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.039,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78106,7 +78106,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.032,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78115,7 +78115,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":4.071,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78124,7 +78124,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":2.056,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78133,7 +78133,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.013,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78142,7 +78142,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":6.11,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78232,7 +78232,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.025,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78250,7 +78250,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.032,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78268,7 +78268,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.015,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78295,7 +78295,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":17.238,
-        "category":"przeglądarka",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78304,7 +78304,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":22.319,
-        "category":"przeglądarka",
+        "category":"studia",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -78358,7 +78358,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.012,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -79357,7 +79357,7 @@
         "app":"OpenWith.exe",
         "status":"not-afk",
         "duration":1.038,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -79771,7 +79771,7 @@
         "app":"soffice.bin",
         "status":"not-afk",
         "duration":30.365,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -79924,7 +79924,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":51.736,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -79933,7 +79933,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.051,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -79942,7 +79942,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.034,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -79969,7 +79969,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1.023,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -79978,7 +79978,7 @@
         "app":"soffice.bin",
         "status":"not-afk",
         "duration":15.224,
-        "category":"komunikatory",
+        "category":"inne",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -79987,7 +79987,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":53.772,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -80095,7 +80095,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":12.165,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -80185,7 +80185,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":3.064,
-        "category":"studia",
+        "category":"przeglądarka",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -80248,7 +80248,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":2.06,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -80275,7 +80275,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":1051.657,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -80329,7 +80329,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":68.315,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -80338,7 +80338,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":0.012,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -80347,7 +80347,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":198.078,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -80356,7 +80356,7 @@
         "app":"brave.exe",
         "status":"afk",
         "duration":33.76,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -80365,7 +80365,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":0.001,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -80374,7 +80374,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":140.561,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -80392,7 +80392,7 @@
         "app":"brave.exe",
         "status":"not-afk",
         "duration":293.983,
-        "category":"gry komputerowe",
+        "category":"oglądanie filmów",
         "osoba":"Kamil",
         "device":"Laptop"
     },
@@ -80536,7 +80536,7 @@
         "app":"SearchHost.exe",
         "status":"not-afk",
         "duration":5.072,
-        "category":"komunikatory",
+        "category":"system",
         "osoba":"Kamil",
         "device":"Laptop"
     },

@@ -5,19 +5,28 @@ from sys import argv
 from os import system
 
 def classify_activity(combined):
-    if(combined == "X"):
-        return 'komunikatory'
-        
+    
+    # Koniec Trytytki
+    
     combined = combined.lower()
     
     # 3. Gry komputerowe
+     # 4. Oglądanie filmów
+    video_keywords = [
+        'youtube', 'youtu.be', 'netflix', 'hbo', 'disney', 'prime video', 
+        'twitch', 'vlc', 'potplayer', 'cda', 'film', 'movie', 'serial', 
+        'wmplayer', 'windows media player', 'vod'        
+    ]
+    if any(k in combined for k in video_keywords):
+        return 'oglądanie filmów'
+
     game_keywords = [
         'steam','sandfall-win64-shipping.exe', 'epic games', 'riot', 'league of legends', 'lol', 'valorant', 
         'cs', 'counter-strike', 'minecraft', 'roblox', 'fortnite', 'gta', 
         'wiedźmin', 'cyberpunk', 'blizzard', 'battlenet', 'ubisoft', 'game', 
         'gra', 'binding of isaac', 'hollow knight', 'clash of clans', 'half-life', 'half life',
         'oldboy', 'myboy', 'melonds', 'drastic', 'citra', 'clash royale', 'sandfall', 'aces',
-        'javaw', 'clash of clans', 'warthunder','aces.exe','foundry.exe','kr battles',
+        'clash of clans', 'warthunder','aces.exe','foundry.exe','kr battles',
         'factorio.exe','geometry dash'
 
         ]
@@ -28,19 +37,11 @@ def classify_activity(combined):
     comm_keywords = [
         'discord', 'messenger', 'whatsapp', 'signal', 'telegram', 'wiadomości', 'połącz',
         'zoom', 'slack', 'skype', 'outlook', 'poczta', 'mail', 'thunderbird', 'wiadomości',
-        'facebook', 'instagram', 'twitter', 'x.com', 'linkedin', ' x — ', 'reddit', 'telefon'
+        'facebook','twitter', 'x.com', ' x — ','linkedin','reddit', 'telefon','instagram'
     ]
     if any(k in combined for k in comm_keywords):
         return 'komunikatory'   
-    # 4. Oglądanie filmów
-    video_keywords = [
-        'youtube', 'youtu.be', 'netflix', 'hbo', 'disney', 'prime video', 
-        'twitch', 'vlc', 'potplayer', 'cda', 'film', 'movie', 'serial', 
-        'wmplayer', 'windows media player', 'vod'        
-    ]
-    if any(k in combined for k in video_keywords):
-        return 'oglądanie filmów'
-
+   
     # 5. Muzyka
     music_keywords = [
         'spotify', 'tidal', 'apple music', 'soundcloud', 'deezer', 'foobar', 
@@ -56,15 +57,15 @@ def classify_activity(combined):
         'code.exe', 'visual studio', 'vscode', 'pycharm', 'rstudio','to do',
         'matlab', 'mathworks', 'simulink', 'numeryczne', 'metody numeryczne','onedrive.exe',
         'sql', 'kaggle', 'github', 'git', 'stack overflow', 'stackoverflow', 
-        'data science', 'machine learning', 'ai', 'sztuczna inteligencja','camscanner',
+        'data science', 'machine learning','sztuczna inteligencja','camscanner',
         'gemini', 'chatgpt', 'openai', 'claude', 'leon', 'usos', 'politechnika',
-        'pochodna', 'całka', 'zapiski', 'laboratorium', 'projekt', 'studia','wordPal.exe'
-        '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack', 'gemini', 'dysk',
+        'pochodna', 'całka', 'zapiski', 'laboratorium', 'projekt', 'studia','wordPal.exe',
+        '.py', '.ipynb', '.m', '.cpp', '.c', 'json crack', 'gemini', 'dysk','mspaint.exe',
         'intellij', 'idea','obsidian','wikipedia', 'wiki', 'kurs', 'course', 'udemy', 'coursera', 'edx', 
         'duolingo', 'tłumacz', 'translate', 'słownik', 'dictionary', 'notion','angielski',
-        'rosyjski', 'asd', 'tp', 'metody numeryczne', 'twd', 'fizyka', 'rstudio','powerpnt.exe',
-        'excel.exe'	,'studio64.exe','acrobat.exe','notepad.exe','java.exe','cmd.exe',
-        'eclipse.exe','shellexperiencehost.exe','desmos', 'teams'
+        'rosyjski', 'asd', 'tp', 'metody numeryczne', 'twd', 'fizyka', 'rstudio','powerpnt.exe','photos.exe',
+        'excel.exe'	,'studio64.exe','acrobat.exe','notepad.exe','java.exe','cmd.exe','onedrive',
+        'eclipse.exe','shellexperiencehost.exe','desmos', 'teams','wordpal.exe','notatki samsung'
     ]
     if any(k in combined for k in ds_keywords):
         return 'studia'
@@ -76,19 +77,24 @@ def classify_activity(combined):
         return 'przeglądarka'
     
     System_keywords = [
-        'explorer.exe','LockApp.exe','ekran startowy one ui',
-        'launcher systemu','zegar','systemowy menedżer pulpitu',
-        'applicationframehost.exe','swusb.exe','stayfree','winword.exe',
-        'ustawienia','kontroler uprawnień','applicationframehost.exe','lockapp.exe'
+        'explorer.exe','LockApp.exe','ekran startowy one ui','ipsmonitor.exe',
+        'launcher systemu','zegar','systemowy menedżer pulpitu','steelseriesggclient.exe',
+        'applicationframehost.exe','swusb.exe','stayfree','winword.exe','taskmgr.exe','nvidia app.exe',
+        'ustawienia','kontroler uprawnień','applicationframehost.exe','lockapp.exe','searchhost.exe'
     ]
     if any(k in combined for k in System_keywords):
         return 'system'
     
-    comm_keywords = ['x'] #XDDD
-    if any(k in combined for k in comm_keywords):
-        return 'komunikatory'  
-
     # 7. Inne (System,  ogólna, Zakupy, Zdjęcia itp.)
+    return 'inne'
+
+def classify_activity2(combined): #Trytytka
+    if(combined == "X"):
+        return 'komunikatory'
+    if(combined == "Instagram"):
+        return 'komunikatory'
+    if(combined == "studio64.exe"):
+        return 'studia'
     return 'inne'
 
 def delete_cache() -> None:
@@ -143,7 +149,8 @@ def load_desktop_data(watcher: str, afk: str, person: str) -> None:
         'not-afk'
     )
     df_final = df_final[df_final['duration'] > 0]
-    df_final['category'] = df_final['title'].apply(classify_activity)
+    df_final['category'] = df_final['app'].apply(classify_activity2)
+    df_final['category'] = np.where(df_final['category']=='inne', df_final['title'].apply(classify_activity), df_final['category'])
     df_final['category'] = np.where(df_final['category']=='inne', df_final['app'].apply(classify_activity), df_final['category'])
     df_final['osoba'] = person
     df_final['device'] = 'PC'
