@@ -1766,6 +1766,10 @@ content_sleep = html.Div([
                 dbc.Row([
                     dbc.Col(html.H4("Godzinowy układ snu"), width=12, md=3),
                     dbc.Col([
+                        dbc.Button("Zaznacz", id="select-all-days", size="sm"),
+                        dbc.Button("Odznacz", id="deselect-all-days", size="sm"),
+                    ], class_name="mb-2 g-2", width=12, md=1),
+                    dbc.Col([
                         html.H5("Wybierz dni tygodnia"),
                         dbc.Checklist(
                             options=[
@@ -1781,7 +1785,7 @@ content_sleep = html.Div([
                             id="highlight-options-3",
                             inline=True
                         )
-                    ], width=12, md=7),
+                    ], width=12, md=6),
                     dbc.Col([
                         html.H5("Zaznaczenia"),
                         dbc.Checklist(
@@ -1802,6 +1806,23 @@ content_sleep = html.Div([
             ])
         )
 ])
+@app.callback(
+    Output("highlight-options-3", "value"),
+    Input("select-all-days", "n_clicks"),
+    Input("deselect-all-days", "n_clicks"),
+    prevent_initial_call=True
+)
+def select_deselect_all(select_clicks, deselect_clicks):
+    ctx = dash.callback_context
+    if not ctx.triggered:
+        raise dash.exceptions.PreventUpdate
+
+    button_id = ctx.triggered[0]["prop_id"].split(".")[0]
+
+    if button_id == "select-all-days":
+        return ["0","1","2","3","4","5","6"]
+    elif button_id == "deselect-all-days":
+        return []
 # --- VIOLIN PLOT SEN
 @app.callback(
     [
@@ -1820,6 +1841,16 @@ content_sleep = html.Div([
     Input("highlight-options-2", "value") # Weekendy
 )
 def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids,highlight_options_3, highlight_options_2):
+    if(len(highlight_options_3) == 0):
+        fig = go.Figure()
+        fig.update_layout(
+            title="Brak danych",
+            xaxis={"visible": False},
+            yaxis={"visible": False},
+            template="plotly_white"
+        )
+        return [fig]
+
     sdf = get_filtered_df(start_date, end_date, min_dur, filter_values, afk_mode, filter_ids)
 
     sdf = sdf[sdf['status']=='sleep'].reset_index(drop=True)
@@ -1882,6 +1913,7 @@ def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, 
     Input("highlight-options", "value")
 )
 def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, highlight_options):
+    
     filtered_df = create_filtered_df(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, get_sleep=True)
     filtered_df = filtered_df.loc[(df['category'] == 'sen')]
     if filtered_df.empty:
@@ -1988,14 +2020,6 @@ def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_m
     
     return fig
 
-@app.callback(
-    Output("highlight-options-3", "value"),
-    Input("highlight-options-3", "value"),
-)
-def enforce_min_selection(selected):
-    if not selected:  # user tried to deselect everything
-        return ["0"]   # reset to default
-    return selected
 
 @app.callback(
     Output('sleep-times-plot', 'figure'),
@@ -2011,6 +2035,15 @@ def enforce_min_selection(selected):
     Input("highlight-options-2", "value") # Weekendy
 )
 def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_mode, filter_ids, highlight_options_3, highlight_options_2):
+    if(len(highlight_options_3) == 0):
+        fig = go.Figure()
+        fig.update_layout(
+            title="Brak danych",
+            xaxis={"visible": False},
+            yaxis={"visible": False},
+            template="plotly_white"
+        )
+        return fig
     highlight_options_3 = [int(i) for i in highlight_options_3]
     maxd = max(highlight_options_3)
     if(0 in highlight_options_3):
