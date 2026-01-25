@@ -13,6 +13,15 @@ COLOURS = {'muzyka': "#13ba31",
            'system': "#5A4E67",
            'przeglądarka': '#6accea',
            'sen': "#423A6E"}
+DAYS = {
+    0: "Poniedziałek",
+    1: "Wtorek",
+    2: "Środa",
+    3: "Czwartek",
+    4: "Piątek",
+    5: "Sobota",
+    6: "Niedziela",
+}
 def get_colour(text: str) -> str:
     if text in COLOURS.keys():
         return COLOURS[text]
@@ -49,7 +58,7 @@ timestamp = df['timestamp']
 timestamp_pl = timestamp.dt.tz_convert('Europe/Warsaw')
 df['timestamp_pl'] = timestamp_pl
 df['day_of_year'] = timestamp_pl.dt.day_of_year
-df['weekday'] = timestamp_pl.dt.day_name('Pl')
+df['weekday'] = timestamp_pl.dt.weekday.map(DAYS)
 df['weekday_number'] = timestamp_pl.dt.weekday
 df['date'] = timestamp_pl.dt.date
 df['localized_time_pl'] = df['timestamp_pl'].dt.tz_localize(None)
@@ -2014,9 +2023,11 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
         if (("a" in highlight_options_2) and ((item.timestamp.weekday() >= 5 and day_flag) or (item.timestamp.weekday() in [4, 5] and (not day_flag)))):
             colour = "#1e624c"
             offset = 0.45
-            opacity_multiplier = 7/2
+            opacity_multiplier = 6/len([i for i in highlight_options_3 if i in range(5, 7)])
         elif("a" in highlight_options_2 and maxd >= 5):
-            opacity_multiplier = 7/5
+            opacity_multiplier = 6/len([i for i in highlight_options_3 if i in range(0, 5)])
+        else:
+            opacity_multiplier = 6/len([i for i in highlight_options_3 if i != 7])
         if(item.tm+(item.duration/3600) in range(27, 30)):
             length = 3-(item.tm-24) + (1/3)*(length+(item.tm-24)-3)
         elif(item.tm+(item.duration/3600) >= 30):
@@ -2035,7 +2046,7 @@ def sleep_times_plotter(start_date, end_date, min_duration, filter_values, afk_m
             hovertemplate=hover_tmpl,
             customdata=[custom_data],
             width=0.35+(0.45 if ("a" not in highlight_options_2 or maxd < 5) else 0),
-            opacity=(1 - (0.4)**(1/(osoba_number.loc[item.osoba])))*(opacity_multiplier),
+            opacity=(1 - (0.3)**(1/(osoba_number.loc[item.osoba])))*(opacity_multiplier),
             marker=dict(
                 color=colour,
                 line=dict(width=0)),
