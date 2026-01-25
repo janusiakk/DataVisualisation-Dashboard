@@ -866,10 +866,6 @@ def render_page_content(pathname):
         return content_timeline
     elif pathname == "/sleep": 
         return content_sleep
-    elif pathname == "/settings": 
-        return content_settings
-    elif pathname == "/addFile": 
-        return content_addFile
     
     # Obsługa błędu 404
     return dbc.Alert(f"404: Nie znaleziono strony o adresie {pathname}", color="danger")
