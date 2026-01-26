@@ -1870,16 +1870,19 @@ def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, 
 
     if "a" not in highlight_options_2:
         sdf2 = sdf.groupby(['osoba','day_of_year'])['duration'].sum().reset_index(drop=False)
+        tr = go.Violin(x=sdf2['osoba'], y=sdf2['duration'], points=False, width=0.82)
+        tr.marker.color = get_colour('sen')
         fig.add_trace(
-            go.Violin(x=sdf2['osoba'], y=sdf2['duration'], points=False, width=0.82)
+            tr
         )
+
 
     else: # Osobno weekendy
         # weekend = sobota (5) i niedziela (6)
         fig = go.Figure()
         sdf_weekend = sdf[sdf['weekday_number'].isin([5,6])].groupby(['osoba','day_of_year'])['duration'].sum().reset_index(drop=False)
         sdf_workday = sdf[~sdf['weekday_number'].isin([5,6])].groupby(['osoba','day_of_year'])['duration'].sum().reset_index(drop=False)
-        for name, colour, i in zip(['Workday', 'Weekend'], [get_colour('sen'), get_colour('weekend')], [sdf_weekend, sdf_workday]):
+        for name, colour, i in zip(['Workday', 'Weekend'], [get_colour('weekend'), get_colour('sen')], [sdf_weekend, sdf_workday]):
             if not i.empty:
                 trace_weekend = go.Violin(
                     x=i['osoba'], y=i['duration'], points=False
@@ -1887,7 +1890,7 @@ def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, 
                 trace_weekend.name = name
                 trace_weekend.marker.color = colour
                 fig.add_trace(trace_weekend)
-            trace_weekend.width = 0.26
+                trace_weekend.width = 0.26
 
     fig.update_layout(yaxis_title='liczba godzin',
                     template='plotly_white',
