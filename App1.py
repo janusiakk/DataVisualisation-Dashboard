@@ -1866,13 +1866,15 @@ def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, 
     # highlight-options-3 - lista numerów dni tygodnia
     highlight_options_3 = [int(i) for i in highlight_options_3]
     sdf = sdf[sdf.weekday_number.isin(highlight_options_3)]
-
+    fig = go.Figure()
 
     if "a" not in highlight_options_2:
         sdf2 = sdf.groupby(['osoba','day_of_year'])['duration'].sum().reset_index(drop=False)
-        fig = px.violin(sdf2,x='osoba',y='duration',title='Rozkład czasu snu',points=False)
+        fig.add_trace(
+            go.Violin(x=sdf2['osoba'], y=sdf2['duration'], points=False, width=0.82)
+        )
 
-    else : # Osobno weekendy
+    else: # Osobno weekendy
         # weekend = sobota (5) i niedziela (6)
         fig = go.Figure()
         sdf_weekend = sdf[sdf['weekday_number'].isin([5,6])].groupby(['osoba','day_of_year'])['duration'].sum().reset_index(drop=False)
@@ -1890,7 +1892,8 @@ def update_sleep_violin(start_date, end_date, min_dur, filter_values, afk_mode, 
     fig.update_layout(yaxis_title='liczba godzin',
                     template='plotly_white',
                     xaxis_title="",
-                    violinmode='group',violingap=0.01)
+                    violinmode='group',violingap=0.01,
+                    title="Rozkład czasu snu")
     
     fig.update_yaxes(
         tickfont=dict(size=18)
