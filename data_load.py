@@ -6,7 +6,6 @@ from os import system
 
 def classify_activity(combined):
     
-    # Koniec Trytytki
     
     combined = combined.lower()
     
@@ -50,8 +49,8 @@ def classify_activity(combined):
     if any(k in combined for k in music_keywords):
         return 'muzyka'
     
-    # 1. Studia (Data Science & Engineering focus)
-    # Dodano MATLAB i LeON na podstawie podglądu pliku
+    # 1. Studia 
+    
     ds_keywords = [
         'python', 'pandas', 'numpy', 'scikit', 'sklearn', 'jupyter', 'colab', 
         'code.exe', 'visual studio', 'vscode', 'pycharm', 'rstudio','to do',

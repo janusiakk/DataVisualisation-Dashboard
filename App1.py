@@ -126,9 +126,6 @@ def get_base_panel_style(left_pos="0px"):
         "boxShadow": "0px 10px 20px rgba(0,0,0,0.15)",
         "zIndex": 1045, # Pod paskiem menu
         
-        # --- TU JEST NAPRAWA ---
-        # Animujemy 'left' (do przesuwania za menu) ORAZ 'transform' (do chowania w górę)
-        # Dzięki temu panel płynnie wjedzie pod pasek menu.
         "transition": "left 0.3s ease-in-out, transform 0.3s ease-in-out" 
     }
 def create_global_filters_layout():
@@ -150,7 +147,6 @@ def create_global_filters_layout():
                 ),
             ], width=12, className="mb-3"),
 
-            # Przywrócone Ładne Guziki AFK
             dbc.Col([
                 html.Label("Tryb pracy:", className="small text-muted fw-bold mb-1"),
                 dbc.RadioItems(
@@ -192,12 +188,9 @@ def create_global_filters_layout():
         html.Div(create_filter_chips(df), id='user-device-filters-container')
     ], className="p-1")
 def create_smart_slot(side, title, is_app_mode=False):
-    
-    # 1. Pobieramy listę użytkowników
+
     unique_users = sorted(df['osoba'].astype(str).unique())
     
-    # 2. Budujemy opcje głównego Dropdowna (Scope)
-    # Mamy opcję specjalną "comparison" oraz listę osób
     scope_options = [
         {'label': '👥 PORÓWNANIE (Ranking)', 'value': 'comparison'},
         {'label': '--- Użytkownicy ---', 'value': 'disabled', 'disabled': True}
@@ -206,7 +199,6 @@ def create_smart_slot(side, title, is_app_mode=False):
     # Kontrolki w nagłówku
     controls = []
 
-    # A. WYBÓR TRYBU (Porównanie vs Osoba)
     scope_dd = dcc.Dropdown(
         id=f'smart-{side}-scope',
         options=scope_options,
@@ -216,7 +208,6 @@ def create_smart_slot(side, title, is_app_mode=False):
     )
     controls.append(dbc.Col(scope_dd, width=4))
 
-    # B. INPUT "TOP N" (Tylko dla prawej strony - Aplikacje)
     if is_app_mode:
         limit_input = dbc.InputGroup([
             dbc.InputGroupText("Top:", style={'fontSize': '0.7rem', 'padding': '4px'}),
