@@ -2262,8 +2262,8 @@ content_intro = dbc.Container(
                             [
                                 html.H3("Autorzy:"),
                                 dbc.ListGroup([
-                                    dbc.ListGroupItem(html.H5("● Antoni Kobosz")),
                                     dbc.ListGroupItem(html.H5("● Kamil Janusiak")),
+                                    dbc.ListGroupItem(html.H5("● Antoni Kobosz")),
                                     dbc.ListGroupItem(html.H5("● Jerzy Adrjan")),
                                     None if pd.Timestamp.now().strftime("%H%M") != "2026" else dbc.ListGroupItem(html.H5("● Jan Ryba"))
                                 ]),
