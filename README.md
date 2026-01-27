@@ -1,47 +1,14 @@
-# TWD_Dashboard
-## TO DO LIST :
+# Projekt „JA”, grupa 8.
 
-* Wstawić dane o śnie z ręcznym ustawieniem początku na bazie aktywności z timeline
-* Otateczne rozwiązanie kwestii optymalizacyjno-sennej...
+## O aplikacji
+Tematem projektu jest analiza wykorzystania czasu przez członków zespołu, poprzez agregację i wizualizację danych pochodzących z monitora aktywności zainstalowanego na telefonach oraz komputerach oraz danych dot. snu.
 
-* jakieś wykorzystanie drugiego globalnego panelu jako customizowanie wykresów (okienko opcje) ewentualnie jego zakomentowanie (nie usunięcie😢)
+## Detale techniczne
+Dane zostały przedstawione za pomocą interaktywnych wizualizacji utworzonych przy użyciu frameworku Dash.
+Zebranie danych zostało wykonane przy użyciu [https://activitywatch.net/ ActivityWatch] oraz poprzez manualne zbieranie danych dot. snu.
 
-* Dopieszczenie zakładki o śnie
-* Ogólne zadbanie o wykresy wielkość czcionek, powtórzenie informacji, (Rzeczy dokładnie oceniane na przedmiocie)
-* Więcej unikalnych rodzajów wykresów tam gdzie jest opcja wyboru wykresu z tych samych danych.
+## Dostęp do aplikacji
+Uruchomienie aplikacji wykonuje się przez plik `App1.py`, wykonując komendę `py App1.py`, która wyświetli aplikację pod adresem `localhost:8888`.
+Wymagane są dependencje określone w pliku `requirements.txt`. Do działania aplikacji wymagane są dane.
 
-* Końcowe ustawienie wykresów/aplikacji tak aby najlepiej wyglądały w rozdzielczości/laptopie Jerzego. 
-## Może kiedyś
-
-* Załączanie plików
-* Panel edycji każdego koloru wewnątrz aplikacji
-
-
-## Info
-
-Przed zcomittowaniem kliknijcie w VSC an górze "clear all outputs"
-
-Aplikacje można zrobić używając dash bootstrap components (lepszy wygląd którego styl można zmieniać jedną linijką)
-
-pip install dash-bootstrap-components
-
-Klasyfikacje danych jest w pliku kategoryzacja.ipynb, chaty dobrze wymyślają słowa do kategoryzacji
-
-Danych z telefonu nie przetwarzałem jeszcze, a z nimi będzie ciężej bo się będą faktycznie zazębiać
-
-Folder dane prywatne ma wewnątrz git ignore
-
-
-
-Opis zakładek:
-
-Użytkownicy - techniczna zakładka o zczytanych danych.
-Obserwatorium - sandbox z prostymi wizualizacjami
-
-Przeglądanie aktywności na wielkim kalendarzu, możliwość wejścia w konkretny dzień, wybór konkretnego rodzaju aktywności
-
-?Wyścigi
-
-?Wielki podział doby
-
-?Zakładka o śnie
+Aplikację zobaczyć można również pod adresem https://c8e91f58-7e9d-4c37-9897-817969fc1969.plotly.app/, wymaga to jedynie działającej przeglądarki. Aplikacja jest przeznaczona do wyświetlania na ekranach PC.
