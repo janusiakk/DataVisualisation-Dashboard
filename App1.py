@@ -1982,7 +1982,7 @@ def sleep_activity_line(start_date, end_date, min_duration, filter_values, afk_m
         trace.hovertemplate = (
             f"<b>{osoba}</b><br>"       # nazwa osoby
             "Data: %{x|%Y-%m-%d}<br>"   # data
-            "Czas aktywności: %{customdata[0]}<extra></extra>"  # Hh Mm
+            "Czas snu: %{customdata[0]}<extra></extra>"  # Hh Mm
         )
     # -------------------
     # Dodawanie weekendów
