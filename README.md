@@ -5,7 +5,7 @@ Tematem projektu jest analiza wykorzystania czasu przez członków zespołu, pop
 
 ## Detale techniczne
 Dane zostały przedstawione za pomocą interaktywnych wizualizacji utworzonych przy użyciu frameworku Dash.
-Zebranie danych zostało wykonane przy użyciu [https://activitywatch.net/ ActivityWatch] oraz poprzez manualne zbieranie danych dot. snu.
+Zebranie danych zostało wykonane przy użyciu [ActivityWatch](https://activitywatch.net/) oraz poprzez manualne zbieranie danych dot. snu.
 
 ## Dostęp do aplikacji
 Uruchomienie aplikacji wykonuje się przez plik `App1.py`, wykonując komendę `py App1.py`, która wyświetli aplikację pod adresem `localhost:8888`.
