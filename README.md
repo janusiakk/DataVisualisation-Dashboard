@@ -17,3 +17,10 @@ Aplikację zobaczyć można również pod adresem https://c8e91f58-7e9d-4c37-989
 * Kamil Janusiak
 * Antoni Kobosz
 * Jerzy Adrjan
+
+## Podlgąd
+![](readme/slide1.png)
+
+![](readme/slide2.png)
+
+![](readme/slide3.png)
