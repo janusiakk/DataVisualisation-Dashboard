@@ -18,7 +18,7 @@ Aplikację zobaczyć można również pod adresem https://c8e91f58-7e9d-4c37-989
 * Antoni Kobosz
 * Jerzy Adrjan
 
-## Podlgąd
+## Podgląd
 ![](readme/slide1.png)
 
 ![](readme/slide2.png)
